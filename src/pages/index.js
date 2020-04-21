@@ -1,21 +1,30 @@
 import React from "react"
-import { Link } from "gatsby"
+import { ThemeProvider } from "styled-components"
+import Sphere from "../components/Sphere"
+import Toggle from "../components/Toggle"
+import { GlobalStyles } from "../styles/global"
+import "../styles/normalize.css"
+import { darkTheme, lightTheme } from "../styles/themes"
+import { useDarkMode } from "../useDarkMode"
+import Intro from "../components/Intro"
 
-import Layout from "../components/layout"
-import Image from "../components/image"
-import SEO from "../components/seo"
+export default function Index() {
+  const [theme, toggleTheme, componentMounted] = useDarkMode()
 
-const IndexPage = () => (
-  <Layout>
-    <SEO title="Home" />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-      <Image />
-    </div>
-    <Link to="/page-2/">Go to page 2</Link>
-  </Layout>
-)
+  const themeMode = theme === "light" ? lightTheme : darkTheme
 
-export default IndexPage
+  if (!componentMounted) {
+    return <div />
+  }
+
+  return (
+    <ThemeProvider theme={themeMode}>
+      <>
+        <GlobalStyles />
+        <Toggle theme={theme} toggleTheme={toggleTheme} />
+        <Sphere theme={theme} />
+        <Intro />
+      </>
+    </ThemeProvider>
+  )
+}
