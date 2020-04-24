@@ -11,12 +11,11 @@ export default function Toggle({ theme, toggleTheme }) {
         <input
           type="checkbox"
           checked={theme === "dark"}
-          onClick={toggleTheme}
+          onChange={toggleTheme}
         />
         <span className="slider round"></span>
       </label>
     </div>
-
   )
 }
 

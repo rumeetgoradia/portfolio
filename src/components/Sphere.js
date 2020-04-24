@@ -1,8 +1,9 @@
 import React, { useEffect, useRef } from "react"
 
-export default function Sphere({ theme }) {
+export default function Sphere({ theme, themeToggled }) {
   const canvas = useRef()
   const ctxRender = useRef()
+  const timeout = useRef()
   const maxAX = 0.1
   const maxAY = 0.1
   const maxAZ = 0.1
@@ -31,13 +32,14 @@ export default function Sphere({ theme }) {
   let cosAngle = 0.0
   let width = 0
   let height = 0
+  let fillerAlpha = 1.0
 
   const setSize = () => {
-    radius = window.innerWidth < 500 ? 120 : 200
     width = window.innerWidth
     height = window.innerHeight
     projSphereX = width / 2
     projSphereY = height / 2
+    radius = Math.min(width, height) / (width < 500 ? 3.15 : 3.65)
     canvas.current.width = width
     canvas.current.height = height
   }
@@ -162,6 +164,41 @@ export default function Sphere({ theme }) {
       ctxRender.current.fill()
       p = p.pNext
     }
+    if (fillerAlpha >= 0 && themeToggled) {
+      const fillerGradient = ctxRender.current.createLinearGradient(
+        0,
+        0,
+        width,
+        height
+      )
+      fillerGradient.addColorStop(
+        0,
+        `${
+          theme === "dark"
+            ? "rgba(221,221,225," + fillerAlpha + ")"
+            : "rgba(17,24,32," + fillerAlpha + ")"
+        }`
+      )
+      fillerGradient.addColorStop(
+        0.5,
+        `${
+          theme === "dark"
+            ? "rgba(245,246,250," + fillerAlpha + ")"
+            : "rgba(14,19,26," + fillerAlpha + ")"
+        }`
+      )
+      fillerGradient.addColorStop(
+        1,
+        `${
+          theme === "dark"
+            ? "rgba(246,247,251," + fillerAlpha + ")"
+            : "rgba(10,14,19," + fillerAlpha + ")"
+        }`
+      )
+      ctxRender.current.fillStyle = fillerGradient
+      ctxRender.current.fillRect(0, 0, width, height)
+      fillerAlpha -= 1 / 18
+    }
   }
 
   const nextFrame = () => {
@@ -195,7 +232,7 @@ export default function Sphere({ theme }) {
       window.oRequestAnimationFrame ||
       window.msRequestAnimationFrame ||
       function (fnCallback) {
-        setTimeout(() => {
+        timeout.current = setTimeout(() => {
           fnCallback()
         }, 1000 / 60)
       }
@@ -228,36 +265,34 @@ export default function Sphere({ theme }) {
     return p
   }
 
-  const reset = () => {
-    renderObj = {
-      pFirst: null,
-    }
-    bufferObj = {
-      pFirst: null,
-    }
-    radius = 0
-    projSphereX = 0
-    projSphereY = 0
-    angle = 0.0
-    sinAngle = 0.0
-    cosAngle = 0.0
-    width = 0
-    height = 0
-  }
+  // const reset = () => {
+  //   renderObj = {
+  //     pFirst: null,
+  //   }
+  //   bufferObj = {
+  //     pFirst: null,
+  //   }
+  //   radius = 0
+  //   projSphereX = 0
+  //   projSphereY = 0
+  //   angle = 0.0
+  //   sinAngle = 0.0
+  //   cosAngle = 0.0
+  //   width = 0
+  //   height = 0
+  // }
 
   useEffect(() => {
     window.addEventListener("resize", setSize)
     ctxRender.current = canvas.current.getContext("2d")
-
     setSize()
     nextFrame()
-
     return () => {
-      reset()
-      clearInterval(ctxRender.current)
+      // reset()
+      clearTimeout(timeout.current)
       window.removeEventListener("resize", this)
     }
-  }, [theme])
+  })
 
   return (
     <div style={{ width: "100%", height: "100vh", overflow: "hidden" }}>

@@ -1,0 +1,43 @@
+.introContainer {
+  position: absolute;
+  top: 0;
+  text-align: center;
+  width: 100%;
+  height: 100vh;
+  .landing-text {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    h1 {
+      width: 100%;
+      font-weight: 600;
+      font-size: 5vmax;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin: 0;
+    }
+    h2 {
+      font-weight: 300;
+      font-size: 2.5vmax;
+      text-transform: uppercase;
+      margin: 0;
+      margin-top: -15px;
+      span {
+        font-weight: 500;
+      }
+    }
+  }
+  .landing-buttons {
+    position: absolute;
+    width: 500px;
+    top: 62.5vh;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}

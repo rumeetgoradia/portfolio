@@ -9,7 +9,7 @@ import { useDarkMode } from "../useDarkMode"
 import Intro from "../components/Intro"
 
 export default function Index() {
-  const [theme, toggleTheme, componentMounted] = useDarkMode()
+  const [theme, toggleTheme, componentMounted, themeToggled] = useDarkMode()
 
   const themeMode = theme === "light" ? lightTheme : darkTheme
 
@@ -22,7 +22,7 @@ export default function Index() {
       <>
         <GlobalStyles />
         <Toggle theme={theme} toggleTheme={toggleTheme} />
-        <Sphere theme={theme} />
+        <Sphere theme={theme} themeToggled={themeToggled}/>
         <Intro />
       </>
     </ThemeProvider>
