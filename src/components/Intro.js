@@ -1,6 +1,6 @@
 import React from "react"
 import Typed from "react-typed"
-import { BorderedButton } from "./styles/BorderedAction"
+import { BorderedLink } from "./styles/BorderedAction"
 import "./styles/Intro.scss"
 
 export default function Intro() {
@@ -34,10 +34,14 @@ export default function Intro() {
         </h2>
       </div>
       <div className="landing-buttons">
-        <BorderedButton>About</BorderedButton>
+        <BorderedLink to="/about">About</BorderedLink>
+        <BorderedLink to="/experience">Experience</BorderedLink>
+        <BorderedLink to="/projects">Projects</BorderedLink>
+        <BorderedLink to="/">Resume</BorderedLink>
+        {/* <BorderedButton>About</BorderedButton>
         <BorderedButton>Experience</BorderedButton>
         <BorderedButton>Projects</BorderedButton>
-        <BorderedButton>Resume</BorderedButton>
+        <BorderedButton>Resume</BorderedButton> */}
       </div>
     </div>
   )

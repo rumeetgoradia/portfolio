@@ -107,8 +107,7 @@ export const GlobalStyles = createGlobalStyle`
 	}
 
 	body {
-		background-color: ${({ theme }) => theme.body};
-		background-image: ${({ theme }) => theme.gradient};
+		/* background-color: ${({ theme }) => theme.body}; */
 		color: ${({ theme }) => theme.font};
 		min-height: 100vh;
 		margin: 0;
@@ -116,6 +115,27 @@ export const GlobalStyles = createGlobalStyle`
 		font-family: "Calibre";
 		font-weight: 300;
 		transition: all .3s linear;
+	}
+
+	#gradient {
+		display: block;
+		position: fixed;
+		z-index: 3;
+		width: 100%;
+		height: 100vh;
+		background-color: ${({ theme }) => theme.body};
+		background-image: ${({ theme }) => theme.gradient};
+		opacity: 1;
+	}
+
+	#gradient-transition {
+		display: block;
+		position: fixed;
+		z-index: 4;
+		width: 100%;
+		height: 100vh;
+		background-color: ${({ theme }) => theme.font};
+		background-image: ${({ theme }) => theme.oppositeGradient};
 	}
 
 	h1, h2, h3, h4, h5, h6 {

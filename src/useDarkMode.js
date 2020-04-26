@@ -7,15 +7,28 @@ export const useDarkMode = () => {
   const setMode = mode => {
     window.localStorage.setItem("theme", mode)
     setTheme(mode)
+    fadeOut()
+  }
+
+  const fadeOut = () => {
+    const gradientTran = document.getElementById("gradient-transition")
+    gradientTran.style.opacity = 1
+    const fadeEffect = setInterval(function () {
+      if (gradientTran.style.opacity > 0) {
+        gradientTran.style.opacity -= 0.1
+      } else {
+        clearInterval(fadeEffect)
+      }
+    }, 3)
   }
 
   const toggleTheme = () => {
+    setThemeToggled(true)
     if (theme === "light") {
       setMode("dark")
     } else {
       setMode("light")
     }
-    setThemeToggled(true)
   }
 
   useEffect(() => {

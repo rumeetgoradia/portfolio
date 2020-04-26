@@ -11,7 +11,7 @@ module.exports = {
       options: {
         // Change plugin default options here, e.g.:
         // ssr: false
-        // displayName: false, 
+        // displayName: false,
         // minify: false
       },
     },
@@ -32,6 +32,7 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-sass`,
+    `gatsby-plugin-layout`,
     // {
     //   resolve: `gatsby-plugin-manifest`,
     //   options: {

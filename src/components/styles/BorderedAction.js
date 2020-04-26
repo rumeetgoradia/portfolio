@@ -16,14 +16,20 @@ const borderedStyle = css`
   background: transparent;
   transition: all 0.3s linear;
   font-weight: 300;
-  width: 110px;
+  width: 140px;
   text-align: center;
+  padding-left: 2px;
   &:hover,
-  &:focus {
-    letter-spacing: 0px;
+  &:focus,
+  &.active {
+    letter-spacing: 1px;
     background: ${({ theme }) => theme.font};
     color: ${({ theme }) => theme.body};
     outline: none;
+    padding-left: 1px;
+  }
+  &:hover,
+  &:focus {
     cursor: pointer;
     box-shadow: 0 0 5px 0px ${({ theme }) => theme.font};
   }
@@ -35,7 +41,6 @@ const borderedStyle = css`
 export const BorderedLink = styled(Link)`
   ${borderedStyle}
   text-decoration: none;
-  width: 100px !important;
 `
 
 export const BorderedButton = styled.button`

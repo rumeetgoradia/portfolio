@@ -143,8 +143,8 @@ export default function Sphere({ theme, themeToggled }) {
   const render = () => {
     const gradient = ctxRender.current.createLinearGradient(0, 0, width, height)
     gradient.addColorStop(0, `${theme === "light" ? "#dddde1" : "#111820"}`)
-    gradient.addColorStop(0.5, `${theme === "light" ? "#f5f6fa" : "#0e131a"}`)
-    gradient.addColorStop(1, `${theme === "light" ? "#f6f7fb" : "#0a0e13"}`)
+    gradient.addColorStop(0.5, `${theme === "light" ? "#e7e7ea" : "#0e131a"}`)
+    gradient.addColorStop(1, `${theme === "light" ? "#f1f1f3" : "#0a0e13"}`)
     ctxRender.current.fillStyle = gradient
     ctxRender.current.fillRect(0, 0, width, height)
     let p = renderObj.pFirst
@@ -183,7 +183,7 @@ export default function Sphere({ theme, themeToggled }) {
         0.5,
         `${
           theme === "dark"
-            ? "rgba(245,246,250," + fillerAlpha + ")"
+            ? "rgba(231,231,234," + fillerAlpha + ")"
             : "rgba(14,19,26," + fillerAlpha + ")"
         }`
       )
@@ -191,7 +191,7 @@ export default function Sphere({ theme, themeToggled }) {
         1,
         `${
           theme === "dark"
-            ? "rgba(246,247,251," + fillerAlpha + ")"
+            ? "rgba(235,235,237," + fillerAlpha + ")"
             : "rgba(10,14,19," + fillerAlpha + ")"
         }`
       )
@@ -295,7 +295,17 @@ export default function Sphere({ theme, themeToggled }) {
   })
 
   return (
-    <div style={{ width: "100%", height: "100vh", overflow: "hidden" }}>
+    <div
+      style={{
+        width: "100%",
+        height: "100vh",
+        overflow: "hidden",
+        position: "fixed",
+        top: 0,
+        left: 0,
+        zIndex: 5,
+      }}
+    >
       <canvas id="canvas" ref={canvas}></canvas>
     </div>
   )
