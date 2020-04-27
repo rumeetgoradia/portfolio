@@ -40,8 +40,10 @@ export default function Sphere({ theme, themeToggled }) {
     projSphereX = width / 2
     projSphereY = height / 2
     radius = Math.min(width, height) / (width < 500 ? 3.15 : 3.65)
-    canvas.current.width = width
-    canvas.current.height = height
+    if (canvas.current) {
+      canvas.current.width = width
+      canvas.current.height = height
+    }
   }
 
   const Particle = function () {
@@ -284,13 +286,15 @@ export default function Sphere({ theme, themeToggled }) {
 
   useEffect(() => {
     window.addEventListener("resize", setSize)
+    // console.log(canvas.current)
+    // canvas.current = document.getElementById("sphere-canvas")
     ctxRender.current = canvas.current.getContext("2d")
     setSize()
     nextFrame()
     return () => {
       // reset()
-      clearTimeout(timeout.current)
       window.removeEventListener("resize", this)
+      clearTimeout(timeout.current)
     }
   })
 
@@ -306,7 +310,7 @@ export default function Sphere({ theme, themeToggled }) {
         zIndex: 5,
       }}
     >
-      <canvas id="canvas" ref={canvas}></canvas>
+      <canvas id="sphere-canvas" ref={canvas}></canvas>
     </div>
   )
 }

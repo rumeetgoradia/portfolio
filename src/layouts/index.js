@@ -5,8 +5,10 @@ import SphereLayout from "./SphereLayout"
 
 export default ({ children, pageContext }) => {
   let layout = <SphereLayout>{children}</SphereLayout>
+  let navbar = false
   if (pageContext.layout === "particles") {
     layout = <ParticlesLayout>{children}</ParticlesLayout>
+    navbar = true
   }
-  return <GlobalLayout>{layout}</GlobalLayout>
+  return <GlobalLayout navbar={navbar}>{layout}</GlobalLayout>
 }

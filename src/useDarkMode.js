@@ -41,7 +41,7 @@ export const useDarkMode = () => {
       ? setTheme(localTheme)
       : setMode("light")
     setComponentMounted(true)
-  }, [])
+  }, [setMode])
 
   return [theme, toggleTheme, componentMounted, themeToggled]
 }

@@ -138,6 +138,10 @@ export const GlobalStyles = createGlobalStyle`
 		background-image: ${({ theme }) => theme.oppositeGradient};
 	}
 
+	.navbar {
+		border-color: ${({ theme }) => theme.font}
+	}
+
 	h1, h2, h3, h4, h5, h6 {
 		margin: 0;
 	}

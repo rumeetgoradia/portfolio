@@ -1,5 +1,4 @@
 import React from "react"
-import { BorderedLink } from "../components/styles/BorderedAction"
 
 export default function Projects() {
   return (
@@ -13,10 +12,6 @@ export default function Projects() {
       }}
     >
       Projects
-      <BorderedLink to="/about">About</BorderedLink>
-      <BorderedLink to="/experience">Experience</BorderedLink>
-      <BorderedLink to="/projects">Projects</BorderedLink>
-      <BorderedLink to="/">Resume</BorderedLink>
     </div>
   )
 }

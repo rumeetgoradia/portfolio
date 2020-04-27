@@ -16,7 +16,7 @@ const borderedStyle = css`
   background: transparent;
   transition: all 0.3s linear;
   font-weight: 300;
-  width: 140px;
+  width: 24%;
   text-align: center;
   padding-left: 2px;
   &:hover,
@@ -38,9 +38,16 @@ const borderedStyle = css`
   }
 `
 
+const navbarStyle = css`
+  background: red;
+`
+
 export const BorderedLink = styled(Link)`
   ${borderedStyle}
   text-decoration: none;
+  &.navbar {
+    ${navbarStyle}
+  }
 `
 
 export const BorderedButton = styled.button`

@@ -1,0 +1,18 @@
+.nav-links {
+  position: absolute;
+  z-index: 90;
+  width: 500px;
+  top: 62vh;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px transparent solid;
+  transition: all 1s ease;
+
+  &.navbar {
+    top: 1rem;
+    width: 100%;
+  }
+}
