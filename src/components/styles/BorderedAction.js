@@ -39,13 +39,38 @@ const borderedStyle = css`
 `
 
 const navbarStyle = css`
-  background: red;
+  width: auto;
+  display: inline-block;
+  padding: 0 0.5rem 0.5rem calc(0.5rem + 2px);
+  border: none;
+  margin: 0 1rem;
+  font-size: 1rem;
+  &:hover,
+  &:focus,
+  &.active {
+    padding-left: calc(0.5rem + 2px);
+    letter-spacing: 2px;
+    background: none;
+  }
+  &:hover,
+  &:focus {
+    color: ${({ theme }) => theme.font};
+    text-shadow: 0px 0px 2px ${({ theme }) => theme.font};
+    box-shadow: none;
+  }
+  &.active {
+    color: var(--green);
+    text-shadow: 0px 0px 4px var(--green);
+  }
+  &:active {
+    transform: none;
+  }
 `
 
 export const BorderedLink = styled(Link)`
   ${borderedStyle}
   text-decoration: none;
-  &.navbar {
+  &.navbar-link {
     ${navbarStyle}
   }
 `

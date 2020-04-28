@@ -106,6 +106,10 @@ export const GlobalStyles = createGlobalStyle`
 		box-sizing: border-box;
 	}
 
+	:root {
+		--green: #34926e;
+	}
+
 	body {
 		/* background-color: ${({ theme }) => theme.body}; */
 		color: ${({ theme }) => theme.font};
@@ -139,7 +143,8 @@ export const GlobalStyles = createGlobalStyle`
 	}
 
 	.navbar {
-		border-color: ${({ theme }) => theme.font}
+		border-color: ${({ theme }) => theme.font};
+		background-color: ${({ theme }) => theme.body};
 	}
 
 	h1, h2, h3, h4, h5, h6 {
