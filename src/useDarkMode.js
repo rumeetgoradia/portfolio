@@ -43,5 +43,5 @@ export const useDarkMode = () => {
     setComponentMounted(true)
   }, [setMode])
 
-  return [theme, toggleTheme, componentMounted, themeToggled]
+  return [theme, toggleTheme, componentMounted, themeToggled, setThemeToggled]
 }

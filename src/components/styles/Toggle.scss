@@ -8,8 +8,8 @@
 .switch {
   position: relative;
   display: inline-block;
-  width: 40px;
-  height: 24px;
+  width: 35px;
+  height: 21px;
 }
 
 .switch input {
@@ -33,11 +33,11 @@
 .slider:before {
   position: absolute;
   content: "";
-  height: 16px;
-  width: 16px;
+  height: 13px;
+  width: 13px;
   left: 4px;
   bottom: 4px;
-  background-color: #f5f6fa;
+  background-color: #e7e7ea;
   background-image: url(../../images/sun.svg);
   background-position: center;
   background-size: 75%;
@@ -47,7 +47,7 @@
 }
 
 input:checked + .slider {
-  background-color: #f5f6fa;
+  background-color: #e7e7ea;
 }
 
 input:checked + .slider:before {
@@ -63,14 +63,14 @@ input:checked + .slider:before {
 // }
 
 input:checked + .slider:before {
-  -webkit-transform: translateX(16px);
-  -ms-transform: translateX(16px);
-  transform: translateX(16px);
+  -webkit-transform: translateX(14px);
+  -ms-transform: translateX(14px);
+  transform: translateX(14px);
 }
 
 /* Rounded sliders */
 .slider.round {
-  border-radius: 24px;
+  border-radius: 21px;
 }
 
 .slider.round:before {

@@ -7,6 +7,5 @@ exports.onCreatePage = ({ page, actions }) => {
   ) {
     page.context.layout = "particles"
   }
-  console.log("PATH ", page.path)
   createPage(page)
 }

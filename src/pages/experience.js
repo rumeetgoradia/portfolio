@@ -1,5 +1,4 @@
 import React from "react"
-import { BorderedLink } from "../components/styles/BorderedAction"
 
 export default function Experience() {
   return (
@@ -12,9 +11,6 @@ export default function Experience() {
         zIndex: 7,
         height: "200vh",
       }}
-    >
-      EXPERIENCE
-      
-    </div>
+    ></div>
   )
 }

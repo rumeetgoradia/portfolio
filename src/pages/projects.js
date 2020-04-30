@@ -10,8 +10,6 @@ export default function Projects() {
         left: 0,
         zIndex: 7,
       }}
-    >
-      Projects
-    </div>
+    ></div>
   )
 }

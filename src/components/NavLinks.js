@@ -1,22 +1,51 @@
 import React from "react"
-import { BorderedLink } from "./styles/BorderedAction"
 import "./styles/NavLinks.scss"
+import { StyledLink } from "./styles/StyledAction"
 
-export default function NavLinks({ navbar }) {
+export default function NavLinks({ navbar, setThemeToggled }) {
   return (
-    <div className={`nav-links ${navbar ? "navbar" : ""}`}>
-      <BorderedLink to="/about" className={`${navbar ? "navbar-link" : ""}`}>
+    <div id="nav-container" className={`nav-links ${navbar ? "navbar" : ""}`}>
+      <StyledLink
+        id="about-link"
+        to="/about"
+        className={`${navbar ? "navbar-link" : ""}`}
+        activeClassName="active-nav-link"
+        onClick={() => {
+          setThemeToggled(false)
+          // slideUnderline("about-link")
+        }}
+      >
         About
-      </BorderedLink>
-      <BorderedLink to="/experience" className={`${navbar ? "navbar-link" : ""}`}>
+      </StyledLink>
+      <StyledLink
+        id="experience-link"
+        to="/experience"
+        className={`${navbar ? "navbar-link" : ""}`}
+        activeClassName="active-nav-link"
+        onClick={() => {
+          setThemeToggled(false)
+          // slideUnderline("experience-link")
+        }}
+      >
         Experience
-      </BorderedLink>
-      <BorderedLink to="/projects" className={`${navbar ? "navbar-link" : ""}`}>
+      </StyledLink>
+      <StyledLink
+        id="projects-link"
+        to="/projects"
+        className={`${navbar ? "navbar-link" : ""}`}
+        activeClassName="active-nav-link"
+        onClick={() => {
+          setThemeToggled(false)
+          // slideUnderline("projects-link")
+        }}
+      >
         Projects
-      </BorderedLink>
-      <BorderedLink to="/" className={`${navbar ? "navbar-link" : ""}`}>
+      </StyledLink>
+      <StyledLink to="/" className={`${navbar ? "navbar-link" : ""}`}>
         Resume
-      </BorderedLink>
+      </StyledLink>
+      <div id="navbar-background"></div>
+      {/* <div id="navbar-underline"></div> */}
     </div>
   )
 }

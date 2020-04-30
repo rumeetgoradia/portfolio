@@ -9,7 +9,19 @@
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px transparent solid;
-  transition: all 0.6s ease;
+  transition: all 1s ease;
+
+  #navbar-background {
+    position: absolute;
+    top: 0;
+    left: -1px;
+    width: calc(100% + 1px);
+    height: 100%;
+    background-color: transparent;
+    opacity: 0;
+    z-index: 88;
+    transition: opacity 0.3s linear, background-color 1s linear;
+  }
 
   &.navbar {
     position: fixed;
@@ -19,7 +31,22 @@
     text-align: center;
     padding-top: 1rem;
     transform: translateX(-50%);
-    transition: background-color 0.3s linear, border-color 0.3s linear,
-      top 0.6s ease, width 0.6s ease, transform 0.6s ease;
+
+    #navbar-underline {
+      opacity: 1;
+      transition: all 0.55s cubic-bezier(0.28, 1.45, 0.26, 0.99),
+        opacity 1s linear;
+    }
+  }
+
+  #navbar-underline {
+    position: absolute;
+    height: 5px;
+    width: 150px;
+    bottom: -2px;
+    opacity: 0;
+    z-index: 89;
+    background-color: var(--green);
+    transition: opacity 0.3s linear;
   }
 }

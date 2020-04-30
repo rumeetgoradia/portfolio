@@ -143,8 +143,28 @@ export const GlobalStyles = createGlobalStyle`
 	}
 
 	.navbar {
-		border-color: ${({ theme }) => theme.font};
-		background-color: ${({ theme }) => theme.body};
+		border-bottom: 1px solid ${({ theme }) => theme.font};
+		/* background-color: ${({ theme }) => theme.body}; */
+		
+		#navbar-background {
+			opacity: .85;
+			background-color: ${({ theme }) => theme.body};
+			border-left: 1px solid ${({ theme }) => theme.body};
+			border-right: 1px solid ${({ theme }) => theme.body};
+			transition: background-color .3s linear, opacity 2s linear, border-color .3s linear;
+		}
+
+		.navbar-link {
+			&::after {
+					background-color: ${({ theme }) => theme.font};
+					box-shadow: ${({ theme }) => theme.navLinkShadow};
+			}
+			&:hover, &:focus {
+				&::after {
+					height: 4px;	
+				}
+			}
+		}
 	}
 
 	h1, h2, h3, h4, h5, h6 {

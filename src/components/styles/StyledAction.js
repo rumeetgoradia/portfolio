@@ -13,15 +13,19 @@ const borderedStyle = css`
   padding-top: 0.7rem;
   padding-bottom: 0.45rem;
   color: ${({ theme }) => theme.font};
-  background: transparent;
-  transition: all 0.3s linear;
+  background: ${({ theme }) => theme.body};
+  opacity: 0.75;
   font-weight: 300;
   width: 24%;
   text-align: center;
   padding-left: 2px;
+  position: relative;
+  z-index: 91;
+  transition: all 0.3s linear;
   &:hover,
   &:focus,
   &.active {
+    opacity: 1;
     letter-spacing: 1px;
     background: ${({ theme }) => theme.font};
     color: ${({ theme }) => theme.body};
@@ -39,15 +43,18 @@ const borderedStyle = css`
 `
 
 const navbarStyle = css`
+  position: relative;
+  border-radius: 0;
   width: auto;
   display: inline-block;
-  padding: 0 0.5rem 0.5rem calc(0.5rem + 2px);
+  padding: 0 0.5rem 0.5rem calc(0.5rem + 2px) !important;
   border: none;
   margin: 0 1rem;
   font-size: 1rem;
+  opacity: 1;
   &:hover,
   &:focus,
-  &.active {
+  &.active-nav-link {
     padding-left: calc(0.5rem + 2px);
     letter-spacing: 2px;
     background: none;
@@ -55,19 +62,36 @@ const navbarStyle = css`
   &:hover,
   &:focus {
     color: ${({ theme }) => theme.font};
-    text-shadow: 0px 0px 2px ${({ theme }) => theme.font};
+    text-shadow: ${({ theme }) => theme.textShadow};
     box-shadow: none;
   }
-  &.active {
+  &::after {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    bottom: -1px;
+    height: 0px;
+    z-index: 89;
+    transition: background-color 0.3s linear, box-shadow 0.3s linear,
+      height 0.3s linear;
+  }
+  &.active-nav-link {
     color: var(--green);
     text-shadow: 0px 0px 4px var(--green);
+    &::after {
+      height: 4px;
+      background-color: var(--green);
+      box-shadow: 0px 0px 2px 0px var(--green);
+    }
   }
   &:active {
     transform: none;
   }
 `
 
-export const BorderedLink = styled(Link)`
+export const StyledLink = styled(Link)`
   ${borderedStyle}
   text-decoration: none;
   &.navbar-link {
@@ -75,6 +99,6 @@ export const BorderedLink = styled(Link)`
   }
 `
 
-export const BorderedButton = styled.button`
+export const StyledButton = styled.button`
   ${borderedStyle}
 `
