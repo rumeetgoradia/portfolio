@@ -1,0 +1,22 @@
+[
+  {
+    "type": "Languages",
+    "value": "Java, C, JavaScript, Python, R, HTML5, CSS3"
+  },
+  {
+    "type": "Frameworks",
+    "value": "ReactJS, GatsbyJS, Bootstrap, NodeJS"
+  },
+  {
+    "type": "IDEs",
+    "value": "Microsoft VS Code, Eclipse, Android Studio"
+  },
+  {
+    "type": "VCS",
+    "value": "GitHub, Bitbucket"
+  },
+  {
+    "type": "Debugger",
+    "value": "Chrome DevTools"
+  }
+]

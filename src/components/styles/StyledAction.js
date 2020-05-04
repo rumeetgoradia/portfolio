@@ -2,6 +2,7 @@ import { Link } from "gatsby"
 import styled, { css } from "styled-components"
 
 const borderedStyle = css`
+  line-height: 1;
   display: block;
   font-family: "Calibre", sans-serif;
   border: 1px solid ${({ theme }) => theme.font};
@@ -43,6 +44,7 @@ const borderedStyle = css`
 `
 
 const navbarStyle = css`
+  background: none;
   position: relative;
   border-radius: 0;
   width: auto;
@@ -74,6 +76,7 @@ const navbarStyle = css`
     bottom: -1px;
     height: 0px;
     z-index: 89;
+    border-radius: 1px;
     transition: background-color 0.3s linear, box-shadow 0.3s linear,
       height 0.3s linear;
   }

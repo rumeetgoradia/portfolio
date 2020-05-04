@@ -38,7 +38,7 @@
   left: 4px;
   bottom: 4px;
   background-color: #e7e7ea;
-  background-image: url(../../images/sun.svg);
+  background-image: url(../../assets/images/sun.svg);
   background-position: center;
   background-size: 75%;
   background-repeat: no-repeat;
@@ -52,7 +52,7 @@ input:checked + .slider {
 
 input:checked + .slider:before {
   background-color: #111820;
-  background-image: url(../../images/moon.svg);
+  background-image: url(../../assets/images/moon.svg);
   background-position: center;
   background-size: 50%;
   background-repeat: no-repeat;

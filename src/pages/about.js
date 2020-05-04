@@ -1,15 +1,87 @@
 import React from "react"
+import { graphql } from "gatsby"
+import Img from "gatsby-image"
+import { StyledContainer } from "../components/styles/StyledContainer"
+import { InfoHeader } from "../components/styles/InfoHeader"
+import { InfoParagraph, InfoSpan } from "../components/styles/InfoContent"
+import { interestIcons, interests } from "../assets/data/InterestsData"
+import toolboxEntries from "../assets/data/ToolboxEntries.json"
+import "./styles/about.scss"
 
-export default function About() {
+export default function About({ data }) {
+  const profileImg = data.profileImg.childImageSharp.fluid
+
   return (
-    <div
-      style={{
-        position: "absolute",
-        display: "flex",
-        top: 0,
-        left: 0,
-        zIndex: 7,
-      }}
-    ></div>
+    <StyledContainer>
+      <div id="about-content">
+        <div id="desc-container">
+          <div id="who-am-i">
+            <InfoHeader>Who Am I?</InfoHeader>
+            <InfoParagraph>
+              My name is Rumeet Goradia, and I am currently a Junior at the
+              Rutgers University Honors College in New Brunswick, NJ. I'm
+              studying Computer Science and Business Analytics & Information
+              Technology. One day, I hope to be able to market my own software
+              and bring more technology into lower-income communities. This
+              coming summer, I'll be working at Schonfeld Strategic Advisors in
+              New York City as a Software Engineering Intern. While I'm not
+              studying or working, I'm at the gym, hanging out with my friends,
+              or working on personal projects like this website.
+            </InfoParagraph>
+          </div>
+        </div>
+        <div id="about-img-container">
+          <Img
+            title="Rumeet Goradia"
+            alt="Rumeet Goradia"
+            className="about-img"
+            fluid={profileImg}
+          />
+        </div>
+      </div>
+      <div id="interests-and-toolbox">
+        <div id="toolbox">
+          <InfoHeader>My Toolbox</InfoHeader>
+          {toolboxEntries.map((item, index) => {
+            return (
+              <InfoParagraph
+                className="toolbox-entry"
+                key={`toolbox-entry-${index}`}
+              >
+                <strong>{item.type}:</strong>&nbsp;{item.value}
+              </InfoParagraph>
+            )
+          })}
+          <InfoParagraph className="toolbox-entry"></InfoParagraph>
+        </div>
+        <div id="interests">
+          <InfoHeader>My Interests</InfoHeader>
+          <div className="interests-container">
+            {interests.map((item, index) => {
+              return (
+                <div key={`interests-${index}`} className="interest">
+                  <div className="interest-icon-container">
+                    {interestIcons[index]}
+                  </div>
+                  <InfoSpan>{item}</InfoSpan>
+                </div>
+              )
+            })}
+          </div>
+        </div>
+      </div>
+    </StyledContainer>
   )
 }
+
+export const query = graphql`
+  query {
+    profileImg: file(relativePath: { eq: "profileimage.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 700) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+  }
+`

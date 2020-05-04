@@ -167,6 +167,14 @@ export const GlobalStyles = createGlobalStyle`
 		}
 	}
 
+	.about-img {
+		border-color: ${({ theme }) => theme.imgBorder} !important;
+	}
+
+	.interests-svg {
+		fill: ${({ theme }) => theme.font}
+	}
+
 	h1, h2, h3, h4, h5, h6 {
 		margin: 0;
 	}
