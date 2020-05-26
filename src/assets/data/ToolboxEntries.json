@@ -1,11 +1,11 @@
 [
   {
     "type": "Languages",
-    "value": "Java, C, JavaScript, Python, R, HTML5, CSS3"
+    "value": "Java, C, JavaScript, Python, R, SQL"
   },
   {
     "type": "Frameworks",
-    "value": "ReactJS, GatsbyJS, Bootstrap, NodeJS"
+    "value": "ReactJS, JavaFX, Bootstrap, NodeJS"
   },
   {
     "type": "IDEs",

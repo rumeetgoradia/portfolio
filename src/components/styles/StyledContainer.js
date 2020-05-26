@@ -2,6 +2,8 @@ import styled from "styled-components"
 
 export const StyledContainer = styled.div`
   position: relative;
+  overflow: hidden;
+  text-align: left;
   top: 80px;
   left: 50%;
   transform: translateX(-50%);

@@ -4,7 +4,7 @@ import Img from "gatsby-image"
 import { StyledContainer } from "../components/styles/StyledContainer"
 import { InfoHeader } from "../components/styles/InfoHeader"
 import { InfoParagraph, InfoSpan } from "../components/styles/InfoContent"
-import { interestIcons, interests } from "../assets/data/InterestsData"
+import { interests } from "../assets/data/InterestsData"
 import toolboxEntries from "../assets/data/ToolboxEntries.json"
 import "./styles/about.scss"
 
@@ -60,10 +60,8 @@ export default function About({ data }) {
             {interests.map((item, index) => {
               return (
                 <div key={`interests-${index}`} className="interest">
-                  <div className="interest-icon-container">
-                    {interestIcons[index]}
-                  </div>
-                  <InfoSpan>{item}</InfoSpan>
+                  <div className="interest-icon-container">{item.icon}</div>
+                  <InfoSpan>{item.interest}</InfoSpan>
                 </div>
               )
             })}

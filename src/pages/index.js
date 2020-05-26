@@ -1,6 +1,6 @@
 import React from "react"
 import Intro from "../components/Intro"
-import "../styles/normalize.css"
+import "bootstrap/dist/css/bootstrap.min.css"
 
 export default function Index() {
   // const [theme, toggleTheme, componentMounted, themeToggled] = useDarkMode()
@@ -17,7 +17,7 @@ export default function Index() {
     //     <GlobalStyles />
     //     <Toggle theme={theme} toggleTheme={toggleTheme} />
     //     <Sphere theme={theme} themeToggled={themeToggled}/>
-        <Intro />
+    <Intro />
     //   {/* </>
     // </ThemeProvider> */}
   )

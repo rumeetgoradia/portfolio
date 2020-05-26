@@ -1,4 +1,3 @@
-import { createGlobalStyle } from "styled-components"
 import CalibreBlack from "../assets/fonts/CalibreBlack.otf"
 import CalibreBlackItalic from "../assets/fonts/CalibreBlackItalic.otf"
 import CalibreBold from "../assets/fonts/CalibreBold.otf"
@@ -13,6 +12,7 @@ import CalibreSemibold from "../assets/fonts/CalibreSemibold.otf"
 import CalibreSemiboldItalic from "../assets/fonts/CalibreSemiboldItalic.otf"
 import CalibreThin from "../assets/fonts/CalibreThin.otf"
 import CalibreThinItalic from "../assets/fonts/CalibreThinItalic.otf"
+import { createGlobalStyle } from "styled-components"
 
 export const GlobalStyles = createGlobalStyle`
 	@font-face {
@@ -110,14 +110,16 @@ export const GlobalStyles = createGlobalStyle`
 		--green: #34926e;
 	}
 
-	body {
+	body, #body {
 		/* background-color: ${({ theme }) => theme.body}; */
 		color: ${({ theme }) => theme.font};
 		min-height: 100vh;
+		overflow: hidden;
 		margin: 0;
 		padding: 0;
 		font-family: "Calibre";
 		font-weight: 300;
+		line-height: 1;
 		transition: all .3s linear;
 	}
 
@@ -142,22 +144,17 @@ export const GlobalStyles = createGlobalStyle`
 		background-image: ${({ theme }) => theme.oppositeGradient};
 	}
 
-	.navbar {
+	#navbar {
+		opacity: .85;
+		background-color: ${({ theme }) => theme.body};
+		border-left: 1px solid ${({ theme }) => theme.body};
+		border-right: 1px solid ${({ theme }) => theme.body};
+		transition: all .3s linear;
 		border-bottom: 1px solid ${({ theme }) => theme.font};
-		/* background-color: ${({ theme }) => theme.body}; */
-		
-		#navbar-background {
-			opacity: .85;
-			background-color: ${({ theme }) => theme.body};
-			border-left: 1px solid ${({ theme }) => theme.body};
-			border-right: 1px solid ${({ theme }) => theme.body};
-			transition: background-color .3s linear, opacity 2s linear, border-color .3s linear;
-		}
-
 		.navbar-link {
-			&::after {
-					background-color: ${({ theme }) => theme.font};
-					box-shadow: ${({ theme }) => theme.navLinkShadow};
+			&::after, &::before {
+				background-color: ${({ theme }) => theme.font};
+				box-shadow: ${({ theme }) => theme.navLinkShadow};
 			}
 			&:hover, &:focus {
 				&::after {
@@ -165,6 +162,15 @@ export const GlobalStyles = createGlobalStyle`
 				}
 			}
 		}
+	}
+
+	.navbar {
+		
+		/* background-color: ${({ theme }) => theme.body}; */
+		
+		
+
+		
 	}
 
 	.about-img {

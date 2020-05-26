@@ -1,7 +1,13 @@
-import React from "react"
+import React, { useEffect } from "react"
+
 import Particles from "react-particles-js"
 
-export default function ParticlesLayout({ children }) {
+export default function ParticlesLayout({ children, setThemeToggled }) {
+  useEffect(() => {
+    setThemeToggled(false)
+    return () => {}
+  }, [])
+
   return (
     <>
       <Particles

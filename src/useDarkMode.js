@@ -15,11 +15,11 @@ export const useDarkMode = () => {
     gradientTran.style.opacity = 1
     const fadeEffect = setInterval(function () {
       if (gradientTran.style.opacity > 0) {
-        gradientTran.style.opacity -= 0.1
+        gradientTran.style.opacity -= 0.333333333333
       } else {
         clearInterval(fadeEffect)
       }
-    }, 3)
+    }, 1)
   }
 
   const toggleTheme = () => {

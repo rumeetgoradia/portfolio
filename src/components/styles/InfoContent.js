@@ -5,6 +5,7 @@ const InfoContent = css`
   margin: 0;
   font-weight: 400;
   line-height: 1.4;
+  text-align: left;
 `
 
 export const InfoParagraph = styled.p`

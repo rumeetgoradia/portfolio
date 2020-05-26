@@ -1,12 +1,15 @@
-import React from "react"
-import { ThemeProvider } from "styled-components"
-import NavLinks from "../components/NavLinks"
-import Toggle from "../components/Toggle"
-import { GlobalStyles } from "../styles/global"
+import React, { useState } from "react"
 import { darkTheme, lightTheme } from "../styles/themes"
+
+import { GlobalStyles } from "../styles/global"
+import NavLinks from "../components/Navbar"
+import ParticlesLayout from "./ParticlesLayout"
+import SphereLayout from "./SphereLayout"
+import { ThemeProvider } from "styled-components"
+import Toggle from "../components/Toggle"
 import { useDarkMode } from "../useDarkMode"
 
-export default function GlobalLayout({ children, location, navbar }) {
+export default function GlobalLayout({ children, atHome }) {
   const [
     theme,
     toggleTheme,
@@ -21,25 +24,25 @@ export default function GlobalLayout({ children, location, navbar }) {
     return <div style={{ display: "none" }}>{children}</div>
   }
 
-  const childrenWithProps = React.Children.map(children, child =>
-    React.cloneElement(child, { theme, themeToggled })
-  )
-
   return (
-    <ThemeProvider theme={themeMode}>
+    <ThemeProvider theme={themeMode} id="body">
       <>
         <GlobalStyles />
-        <Toggle theme={theme} toggleTheme={toggleTheme} />
-        <NavLinks navbar={navbar} setThemeToggled={setThemeToggled} />
-
+        <NavLinks theme={theme} toggleTheme={toggleTheme} atHome={atHome} />
         <div id="gradient"></div>
         <div
           id="gradient-transition"
           style={{ display: themeToggled ? "block" : "none" }}
         ></div>
-        {childrenWithProps}
-        {/* <Transition location={location}>
-          </Transition> */}
+        {atHome ? (
+          <SphereLayout theme={theme} themeToggled={themeToggled}>
+            {children}
+          </SphereLayout>
+        ) : (
+          <ParticlesLayout setThemeToggled={setThemeToggled}>
+            {children}
+          </ParticlesLayout>
+        )}
       </>
     </ThemeProvider>
   )

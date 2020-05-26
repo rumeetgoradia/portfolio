@@ -1,18 +1,12 @@
-import React from "react"
 import GlobalLayout from "./GlobalLayout"
 import ParticlesLayout from "./ParticlesLayout"
+import React from "react"
 import SphereLayout from "./SphereLayout"
 
-export default ({ children, pageContext, location }) => {
-  let layout = <SphereLayout>{children}</SphereLayout>
-  let navbar = false
-  if (pageContext.layout === "particles") {
-    layout = <ParticlesLayout>{children}</ParticlesLayout>
-    navbar = true
-  }
+export default ({ children, pageContext }) => {
   return (
-    <GlobalLayout navbar={navbar} location={location}>
-      {layout}
+    <GlobalLayout atHome={pageContext.layout !== "particles"}>
+      {children}
     </GlobalLayout>
   )
 }

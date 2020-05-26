@@ -3,6 +3,7 @@
   justify-content: space-between;
   align-items: flex-start;
   margin-bottom: 1.5rem;
+  overflow: hidden;
 }
 
 #desc-container {
@@ -16,7 +17,11 @@
     width: 100%;
     height: auto;
     border: 5px solid;
-    transition: border-color 0.3s linear;
+    opacity: 0.9;
+    transition: border-color 0.3s linear, opacity 0.3s linear;
+    &:hover {
+      opacity: 1;
+    }
   }
 }
 
@@ -26,12 +31,13 @@
   align-items: flex-start;
 }
 
-#interests {
-  flex-basis: 35%;
+#toolbox {
+  flex-basis: 45%;
+  overflow: hidden;
 }
 
-#toolbox {
-  flex-basis: 60%;
+#interests {
+  flex-basis: 50%;
 }
 
 .interests-container {
@@ -39,11 +45,15 @@
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: flex-start;
+  overflow: hidden;
   .interest {
-    flex-basis: 45%;
+    flex-basis: 32%;
     display: flex;
     justify-content: flex-start;
+    align-items: flex-start;
     margin-bottom: 0.25rem;
+    overflow: hidden;
+    position: relative;
   }
 }
 
@@ -54,14 +64,14 @@
 .interests-svg {
   transition: fill 0.3s linear;
   width: auto;
-  height: 18px;
-  // margin-right: 10px;
+  height: 20px;
 }
 
 .toolbox-entry {
   strong {
     font-weight: 600;
   }
+  position: relative;
   margin-bottom: 0.25rem !important;
   &:nth-last-child(2) {
     margin-bottom: 0 !important;
