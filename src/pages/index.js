@@ -1,24 +1,45 @@
+import "./styles/index.scss"
+
+import { Col, Container, Row } from "react-bootstrap"
+
 import React from "react"
-import Intro from "../components/Intro"
-import "bootstrap/dist/css/bootstrap.min.css"
+import Typed from "react-typed"
 
 export default function Index() {
-  // const [theme, toggleTheme, componentMounted, themeToggled] = useDarkMode()
-
-  // const themeMode = theme === "light" ? lightTheme : darkTheme
-
-  // if (!componentMounted) {
-  //   return <div />
-  // }
-
   return (
-    // <ThemeProvider theme={themeMode}>
-    //   <>
-    //     <GlobalStyles />
-    //     <Toggle theme={theme} toggleTheme={toggleTheme} />
-    //     <Sphere theme={theme} themeToggled={themeToggled}/>
-    <Intro />
-    //   {/* </>
-    // </ThemeProvider> */}
+    <Container fluid id="intro-container">
+      <Row style={{ width: "100%" }}>
+        <Col>
+          <h1>Rumeet Goradia</h1>
+        </Col>
+      </Row>
+      <Row style={{ width: "100%" }} id="subtitle-row">
+        <Col>
+          <h2>
+            On a quest for{" "}
+            <span>
+              <Typed
+                strings={[
+                  "prosperity.",
+                  "knowledge.",
+                  "purpose.",
+                  "significance.",
+                  "bliss.",
+                  "strength.",
+                  "tranquility.",
+                ]}
+                typeSpeed={40}
+                backSpeed={20}
+                backDelay={1150}
+                showCursor
+                cursorChar="|"
+                loop
+              />
+            </span>
+            {/* </em> */}
+          </h2>
+        </Col>
+      </Row>
+    </Container>
   )
 }

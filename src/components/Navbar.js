@@ -2,6 +2,7 @@ import "./styles/Navbar.scss"
 
 import { Col, Container, Row } from "react-bootstrap"
 
+import { Link } from "gatsby"
 import { NavLink } from "./styles/NavLink"
 import React from "react"
 import Toggle from "./Toggle"
@@ -15,10 +16,13 @@ export default function NavLinks({
   return (
     <Container fluid id="navbar" className={`${atHome ? " at-home" : ""}`}>
       <Row id="navbar-content">
-        <Col xs={1} id="navbar-brand">
-          {/* my icon or something */}
+        <Col xs={1} id="navbar-brand-container">
+          <Link to="/" id="navbar-brand">
+            RG
+          </Link>
         </Col>
-        <Col xs={8} id="nav-links-container">
+        {/* BREAKPOINT is 710px  */}
+        <Col xs={9} id="nav-links-container">
           <div id="nav-links">
             <NavLink
               to="/about"

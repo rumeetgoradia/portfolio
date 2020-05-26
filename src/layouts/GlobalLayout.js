@@ -1,3 +1,5 @@
+import "bootstrap/dist/css/bootstrap.min.css"
+
 import React, { useState } from "react"
 import { darkTheme, lightTheme } from "../styles/themes"
 
@@ -6,7 +8,6 @@ import NavLinks from "../components/Navbar"
 import ParticlesLayout from "./ParticlesLayout"
 import SphereLayout from "./SphereLayout"
 import { ThemeProvider } from "styled-components"
-import Toggle from "../components/Toggle"
 import { useDarkMode } from "../useDarkMode"
 
 export default function GlobalLayout({ children, atHome }) {

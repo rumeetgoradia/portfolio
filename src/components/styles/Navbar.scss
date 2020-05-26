@@ -12,6 +12,10 @@
     #nav-links {
       width: 90%;
     }
+    #navbar-brand {
+      opacity: 0;
+      pointer-events: none;
+    }
   }
 }
 
@@ -21,7 +25,7 @@
   height: 100%;
 }
 
-#navbar-brand,
+#navbar-brand-container,
 #navbar-toggle-container,
 #nav-links-container {
   display: flex;
@@ -35,57 +39,37 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 75%;
-  transition: width 0.3s linear;
+  width: 70%;
+  @media screen and (max-width: 992px) {
+    width: 80%;
+  }
+  transition: width 0.2s linear;
 }
 
-.nav-links {
-  position: absolute;
-  z-index: 90;
-  width: 500px;
-  top: 62vh;
-  left: 50%;
-  transform: translate(-50%, -50%);
+#navbar-toggle-container {
+  min-width: 65px;
+}
 
-  border-bottom: 1px transparent solid;
-  transition: all 1s ease;
-
-  #navbar-background {
-    position: absolute;
-    top: 0;
-    left: -1px;
-    width: calc(100% + 1px);
-    height: 100%;
-    background-color: transparent;
-    opacity: 0;
-    z-index: 88;
-    transition: opacity 0.3s linear, background-color 1s linear;
+#navbar-brand {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none;
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-decoration: none;
+  color: inherit;
+  padding-top: 10px;
+  transition: all 0.3s linear;
+  &:hover,
+  &:focus {
+    text-decoration: none;
+    color: var(--green);
+    text-shadow: 0px 0px 3px var(--green);
   }
-
-  &.navbar {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    display: block;
-    text-align: center;
-    padding-top: 1rem;
-    transform: translateX(-50%);
-
-    #navbar-underline {
-      opacity: 1;
-      transition: all 0.55s cubic-bezier(0.28, 1.45, 0.26, 0.99),
-        opacity 1s linear;
-    }
-  }
-
-  #navbar-underline {
-    position: absolute;
-    height: 5px;
-    width: 150px;
-    bottom: -2px;
-    opacity: 0;
-    z-index: 89;
-    background-color: var(--green);
-    transition: opacity 0.3s linear;
+  &:active {
+    transform: scale(0.9);
   }
 }

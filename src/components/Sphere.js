@@ -286,13 +286,10 @@ export default function Sphere({ theme, themeToggled }) {
 
   useEffect(() => {
     window.addEventListener("resize", setSize)
-    // console.log(canvas.current)
-    // canvas.current = document.getElementById("sphere-canvas")
     ctxRender.current = canvas.current.getContext("2d")
     setSize()
     nextFrame()
     return () => {
-      // reset()
       window.removeEventListener("resize", this)
       clearTimeout(timeout.current)
     }

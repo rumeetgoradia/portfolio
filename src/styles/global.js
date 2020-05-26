@@ -147,10 +147,8 @@ export const GlobalStyles = createGlobalStyle`
 	#navbar {
 		opacity: .85;
 		background-color: ${({ theme }) => theme.body};
-		border-left: 1px solid ${({ theme }) => theme.body};
-		border-right: 1px solid ${({ theme }) => theme.body};
-		transition: all .3s linear;
 		border-bottom: 1px solid ${({ theme }) => theme.font};
+		transition: all .3s linear;
 		.navbar-link {
 			&::after, &::before {
 				background-color: ${({ theme }) => theme.font};
@@ -161,17 +159,12 @@ export const GlobalStyles = createGlobalStyle`
 					height: 4px;	
 				}
 			}
+		}	
+	}
+	
+	#navbar-brand {
+			text-shadow: ${({ theme }) => theme.textShadow}
 		}
-	}
-
-	.navbar {
-		
-		/* background-color: ${({ theme }) => theme.body}; */
-		
-		
-
-		
-	}
 
 	.about-img {
 		border-color: ${({ theme }) => theme.imgBorder} !important;

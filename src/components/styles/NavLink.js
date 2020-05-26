@@ -1,8 +1,13 @@
-import styled, { css } from "styled-components"
-
 import { Link } from "gatsby"
+import styled from "styled-components"
 
 export const NavLink = styled(Link)`
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none;
   font-family: "Calibre", sans-serif;
   position: relative;
   letter-spacing: 2px;
@@ -55,25 +60,26 @@ export const NavLink = styled(Link)`
     padding-top: 4px;
     &::before {
       top: -20px;
-      border-top-left-radius: 2px;
-      border-top-right-radius: 2px;
+      border-top-left-radius: 1px;
+      border-top-right-radius: 1px;
     }
     &::after {
       opacity: 0;
       bottom: -20px;
-      border-bottom-left-radius: 2px;
-      border-bottom-right-radius: 2px;
+      border-bottom-left-radius: 1px;
+      border-bottom-right-radius: 1px;
     }
     &::after,
     &::before {
-      height: 2px;
+      height: 1px;
       width: 90%;
     }
     &:hover,
     &:focus {
       &::after,
       &::before {
-        height: 2px !important;
+        box-shadow: none !important;
+        height: 1px !important;
         opacity: 1;
       }
       &::before {
