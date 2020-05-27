@@ -1,9 +1,10 @@
 import "bootstrap/dist/css/bootstrap.min.css"
 
 import React, { useState } from "react"
-import { darkTheme, lightTheme } from "../styles/themes"
+import { darkTheme, lightTheme } from "../styles/Themes"
 
-import { GlobalStyles } from "../styles/global"
+import Footer from "../components/Footer"
+import { GlobalStyles } from "../styles/GlobalTheme"
 import NavLinks from "../components/Navbar"
 import ParticlesLayout from "./ParticlesLayout"
 import SphereLayout from "./SphereLayout"
@@ -44,6 +45,7 @@ export default function GlobalLayout({ children, atHome }) {
             {children}
           </ParticlesLayout>
         )}
+        <Footer atHome={atHome} />
       </>
     </ThemeProvider>
   )

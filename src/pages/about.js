@@ -1,18 +1,20 @@
-import React from "react"
-import { graphql } from "gatsby"
-import Img from "gatsby-image"
-import { StyledContainer } from "../components/styles/StyledContainer"
-import { InfoHeader } from "../components/styles/InfoHeader"
+import "./styles/about.scss"
+
 import { InfoParagraph, InfoSpan } from "../components/styles/InfoContent"
+
+import Img from "gatsby-image"
+import { InfoHeader } from "../components/styles/InfoHeader"
+import React from "react"
+import { StyledContainer } from "../components/styles/StyledContainer"
+import { graphql } from "gatsby"
 import { interests } from "../assets/data/InterestsData"
 import toolboxEntries from "../assets/data/ToolboxEntries.json"
-import "./styles/about.scss"
 
 export default function About({ data }) {
   const profileImg = data.profileImg.childImageSharp.fluid
 
   return (
-    <StyledContainer>
+    <StyledContainer id="about">
       <div id="about-content">
         <div id="desc-container">
           <div id="who-am-i">

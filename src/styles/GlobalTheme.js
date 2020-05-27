@@ -114,7 +114,7 @@ export const GlobalStyles = createGlobalStyle`
 		/* background-color: ${({ theme }) => theme.body}; */
 		color: ${({ theme }) => theme.font};
 		min-height: 100vh;
-		overflow: hidden;
+		/* overflow: hidden; */
 		margin: 0;
 		padding: 0;
 		font-family: "Calibre";
@@ -145,10 +145,8 @@ export const GlobalStyles = createGlobalStyle`
 	}
 
 	#navbar {
-		opacity: .85;
-		background-color: ${({ theme }) => theme.body};
+		background-color: ${({ theme }) => theme.bodyRGBA + ".85)"};
 		border-bottom: 1px solid ${({ theme }) => theme.font};
-		transition: all .3s linear;
 		.navbar-link {
 			&::after, &::before {
 				background-color: ${({ theme }) => theme.font};
@@ -163,8 +161,9 @@ export const GlobalStyles = createGlobalStyle`
 	}
 	
 	#navbar-brand {
-			text-shadow: ${({ theme }) => theme.textShadow}
-		}
+		color: ${({ theme }) => theme.font};
+		text-shadow: ${({ theme }) => theme.textShadow};
+	}
 
 	.about-img {
 		border-color: ${({ theme }) => theme.imgBorder} !important;
@@ -172,6 +171,18 @@ export const GlobalStyles = createGlobalStyle`
 
 	.interests-svg {
 		fill: ${({ theme }) => theme.font}
+	}
+
+	#footer {
+		background-color: ${({ theme }) => theme.bodyRGBA + ".85)"};
+		border-top: 1px solid ${({ theme }) => theme.font};
+		.social-media-link {
+			background-color: ${({ theme }) => theme.font};
+			color: ${({ theme }) => theme.body};
+			&:hover, &:focus {
+				box-shadow: ${({ theme }) => theme.navLinkShadow};
+			}
+		}
 	}
 
 	h1, h2, h3, h4, h5, h6 {

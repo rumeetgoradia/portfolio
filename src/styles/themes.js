@@ -1,7 +1,9 @@
 export const lightTheme = {
   gradient: "linear-gradient(to bottom right, #dddde1, #e7e7ea, #f1f1f3)",
   font: "#111820",
+  fontRGBA: "rgba(17, 24, 32, ",
   body: "#e7e7ea",
+  bodyRGBA: "rgba(231, 231, 234, ",
   oppositeGradient:
     "linear-gradient(to bottom right, #111820, #0e131a, #0a0e13)",
   textShadow: "0 0 1px #111820",
@@ -14,7 +16,9 @@ export const lightTheme = {
 export const darkTheme = {
   gradient: "linear-gradient(to bottom right, #111820, #0e131a, #0a0e13)",
   font: "#e7e7ea",
+  fontRGBA: "rgba(231, 231, 234, ",
   body: "#111820",
+  bodyRGBA: "rgba(17, 24, 32, ",
   oppositeGradient:
     "linear-gradient(to bottom right, #dddde1, #e7e7ea, #f1f1f3)",
   textShadow: "0 0 3px #f1f1f3",
