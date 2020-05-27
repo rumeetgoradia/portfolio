@@ -1,5 +1,6 @@
 import "./styles/about.scss"
 
+import { Col, Container, Row } from "react-bootstrap"
 import { InfoParagraph, InfoSpan } from "../components/styles/InfoContent"
 
 import Img from "gatsby-image"
@@ -14,7 +15,37 @@ export default function About({ data }) {
   const profileImg = data.profileImg.childImageSharp.fluid
 
   return (
-    <></>
+    <>
+      <Container fluid className="fluid-container" style={{ height: 1000 }}>
+        <StyledContainer>
+          <Row className="justify-content-between">
+          <Col id="profile-img-container">
+              <Img
+                title="Rumeet Goradia"
+                alt="Rumeet Goradia"
+                className="profile-img"
+                fluid={profileImg}
+              />
+            </Col>
+            <Col xl={9} lg={8} md={12}>
+              <InfoHeader>Who Am I?</InfoHeader>
+              <InfoParagraph>
+                My name is Rumeet Goradia, and I am currently a rising senior at
+                the Rutgers University Honors College in New Brunswick, NJ. I'm
+                studying Computer Science and Business Analytics & Information
+                Technology. One day, I hope to be able to market my own software
+                and bring more technology into lower-income communities. This
+                coming summer, I'll be working at Schonfeld Strategic Advisors
+                in New York City as a Software Engineering Intern. While I'm not
+                studying or working, I'm at the gym, hanging out with my
+                friends, or working on personal projects like this website.
+              </InfoParagraph>
+            </Col>
+            
+          </Row>
+        </StyledContainer>
+      </Container>
+    </>
     // <StyledContainer id="about">
     //   <div id="about-content">
     //     <div id="desc-container">

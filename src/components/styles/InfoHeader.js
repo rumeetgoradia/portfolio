@@ -6,5 +6,5 @@ export const InfoHeader = styled.h2`
   letter-spacing: 2px;
   font-size: 1.4rem;
   margin-bottom: 0.5rem;
-  transition: opacity 0.3s linear;
+  transition: color 0.3s linear;
 `

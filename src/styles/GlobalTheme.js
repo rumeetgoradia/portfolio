@@ -120,7 +120,6 @@ export const GlobalStyles = createGlobalStyle`
 		font-family: "Calibre";
 		font-weight: 300;
 		line-height: 1;
-		transition: all .3s linear;
 	}
 
 	#gradient {
@@ -192,7 +191,12 @@ export const GlobalStyles = createGlobalStyle`
   		}
 	}
 
-	.about-img {
+	.fluid-container {
+		padding-top: 80px;
+		padding-bottom: 80px;
+	}
+
+	.profile-img {
 		border-color: ${({ theme }) => theme.imgBorder} !important;
 	}
 
