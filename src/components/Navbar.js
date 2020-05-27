@@ -28,6 +28,10 @@ export default function NavLinks({ theme, toggleTheme, atHome }) {
     window.scrollTo(0, 0)
   }
 
+  const toggleOpen = () => {
+    setOpen(!open)
+  }
+
   return (
     // <Navbar
     //   expand="md"
@@ -52,7 +56,7 @@ export default function NavLinks({ theme, toggleTheme, atHome }) {
     //     id="navbar-toggler"
     //     className="m-auto"
     //   >
-    //     {/* <div id="toggler-icon"></div> */}
+    //     {/*   */}
     //   </Navbar.Toggle>
     //   <Navbar.Collapse id="nav-links-container">
     //     <Nav id="nav-links">
@@ -93,7 +97,11 @@ export default function NavLinks({ theme, toggleTheme, atHome }) {
     //     <Toggle theme={theme} toggleTheme={toggleTheme} />
     //   </div>
     // </Navbar>
-    <Container fluid id="navbar" className={`${atHome ? " at-home" : ""}`}>
+    <Container
+      fluid
+      id="navbar"
+      className={`${atHome ? "at-home" : ""} ${open ? "open" : ""}`}
+    >
       <Row id="navbar-content">
         <Col xs={1} id="navbar-brand-container">
           <Link to="/" id="navbar-brand">
@@ -101,7 +109,18 @@ export default function NavLinks({ theme, toggleTheme, atHome }) {
           </Link>
         </Col>
         {/* BREAKPOINT is 710px  */}
-        <Col xs={9} id="nav-links-container">
+        <Col
+          xs={1}
+          id="navbar-toggler"
+          className={`${open ? "" : "collapsed"}`}
+          onClick={toggleOpen}
+        >
+          <div id="toggler-icon"></div>
+        </Col>
+        <Col
+          id="nav-links-container"
+          className={`${atHome ? "at-home" : ""} ${open ? "show" : ""}`}
+        >
           <div id="nav-links">
             <NavLink
               to="/about"

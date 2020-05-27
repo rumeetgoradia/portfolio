@@ -4,8 +4,7 @@ export const StyledContainer = styled.div`
   position: relative;
   overflow: hidden;
   text-align: left;
-  top: 80px;
-  left: 50%;
+  margin-top: 80px;
   transform: translateX(-50%);
   z-index: 10;
   border-radius: 4px;

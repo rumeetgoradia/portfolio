@@ -157,12 +157,45 @@ export const GlobalStyles = createGlobalStyle`
 					height: 4px;	
 				}
 			}
-		}	
+		}
+		#nav-links-container.show {
+			@media screen and (max-width: 768px) {
+				background-color: ${({ theme }) => theme.bodyRGBA + ".95)"};
+			}
+		}
+		@media screen and (max-width: 768px) {
+			&.open {
+				background-color: ${({ theme }) => theme.bodyRGBA + ".95)"};
+			}			
+		}
 	}
 	
 	#navbar-brand {
 		color: ${({ theme }) => theme.font};
 		text-shadow: ${({ theme }) => theme.textShadow};
+	}
+
+	#navbar-toggler {  
+  		#toggler-icon {
+    		/* box-shadow: ${({ theme }) => theme.navLinkShadow};
+      		background-color: ${({ theme }) => theme.font}; */
+ 		    &:before,
+      		&:after {
+        		background-color: ${({ theme }) => theme.font};
+				box-shadow: ${({ theme }) => theme.navLinkShadow};
+    		}      
+  		}
+  		&.collapsed {
+    		#toggler-icon {
+				box-shadow: ${({ theme }) => theme.navLinkShadow};
+      			background-color: ${({ theme }) => theme.font};
+ 		    	/* &:before,
+      			&:after {
+        			background-color: ${({ theme }) => theme.font};
+					box-shadow: ${({ theme }) => theme.navLinkShadow};
+      			}       */
+    		}
+  		}
 	}
 
 	.about-img {
