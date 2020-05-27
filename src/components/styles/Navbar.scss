@@ -60,22 +60,37 @@
 #navbar #nav-links-container {
   @media screen and (max-width: 768px) {
     position: absolute;
-    top: 0;
+    top: 45px;
     left: 0;
     width: 100%;
     z-index: 9998;
     height: 0;
+    opacity: 0;
     overflow: hidden;
+    align-items: flex-start;
+    background-color: transparent;
+    border-bottom: 1px solid transparent;
     transition: all 0.3s linear;
     &.show {
-      height: 100vh;
-      margin-top: 45px !important;
+      height: calc(100vh - 45px);
+      opacity: 1;
+      // top: 45px !important;
     }
     &.at-home {
-      margin-top: 80px;
-      background-color: transparent;
+      // top: 80px;
+    }
+    #nav-links {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: center;
+      height: 90%;
     }
   }
+}
+
+#navbar-brand-container {
+  min-width: 59px;
 }
 
 #navbar-toggle-container {
@@ -112,6 +127,7 @@
   display: none;
   position: relative;
   z-index: 10000;
+  min-width: 50px;
   #toggler-icon {
     width: 20px;
     height: 2px;

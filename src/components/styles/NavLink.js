@@ -55,9 +55,11 @@ export const NavLink = styled(Link)`
     }
   }
   &.at-home {
-    text-shadow: ${({ theme }) => theme.textShadow};
-    font-size: 0.75rem;
-    padding-top: 4px;
+    @media screen and (min-width: 769px) {
+      text-shadow: ${({ theme }) => theme.textShadow};
+      font-size: 0.75rem;
+      padding-top: 4px;
+    }
     &::before {
       top: -20px;
       border-top-left-radius: 1px;
@@ -88,6 +90,89 @@ export const NavLink = styled(Link)`
       &::after {
         bottom: -10px;
       }
+    }
+  }
+  @media screen and (max-width: 768px) {
+    font-size: 1.25rem;
+    text-shadow: ${({ theme }) => theme.textShadow};
+    padding-top: 6px;
+    &:after {
+      opacity: 0;
+    }
+    &.active-nav-link {
+      color: var(--green);
+      text-shadow: 0px 0px 4px var(--green);
+      &::after,
+      &::before {
+        box-shadow: none !important;
+        height: 2px !important;
+        opacity: 1;
+        background-color: var(--green) !important;
+        width: 100% !important;
+      }
+      &::before {
+        top: -10px !important;
+      }
+      &::after {
+        bottom: -10px !important;
+      }
+    }
+    &.open-menu {
+      &::before {
+        top: -20px;
+        border-top-left-radius: 1px;
+        border-top-right-radius: 1px;
+      }
+      &::after {
+        /* opacity: 0; */
+        bottom: -20px;
+        border-bottom-left-radius: 1px;
+        border-bottom-right-radius: 1px;
+      }
+      &::after,
+      &::before {
+        height: 2px;
+        width: 50%;
+      }
+      &:hover,
+      &:focus {
+        &::after,
+        &::before {
+          box-shadow: none !important;
+          height: 2px !important;
+          opacity: 1;
+        }
+        &::before {
+          top: -10px;
+        }
+        &::after {
+          bottom: -10px;
+        }
+      }
+      &:active {
+        &::after,
+        &::before {
+          width: 100%;
+        }
+      }
+      /* &.active-nav-link {
+        color: var(--green);
+        text-shadow: 0px 0px 4px var(--green);
+        &::after,
+        &::before {
+          box-shadow: none !important;
+          height: 2px !important;
+          opacity: 1;
+          background-color: var(--green) !important;
+          width: 100%;
+        }
+        &::before {
+          top: -10px;
+        }
+        &::after {
+          bottom: -10px;
+        }
+      } */
     }
   }
 `

@@ -161,6 +161,7 @@ export const GlobalStyles = createGlobalStyle`
 		#nav-links-container.show {
 			@media screen and (max-width: 768px) {
 				background-color: ${({ theme }) => theme.bodyRGBA + ".95)"};
+				border-bottom-color: ${({ theme }) => theme.font};
 			}
 		}
 		@media screen and (max-width: 768px) {
@@ -177,8 +178,6 @@ export const GlobalStyles = createGlobalStyle`
 
 	#navbar-toggler {  
   		#toggler-icon {
-    		/* box-shadow: ${({ theme }) => theme.navLinkShadow};
-      		background-color: ${({ theme }) => theme.font}; */
  		    &:before,
       		&:after {
         		background-color: ${({ theme }) => theme.font};
@@ -189,11 +188,6 @@ export const GlobalStyles = createGlobalStyle`
     		#toggler-icon {
 				box-shadow: ${({ theme }) => theme.navLinkShadow};
       			background-color: ${({ theme }) => theme.font};
- 		    	/* &:before,
-      			&:after {
-        			background-color: ${({ theme }) => theme.font};
-					box-shadow: ${({ theme }) => theme.navLinkShadow};
-      			}       */
     		}
   		}
 	}
@@ -216,9 +210,5 @@ export const GlobalStyles = createGlobalStyle`
 				box-shadow: ${({ theme }) => theme.navLinkShadow};
 			}
 		}
-	}
-
-	h1, h2, h3, h4, h5, h6 {
-		margin: 0;
 	}
 `

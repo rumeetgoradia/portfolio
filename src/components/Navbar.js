@@ -104,7 +104,13 @@ export default function NavLinks({ theme, toggleTheme, atHome }) {
     >
       <Row id="navbar-content">
         <Col xs={1} id="navbar-brand-container">
-          <Link to="/" id="navbar-brand">
+          <Link
+            to="/"
+            id="navbar-brand"
+            onClick={() => {
+              setOpen(false)
+            }}
+          >
             RG
           </Link>
         </Col>
@@ -124,28 +130,48 @@ export default function NavLinks({ theme, toggleTheme, atHome }) {
           <div id="nav-links">
             <NavLink
               to="/about"
-              className={`navbar-link ${atHome ? " at-home" : ""}`}
+              className={`navbar-link ${atHome ? " at-home" : ""} ${
+                open ? "open-menu" : ""
+              }`}
               activeClassName="active-nav-link"
+              onClick={() => {
+                setOpen(false)
+              }}
             >
               About
             </NavLink>
             <NavLink
               to="/experience"
-              className={`navbar-link ${atHome ? " at-home" : ""}`}
+              className={`navbar-link ${atHome ? " at-home" : ""} ${
+                open ? "open-menu" : ""
+              }`}
               activeClassName="active-nav-link"
+              onClick={() => {
+                setOpen(false)
+              }}
             >
               Experience
             </NavLink>
             <NavLink
               to="/projects"
-              className={`navbar-link ${atHome ? " at-home" : ""}`}
+              className={`navbar-link ${atHome ? " at-home" : ""} ${
+                open ? "open-menu" : ""
+              }`}
               activeClassName="active-nav-link"
+              onClick={() => {
+                setOpen(false)
+              }}
             >
               Projects
             </NavLink>
             <NavLink
               to="/"
-              className={`navbar-link ${atHome ? " at-home" : ""}`}
+              className={`navbar-link ${atHome ? " at-home" : ""} ${
+                open ? "open-menu" : ""
+              }`}
+              onClick={() => {
+                setOpen(false)
+              }}
             >
               Resume
             </NavLink>
