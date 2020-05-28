@@ -34,7 +34,9 @@ export default function GlobalLayout({ children, atHome }) {
         <div id="gradient"></div>
         <div
           id="gradient-transition"
-          style={{ display: themeToggled ? "block" : "none" }}
+          style={{
+            display: themeToggled ? "block" : "none",
+          }}
         ></div>
         {atHome ? (
           <SphereLayout theme={theme} themeToggled={themeToggled}>

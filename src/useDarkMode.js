@@ -15,7 +15,7 @@ export const useDarkMode = () => {
     gradientTran.style.opacity = 1
     const fadeEffect = setInterval(function () {
       if (gradientTran.style.opacity > 0) {
-        gradientTran.style.opacity -= 0.333333333333
+        gradientTran.style.opacity -= 0.1
       } else {
         clearInterval(fadeEffect)
       }
@@ -24,6 +24,7 @@ export const useDarkMode = () => {
 
   const toggleTheme = () => {
     setThemeToggled(true)
+    console.log("theme toggled")
     if (theme === "light") {
       setMode("dark")
     } else {

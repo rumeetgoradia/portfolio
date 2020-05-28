@@ -1,4 +1,4 @@
-import { FaBitbucket, FaGithub, FaLinkedin } from "react-icons/fa"
+import { FaBitbucket, FaGithub, FaLinkedinIn } from "react-icons/fa"
 
 import { BsFillEnvelopeFill } from "react-icons/bs"
 import React from "react"
@@ -17,7 +17,7 @@ export const socialMedia = [
   {
     title: "LinkedIn",
     url: "https://www.linkedin.com/in/rgoradia/",
-    icon: <FaLinkedin />,
+    icon: <FaLinkedinIn />,
   },
   {
     title: "Email",

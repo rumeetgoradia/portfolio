@@ -18,8 +18,8 @@ export default function About({ data }) {
     <>
       <Container fluid className="fluid-container" style={{ height: 1000 }}>
         <StyledContainer>
-          <Row className="justify-content-between">
-          <Col id="profile-img-container">
+          <Row>
+            <Col id="profile-img-container">
               <Img
                 title="Rumeet Goradia"
                 alt="Rumeet Goradia"
@@ -41,6 +41,8 @@ export default function About({ data }) {
                 friends, or working on personal projects like this website.
               </InfoParagraph>
             </Col>
+          </Row>
+          <Row>
             
           </Row>
         </StyledContainer>

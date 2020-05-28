@@ -6,7 +6,7 @@ export default function ParticlesLayout({ children, setThemeToggled }) {
   useEffect(() => {
     setThemeToggled(false)
     return () => {}
-  })
+  }, [])
 
   return (
     <>
@@ -17,6 +17,7 @@ export default function ParticlesLayout({ children, setThemeToggled }) {
           top: 0,
           left: 0,
           zIndex: 5,
+          backgroundColor: "transparent",
         }}
         params={{
           particles: {
