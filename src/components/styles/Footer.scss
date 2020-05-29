@@ -6,6 +6,9 @@
   &.at-home {
     position: absolute;
     bottom: 0;
+    height: 80px;
+    display: flex;
+    align-items: center;
     border-top-color: transparent;
     background-color: transparent;
   }

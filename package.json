@@ -30,7 +30,8 @@
     "react-typed": "^1.2.0",
     "storage-changed": "^3.0.0",
     "styled-components": "^5.1.0",
-    "typeface-rubik": "0.0.72"
+    "typeface-rubik": "0.0.72",
+    "wow.js": "^1.2.2"
   },
   "devDependencies": {
     "prettier": "2.0.4"

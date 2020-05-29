@@ -2,24 +2,36 @@ import "./styles/about.scss"
 
 import { Col, Container, Row } from "react-bootstrap"
 import { InfoParagraph, InfoSpan } from "../components/styles/InfoContent"
+import React, { useEffect } from "react"
 
 import Img from "gatsby-image"
 import { InfoHeader } from "../components/styles/InfoHeader"
-import React from "react"
+import SkillDisplay from "../components/SkillDisplay"
 import { StyledContainer } from "../components/styles/StyledContainer"
+import WOW from "wow.js"
 import { graphql } from "gatsby"
 import { interests } from "../assets/data/InterestsData"
+import { skills } from "../assets/data/SkillsData"
 import toolboxEntries from "../assets/data/ToolboxEntries.json"
 
 export default function About({ data }) {
   const profileImg = data.profileImg.childImageSharp.fluid
 
+  useEffect(() => {
+    const wow = new WOW()
+    wow.init()
+    return () => {}
+  }, [])
+
   return (
     <>
-      <Container fluid className="fluid-container" style={{ height: 1000 }}>
+      <Container fluid className="fluid-container">
         <StyledContainer>
-          <Row>
-            <Col id="profile-img-container">
+          <Row className="mb-4">
+            <Col
+              id="profile-img-container"
+              className="mb-md-4 mb-lg-0 wow fadeIn"
+            >
               <Img
                 title="Rumeet Goradia"
                 alt="Rumeet Goradia"
@@ -27,7 +39,7 @@ export default function About({ data }) {
                 fluid={profileImg}
               />
             </Col>
-            <Col xl={9} lg={8} md={12}>
+            <Col xl={9} lg={8} md={12} className="wow fadeIn">
               <InfoHeader>Who Am I?</InfoHeader>
               <InfoParagraph>
                 My name is Rumeet Goradia, and I am currently a rising senior at
@@ -43,7 +55,22 @@ export default function About({ data }) {
             </Col>
           </Row>
           <Row>
-            
+            <Col className="wow fadeIn">
+              <InfoHeader>My Skills</InfoHeader>
+              <Row lg={3} md={2} xs={1} id="skill-displays">
+                {skills.map((skill, index) => {
+                  return (
+                    <Col
+                      key={`skill-${index}`}
+                      className="skill-display-container wow fadeIn"
+                      style={{ animationDelay: `${index * 75 + 50}ms` }}
+                    >
+                      <SkillDisplay skill={skill} />
+                    </Col>
+                  )
+                })}
+              </Row>
+            </Col>
           </Row>
         </StyledContainer>
       </Container>

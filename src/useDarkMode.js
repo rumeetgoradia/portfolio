@@ -24,7 +24,6 @@ export const useDarkMode = () => {
 
   const toggleTheme = () => {
     setThemeToggled(true)
-    console.log("theme toggled")
     if (theme === "light") {
       setMode("dark")
     } else {

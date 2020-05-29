@@ -113,8 +113,6 @@ export const GlobalStyles = createGlobalStyle`
 	body, #body {
 		/* background-color: ${({ theme }) => theme.body}; */
 		color: ${({ theme }) => theme.font};
-		min-height: 100vh;
-		/* overflow: hidden; */
 		margin: 0;
 		padding: 0;
 		font-family: "Calibre";

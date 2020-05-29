@@ -2,7 +2,6 @@
   display: flex;
   justify-content: center;
   // order: -1;
-  margin-bottom: 1rem;
   @media screen and (min-width: 992px) {
     justify-content: flex-start;
     // order: 0;
@@ -30,6 +29,16 @@
     @media screen and (min-width: 1200px) {
       height: 203px;
       width: 203px;
+    }
+  }
+}
+
+#skill-displays {
+  @media screen and (min-width: 768px) {
+    margin: 0 -6px;
+    .skill-display-container {
+      padding-left: 6px;
+      padding-right: 6px;
     }
   }
 }
