@@ -23,7 +23,7 @@ export const skills = [
   },
   {
     title: "Web Design & Development",
-    tools: ["JavaScript", "HTML5", "CSS3"],
+    tools: ["JavaScript ES6", "HTML5", "CSS3"],
     icon: <FaHtml5 />,
   },
   {

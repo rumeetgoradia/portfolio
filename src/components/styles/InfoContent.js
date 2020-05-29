@@ -1,6 +1,7 @@
 import styled, { css } from "styled-components"
 
 const InfoContent = css`
+  color: ${({ theme }) => theme.font};
   font-size: 1rem;
   margin: 0;
   font-weight: 400;

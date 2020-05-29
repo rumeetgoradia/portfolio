@@ -14,13 +14,17 @@
     -ms-user-select: none; /* Internet Explorer/Edge */
     user-select: none;
     height: auto;
-    width: 40%;
+    width: 70%;
     border-radius: 50%;
     border: 5px solid;
     opacity: 0.9;
     transition: border-color 0.3s linear, opacity 0.3s linear;
     &:hover {
       opacity: 1;
+    }
+    @media screen and (min-width: 576px) {
+      height: auto;
+      width: 40%;
     }
     @media screen and (min-width: 992px) {
       height: 259px;
@@ -43,6 +47,15 @@
   }
 }
 
+#interest-displays {
+  @media screen and (min-width: 576px) {
+    margin: 0 -6px;
+    .interest-display-container {
+      padding-left: 6px;
+      padding-right: 6px;
+    }
+  }
+}
 // #about-content {
 //   display: flex;
 //   justify-content: space-between;

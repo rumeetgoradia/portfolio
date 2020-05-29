@@ -7,6 +7,26 @@ module.exports = {
   plugins: [
     `gatsby-plugin-react-helmet`,
     {
+      resolve: "gatsby-plugin-react-svg",
+      options: {
+        rule: {
+          include: /\.inline\.svg$/,
+          omitKeys: [
+            "xmlnsDc",
+            "xmlnsCc",
+            "xmlnsRdf",
+            "xmlnsSvg",
+            "xmlnsSodipodi",
+            "xmlnsInkscape",
+            "width",
+            "height",
+            "stroke",
+            "fill",
+          ],
+        },
+      },
+    },
+    {
       resolve: `gatsby-plugin-styled-components`,
       options: {
         // Change plugin default options here, e.g.:
@@ -15,6 +35,7 @@ module.exports = {
         // minify: false
       },
     },
+
     {
       resolve: `gatsby-source-filesystem`,
       options: {

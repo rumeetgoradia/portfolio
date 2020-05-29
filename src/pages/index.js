@@ -9,12 +9,12 @@ export default function Index() {
   return (
     <Container fluid id="intro-container">
       <Row style={{ width: "100%" }}>
-        <Col>
+        <Col className="animated fadeIn">
           <h1>Rumeet Goradia</h1>
         </Col>
       </Row>
       <Row style={{ width: "100%" }} id="subtitle-row">
-        <Col>
+        <Col className="animated fadeIn">
           <h2>
             On a quest for{" "}
             <span>

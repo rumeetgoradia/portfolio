@@ -1,0 +1,43 @@
+.interest-display {
+  border-radius: 8px;
+  border: solid 1px rgba(160, 160, 160, 0.3);
+  margin-bottom: 10px;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  position: relative;
+  text-align: center;
+  overflow: hidden;
+  transition: border-color 0.3s linear;
+  &:hover {
+    border-color: rgba(160, 160, 160, 0.8);
+    .interest-icon {
+      fill: var(--green);
+      opacity: 0.75;
+      height: 75px;
+      transform: translate(-45%, -50%) rotate(-11.25deg);
+    }
+    .interest-title {
+      opacity: 1;
+    }
+  }
+  .interest-title {
+    opacity: 0.85;
+    transition: all 0.3s linear;
+    font-size: 20px;
+    font-weight: 400;
+    margin-bottom: -3px;
+    position: relative;
+    z-index: 50;
+  }
+  .interest-icon {
+    position: absolute;
+    z-index: 49;
+    top: 50%;
+    left: 25%;
+    transform: translate(-45%, -50%) rotate(-22.5deg);
+    height: 65px;
+    max-width: 45%;
+    width: auto;
+    transition: all 0.3s linear;
+  }
+}

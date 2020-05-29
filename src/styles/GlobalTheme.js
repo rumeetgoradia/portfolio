@@ -198,9 +198,16 @@ export const GlobalStyles = createGlobalStyle`
 		border-color: ${({ theme }) => theme.imgBorder} !important;
 	}
 
-	.interests-svg {
-		fill: ${({ theme }) => theme.font}
+	.interest-display {
+		.interest-icon {
+			fill: ${({ theme }) => theme.fontRGBA + ".2)"}
+		}
+		.interest-title {
+			color: ${({ theme }) => theme.font};
+			text-shadow:  ${({ theme }) => theme.textShadow}
+		}
 	}
+	
 
 	#footer {
 		background-color: ${({ theme }) => theme.bodyRGBA + ".85)"};

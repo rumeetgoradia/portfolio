@@ -1,17 +1,26 @@
 import "bootstrap/dist/css/bootstrap.min.css"
 
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import { darkTheme, lightTheme } from "../styles/Themes"
 
 import Footer from "../components/Footer"
 import { GlobalStyles } from "../styles/GlobalTheme"
-import NavLinks from "../components/Navbar"
+import Navbar from "../components/Navbar"
 import ParticlesLayout from "./ParticlesLayout"
 import SphereLayout from "./SphereLayout"
 import { ThemeProvider } from "styled-components"
 import { useDarkMode } from "../useDarkMode"
 
+// import WOW from "wowjs"
+
 export default function GlobalLayout({ children, atHome }) {
+  useEffect(() => {
+    if (typeof window !== `undefined`) {
+      const WOW = require("wowjs")
+      new WOW.WOW({ live: false, mobile: false }).init()
+    }
+  }, [])
+
   const [
     theme,
     toggleTheme,
@@ -30,7 +39,7 @@ export default function GlobalLayout({ children, atHome }) {
     <ThemeProvider theme={themeMode} id="body">
       <>
         <GlobalStyles />
-        <NavLinks theme={theme} toggleTheme={toggleTheme} atHome={atHome} />
+        <Navbar theme={theme} toggleTheme={toggleTheme} atHome={atHome} />
         <div id="gradient"></div>
         <div
           id="gradient-transition"

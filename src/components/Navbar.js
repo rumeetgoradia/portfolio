@@ -7,7 +7,7 @@ import { Link } from "gatsby"
 import { NavLink } from "./styles/NavLink"
 import Toggle from "./Toggle"
 
-export default function NavLinks({ theme, toggleTheme, atHome }) {
+export default function Navbar({ theme, toggleTheme, atHome }) {
   const [open, setOpen] = useState(false)
   const [scrollPosition, setScrollPosition] = useState(0)
 
@@ -100,7 +100,10 @@ export default function NavLinks({ theme, toggleTheme, atHome }) {
     <Container
       fluid
       id="navbar"
-      className={`${atHome ? "at-home" : ""} ${open ? "open" : ""}`}
+      className={`${atHome ? "at-home" : ""} ${
+        open ? "open" : ""
+      } animated slideInDown`}
+      style={{ animationDelay: `${atHome ? 300 : 20}ms` }}
     >
       <Row id="navbar-content">
         <Col xs={1} id="navbar-brand-container">

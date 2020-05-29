@@ -8,7 +8,7 @@ export const lightTheme = {
     "linear-gradient(to bottom right, #111820, #0e131a, #0a0e13)",
   textShadow: "0 0 1px #111820",
   navLinkShadow: "0 0 1px 0 #111820",
-  containerColor: "rgba(220, 220, 224, 0.75)",
+  containerColor: "rgba(227, 227, 229, .85)",
   containerShadow: "2px 2px 6px rgba(17, 24, 32, 0.2);",
   imgBorder: "transparent",
 }

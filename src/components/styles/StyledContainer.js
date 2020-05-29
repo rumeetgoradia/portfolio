@@ -8,5 +8,5 @@ export const StyledContainer = styled(Container)`
   padding: 2rem;
   background-color: ${({ theme }) => theme.containerColor};
   box-shadow: ${({ theme }) => theme.containerShadow};
-  transition: all 0.3s linear;
+  transition: background-color 0.3s linear, box-shadow 0.3s linear;
 `
