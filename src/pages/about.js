@@ -31,7 +31,6 @@ export default function About({ data }) {
       const WOW = require("wowjs")
       new WOW.WOW({ live: false, mobile: false }).init()
     }
-
     window.addEventListener("resize", handleResize)
     return () => {
       window.removeEventListener("resize", handleResize)
@@ -41,7 +40,7 @@ export default function About({ data }) {
   return (
     <>
       <Container fluid className="fluid-container">
-        <StyledContainer>
+        <StyledContainer className="animated fadeIn base">
           <Row className="mb-4">
             <Col id="profile-img-container" className="mb-4 mb-lg-0 wow fadeIn">
               <Img
@@ -86,7 +85,7 @@ export default function About({ data }) {
               </Row>
             </Col>
           </Row>
-          <Row>
+          <Row style={{ marginBottom: -10 }}>
             <Col>
               <InfoHeader>My Interests</InfoHeader>
               <Row lg={4} md={3} sm={2} xs={1} id="interest-displays">
@@ -195,7 +194,7 @@ export const query = graphql`
         node {
           childImageSharp {
             id
-            sizes(maxWidth: 500) {
+            sizes(maxWidth: 700) {
               ...GatsbyImageSharpSizes
             }
           }

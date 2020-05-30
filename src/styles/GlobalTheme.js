@@ -110,6 +110,10 @@ export const GlobalStyles = createGlobalStyle`
 		--green: #34926e;
 	}
 
+	.animated.base {
+		animation-duration: 500ms;
+	}
+
 	body, #body {
 		/* background-color: ${({ theme }) => theme.body}; */
 		color: ${({ theme }) => theme.font};
@@ -214,7 +218,7 @@ export const GlobalStyles = createGlobalStyle`
 			color: ${({ theme }) => theme.font};
 		}
 		.interest-overlay {
-			background-color: ${({ theme }) => theme.bodyRGBA + ".6)"}
+			background-color: ${({ theme }) => theme.bodyRGBA + ".45)"}
 		}
 		&:hover {
 			.interest-title {

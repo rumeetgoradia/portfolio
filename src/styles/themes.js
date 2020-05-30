@@ -23,7 +23,7 @@ export const darkTheme = {
     "linear-gradient(to bottom right, #dddde1, #e7e7ea, #f1f1f3)",
   textShadow: "0 0 3px #f1f1f3",
   navLinkShadow: "0 0 2px 0 #f1f1f3",
-  containerColor: "rgba(19,26,35, .8)",
+  containerColor: "rgba(19,26,35, .85)",
   containerShadow: "none",
   imgBorder: "#e7e7ea",
 }
