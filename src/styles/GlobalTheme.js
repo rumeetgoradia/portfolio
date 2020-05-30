@@ -198,13 +198,28 @@ export const GlobalStyles = createGlobalStyle`
 		border-color: ${({ theme }) => theme.imgBorder} !important;
 	}
 
+	.skill-display {
+		&:hover {
+			.skill-info-container {
+				text-shadow:  ${({ theme }) => theme.textShadow}
+			}
+		}
+	}
+
 	.interest-display {
 		.interest-icon {
 			fill: ${({ theme }) => theme.fontRGBA + ".2)"}
 		}
 		.interest-title {
 			color: ${({ theme }) => theme.font};
-			text-shadow:  ${({ theme }) => theme.textShadow}
+		}
+		.interest-overlay {
+			background-color: ${({ theme }) => theme.bodyRGBA + ".6)"}
+		}
+		&:hover {
+			.interest-title {
+				text-shadow:  ${({ theme }) => theme.textShadow};
+			}
 		}
 	}
 	

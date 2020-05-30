@@ -18,8 +18,9 @@ import toolboxEntries from "../assets/data/ToolboxEntries.json"
 
 export default function About({ data }) {
   const profileImg = data.profileImg.childImageSharp.fluid
+  const { edges: interestImgsData } = data.interestImgs
+
   const [width, setWidth] = useState(window.innerWidth)
-  // const [mounted, setMounted] = useState(false)
 
   const handleResize = () => {
     setWidth(window.innerWidth)
@@ -98,7 +99,12 @@ export default function About({ data }) {
                         animationDelay: `${width >= 1200 ? index * 50 : 20}ms`,
                       }}
                     >
-                      <InterestDisplay interest={interest} />
+                      <InterestDisplay
+                        interest={interest}
+                        picSizes={
+                          interestImgsData[index].node.childImageSharp.sizes
+                        }
+                      />
                     </Col>
                   )
                 })}
@@ -175,6 +181,24 @@ export const query = graphql`
       childImageSharp {
         fluid(maxWidth: 700) {
           ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    interestImgs: allFile(
+      sort: { order: ASC, fields: name }
+      filter: {
+        extension: { ne: "svg" }
+        relativePath: { regex: "/interests/" }
+      }
+    ) {
+      edges {
+        node {
+          childImageSharp {
+            id
+            sizes(maxWidth: 500) {
+              ...GatsbyImageSharpSizes
+            }
+          }
         }
       }
     }

@@ -12,11 +12,12 @@
     border-color: rgba(160, 160, 160, 0.8);
     .interest-icon {
       fill: var(--green);
-      opacity: 0.75;
-      height: 75px;
-      transform: translate(-45%, -50%) rotate(-11.25deg);
+      opacity: 0;
+      height: 200% !important;
     }
-    .interest-title {
+    .interest-title,
+    .interest-overlay,
+    .interest-img-container {
       opacity: 1;
     }
   }
@@ -24,8 +25,8 @@
     opacity: 0.85;
     transition: all 0.3s linear;
     font-size: 20px;
-    font-weight: 400;
-    margin-bottom: -3px;
+    font-weight: 500;
+    margin-bottom: -5px;
     position: relative;
     z-index: 50;
   }
@@ -33,11 +34,36 @@
     position: absolute;
     z-index: 49;
     top: 50%;
-    left: 25%;
-    transform: translate(-45%, -50%) rotate(-22.5deg);
-    height: 65px;
-    max-width: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 90%;
     width: auto;
+    transition: fill 0.3s linear, height 1s ease, opacity 1s ease;
+    &.smaller {
+      height: 75%;
+    }
+  }
+  .interest-overlay {
+    position: absolute;
+    z-index: 48;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
     transition: all 0.3s linear;
+  }
+  .interest-img-container {
+    position: absolute;
+    z-index: 47;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: all 0.3s linear;
+    .interest-img {
+      height: 100%;
+    }
   }
 }

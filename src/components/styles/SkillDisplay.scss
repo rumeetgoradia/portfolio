@@ -9,6 +9,7 @@
     border-color: rgba(160, 160, 160, 0.8);
     .skill-icon {
       color: var(--green);
+      transform: scale(1.1);
     }
     .skill-info-container {
       opacity: 1;
@@ -19,14 +20,14 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: color 0.3s linear;
+    transition: color 0.3s linear, transform 0.3s linear;
     @media screen and (min-width: 992px) {
       font-size: 1.5rem;
     }
   }
   .skill-info-container {
     opacity: 0.85;
-    transition: color 0.3s linear, opacity 0.3s linear;
+    transition: color 0.3s linear, opacity 0.3s linear, text-shadow 0.3s linear;
     .skill-title {
       font-size: 1.25rem;
       font-weight: 500;
