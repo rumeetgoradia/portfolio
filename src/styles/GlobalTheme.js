@@ -174,7 +174,7 @@ export const GlobalStyles = createGlobalStyle`
 	
 	#navbar-brand {
 		color: ${({ theme }) => theme.font};
-		text-shadow: ${({ theme }) => theme.textShadow};
+		text-shadow: ${({ theme }) => theme.navLinkShadow};
 	}
 
 	#navbar-toggler {  
@@ -205,7 +205,7 @@ export const GlobalStyles = createGlobalStyle`
 	.skill-display {
 		&:hover {
 			.skill-info-container {
-				text-shadow:  ${({ theme }) => theme.textShadow}
+				text-shadow:  ${({ theme }) => "1px 1px 3px " + theme.fontRGBA + ".35)"}
 			}
 		}
 	}
@@ -222,7 +222,32 @@ export const GlobalStyles = createGlobalStyle`
 		}
 		&:hover {
 			.interest-title {
-				text-shadow:  ${({ theme }) => theme.textShadow};
+				text-shadow:  ${({ theme }) => "1px 1px 3px " + theme.fontRGBA + ".35)"};
+			}
+		}
+	}
+	.timeline {
+		&:before {
+			/* background-color: ${({ theme }) => theme.font}; */
+		}
+		.timeline-element {			
+			.timeline-element-content {
+				h1, h2 {
+					color: ${({ theme }) => theme.font};
+				}
+				p {
+					color: ${({ theme }) => theme.fontRGBA + ".85)"};
+				}
+			}
+			.timeline-element-icon {
+				background-color: ${({ theme }) => theme.font};
+				border-color: ${({ theme }) => theme.font};
+				svg {
+					fill: ${({ theme }) => theme.font};
+				}
+			}
+			.timeline-element-date {
+				border: none;
 			}
 		}
 	}

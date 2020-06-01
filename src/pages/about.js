@@ -40,7 +40,7 @@ export default function About({ data }) {
   return (
     <>
       <Container fluid className="fluid-container">
-        <StyledContainer className="animated fadeIn base">
+        <StyledContainer className="wow fadeIn base">
           <Row className="mb-4">
             <Col id="profile-img-container" className="mb-4 mb-lg-0 wow fadeIn">
               <Img

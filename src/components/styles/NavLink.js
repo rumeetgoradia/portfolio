@@ -42,7 +42,7 @@ export const NavLink = styled(Link)`
   &:hover,
   &:focus {
     color: ${({ theme }) => theme.font};
-    text-shadow: ${({ theme }) => theme.textShadow};
+    text-shadow: ${({ theme }) => theme.navLinkShadow};
     text-decoration: none;
   }
   &.active-nav-link {
