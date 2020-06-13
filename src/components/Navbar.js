@@ -33,70 +33,6 @@ export default function Navbar({ theme, toggleTheme, atHome }) {
   }
 
   return (
-    // <Navbar
-    //   expand="md"
-    //   id="navbar"
-    //   className={`${atHome ? " at-home" : ""}`}
-    //   expanded={open}
-    //   onToggle={handleToggle}
-    // >
-    //   <div id="navbar-brand-container">
-    //     <Link
-    //       to="/"
-    //       id="navbar-brand"
-    //       onClick={() => {
-    //         window.scrollTo(0, 0)
-    //       }}
-    //     >
-    //       RG
-    //     </Link>
-    //   </div>
-    //   <Navbar.Toggle
-    //     aria-controls="nav-links-container"
-    //     id="navbar-toggler"
-    //     className="m-auto"
-    //   >
-    //     {/*   */}
-    //   </Navbar.Toggle>
-    //   <Navbar.Collapse id="nav-links-container">
-    //     <Nav id="nav-links">
-    //       <NavLink
-    //         to="/about"
-    //         activeClassName="active-nav-link"
-    //         className={`navbar-link ${atHome ? " at-home" : ""}`}
-    //         onClick={closeNav}
-    //       >
-    //         About
-    //       </NavLink>
-    //       <NavLink
-    //         to="/experience"
-    //         activeClassName="active-nav-link"
-    //         className={`navbar-link ${atHome ? " at-home" : ""}`}
-    //         onClick={closeNav}
-    //       >
-    //         Experience
-    //       </NavLink>
-    //       <NavLink
-    //         to="/projects"
-    //         activeClassName="active-nav-link"
-    //         className={`navbar-link ${atHome ? " at-home" : ""}`}
-    //         onClick={closeNav}
-    //       >
-    //         Projects
-    //       </NavLink>
-    //       <NavLink
-    //         to="/"
-    //         className={`navbar-link ${atHome ? " at-home" : ""}`}
-    //         onClick={closeNav}
-    //       >
-    //         Resume
-    //       </NavLink>
-    //     </Nav>
-    //   </Navbar.Collapse>
-    //   <div id="navbar-toggle-container ml-auto">
-    //     <Toggle theme={theme} toggleTheme={toggleTheme} />
-    //   </div>
-    // </Navbar>
     <Container
       fluid
       id="navbar"
@@ -168,6 +104,18 @@ export default function Navbar({ theme, toggleTheme, atHome }) {
               Projects
             </NavLink>
             <NavLink
+              to="/contact"
+              className={`navbar-link ${atHome ? " at-home" : ""} ${
+                open ? "open-menu" : ""
+              }`}
+              activeClassName="active-nav-link"
+              onClick={() => {
+                setOpen(false)
+              }}
+            >
+              Contact
+            </NavLink>
+            {/* <NavLink
               to="/"
               className={`navbar-link ${atHome ? " at-home" : ""} ${
                 open ? "open-menu" : ""
@@ -177,7 +125,7 @@ export default function Navbar({ theme, toggleTheme, atHome }) {
               }}
             >
               Resume
-            </NavLink>
+            </NavLink> */}
           </div>
         </Col>
         <Col xs={1} id="navbar-toggle-container">

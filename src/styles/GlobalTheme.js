@@ -256,7 +256,7 @@ export const GlobalStyles = createGlobalStyle`
 	#footer {
 		background-color: ${({ theme }) => theme.bodyRGBA + ".85)"};
 		border-top: 1px solid ${({ theme }) => theme.font};
-		.social-media-link {
+		.contact-link {
 			background-color: ${({ theme }) => theme.font};
 			color: ${({ theme }) => theme.body};
 			&:hover, &:focus {

@@ -3,7 +3,8 @@ exports.onCreatePage = ({ page, actions }) => {
   if (
     page.path.match("/about") ||
     page.path.match("/experience") ||
-    page.path.match("/projects")
+    page.path.match("/projects") ||
+    page.path.match("/contact")
   ) {
     page.context.layout = "particles"
   }

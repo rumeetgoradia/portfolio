@@ -3,7 +3,7 @@ import "./styles/Footer.scss"
 import { Col, Container, Row } from "react-bootstrap"
 
 import React from "react"
-import { socialMedia } from "../assets/data/SocialMediaData"
+import { contactLinks } from "../assets/data/ContactLinksData"
 
 export default function Footer({ atHome }) {
   return (
@@ -18,17 +18,10 @@ export default function Footer({ atHome }) {
         style={{ animationDelay: `${atHome ? 300 : 0}ms` }}
       >
         <Row className="align-items-center justify-content-center">
-          {socialMedia.map((item, index) => {
+          {contactLinks.map((item, index) => {
             return (
-              <Col
-                className="social-media-link-container"
-                key={`social-media-${index}`}
-              >
-                <a
-                  href={item.url}
-                  title={item.title}
-                  className="social-media-link"
-                >
+              <Col className="contact-link-container" key={`contact-${index}`}>
+                <a href={item.url} title={item.title} className="contact-link">
                   {item.icon}
                 </a>
               </Col>

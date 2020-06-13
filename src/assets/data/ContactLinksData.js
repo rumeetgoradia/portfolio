@@ -1,19 +1,15 @@
-import { FaBitbucket, FaGithub, FaLinkedinIn } from "react-icons/fa"
+import { FaFileAlt, FaGithub, FaLinkedinIn } from "react-icons/fa"
 
 import { BsFillEnvelopeFill } from "react-icons/bs"
 import React from "react"
 
-export const socialMedia = [
+export const contactLinks = [
   {
     title: "GitHub",
     url: "https://github.com/rumeetgoradia",
     icon: <FaGithub />,
   },
-  {
-    title: "Bitbucket",
-    url: "https://bitbucket.org/rumeetgoradia/",
-    icon: <FaBitbucket />,
-  },
+
   {
     title: "LinkedIn",
     url: "https://www.linkedin.com/in/rgoradia/",
@@ -23,5 +19,10 @@ export const socialMedia = [
     title: "Email",
     url: "mailto:rumeet.goradia@gmail.com",
     icon: <BsFillEnvelopeFill />,
+  },
+  {
+    title: "Resume",
+    url: "../../RumeetGoradiaResume.pdf",
+    icon: <FaFileAlt />,
   },
 ]

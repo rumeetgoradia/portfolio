@@ -2,24 +2,24 @@
   padding: 1rem 0;
   &:before {
     background-color: rgba(160, 160, 160, 0.3);
+    transition: background-color 0.3s linear;
   }
   .timeline-element {
     margin-bottom: 1rem;
     margin-top: 2rem;
     .timeline-element-content {
+      position: relative;
       background: transparent;
       border: none;
       box-shadow: none;
-      padding-top: 10px;
-      padding-bottom: 0;
+      padding: 10px 5px 0 12px;
       opacity: 0.85;
       transition: color 0.3s linear, opacity 0.3s linear;
       h1 {
-        font-weight: 500;
         font-size: 22px;
+        font-weight: 500;
       }
       h2 {
-        margin: 0;
         font-size: 16px;
         font-weight: 400;
       }
@@ -30,6 +30,15 @@
         strong {
           font-weight: 500;
         }
+      }
+      .timeline-element-content-location {
+        font-style: italic;
+        font-weight: 400;
+        font-size: 16px;
+        padding: 0.25rem 0;
+        position: absolute;
+        bottom: 0;
+        right: 0;
       }
     }
     .timeline-element-icon {
@@ -55,9 +64,12 @@
       font-style: italic;
       font-weight: 400;
       font-size: 16px;
-      padding: 0.25rem;
+      padding: 0.25rem 0;
     }
     &:hover {
+      &:before {
+        background-color: rgba(160, 160, 160, 0.8);
+      }
       .timeline-element-content {
         opacity: 1;
       }
@@ -67,10 +79,10 @@
         width: 40px;
         height: 40px;
         background-color: var(--green);
-        box-shadow: inset 0 2px 0 rgba(0, 0, 0, 0.08);
+        box-shadow: inset 0 2px 0 rgba(0, 0, 0, 0.2);
         svg {
           width: 18px;
-          height: 18px;
+          height: auto;
           opacity: 1;
         }
       }

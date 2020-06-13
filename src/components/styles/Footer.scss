@@ -13,7 +13,7 @@
     border-top-color: transparent;
     background-color: transparent;
   }
-  .social-media-link-container {
+  .contact-link-container {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -21,7 +21,7 @@
     margin: 0 1rem;
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
-    .social-media-link {
+    .contact-link {
       opacity: 0.85;
       font-size: 1.25rem;
       text-decoration: none;
@@ -43,7 +43,7 @@
     }
     @media screen and (max-width: 768px) {
       margin: 0 0.5rem;
-      .social-media-link {
+      .contact-link {
         font-size: 1rem;
         padding: 6px;
       }

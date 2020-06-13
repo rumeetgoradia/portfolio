@@ -12,6 +12,7 @@ import { InfoHeader } from "../components/styles/InfoHeader"
 import React from "react"
 import { StyledContainer } from "../components/styles/StyledContainer"
 import { academicExperience } from "../assets/data/AcademicExperienceData"
+import { professionalExperience } from "../assets/data/ProfessionalExperienceData"
 
 export default function Experience() {
   return (
@@ -21,10 +22,35 @@ export default function Experience() {
           <Row xs={1} lg={2}>
             <Col className="mb-4 mb-lg-0">
               <InfoHeader>Professional</InfoHeader>
+              <VerticalTimeline layout="1-column" className="timeline">
+                {professionalExperience.map((exp, index) => {
+                  return (
+                    <VerticalTimelineElement
+                      key={`professional-experience-${index}`}
+                      className="timeline-element"
+                      contentArrowStyle={{ display: "none" }}
+                      date={exp.date}
+                      icon={exp.icon}
+                      textClassName="timeline-element-content"
+                      iconClassName="timeline-element-icon"
+                      dateClassName="timeline-element-date"
+                    >
+                      <h1>{exp.company}</h1>
+                      <h2 style={{marginBottom: 8}}>{exp.role}</h2>
+                      <p>
+                        <strong>Tools: </strong>
+                        {exp.tools.join(" ⋅ ")}
+                      </p>
+                      <p className='timeline-element-content-location'>
+                        {exp.location}
+                      </p>
+                    </VerticalTimelineElement>
+                  )
+                })}
+              </VerticalTimeline>
             </Col>
             <Col>
               <InfoHeader>Academic</InfoHeader>
-
               <VerticalTimeline layout="1-column" className="timeline">
                 {academicExperience.map((exp, index) => {
                   return (
@@ -44,6 +70,7 @@ export default function Experience() {
                           {exp.degrees.map((degree, degree_index) => {
                             return (
                               <h2
+                                style={{ marginBottom: 0 }}
                                 key={`academic-experience-${index}-degree-${degree_index}`}
                               >
                                 {degree}
@@ -65,27 +92,6 @@ export default function Experience() {
                     </VerticalTimelineElement>
                   )
                 })}
-                {/* <VerticalTimelineElement
-                  className="timeline-element"
-                  contentArrowStyle={{ display: "none" }}
-                  date="2017 - present"
-                  icon={<FaUserGraduate />}
-                  textClassName="timeline-element-content"
-                  iconClassName="timeline-element-icon"
-                  dateClassName="timeline-element-date"
-                >
-                  <h1>Rutgers University</h1>
-                  <div style={{ marginBottom: 8 }}>
-                    <h2>B.S. in Computer Science</h2>
-                    <h2>B.S. in Business Analytics & Information Technology</h2>
-                  </div>
-                  <p>
-                    <strong>Involvement: </strong>
-                  </p>
-                  <p>
-                    <strong>Honors: </strong>
-                  </p>
-                </VerticalTimelineElement> */}
               </VerticalTimeline>
             </Col>
           </Row>

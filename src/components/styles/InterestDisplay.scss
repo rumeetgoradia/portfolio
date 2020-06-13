@@ -38,7 +38,7 @@
     transform: translate(-50%, -50%);
     height: 90%;
     width: auto;
-    transition: all 0.5s linear;
+    transition: all 0.3s linear;
     &.smaller {
       height: 75%;
     }
@@ -51,7 +51,7 @@
     width: 100%;
     height: 100%;
     opacity: 0;
-    transition: background-color 0.3s linear, opacity 0.5s linear;
+    transition: background-color 0.3s linear, opacity 0.3s linear;
   }
   .interest-img-container {
     position: absolute;
@@ -61,7 +61,7 @@
     height: 100%;
     width: 100%;
     opacity: 0;
-    transition: opacity 0.5s linear;
+    transition: opacity 0.3s linear;
     .interest-img {
       height: 100%;
     }
