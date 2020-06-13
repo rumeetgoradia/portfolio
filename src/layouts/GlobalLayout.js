@@ -14,13 +14,6 @@ import { useDarkMode } from "../useDarkMode"
 // import WOW from "wowjs"
 
 export default function GlobalLayout({ children, atHome }) {
-  useEffect(() => {
-    if (typeof window !== `undefined`) {
-      const WOW = require("wowjs")
-      new WOW.WOW({ live: false, mobile: false }).init()
-    }
-  }, [])
-
   const [
     theme,
     toggleTheme,

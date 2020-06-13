@@ -27,10 +27,11 @@ export default function About({ data }) {
   }
 
   useEffect(() => {
-    if (typeof window !== `undefined`) {
-      const WOW = require("wowjs")
-      new WOW.WOW({ live: false, mobile: false }).init()
-    }
+    // if (typeof window !== `undefined`) {
+    //   const WOW = require("wowjs")
+    //   new WOW.WOW({ live: false, mobile: false }).init()
+    // }
+    console.log("hello")
     window.addEventListener("resize", handleResize)
     return () => {
       window.removeEventListener("resize", handleResize)
@@ -42,7 +43,13 @@ export default function About({ data }) {
       <Container fluid className="fluid-container">
         <StyledContainer className="">
           <Row className="mb-4">
-            <Col id="profile-img-container" className="mb-4 mb-lg-0 wow fadeIn">
+            <Col
+              id="profile-img-container"
+              className="mb-4 mb-lg-0 wow fadeIn"
+              data-sal="fade"
+              data-sal-easing="ease-out-quad"
+              data-sal-duration="800"
+            >
               <Img
                 title="Rumeet Goradia"
                 alt="Rumeet Goradia"
@@ -51,32 +58,55 @@ export default function About({ data }) {
               />
             </Col>
             <Col xl={9} lg={8} md={12} className="wow fadeIn">
-              <InfoHeader>Who Am I?</InfoHeader>
-              <InfoParagraph>
-                My name is Rumeet Goradia, and I am currently a rising senior at
-                the Rutgers University Honors College in New Brunswick, NJ. I'm
-                studying Computer Science and Business Analytics & Information
-                Technology. One day, I hope to be able to market my own software
-                and bring more technology into lower-income communities. This
-                coming summer, I'll be working at Schonfeld Strategic Advisors
-                in New York City as a Software Engineering Intern. While I'm not
-                studying or working, I'm at the gym, hanging out with my
-                friends, or working on personal projects like this website.
-              </InfoParagraph>
+              <div
+                data-sal="fade"
+                data-sal-easing="ease-out-quad"
+                data-sal-duration="800"
+              >
+                <InfoHeader>Who Am I?</InfoHeader>
+              </div>
+              <div
+                data-sal="fade"
+                data-sal-easing="ease-out-quad"
+                data-sal-duration="800"
+              >
+                <InfoParagraph>
+                  My name is Rumeet Goradia, and I am currently a rising senior
+                  at the Rutgers University Honors College in New Brunswick, NJ.
+                  I'm studying Computer Science and Business Analytics &
+                  Information Technology. One day, I hope to be able to market
+                  my own software and bring more technology into lower-income
+                  communities. This coming summer, I'll be working at Schonfeld
+                  Strategic Advisors in New York City as a Software Engineering
+                  Intern. While I'm not studying or working, I'm at the gym,
+                  hanging out with my friends, or working on personal projects
+                  like this website.
+                </InfoParagraph>
+              </div>
             </Col>
           </Row>
           <Row className="mb-4">
             <Col className="wow fadeIn">
-              <InfoHeader>My Skills</InfoHeader>
+              <div
+                data-sal="fade"
+                data-sal-easing="ease-out-quad"
+                data-sal-duration="800"
+              >
+                <InfoHeader>My Skills</InfoHeader>
+              </div>
               <Row lg={3} md={2} xs={1} id="skill-displays">
                 {skills.map((skill, index) => {
                   return (
                     <Col
                       key={`skill-${index}`}
                       className="skill-display-container wow fadeIn"
-                      style={{
-                        animationDelay: `${width >= 1200 ? index * 50 : 20}ms`,
-                      }}
+                      // style={{
+                      //   animationDelay: `${width >= 1200 ? index * 50 : 20}ms`,
+                      // }}
+                      data-sal="fade"
+                      data-sal-delay={`${width >= 1200 ? index * 50 : 20}`}
+                      data-sal-easing="ease-out-quad"
+                      data-sal-duration="800"
                     >
                       <SkillDisplay skill={skill} />
                     </Col>
@@ -87,16 +117,26 @@ export default function About({ data }) {
           </Row>
           <Row style={{ marginBottom: -10 }}>
             <Col>
-              <InfoHeader>My Interests</InfoHeader>
+              <div
+                data-sal="fade"
+                data-sal-easing="ease-out-quad"
+                data-sal-duration="800"
+              >
+                <InfoHeader>My Interests</InfoHeader>
+              </div>
               <Row lg={4} md={3} sm={2} xs={1} id="interest-displays">
                 {interests.map((interest, index) => {
                   return (
                     <Col
                       key={`interest-${index}`}
                       className="interest-display-container wow fadeIn"
-                      style={{
-                        animationDelay: `${width >= 1200 ? index * 50 : 20}ms`,
-                      }}
+                      // style={{
+                      //   animationDelay: `${width >= 1200 ? index * 50 : 20}ms`,
+                      // }}
+                      data-sal="fade"
+                      data-sal-delay={`${width >= 1200 ? index * 50 : 20}`}
+                      data-sal-easing="ease-out-quad"
+                      data-sal-duration="800"
                     >
                       <InterestDisplay
                         interest={interest}

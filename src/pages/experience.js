@@ -23,7 +23,13 @@ export default function Experience() {
         <StyledContainer>
           <Row xs={1} lg={2}>
             <Col className="mb-4 mb-lg-0">
-              <InfoHeader>Professional</InfoHeader>
+              <div
+                data-sal="fade"
+                data-sal-easing="ease-out-quad"
+                data-sal-duration="800"
+              >
+                <InfoHeader>Professional</InfoHeader>
+              </div>
               <VerticalTimeline
                 layout="1-column"
                 className="timeline"
@@ -55,7 +61,13 @@ export default function Experience() {
               </VerticalTimeline>
             </Col>
             <Col>
-              <InfoHeader>Academic</InfoHeader>
+              <div
+                data-sal="fade"
+                data-sal-easing="ease-out-quad"
+                data-sal-duration="800"
+              >
+                <InfoHeader>Academic</InfoHeader>
+              </div>
               <VerticalTimeline layout="1-column" className="timeline">
                 {academicExperience.map((exp, index) => {
                   return (
