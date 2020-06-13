@@ -235,8 +235,11 @@ export const GlobalStyles = createGlobalStyle`
 				h1, h2 {
 					color: ${({ theme }) => theme.font};
 				}
-				p {
+				h3, p {
 					color: ${({ theme }) => theme.fontRGBA + ".85)"};
+				}
+				.experience-svg {
+					fill: ${({ theme }) => theme.font};
 				}
 			}
 			.timeline-element-icon {

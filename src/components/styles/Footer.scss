@@ -3,6 +3,7 @@
   overflow-y: hidden;
   z-index: 998;
   position: relative;
+  backdrop-filter: saturate(180%) blur(5px);
   transition: all 0.3s linear;
   &.at-home {
     position: absolute;

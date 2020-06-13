@@ -2,17 +2,19 @@ import "react-vertical-timeline-component/style.min.css"
 import "./styles/experience.scss"
 
 import { Col, Container, Row } from "react-bootstrap"
+import { FaBriefcase, FaGraduationCap } from "react-icons/fa"
 import {
   VerticalTimeline,
   VerticalTimelineElement,
 } from "react-vertical-timeline-component"
+import {
+  academicExperience,
+  professionalExperience,
+} from "../assets/data/ExperienceData"
 
-import { FaUserGraduate } from "react-icons/fa"
 import { InfoHeader } from "../components/styles/InfoHeader"
 import React from "react"
 import { StyledContainer } from "../components/styles/StyledContainer"
-import { academicExperience } from "../assets/data/AcademicExperienceData"
-import { professionalExperience } from "../assets/data/ProfessionalExperienceData"
 
 export default function Experience() {
   return (
@@ -22,7 +24,11 @@ export default function Experience() {
           <Row xs={1} lg={2}>
             <Col className="mb-4 mb-lg-0">
               <InfoHeader>Professional</InfoHeader>
-              <VerticalTimeline layout="1-column" className="timeline">
+              <VerticalTimeline
+                layout="1-column"
+                className="timeline"
+                // style={{ marginBottom: ".25rem" }}
+              >
                 {professionalExperience.map((exp, index) => {
                   return (
                     <VerticalTimelineElement
@@ -30,19 +36,18 @@ export default function Experience() {
                       className="timeline-element"
                       contentArrowStyle={{ display: "none" }}
                       date={exp.date}
-                      icon={exp.icon}
+                      icon={<FaBriefcase />}
                       textClassName="timeline-element-content"
                       iconClassName="timeline-element-icon"
                       dateClassName="timeline-element-date"
                     >
+                      {exp.icon}
                       <h1>{exp.company}</h1>
-                      <h2 style={{marginBottom: 8}}>{exp.role}</h2>
+                      <h3>{exp.location}</h3>
+                      <h2 style={{ marginBottom: 8 }}>{exp.role}</h2>
                       <p>
                         <strong>Tools: </strong>
                         {exp.tools.join(" ⋅ ")}
-                      </p>
-                      <p className='timeline-element-content-location'>
-                        {exp.location}
                       </p>
                     </VerticalTimelineElement>
                   )
@@ -59,12 +64,14 @@ export default function Experience() {
                       className="timeline-element"
                       contentArrowStyle={{ display: "none" }}
                       date={exp.date}
-                      icon={exp.icon}
+                      icon={<FaGraduationCap />}
                       textClassName="timeline-element-content"
                       iconClassName="timeline-element-icon"
                       dateClassName="timeline-element-date"
                     >
+                      {exp.icon}
                       <h1>{exp.school}</h1>
+                      <h3>{exp.location}</h3>
                       {exp.degrees.length > 0 ? (
                         <div style={{ marginBottom: 8 }}>
                           {exp.degrees.map((degree, degree_index) => {
@@ -78,9 +85,7 @@ export default function Experience() {
                             )
                           })}
                         </div>
-                      ) : (
-                        <></>
-                      )}
+                      ) : null}
                       <p>
                         <strong>Involvement: </strong>
                         {exp.involvement.join(" ⋅ ")}

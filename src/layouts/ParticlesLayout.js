@@ -22,7 +22,7 @@ export default function ParticlesLayout({ children, setThemeToggled }) {
         params={{
           particles: {
             number: {
-              value: 100,
+              value: 80,
               density: {
                 enable: true,
                 value_area: 800,
@@ -96,7 +96,7 @@ export default function ParticlesLayout({ children, setThemeToggled }) {
                 mode: "repulse",
               },
               onclick: {
-                enable: true,
+                enable: false,
                 mode: "push",
               },
               resize: true,
@@ -116,7 +116,7 @@ export default function ParticlesLayout({ children, setThemeToggled }) {
                 speed: 3,
               },
               repulse: {
-                distance: 100,
+                distance: 80,
                 duration: 0.4,
               },
               push: {

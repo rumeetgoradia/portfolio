@@ -35,12 +35,12 @@ export default function About({ data }) {
     return () => {
       window.removeEventListener("resize", handleResize)
     }
-  }, [])
+  })
 
   return (
     <>
       <Container fluid className="fluid-container">
-        <StyledContainer className="wow fadeIn base">
+        <StyledContainer className="">
           <Row className="mb-4">
             <Col id="profile-img-container" className="mb-4 mb-lg-0 wow fadeIn">
               <Img

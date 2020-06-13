@@ -12,16 +12,23 @@
       background: transparent;
       border: none;
       box-shadow: none;
-      padding: 10px 5px 0 12px;
+      padding: 2px 5px 0 12px;
       opacity: 0.85;
       transition: color 0.3s linear, opacity 0.3s linear;
       h1 {
         font-size: 22px;
         font-weight: 500;
+        margin: 0;
       }
       h2 {
         font-size: 16px;
         font-weight: 400;
+      }
+      h3 {
+        font-size: 16px;
+        font-weight: 300;
+        font-style: italic;
+        margin: -0.25rem 0 0.5rem 0;
       }
       p {
         font-size: 14px;
@@ -31,14 +38,15 @@
           font-weight: 500;
         }
       }
-      .timeline-element-content-location {
-        font-style: italic;
-        font-weight: 400;
-        font-size: 16px;
-        padding: 0.25rem 0;
-        position: absolute;
-        bottom: 0;
-        right: 0;
+      .experience-svg {
+        height: 40px;
+        max-width: 95%;
+        margin-bottom: 0.75rem;
+        width: auto;
+        transition: fill 0.3s linear;
+        &.smaller {
+          height: 30px;
+        }
       }
     }
     .timeline-element-icon {
@@ -72,6 +80,9 @@
       }
       .timeline-element-content {
         opacity: 1;
+        .experience-svg {
+          fill: var(--green);
+        }
       }
       .timeline-element-icon {
         left: 0;
