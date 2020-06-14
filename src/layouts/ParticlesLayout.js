@@ -5,7 +5,6 @@ import Particles from "react-particles-js"
 export default function ParticlesLayout({ children, setThemeToggled }) {
   useEffect(() => {
     setThemeToggled(false)
-    return () => {}
   }, [])
 
   return (

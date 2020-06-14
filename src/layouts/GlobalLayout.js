@@ -1,17 +1,15 @@
 import "bootstrap/dist/css/bootstrap.min.css"
 
-import React, { useEffect, useState } from "react"
 import { darkTheme, lightTheme } from "../styles/Themes"
 
 import Footer from "../components/Footer"
 import { GlobalStyles } from "../styles/GlobalTheme"
 import Navbar from "../components/Navbar"
 import ParticlesLayout from "./ParticlesLayout"
+import React from "react"
 import SphereLayout from "./SphereLayout"
 import { ThemeProvider } from "styled-components"
 import { useDarkMode } from "../useDarkMode"
-
-// import WOW from "wowjs"
 
 export default function GlobalLayout({ children, atHome }) {
   const [

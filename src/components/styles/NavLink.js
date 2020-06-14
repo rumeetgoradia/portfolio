@@ -22,7 +22,8 @@ export const NavLink = styled(Link)`
   margin: 0 1rem;
   font-size: 1rem;
   opacity: 1;
-  transition: all 0.3s linear;
+  transition: color 0.3s linear, text-shadow 0.3s linear, font-size 0.3s linear,
+    padding-top 0.3s linear;
   &::after,
   &::before {
     content: "";
@@ -34,7 +35,9 @@ export const NavLink = styled(Link)`
     bottom: -12px;
     height: 0px;
     z-index: 89;
-    transition: all 0.3s linear;
+    transition: opacity 0.3s linear, height 0.3s linear, width 0.3s linear,
+      box-shadow 0.3s linear, top 0.3s linear, bottom 0.3s linear,
+      background-color 0.3s linear;
   }
   &::before {
     opacity: 0;

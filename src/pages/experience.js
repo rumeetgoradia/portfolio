@@ -50,7 +50,7 @@ export default function Experience() {
                       {exp.icon}
                       <h1>{exp.company}</h1>
                       <h3>{exp.location}</h3>
-                      <h2 style={{ marginBottom: 8 }}>{exp.role}</h2>
+                      <h2 style={{ marginBottom: ".5rem" }}>{exp.role}</h2>
                       <p>
                         <strong>Tools: </strong>
                         {exp.tools.join(" ⋅ ")}

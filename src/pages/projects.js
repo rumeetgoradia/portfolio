@@ -5,6 +5,7 @@ import React, { useEffect, useState } from "react"
 
 import { BorderedButton } from "../components/styles/BorderedAction"
 import Masonry from "react-masonry-css"
+import ProjectCard from "../components/ProjectCard"
 import { StyledContainer } from "../components/styles/StyledContainer"
 import { graphql } from "gatsby"
 import projects from "../assets/data/ProjectsData.json"
@@ -20,22 +21,20 @@ export default function Projects({ data }) {
   categories = ["all", ...categories]
 
   const [currentCategory, setCurrentCategory] = useState(0)
+  const [categoryChanged, setCategoryChanged] = useState(false)
   const [filteredProjects, setFilteredProjects] = useState(projects)
 
   useEffect(() => {
     if (currentCategory === 0) {
       setFilteredProjects(projects)
     } else {
+      setCategoryChanged(true)
       const newProjectsList = projects.filter(
         project => project.category === categories[currentCategory]
       )
       setFilteredProjects(newProjectsList)
     }
   }, [currentCategory])
-
-  useEffect(() => {
-    console.log(filteredProjects)
-  }, [filteredProjects])
 
   return (
     <>
@@ -47,6 +46,10 @@ export default function Projects({ data }) {
                 <Col
                   key={`category-btn-${index}`}
                   className="category-selector-container"
+                  data-sal="fade"
+                  data-sal-delay={`${index * 50}`}
+                  data-sal-easing="ease-out-quad"
+                  data-sal-duration="800"
                 >
                   <BorderedButton
                     className={`${index === currentCategory ? "active" : ""}`}
@@ -64,7 +67,25 @@ export default function Projects({ data }) {
             columnClassName="projects-grid-col"
           >
             {filteredProjects.map((project, index) => {
-              return <h1 key={index}>{project.title}</h1>
+              const projectImgEdge = projectImgsData.find(
+                projectImgData =>
+                  projectImgData.node.name === project.title.toLowerCase()
+              )
+              return (
+                <div
+                  data-sal={`${!categoryChanged ? "fade" : ""}`}
+                  data-sal-delay={`${index * 50 + 200}`}
+                  data-sal-easing="ease-out-quad"
+                  data-sal-duration="800"
+                  key={`project-card-${index}`}
+                >
+                  <ProjectCard
+                    project={project}
+                    picSizes={projectImgEdge.node.childImageSharp.sizes}
+                    index={index}
+                  />
+                </div>
+              )
             })}
           </Masonry>
         </StyledContainer>

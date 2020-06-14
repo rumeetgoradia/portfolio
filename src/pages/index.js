@@ -9,12 +9,18 @@ export default function Index() {
   return (
     <Container fluid id="intro-container">
       <Row style={{ width: "100%" }}>
-        <Col className="animated fadeIn" style={{ animationDuration: "1.5s" }}>
+        <Col
+          className="animate__animated animate__fadeIn"
+          style={{ animationDuration: "1.5s" }}
+        >
           <h1>Rumeet Goradia</h1>
         </Col>
       </Row>
       <Row style={{ width: "100%" }} id="subtitle-row">
-        <Col className="animated fadeIn" style={{ animationDuration: "1.5s" }}>
+        <Col
+          className="animate__animated animate__fadeIn"
+          style={{ animationDuration: "1.5s" }}
+        >
           <h2>
             On a quest for{" "}
             <span>

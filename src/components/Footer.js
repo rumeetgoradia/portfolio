@@ -14,7 +14,7 @@ export default function Footer({ atHome }) {
     >
       <Container
         fluid
-        className="animated slideInUp"
+        className="animate__animated animate__slideInUp"
         style={{ animationDelay: `${atHome ? 300 : 0}ms` }}
       >
         <Row className="align-items-center justify-content-center">

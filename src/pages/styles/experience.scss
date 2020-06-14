@@ -51,6 +51,9 @@
         -webkit-transition: color 0.3s linear;
         -o-transition: color 0.3s linear;
         transition: color 0.3s linear;
+        padding-left: 36px;
+        text-indent: -36px;
+        line-height: 1.15;
         strong {
           font-weight: 500;
         }

@@ -21,7 +21,9 @@ const borderedStyle = css`
   text-align: center;
   position: relative;
   z-index: 91;
-  transition: all 0.3s linear;
+  transition: opacity 0.3s linear, letter-spacing 0.3s linear,
+    padding-right 0.3s linear, background-color 0.3s linear, color 0.3s linear,
+    box-shadow 0.3s linear, transform 0.3s linear, border-color 0.3s linear;
   &:hover,
   &:focus,
   &.active {
@@ -49,6 +51,10 @@ const borderedStyle = css`
 export const BorderedAnchor = styled.a`
   ${borderedStyle}
   text-decoration: none;
+  &:hover,
+  &:focus {
+    text-decoration: none;
+  }
 `
 
 export const BorderedButton = styled.button`

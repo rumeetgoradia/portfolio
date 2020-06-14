@@ -1,7 +1,7 @@
 [
   {
     "title": "Hotel Reservation",
-    "category": "web app",
+    "category": "web apps",
     "description": "Lorem Lorem  Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem",
     "liveLink": "https://google.com",
     "repoLink": "https://github.com/rumeetgoradia",
@@ -12,12 +12,12 @@
     "category": "academic",
     "description": "Lorem Lorem  Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem",
     "liveLink": "https://google.com",
-    "repoLink": "https://github.com/rumeetgoradia",
+
     "tools": ["Java", "JSP", "Booom Boom POW"]
   },
   {
     "title": "Sorting Visualizer",
-    "category": "web app",
+    "category": "web apps",
     "description": "Lorem Lorem  Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem",
     "liveLink": "https://google.com",
     "repoLink": "https://github.com/rumeetgoradia",
@@ -25,7 +25,7 @@
   },
   {
     "title": "Tetris",
-    "category": "web app",
+    "category": "web apps",
     "description": "Lorem Lorem  Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem",
     "liveLink": "https://google.com",
     "repoLink": "https://github.com/rumeetgoradia",
@@ -33,10 +33,23 @@
   },
   {
     "title": "Website",
-    "category": "Website",
+    "category": "websites",
     "description": "Lorem Lorem  Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem",
     "liveLink": "https://google.com",
     "repoLink": "https://github.com/rumeetgoradia",
-    "tools": ["Java", "JSP", "Booom Boom POW"]
+    "tools": [
+      "Java",
+      "JSP",
+      "Booom Boom POW",
+      "Java",
+      "JSP",
+      "Booom Boom POW",
+      "Java",
+      "JSP",
+      "Booom Boom POW",
+      "Java",
+      "JSP",
+      "Booom Boom POW"
+    ]
   }
 ]

@@ -12,12 +12,9 @@ export default function Navbar({ theme, toggleTheme, atHome }) {
   const [scrollPosition, setScrollPosition] = useState(0)
 
   const handleToggle = expanded => {
-    // console.log("expanded ", expanded)
     if (expanded) {
       setScrollPosition(window.scrollY)
-      // document.getElementById("body").classList.add("hide-overflow")
     } else {
-      // document.getElementById("body").classList.remove("hide-overflow")
       window.scrollTo(0, scrollPosition)
     }
     setOpen(expanded)
@@ -38,7 +35,7 @@ export default function Navbar({ theme, toggleTheme, atHome }) {
       id="navbar"
       className={`${atHome ? "at-home" : ""} ${
         open ? "open" : ""
-      } animated slideInDown`}
+      } animate__animated animate__slideInDown`}
       style={{ animationDelay: `${atHome ? 300 : 20}ms` }}
     >
       <Row id="navbar-content">
@@ -115,17 +112,6 @@ export default function Navbar({ theme, toggleTheme, atHome }) {
             >
               Contact
             </NavLink>
-            {/* <NavLink
-              to="/"
-              className={`navbar-link ${atHome ? " at-home" : ""} ${
-                open ? "open-menu" : ""
-              }`}
-              onClick={() => {
-                setOpen(false)
-              }}
-            >
-              Resume
-            </NavLink> */}
           </div>
         </Col>
         <Col xs={1} id="navbar-toggle-container">

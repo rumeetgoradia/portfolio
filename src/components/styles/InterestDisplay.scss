@@ -23,12 +23,12 @@
   }
   .interest-title {
     opacity: 0.85;
-    transition: all 0.3s linear;
     font-size: 20px;
     font-weight: 500;
     margin-bottom: -5px;
     position: relative;
     z-index: 50;
+    transition: opacity 0.3s linear;
   }
   .interest-icon {
     position: absolute;
@@ -38,7 +38,7 @@
     transform: translate(-50%, -50%);
     height: 90%;
     width: auto;
-    transition: all 0.3s linear;
+    transition: fill 0.3s linear, opacity 0.3s linear, height 0.3s linear;
     &.smaller {
       height: 75%;
     }

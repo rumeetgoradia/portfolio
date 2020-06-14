@@ -1,20 +1,17 @@
 import "./styles/about.scss"
 
 import { Col, Container, Row } from "react-bootstrap"
-import { InfoParagraph, InfoSpan } from "../components/styles/InfoContent"
 import React, { useEffect, useState } from "react"
 
 import Img from "gatsby-image"
 import { InfoHeader } from "../components/styles/InfoHeader"
+import { InfoParagraph } from "../components/styles/InfoContent"
 import InterestDisplay from "../components/InterestDisplay"
 import SkillDisplay from "../components/SkillDisplay"
 import { StyledContainer } from "../components/styles/StyledContainer"
 import { graphql } from "gatsby"
 import { interests } from "../assets/data/InterestsData"
 import { skills } from "../assets/data/SkillsData"
-import toolboxEntries from "../assets/data/ToolboxEntries.json"
-
-// import AnimeSVG from "../assets/images/interests/anime.svg"
 
 export default function About({ data }) {
   const profileImg = data.profileImg.childImageSharp.fluid
@@ -27,11 +24,6 @@ export default function About({ data }) {
   }
 
   useEffect(() => {
-    // if (typeof window !== `undefined`) {
-    //   const WOW = require("wowjs")
-    //   new WOW.WOW({ live: false, mobile: false }).init()
-    // }
-    console.log("hello")
     window.addEventListener("resize", handleResize)
     return () => {
       window.removeEventListener("resize", handleResize)
@@ -45,7 +37,7 @@ export default function About({ data }) {
           <Row className="mb-4">
             <Col
               id="profile-img-container"
-              className="mb-4 mb-lg-0 wow fadeIn"
+              className="mb-4 mb-lg-0"
               data-sal="fade"
               data-sal-easing="ease-out-quad"
               data-sal-duration="800"
@@ -57,7 +49,7 @@ export default function About({ data }) {
                 fluid={profileImg}
               />
             </Col>
-            <Col xl={9} lg={8} md={12} className="wow fadeIn">
+            <Col xl={9} lg={8} md={12}>
               <div
                 data-sal="fade"
                 data-sal-easing="ease-out-quad"
@@ -86,7 +78,7 @@ export default function About({ data }) {
             </Col>
           </Row>
           <Row className="mb-4">
-            <Col className="wow fadeIn">
+            <Col>
               <div
                 data-sal="fade"
                 data-sal-easing="ease-out-quad"
@@ -99,7 +91,7 @@ export default function About({ data }) {
                   return (
                     <Col
                       key={`skill-${index}`}
-                      className="skill-display-container wow fadeIn"
+                      className="skill-display-container"
                       // style={{
                       //   animationDelay: `${width >= 1200 ? index * 50 : 20}ms`,
                       // }}
@@ -129,7 +121,7 @@ export default function About({ data }) {
                   return (
                     <Col
                       key={`interest-${index}`}
-                      className="interest-display-container wow fadeIn"
+                      className="interest-display-container"
                       // style={{
                       //   animationDelay: `${width >= 1200 ? index * 50 : 20}ms`,
                       // }}

@@ -18,6 +18,7 @@
   display: -ms-flexbox; /* Not needed if autoprefixing */
   display: flex;
   margin-left: -16px; /* gutter size offset */
+  margin-bottom: -16px;
   width: auto;
   .projects-grid-col {
     padding-left: 16px; /* gutter size */
@@ -25,6 +26,7 @@
   }
   @media screen and (min-width: 768px) {
     margin-left: -30px;
+    margin-bottom: -30px;
     .projects-grid-col {
       padding-left: 30px;
     }

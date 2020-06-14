@@ -10,6 +10,7 @@ export const lightTheme = {
   containerColor: "rgba(227, 227, 229, .65)",
   containerShadow: "2px 2px 6px rgba(17, 24, 32, 0.2);",
   imgBorder: "transparent",
+  cardColor: "rgba(223, 223, 224, .45)",
 }
 
 export const darkTheme = {
@@ -24,4 +25,5 @@ export const darkTheme = {
   containerColor: "rgba(19,26,35, .65)",
   containerShadow: "none",
   imgBorder: "#e7e7ea",
+  cardColor: "rgba(31, 41, 54,.35)",
 }

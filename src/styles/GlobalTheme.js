@@ -107,7 +107,7 @@ export const GlobalStyles = createGlobalStyle`
 	}
 
 	:root {
-		--green: #34926e;
+		--green: rgb(52, 146, 110);
 	}
 
 	.animated.base {
@@ -115,7 +115,7 @@ export const GlobalStyles = createGlobalStyle`
 	}
 
 	body, #body {
-		/* background-color: ${({ theme }) => theme.body}; */
+		background-color: ${({ theme }) => theme.body};
 		color: ${({ theme }) => theme.font};
 		margin: 0;
 		padding: 0;
@@ -251,6 +251,19 @@ export const GlobalStyles = createGlobalStyle`
 			}
 			.timeline-element-date {
 				border: none;
+			}
+		}
+	}
+
+	.project-card {
+		.project-content-container {
+			background-color: ${({ theme }) => theme.cardColor};
+			box-shadow: ${({ theme }) => theme.containerShadow};
+			h1, h2 {
+					color: ${({ theme }) => theme.font};
+			}
+			p {
+				color: ${({ theme }) => theme.fontRGBA + ".85)"};
 			}
 		}
 	}
