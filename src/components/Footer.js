@@ -21,7 +21,12 @@ export default function Footer({ atHome }) {
           {contactLinks.map((item, index) => {
             return (
               <Col className="contact-link-container" key={`contact-${index}`}>
-                <a href={item.url} title={item.title} className="contact-link">
+                <a
+                  href={item.url}
+                  title={item.title}
+                  className="contact-link"
+                  target="_blank"
+                >
                   {item.icon}
                 </a>
               </Col>

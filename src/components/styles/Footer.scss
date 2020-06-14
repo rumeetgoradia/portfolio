@@ -3,21 +3,38 @@
   overflow-y: hidden;
   z-index: 998;
   position: relative;
+  -webkit-backdrop-filter: saturate(180%) blur(5px);
   backdrop-filter: saturate(180%) blur(5px);
+  -webkit-transition: all 0.3s linear;
+  -o-transition: all 0.3s linear;
   transition: all 0.3s linear;
   &.at-home {
     position: absolute;
     bottom: 0;
     height: 80px;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
     border-top-color: transparent;
     background-color: transparent;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
   }
   .contact-link-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
+    -webkit-box-flex: 0;
+    -ms-flex-positive: 0;
     flex-grow: 0;
     margin: 0 1rem;
     padding-top: 0.5rem;
@@ -28,9 +45,17 @@
       text-decoration: none;
       border-radius: 50%;
       padding: 10px;
+      display: -webkit-box;
+      display: -ms-flexbox;
       display: flex;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
       justify-content: center;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
       align-items: center;
+      -webkit-transition: all 0.3s linear;
+      -o-transition: all 0.3s linear;
       transition: all 0.3s linear;
       &:hover,
       &:focus {
@@ -39,6 +64,8 @@
         opacity: 1;
       }
       &:active {
+        -webkit-transform: scale(0.95);
+        -ms-transform: scale(0.95);
         transform: scale(0.95);
       }
     }

@@ -1,0 +1,42 @@
+[
+  {
+    "title": "Hotel Reservation",
+    "category": "web app",
+    "description": "Lorem Lorem  Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem",
+    "liveLink": "https://google.com",
+    "repoLink": "https://github.com/rumeetgoradia",
+    "tools": ["Java", "JSP", "Booom Boom POW"]
+  },
+  {
+    "title": "mymalloc()",
+    "category": "academic",
+    "description": "Lorem Lorem  Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem",
+    "liveLink": "https://google.com",
+    "repoLink": "https://github.com/rumeetgoradia",
+    "tools": ["Java", "JSP", "Booom Boom POW"]
+  },
+  {
+    "title": "Sorting Visualizer",
+    "category": "web app",
+    "description": "Lorem Lorem  Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem",
+    "liveLink": "https://google.com",
+    "repoLink": "https://github.com/rumeetgoradia",
+    "tools": ["Java", "JSP", "Booom Boom POW"]
+  },
+  {
+    "title": "Tetris",
+    "category": "web app",
+    "description": "Lorem Lorem  Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem",
+    "liveLink": "https://google.com",
+    "repoLink": "https://github.com/rumeetgoradia",
+    "tools": ["Java", "JSP", "Booom Boom POW"]
+  },
+  {
+    "title": "Website",
+    "category": "Website",
+    "description": "Lorem Lorem  Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem",
+    "liveLink": "https://google.com",
+    "repoLink": "https://github.com/rumeetgoradia",
+    "tools": ["Java", "JSP", "Booom Boom POW"]
+  }
+]

@@ -1,0 +1,32 @@
+.category-selectors {
+  margin: 0 -8px -16px;
+  .category-selector-container {
+    padding: 0 8px;
+    margin-bottom: 16px;
+  }
+  @media screen and (min-width: 768px) {
+    margin: 0 -15px;
+    .category-selector-container {
+      padding: 0 15px;
+      margin-bottom: 0;
+    }
+  }
+}
+
+.projects-grid {
+  display: -webkit-box; /* Not needed if autoprefixing */
+  display: -ms-flexbox; /* Not needed if autoprefixing */
+  display: flex;
+  margin-left: -16px; /* gutter size offset */
+  width: auto;
+  .projects-grid-col {
+    padding-left: 16px; /* gutter size */
+    background-clip: padding-box;
+  }
+  @media screen and (min-width: 768px) {
+    margin-left: -30px;
+    .projects-grid-col {
+      padding-left: 30px;
+    }
+  }
+}

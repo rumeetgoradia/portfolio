@@ -25,7 +25,7 @@ export default function ParticlesLayout({ children, setThemeToggled }) {
               value: 80,
               density: {
                 enable: true,
-                value_area: 800,
+                value_area: 600,
               },
             },
             color: {

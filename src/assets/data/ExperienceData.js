@@ -24,7 +24,7 @@ export const professionalExperience = [
   },
   {
     company: "Ortho Clinical Diagnostics",
-    date: "June 2019 — August 2019",
+    date: "June 2018 — August 2018",
     location: "Raritan, New Jersey",
     role: "Compute Services Intern",
     tools: [
