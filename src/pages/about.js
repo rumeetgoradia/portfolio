@@ -37,10 +37,7 @@ export default function About({ data }) {
           <Row className="mb-4">
             <Col
               id="profile-img-container"
-              className="mb-4 mb-lg-0"
-              data-sal="fade"
-              data-sal-easing="ease-out-quad"
-              data-sal-duration="800"
+              className="mb-4 mb-lg-0 animate__animated animate__fadeIn"
             >
               <Img
                 title="Rumeet Goradia"
@@ -49,56 +46,36 @@ export default function About({ data }) {
                 fluid={profileImg}
               />
             </Col>
-            <Col xl={9} lg={8} md={12}>
-              <div
-                data-sal="fade"
-                data-sal-easing="ease-out-quad"
-                data-sal-duration="800"
-              >
-                <InfoHeader>Who Am I?</InfoHeader>
-              </div>
-              <div
-                data-sal="fade"
-                data-sal-easing="ease-out-quad"
-                data-sal-duration="800"
-              >
-                <InfoParagraph>
-                  My name is Rumeet Goradia, and I am currently a rising senior
-                  at the Rutgers University Honors College in New Brunswick, NJ.
-                  I'm studying Computer Science and Business Analytics &
-                  Information Technology. One day, I hope to be able to market
-                  my own software and bring more technology into lower-income
-                  communities. This coming summer, I'll be working at Schonfeld
-                  Strategic Advisors in New York City as a Software Engineering
-                  Intern. While I'm not studying or working, I'm at the gym,
-                  hanging out with my friends, or working on personal projects
-                  like this website.
-                </InfoParagraph>
-              </div>
+            <Col
+              xl={9}
+              lg={8}
+              md={12}
+              className="animate__animated animate__fadeIn"
+            >
+              <InfoHeader>Who Am I?</InfoHeader>
+              <InfoParagraph>
+                My name is Rumeet Goradia, and I am currently a rising senior at
+                the Rutgers University Honors College in New Brunswick, NJ. I'm
+                studying Computer Science and Business Analytics & Information
+                Technology. One day, I hope to be able to market my own software
+                and bring more technology into lower-income communities. This
+                coming summer, I'll be working at Schonfeld Strategic Advisors
+                in New York City as a Software Engineering Intern. While I'm not
+                studying or working, I'm at the gym, hanging out with my
+                friends, or working on personal projects like this website.
+              </InfoParagraph>
             </Col>
           </Row>
           <Row className="mb-4">
-            <Col>
-              <div
-                data-sal="fade"
-                data-sal-easing="ease-out-quad"
-                data-sal-duration="800"
-              >
-                <InfoHeader>My Skills</InfoHeader>
-              </div>
+            <Col className="animate__animated animate__fadeIn">
+              <InfoHeader>My Skills</InfoHeader>
               <Row lg={3} md={2} xs={1} id="skill-displays">
                 {skills.map((skill, index) => {
                   return (
                     <Col
                       key={`skill-${index}`}
-                      className="skill-display-container"
-                      // style={{
-                      //   animationDelay: `${width >= 1200 ? index * 50 : 20}ms`,
-                      // }}
-                      data-sal="fade"
-                      data-sal-delay={`${width >= 1200 ? index * 50 : 20}`}
-                      data-sal-easing="ease-out-quad"
-                      data-sal-duration="800"
+                      className="skill-display-container animate__animated animate__fadeIn"
+                      style={{ animationDelay: `${index * 50 + 200}ms` }}
                     >
                       <SkillDisplay skill={skill} />
                     </Col>
@@ -108,27 +85,15 @@ export default function About({ data }) {
             </Col>
           </Row>
           <Row style={{ marginBottom: -10 }}>
-            <Col>
-              <div
-                data-sal="fade"
-                data-sal-easing="ease-out-quad"
-                data-sal-duration="800"
-              >
-                <InfoHeader>My Interests</InfoHeader>
-              </div>
+            <Col className="animate__animated animate__fadeIn">
+              <InfoHeader>My Interests</InfoHeader>
               <Row lg={4} md={3} sm={2} xs={1} id="interest-displays">
                 {interests.map((interest, index) => {
                   return (
                     <Col
                       key={`interest-${index}`}
-                      className="interest-display-container"
-                      // style={{
-                      //   animationDelay: `${width >= 1200 ? index * 50 : 20}ms`,
-                      // }}
-                      data-sal="fade"
-                      data-sal-delay={`${width >= 1200 ? index * 50 : 20}`}
-                      data-sal-easing="ease-out-quad"
-                      data-sal-duration="800"
+                      className="interest-display-container animate__animated animate__fadeIn"
+                      style={{ animationDelay: `${index * 50 + 200}ms` }}
                     >
                       <InterestDisplay
                         interest={interest}

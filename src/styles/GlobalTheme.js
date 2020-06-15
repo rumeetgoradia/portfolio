@@ -110,10 +110,6 @@ export const GlobalStyles = createGlobalStyle`
 		--green: rgb(52, 146, 110);
 	}
 
-	.animated.base {
-		animation-duration: 500ms;
-	}
-
 	body, #body {
 		background-color: ${({ theme }) => theme.body};
 		color: ${({ theme }) => theme.font};
@@ -256,9 +252,9 @@ export const GlobalStyles = createGlobalStyle`
 	}
 
 	.project-card {
+		box-shadow: ${({ theme }) => theme.containerShadow};
 		.project-content-container {
-			background-color: ${({ theme }) => theme.cardColor};
-			box-shadow: ${({ theme }) => theme.containerShadow};
+			background-color: ${({ theme }) => theme.cardColor};	
 			h1, h2 {
 					color: ${({ theme }) => theme.font};
 			}

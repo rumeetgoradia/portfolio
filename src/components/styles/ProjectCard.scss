@@ -1,7 +1,7 @@
 .project-card {
   margin-bottom: 16px;
   opacity: 0.8;
-  transition: opacity 0.3s linear;
+  transition: opacity 0.3s linear, box-shadow 0.3s linear;
   .project-img-container {
     position: relative;
     width: 100%;
@@ -63,9 +63,10 @@
       }
     }
     .project-links {
-      margin: 0 -4px;
+      margin: 0 -4px -8px;
       .project-link {
         padding: 0 4px;
+        margin-bottom: 8px;
       }
     }
   }

@@ -48,6 +48,7 @@ export const academicExperience = [
     location: "New Brunswick, New Jersey",
     involvement: [
       "Road to Silicon V/Alley (VP of External Affairs)",
+      "TEDx Rutgers (Technology Team Member)",
       "Google Community Leaders Program (NGO Team Member)",
       "Road to Wall Street (Cohort 8 Member)",
       "Alpha Kappa Psi (Treasurer)",

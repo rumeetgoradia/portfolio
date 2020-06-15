@@ -11,6 +11,8 @@ import SphereLayout from "./SphereLayout"
 import { ThemeProvider } from "styled-components"
 import { useDarkMode } from "../useDarkMode"
 
+require("animate.css")
+
 export default function GlobalLayout({ children, atHome }) {
   const [
     theme,

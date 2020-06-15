@@ -21,20 +21,26 @@ export default function Projects({ data }) {
   categories = ["all", ...categories]
 
   const [currentCategory, setCurrentCategory] = useState(0)
-  const [categoryChanged, setCategoryChanged] = useState(false)
+  const [animate, setAnimate] = useState(true)
   const [filteredProjects, setFilteredProjects] = useState(projects)
 
   useEffect(() => {
     if (currentCategory === 0) {
       setFilteredProjects(projects)
     } else {
-      setCategoryChanged(true)
       const newProjectsList = projects.filter(
         project => project.category === categories[currentCategory]
       )
       setFilteredProjects(newProjectsList)
     }
   }, [currentCategory])
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setAnimate(false)
+      clearTimeout(timeout)
+    }, projects.length * (50 + 1000) + 200)
+  })
 
   return (
     <>
@@ -45,11 +51,8 @@ export default function Projects({ data }) {
               return (
                 <Col
                   key={`category-btn-${index}`}
-                  className="category-selector-container"
-                  data-sal="fade"
-                  data-sal-delay={`${index * 50}`}
-                  data-sal-easing="ease-out-quad"
-                  data-sal-duration="800"
+                  className="category-selector-container animate__animated animate__fadeIn"
+                  style={{ animationDelay: `${index * 50}ms` }}
                 >
                   <BorderedButton
                     className={`${index === currentCategory ? "active" : ""}`}
@@ -73,10 +76,10 @@ export default function Projects({ data }) {
               )
               return (
                 <div
-                  data-sal={`${!categoryChanged ? "fade" : ""}`}
-                  data-sal-delay={`${index * 50 + 200}`}
-                  data-sal-easing="ease-out-quad"
-                  data-sal-duration="800"
+                  className={`${
+                    animate ? "animate__animated animate__fadeIn" : ""
+                  }`}
+                  style={{ animationDelay: `${index * 50 + 200}ms` }}
                   key={`project-card-${index}`}
                 >
                   <ProjectCard

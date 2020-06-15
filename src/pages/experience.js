@@ -22,14 +22,8 @@ export default function Experience() {
       <Container fluid className="fluid-container">
         <StyledContainer>
           <Row xs={1} lg={2}>
-            <Col className="mb-4 mb-lg-0">
-              <div
-                data-sal="fade"
-                data-sal-easing="ease-out-quad"
-                data-sal-duration="800"
-              >
-                <InfoHeader>Professional</InfoHeader>
-              </div>
+            <Col className="mb-4 mb-lg-0 animate__animated animate__fadeIn">
+              <InfoHeader>Professional</InfoHeader>
               <VerticalTimeline
                 layout="1-column"
                 className="timeline"
@@ -60,14 +54,9 @@ export default function Experience() {
                 })}
               </VerticalTimeline>
             </Col>
-            <Col>
-              <div
-                data-sal="fade"
-                data-sal-easing="ease-out-quad"
-                data-sal-duration="800"
-              >
-                <InfoHeader>Academic</InfoHeader>
-              </div>
+            <Col className="animate__animated animate__fadeIn">
+              <InfoHeader>Academic</InfoHeader>
+
               <VerticalTimeline layout="1-column" className="timeline">
                 {academicExperience.map((exp, index) => {
                   return (

@@ -8,9 +8,7 @@ import React from "react"
 
 export default function ProjectCard({ project, picSizes, index }) {
   return (
-    <div
-      className="project-card"
-    >
+    <div className="project-card">
       <div className="project-img-container">
         <Img
           title={project.title}
@@ -19,20 +17,6 @@ export default function ProjectCard({ project, picSizes, index }) {
           className="project-img"
         />
         <div className="project-img-shadow-overlay"></div>
-        {/* <div className="project-img-color-overlay">
-          {project.liveLink ? (
-            <div className="project-link">
-              <BorderedAnchor href={project.liveLink}>Live</BorderedAnchor>
-            </div>
-          ) : null}
-          {project.repoLink ? (
-            <div className="project-link">
-              <BorderedAnchor href={project.repoLink}>
-                Repository
-              </BorderedAnchor>
-            </div>
-          ) : null}
-        </div> */}
       </div>
       <div className="project-content-container">
         <h1>{project.title}</h1>
