@@ -2,11 +2,6 @@ import { Link } from "gatsby"
 import styled from "styled-components"
 
 export const NavLink = styled(Link)`
-  -webkit-touch-callout: none; /* iOS Safari */
-  -webkit-user-select: none; /* Safari */
-  -khtml-user-select: none; /* Konqueror HTML */
-  -moz-user-select: none; /* Old versions of Firefox */
-  -ms-user-select: none; /* Internet Explorer/Edge */
   user-select: none;
   font-family: "Calibre", sans-serif;
   position: relative;
@@ -35,6 +30,8 @@ export const NavLink = styled(Link)`
     bottom: -12px;
     height: 0px;
     z-index: 89;
+    background-color: ${({ theme }) => theme.font};
+    box-shadow: ${({ theme }) => theme.navLinkShadow};
     transition: opacity 0.3s linear, height 0.3s linear, width 0.3s linear,
       box-shadow 0.3s linear, top 0.3s linear, bottom 0.3s linear,
       background-color 0.3s linear;
@@ -47,6 +44,9 @@ export const NavLink = styled(Link)`
     color: ${({ theme }) => theme.font};
     text-shadow: ${({ theme }) => theme.navLinkShadow};
     text-decoration: none;
+    &::after {
+      height: 4px;
+    }
   }
   &.active-nav-link {
     color: var(--green);
@@ -95,7 +95,7 @@ export const NavLink = styled(Link)`
       }
     }
   }
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 767px) {
     font-size: 1.25rem;
     text-shadow: ${({ theme }) => theme.textShadow};
     padding-top: 6px;
@@ -158,24 +158,6 @@ export const NavLink = styled(Link)`
           width: 100%;
         }
       }
-      /* &.active-nav-link {
-        color: var(--green);
-        text-shadow: 0px 0px 4px var(--green);
-        &::after,
-        &::before {
-          box-shadow: none !important;
-          height: 2px !important;
-          opacity: 1;
-          background-color: var(--green) !important;
-          width: 100%;
-        }
-        &::before {
-          top: -10px;
-        }
-        &::after {
-          bottom: -10px;
-        }
-      } */
     }
   }
 `
