@@ -1,14 +1,12 @@
-import "./styles/projects.scss"
-
-import { Col, Container, Row } from "react-bootstrap"
-import React, { useEffect, useState } from "react"
-
-import { BorderedButton } from "../components/styles/BorderedAction"
-import Masonry from "react-masonry-css"
-import ProjectCard from "../components/ProjectCard"
-import { StyledContainer } from "../components/styles/StyledContainer"
 import { graphql } from "gatsby"
+import React, { useEffect, useState } from "react"
+import { Col, Container, Row } from "react-bootstrap"
+import Masonry from "react-masonry-css"
 import projects from "../assets/data/ProjectsData.json"
+import ProjectCard from "../components/ProjectCard"
+import { BorderedButton } from "../components/styles/BorderedAction"
+import { StyledContainer } from "../components/styles/StyledContainer"
+import "./styles/projects.scss"
 
 export default function Projects({ data }) {
   const { edges: projectImgsData } = data.projectImgs
@@ -33,26 +31,28 @@ export default function Projects({ data }) {
       )
       setFilteredProjects(newProjectsList)
     }
-  }, [currentCategory])
+  }, [currentCategory, categories])
 
   useEffect(() => {
     const timeout = setTimeout(() => {
       setAnimate(false)
       clearTimeout(timeout)
     }, projects.length * (50 + 1000) + 200)
-  })
+  }, [])
 
   return (
     <>
       <Container fluid className="fluid-container">
         <StyledContainer>
-          <Row xs={2} md={4} className="category-selectors">
+          <Row className="category-selectors">
             {categories.map((category, index) => {
               return (
                 <Col
                   key={`category-btn-${index}`}
                   className="category-selector-container animate__animated animate__fadeIn"
                   style={{ animationDelay: `${index * 50}ms` }}
+                  xs={index === 0 ? 12 : 6}
+                  md={index === 0 ? 12 : 3}
                 >
                   <BorderedButton
                     className={`${index === currentCategory ? "active" : ""}`}

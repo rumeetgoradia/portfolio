@@ -1,55 +1,31 @@
 [
+  ["websites, academic, front-end, desktop"],
   {
-    "title": "Hotel Reservation",
-    "category": "web apps",
-    "description": "Lorem Lorem  Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem",
-    "liveLink": "https://google.com",
-    "repoLink": "https://github.com/rumeetgoradia",
-    "tools": ["Java", "JSP", "Booom Boom POW"]
+    "title": "Where's The File?",
+    "category": "academic",
+    "description": "A custom version control system. A central server utilizes multithreading and mutexes to maintain and distribute a repository of files to multiple clients. With the help of sockets, this program implements many of the common VCS features, like pushes, pulls, commits, and so on.",
+    "repoLink": "https://github.com/rumeetgoradia/wtf",
+    "tools": ["C"]
+  },
+  {
+    "title": "File Compressor",
+    "category": "academic",
+    "description": "A utility that compresses individual files or whole directories. The program utilizes Huffman trees to translate words in a target directory's files (or in a single file) into 1s and 0s. It maintains a mapping of these translations and can decompress the compressed files as well.",
+    "repoLink": "https://github.com/rumeetgoradia/filecompressor",
+    "tools": ["C"]
+  },
+  {
+    "title": "Reddit Bot",
+    "category": "desktop",
+    "description": "A simple bot for Reddit that automatically replies to certain comments. This bot, when activated, will search through comments on all threads of a specific sub-Reddit and reply to them if they contain distinct keywords.",
+    "repoLink": "https://github.com/rumeetgoradia/Reddit-Bot",
+    "tools": ["Python", "Reddit API"]
   },
   {
     "title": "mymalloc()",
     "category": "academic",
-    "description": "Lorem Lorem  Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem",
-    "liveLink": "https://google.com",
-
-    "tools": ["Java", "JSP", "Booom Boom POW"]
-  },
-  {
-    "title": "Sorting Visualizer",
-    "category": "web apps",
-    "description": "Lorem Lorem  Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem",
-    "liveLink": "https://google.com",
-    "repoLink": "https://github.com/rumeetgoradia",
-    "tools": ["Java", "JSP", "Booom Boom POW"]
-  },
-  {
-    "title": "Tetris",
-    "category": "web apps",
-    "description": "Lorem Lorem  Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem",
-    "liveLink": "https://google.com",
-    "repoLink": "https://github.com/rumeetgoradia",
-    "tools": ["Java", "JSP", "Booom Boom POW"]
-  },
-  {
-    "title": "Website",
-    "category": "websites",
-    "description": "Lorem Lorem  Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem",
-    "liveLink": "https://google.com",
-    "repoLink": "https://github.com/rumeetgoradia",
-    "tools": [
-      "Java",
-      "JSP",
-      "Booom Boom POW",
-      "Java",
-      "JSP",
-      "Booom Boom POW",
-      "Java",
-      "JSP",
-      "Booom Boom POW",
-      "Java",
-      "JSP",
-      "Booom Boom POW"
-    ]
+    "description": "A custom implementation of C's \"malloc()\" and \"free()\" functions. The user has 4096 bytes of memory available for use, and the program automatically allocates space for the memory requested by the user. The program only uses 3 bytes of metadata as overhead for each memory allocation, and adjacent free blocks of memory are automatically combined for maximum efficiency.",
+    "repoLink": "https://github.com/rumeetgoradia/my-malloc",
+    "tools": ["C"]
   }
 ]
