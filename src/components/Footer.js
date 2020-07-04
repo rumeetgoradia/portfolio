@@ -1,9 +1,7 @@
-import "./styles/Footer.scss"
-
-import { Col, Container, Row } from "react-bootstrap"
-
 import React from "react"
+import { Col, Container, Row } from "react-bootstrap"
 import { contactLinks } from "../assets/data/ContactLinksData"
+import "./styles/Footer.scss"
 
 export default function Footer({ atHome }) {
   return (
@@ -26,6 +24,7 @@ export default function Footer({ atHome }) {
                   title={item.title}
                   className="contact-link"
                   target="_blank"
+                  rel="noopener noreferrer"
                 >
                   {item.icon}
                 </a>
