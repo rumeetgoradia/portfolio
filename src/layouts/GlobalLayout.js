@@ -1,17 +1,38 @@
 import "bootstrap/dist/css/bootstrap.min.css"
-
-import { darkTheme, lightTheme } from "../styles/Themes"
-
+import React, { memo } from "react"
+import styled, { ThemeProvider } from "styled-components"
 import Footer from "../components/Footer"
-import { GlobalStyles } from "../styles/GlobalTheme"
-import Navbar from "../components/Navbar"
-import ParticlesLayout from "./ParticlesLayout"
-import React from "react"
-import SphereLayout from "./SphereLayout"
-import { ThemeProvider } from "styled-components"
+import Navbar from "../components/Navbar/Navbar"
+import { FontProvider } from "../styles/FontProvider"
+import { GlobalStyles } from "../styles/GlobalStyles"
+import { darkTheme, lightTheme } from "../styles/Themes"
 import { useDarkMode } from "../useDarkMode"
+import ParticlesLayout from "./ParticlesLayout"
+import SphereLayout from "./SphereLayout"
 
 require("animate.css")
+
+const LightGradient = memo(styled.div`
+  display: block;
+  position: fixed;
+  z-index: 3;
+  width: 100%;
+  height: 100vh;
+  background-color: ${lightTheme.body};
+  background-image: ${lightTheme.gradient};
+  transition: opacity 0.3s linear;
+`)
+
+const DarkGradient = memo(styled.div`
+  display: block;
+  position: fixed;
+  z-index: 3;
+  width: 100%;
+  height: 100vh;
+  background-color: ${darkTheme.body};
+  background-image: ${darkTheme.gradient};
+  transition: opacity 0.3s linear;
+`)
 
 export default function GlobalLayout({ children, atHome }) {
   const [
@@ -29,28 +50,28 @@ export default function GlobalLayout({ children, atHome }) {
   }
 
   return (
-    <ThemeProvider theme={themeMode} id="body">
-      <>
-        <GlobalStyles />
-        <Navbar theme={theme} toggleTheme={toggleTheme} atHome={atHome} />
-        <div id="gradient"></div>
-        <div
-          id="gradient-transition"
-          style={{
-            display: themeToggled ? "block" : "none",
-          }}
-        ></div>
-        {atHome ? (
-          <SphereLayout theme={theme} themeToggled={themeToggled}>
-            {children}
-          </SphereLayout>
-        ) : (
-          <ParticlesLayout setThemeToggled={setThemeToggled}>
-            {children}
-          </ParticlesLayout>
-        )}
-        <Footer atHome={atHome} />
-      </>
-    </ThemeProvider>
+    <FontProvider>
+      <ThemeProvider theme={themeMode} id="body">
+        <>
+          <GlobalStyles />
+          <Navbar theme={theme} toggleTheme={toggleTheme} atHome={atHome} />
+
+          {atHome ? (
+            <SphereLayout theme={theme} themeToggled={themeToggled}>
+              {children}
+            </SphereLayout>
+          ) : (
+            <>
+              <LightGradient style={{ opacity: theme === "light" ? 1 : 0 }} />
+              <DarkGradient style={{ opacity: theme === "light" ? 0 : 1 }} />
+              <ParticlesLayout setThemeToggled={setThemeToggled}>
+                {children}
+              </ParticlesLayout>
+            </>
+          )}
+          <Footer atHome={atHome} />
+        </>
+      </ThemeProvider>
+    </FontProvider>
   )
 }

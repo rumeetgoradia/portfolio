@@ -1,6 +1,7 @@
+import { memo } from "react"
 import styled from "styled-components"
 
-export const InfoHeader = styled.h2`
+export const InfoHeader = memo(styled.h2`
   color: ${({ theme }) => theme.font};
   font-weight: 700;
   text-transform: uppercase;
@@ -8,4 +9,4 @@ export const InfoHeader = styled.h2`
   font-size: 1.5rem;
   margin-bottom: 0.5rem;
   transition: color 0.3s linear;
-`
+`)

@@ -1,3 +1,4 @@
+import { memo } from "react"
 import styled, { css } from "styled-components"
 
 const InfoContent = css`
@@ -16,10 +17,10 @@ const InfoContent = css`
   }
 `
 
-export const InfoParagraph = styled.p`
+export const InfoParagraph = memo(styled.p`
   ${InfoContent}
-`
+`)
 
-export const InfoSpan = styled.span`
+export const InfoSpan = memo(styled.span`
   ${InfoContent}
-`
+`)

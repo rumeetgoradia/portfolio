@@ -1,11 +1,10 @@
-import React, { useEffect } from "react"
-
+import React, { memo, useEffect } from "react"
 import Particles from "react-particles-js"
 
-export default function ParticlesLayout({ children, setThemeToggled }) {
+function ParticlesLayout({ children, setThemeToggled }) {
   useEffect(() => {
     setThemeToggled(false)
-  }, [])
+  }, [setThemeToggled])
 
   return (
     <>
@@ -132,3 +131,5 @@ export default function ParticlesLayout({ children, setThemeToggled }) {
     </>
   )
 }
+
+export default memo(ParticlesLayout)
