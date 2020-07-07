@@ -1,7 +1,7 @@
+import React from "react"
 import JPSSVG from "../images/experience/jpstevens.inline.svg"
 import KPMGSVG from "../images/experience/kpmg.inline.svg"
 import OrthoSVG from "../images/experience/ortho.inline.svg"
-import React from "react"
 import RutgersSVG from "../images/experience/rutgers.inline.svg"
 import SchonfeldSVG from "../images/experience/schonfeld.inline.svg"
 
@@ -68,7 +68,7 @@ export const academicExperience = [
     location: "Edison, New Jersey",
     involvement: [
       "Model United Nations (Director of Finance)",
-      "Student Council (Studen Action Committee Director)",
+      "Student Council (Student Action Committee Director)",
       "Lacrosse",
     ],
     honors: [
