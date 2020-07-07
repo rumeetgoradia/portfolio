@@ -1,7 +1,8 @@
 import { Link } from "gatsby"
+import { memo } from "react"
 import styled from "styled-components"
 
-export const NavLink = styled(Link)`
+const NavbarLink = styled(Link)`
   user-select: none;
   font-family: "Calibre", sans-serif;
   position: relative;
@@ -161,3 +162,5 @@ export const NavLink = styled(Link)`
     }
   }
 `
+
+export default memo(NavbarLink)

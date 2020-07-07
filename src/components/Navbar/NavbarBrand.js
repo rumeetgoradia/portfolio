@@ -3,9 +3,9 @@ import React, { memo } from "react"
 import styled from "styled-components"
 
 const StyledNavbarBrand = styled(Link)`
-  opacity: ${({ open, atHome }) => (open ? 1 : atHome ? 0 : 1)};
-  pointer-events: ${({ open, atHome }) =>
-    open ? "auto" : atHome ? "none" : "auto"};
+  opacity: ${({ open, home }) => (open ? 1 : home ? 0 : 1)};
+  pointer-events: ${({ open, home }) =>
+    open ? "auto" : home ? "none" : "auto"};
   color: ${({ theme }) => theme.font};
   text-shadow: ${({ theme }) => theme.navLinkShadow};
   user-select: none;
@@ -26,8 +26,8 @@ const StyledNavbarBrand = styled(Link)`
     transform: scale(0.9);
   }
   @media screen and (min-width: 768px) {
-    opacity: ${({ atHome }) => (atHome ? 0 : 1)};
-    pointer-events: ${({ atHome }) => (atHome ? "none" : "auto")};
+    opacity: ${({ home }) => (home ? 0 : 1)};
+    pointer-events: ${({ home }) => (home ? "none" : "auto")};
   }
 `
 
@@ -36,7 +36,7 @@ function NavbarBrand({ open, atHome, setOpen, children }) {
     <StyledNavbarBrand
       to="/"
       open={open}
-      atHome={atHome}
+      home={atHome}
       onClick={() => {
         setOpen(false)
       }}

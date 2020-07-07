@@ -1,46 +1,26 @@
-import React, { useEffect, useState } from "react"
+import React, { useCallback, useState } from "react"
 import { Col, Row } from "react-bootstrap"
+// import "./styles/Navbar.scss"
+import useWidth from "../../useWidth"
 import NavbarBrand from "./NavbarBrand"
 import NavbarCollapseToggler from "./NavbarCollapseToggler"
 import NavbarContainer from "./NavbarContainer"
+import NavbarLink from "./NavbarLink"
 import NavbarLinksContainer from "./NavbarLinksContainer"
-// import "./styles/Navbar.scss"
-import { NavLink } from "./NavLink"
 import ThemeToggler from "./ThemeToggler"
 
 export default function Navbar({ theme, toggleTheme, atHome }) {
   const [open, setOpen] = useState(false)
-  const [width, setWidth] = useState(window.innerWidth)
+  const width = useWidth()
   const [scrollPosition, setScrollPosition] = useState(0)
 
-  useEffect(() => {
-    window.addEventListener("resize", updateWidth)
-    return () => {
-      window.removeEventListener("resize", updateWidth)
-    }
+  const toggleOpen = useCallback(() => {
+    setOpen(!open)
   }, [])
 
-  const updateWidth = () => {
-    setWidth(window.innerWidth)
-  }
-
-  // const handleToggle = expanded => {
-  //   if (expanded) {
-  //     setScrollPosition(window.scrollY)
-  //   } else {
-  //     window.scrollTo(0, scrollPosition)
-  //   }
-  //   setOpen(expanded)
-  // }
-
-  // const closeNav = () => {
-  //   handleToggle(false)
-  //   window.scrollTo(0, 0)
-  // }
-
-  const toggleOpen = () => {
-    setOpen(!open)
-  }
+  const closeOpen = useCallback(() => {
+    setOpen(false)
+  }, [])
 
   return (
     <NavbarContainer
@@ -67,56 +47,47 @@ export default function Navbar({ theme, toggleTheme, atHome }) {
         >
           <NavbarCollapseToggler open={open} toggleOpen={toggleOpen} />
         </Col>
-
         <NavbarLinksContainer atHome={atHome} open={open} className="col">
-          <NavLink
+          <NavbarLink
             to="/about"
             className={`navbar-link ${atHome ? " at-home" : ""} ${
               open ? "open-menu" : ""
             }`}
             activeClassName="active-nav-link"
-            onClick={() => {
-              setOpen(false)
-            }}
+            onClick={closeOpen}
           >
             About
-          </NavLink>
-          <NavLink
+          </NavbarLink>
+          <NavbarLink
             to="/experience"
             className={`navbar-link ${atHome ? " at-home" : ""} ${
               open ? "open-menu" : ""
             }`}
             activeClassName="active-nav-link"
-            onClick={() => {
-              setOpen(false)
-            }}
+            onClick={closeOpen}
           >
             Experience
-          </NavLink>
-          <NavLink
+          </NavbarLink>
+          <NavbarLink
             to="/projects"
             className={`navbar-link ${atHome ? " at-home" : ""} ${
               open ? "open-menu" : ""
             }`}
             activeClassName="active-nav-link"
-            onClick={() => {
-              setOpen(false)
-            }}
+            onClick={closeOpen}
           >
             Projects
-          </NavLink>
-          <NavLink
+          </NavbarLink>
+          <NavbarLink
             to="/contact"
             className={`navbar-link ${atHome ? " at-home" : ""} ${
               open ? "open-menu" : ""
             }`}
             activeClassName="active-nav-link"
-            onClick={() => {
-              setOpen(false)
-            }}
+            onClick={closeOpen}
           >
             Contact
-          </NavLink>
+          </NavbarLink>
         </NavbarLinksContainer>
 
         <Col
