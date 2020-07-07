@@ -1,7 +1,7 @@
 import "bootstrap/dist/css/bootstrap.min.css"
 import React, { memo } from "react"
 import styled, { ThemeProvider } from "styled-components"
-import Footer from "../components/Footer"
+import Footer from "../components/Footer/Footer"
 import Navbar from "../components/Navbar/Navbar"
 import "../styles/FontProvider.scss"
 import { GlobalStyles } from "../styles/GlobalStyles"
