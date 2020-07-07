@@ -4,6 +4,7 @@ export default function Sphere({ theme, themeToggled }) {
   const canvas = useRef()
   const ctxRender = useRef()
   const timeout = useRef()
+  const requestId = useRef()
   const maxAX = 0.1
   const maxAY = 0.1
   const maxAZ = 0.1
@@ -238,7 +239,7 @@ export default function Sphere({ theme, themeToggled }) {
           fnCallback()
         }, 1000 / 60)
       }
-    fnAnimFrame(fnCallback)
+    requestId.current = fnAnimFrame(fnCallback)
   }
 
   const swapList = (p, src, dest) => {
@@ -290,10 +291,13 @@ export default function Sphere({ theme, themeToggled }) {
     setSize()
     nextFrame()
     return () => {
-      window.removeEventListener("resize", this)
+      window.removeEventListener("resize", setSize)
       clearTimeout(timeout.current)
+      if (requestId.current) {
+        window.cancelAnimationFrame(requestId)
+      }
     }
-  })
+  }, [theme])
 
   return (
     <div
