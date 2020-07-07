@@ -3,7 +3,7 @@ import React, { memo } from "react"
 import styled, { ThemeProvider } from "styled-components"
 import Footer from "../components/Footer"
 import Navbar from "../components/Navbar/Navbar"
-import { FontProvider } from "../styles/FontProvider"
+import "../styles/FontProvider.scss"
 import { GlobalStyles } from "../styles/GlobalStyles"
 import { darkTheme, lightTheme } from "../styles/Themes"
 import { useDarkMode } from "../useDarkMode"
@@ -50,28 +50,26 @@ export default function GlobalLayout({ children, atHome }) {
   }
 
   return (
-    <FontProvider>
-      <ThemeProvider theme={themeMode} id="body">
-        <>
-          <GlobalStyles />
-          <Navbar theme={theme} toggleTheme={toggleTheme} atHome={atHome} />
+    <ThemeProvider theme={themeMode} id="body">
+      <>
+        <GlobalStyles />
+        <Navbar theme={theme} toggleTheme={toggleTheme} atHome={atHome} />
 
-          {atHome ? (
-            <SphereLayout theme={theme} themeToggled={themeToggled}>
+        {atHome ? (
+          <SphereLayout theme={theme} themeToggled={themeToggled}>
+            {children}
+          </SphereLayout>
+        ) : (
+          <>
+            <LightGradient style={{ opacity: theme === "light" ? 1 : 0 }} />
+            <DarkGradient style={{ opacity: theme === "light" ? 0 : 1 }} />
+            <ParticlesLayout setThemeToggled={setThemeToggled}>
               {children}
-            </SphereLayout>
-          ) : (
-            <>
-              <LightGradient style={{ opacity: theme === "light" ? 1 : 0 }} />
-              <DarkGradient style={{ opacity: theme === "light" ? 0 : 1 }} />
-              <ParticlesLayout setThemeToggled={setThemeToggled}>
-                {children}
-              </ParticlesLayout>
-            </>
-          )}
-          <Footer atHome={atHome} />
-        </>
-      </ThemeProvider>
-    </FontProvider>
+            </ParticlesLayout>
+          </>
+        )}
+        <Footer atHome={atHome} />
+      </>
+    </ThemeProvider>
   )
 }
