@@ -11,7 +11,7 @@ export const professionalExperience = [
     date: "June 2020 — August 2020",
     location: "New York, New York",
     role: "Incoming Software Engineering Intern",
-    tools: ["TBD"],
+    tools: ["Java 11", "JUnit", "Maven", "Spring Boot", "Docker", "Jenkins"],
     icon: <SchonfeldSVG className="experience-svg" />,
   },
   {
@@ -19,7 +19,7 @@ export const professionalExperience = [
     date: "June 2019 — August 2019",
     location: "New York, New York",
     role: "Information Technology Audit and Assurance Intern",
-    tools: ["Microsoft Excel"],
+    tools: ["Microsoft Excel", "eAudit"],
     icon: <KPMGSVG className="experience-svg" />,
   },
   {
