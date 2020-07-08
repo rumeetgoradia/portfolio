@@ -1,3 +1,4 @@
+import React from "react"
 import {
   FaAndroid,
   FaDatabase,
@@ -13,9 +14,7 @@ import {
   FaUserShield,
 } from "react-icons/fa"
 
-import React from "react"
-
-export const skills = [
+const skills = [
   {
     title: "Procedural Programming",
     tools: ["Java 8", "Python 3"],
@@ -77,3 +76,5 @@ export const skills = [
     icon: <FaFileWord />,
   },
 ]
+
+export default skills

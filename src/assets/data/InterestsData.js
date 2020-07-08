@@ -1,3 +1,4 @@
+import React from "react"
 import AnimeSVG from "../images/interests/anime.inline.svg"
 import AstronomySVG from "../images/interests/astronomy.inline.svg"
 import BattlestationsSVG from "../images/interests/battlestations.inline.svg"
@@ -7,12 +8,11 @@ import FitnessSVG from "../images/interests/fitness.inline.svg"
 import GamingSVG from "../images/interests/gaming.inline.svg"
 import HipHopSVG from "../images/interests/hiphop.inline.svg"
 import NetworkingSVG from "../images/interests/networking.inline.svg"
-import React from "react"
 import SuperheroesSVG from "../images/interests/superheroes.inline.svg"
 import TravelingSVG from "../images/interests/traveling.inline.svg"
 import WebDevelopmentSVG from "../images/interests/webdev.inline.svg"
 
-export const interests = [
+const interests = [
   {
     title: "Anime",
     icon: <AnimeSVG className="interest-icon" />,
@@ -47,11 +47,11 @@ export const interests = [
   },
   {
     title: "Networking",
-    icon: <NetworkingSVG className="interest-icon smaller" />,
+    icon: <NetworkingSVG className="interest-icon" />,
   },
   {
     title: "Superheroes",
-    icon: <SuperheroesSVG className="interest-icon smaller" />,
+    icon: <SuperheroesSVG className="interest-icon" />,
   },
   {
     title: "Traveling",
@@ -62,3 +62,5 @@ export const interests = [
     icon: <WebDevelopmentSVG className="interest-icon" />,
   },
 ]
+
+export default interests
