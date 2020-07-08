@@ -40,12 +40,6 @@ const SkillInfo = styled(Col)`
       margin-bottom: -4px;
     }
   }
-  &:hover {
-    .skill-title,
-    .skill-tools {
-      text-shadow: ${({ theme }) => "1px 1px 3px " + theme.fontRGBA + ".35)"};
-    }
-  }
 `
 
 const SkillDisplayContainer = styled(Container)`
@@ -63,11 +57,15 @@ const SkillDisplayContainer = styled(Container)`
     }
     div${SkillInfo} {
       opacity: 1;
+      .skill-title,
+      .skill-tools {
+        text-shadow: ${({ theme }) => "1px 1px 3px " + theme.fontRGBA + ".35)"};
+      }
     }
   }
 `
 
-export default function SkillDisplay({ skill }) {
+function SkillDisplay({ skill }) {
   return (
     <SkillDisplayContainer fluid className="skill-display">
       <Row className="justify-content-between align-items-center">
@@ -84,6 +82,8 @@ export default function SkillDisplay({ skill }) {
     </SkillDisplayContainer>
   )
 }
+
+export default SkillDisplay
 
 SkillDisplay.propTypes = {
   skill: PropTypes.shape({

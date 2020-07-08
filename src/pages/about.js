@@ -1,10 +1,10 @@
 import { graphql } from "gatsby"
 import Img from "gatsby-image/withIEPolyfill"
-import React from "react"
+import React, { memo } from "react"
 import { Col, Container, Row } from "react-bootstrap"
 import styled from "styled-components"
-import { interests } from "../assets/data/InterestsData"
-import { skills } from "../assets/data/SkillsData"
+import interests from "../assets/data/InterestsData"
+import skills from "../assets/data/SkillsData"
 import InterestDisplay from "../components/About/InterestDisplay"
 import SkillDisplay from "../components/About/SkillDisplay"
 import { InfoParagraph } from "../components/styles/InfoContent"
@@ -39,7 +39,7 @@ const ProfileImg = styled(Img)`
   }
 `
 
-export default function About({ data }) {
+function About({ data }) {
   const profileImg = data.profileImg.childImageSharp.fluid
   const { edges: interestImgsData } = data.interestImgs
   const width = useWidth()
@@ -47,7 +47,7 @@ export default function About({ data }) {
   return (
     <>
       <Container fluid className="fluid-container">
-        <StyledContainer className="">
+        <StyledContainer>
           <Row className="mb-4">
             <Col className="d-flex justify-content-center justify-content-lg-start mb-4 mb-lg-0 animate__animated animate__fadeIn">
               <ProfileImg
@@ -139,6 +139,8 @@ export default function About({ data }) {
     </>
   )
 }
+
+export default memo(About)
 
 export const query = graphql`
   query {

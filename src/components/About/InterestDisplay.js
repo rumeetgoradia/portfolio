@@ -1,6 +1,6 @@
 import Img from "gatsby-image/withIEPolyfill"
 import PropTypes from "prop-types"
-import React, { memo } from "react"
+import React from "react"
 import { Col, Container, Row } from "react-bootstrap"
 import styled from "styled-components"
 // import "./styles/InterestDisplay.scss"
@@ -21,9 +21,6 @@ const InterestIcon = styled.div`
     height: 100%;
     width: auto;
     transition: fill 0.3s linear, opacity 0.3s linear, height 0.3s linear;
-    &.smaller {
-      height: 85%;
-    }
   }
 `
 
@@ -75,10 +72,12 @@ const InterestDisplayContainer = styled(Container)`
   }
   &:hover {
     border-color: rgba(160, 160, 160, 0.8);
-    div${InterestIcon} svg {
-      fill: var(--green);
-      opacity: 0;
-      height: 200% !important;
+    div${InterestIcon} {
+      svg {
+        fill: var(--green);
+        opacity: 0;
+        height: 200% !important;
+      }
     }
     .interest-title,
     div${InterestOverlay}, div${InterestImgContainer} {
@@ -110,7 +109,7 @@ function InterestDisplay({ interest, picSizes }) {
   )
 }
 
-export default memo(InterestDisplay)
+export default InterestDisplay
 
 InterestDisplay.propTypes = {
   interest: PropTypes.shape({
