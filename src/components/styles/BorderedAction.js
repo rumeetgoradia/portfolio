@@ -1,7 +1,5 @@
 import styled, { css } from "styled-components"
 
-import { Link } from "gatsby"
-
 const borderedStyle = css`
   line-height: 1;
   display: block;
@@ -12,6 +10,7 @@ const borderedStyle = css`
   letter-spacing: 2px;
   text-transform: uppercase;
   outline: none;
+  margin: 0;
   padding: 11px 4px 7px 6px;
   color: ${({ theme }) => theme.font};
   background-color: transparent;
@@ -28,8 +27,11 @@ const borderedStyle = css`
   &:focus,
   &.active {
     opacity: 1;
-    letter-spacing: 1px;
     outline: none;
+  }
+  &:hover,
+  &.active {
+    letter-spacing: 1px;
     padding-right: 5px;
   }
   &.active {

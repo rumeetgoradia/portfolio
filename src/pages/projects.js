@@ -2,61 +2,95 @@ import { graphql } from "gatsby"
 import React, { useEffect, useState } from "react"
 import { Col, Container, Row } from "react-bootstrap"
 import Masonry from "react-masonry-css"
+import styled from "styled-components"
 import projects from "../assets/data/ProjectsData.json"
 import ProjectCard from "../components/ProjectCard"
 import { BorderedButton } from "../components/styles/BorderedAction"
 import { StyledContainer } from "../components/styles/StyledContainer"
-import "./styles/projects.scss"
+import useWidth from "../useWidth"
+// import "./styles/projects.scss"
+
+const MasonryContainer = styled.div`
+  .projects-grid {
+    display: flex;
+    margin-left: -16px; /* gutter size offset */
+    margin-bottom: -16px;
+    width: auto;
+    .projects-grid-col {
+      padding-left: 16px; /* gutter size */
+      background-clip: padding-box;
+    }
+    @media screen and (min-width: 768px) {
+      margin-left: -30px;
+      margin-bottom: -30px;
+      .projects-grid-col {
+        padding-left: 30px;
+      }
+    }
+  }
+`
 
 export default function Projects({ data }) {
+  // ["websites, academic, front-end, desktop"]
+  const width = useWidth()
   const { edges: projectImgsData } = data.projectImgs
 
   const getUnique = (items, value) => {
     return [...new Set(items.map(item => item[value]))]
   }
 
-  let categories = getUnique(projects, "category").sort()
-  categories = ["all", ...categories]
+  const categories = getUnique(projects, "category").sort()
 
-  const [currentCategory, setCurrentCategory] = useState(0)
+  const [currentCategory, setCurrentCategory] = useState("all")
   const [animate, setAnimate] = useState(true)
   const [filteredProjects, setFilteredProjects] = useState(projects)
 
   useEffect(() => {
-    if (currentCategory === 0) {
+    if (currentCategory === "all") {
       setFilteredProjects(projects)
     } else {
       const newProjectsList = projects.filter(
-        project => project.category === categories[currentCategory]
+        project => project.category === currentCategory
       )
       setFilteredProjects(newProjectsList)
     }
-  }, [currentCategory, categories])
+  }, [currentCategory])
 
   useEffect(() => {
     const timeout = setTimeout(() => {
       setAnimate(false)
       clearTimeout(timeout)
     }, projects.length * (50 + 1000) + 200)
+    return () => clearTimeout(timeout)
   }, [])
 
   return (
     <>
       <Container fluid className="fluid-container">
         <StyledContainer>
-          <Row className="category-selectors">
+          <Row style={{ margin: width < 768 ? "0 -8px -16px" : "0 -15px" }}>
             {categories.map((category, index) => {
               return (
                 <Col
                   key={`category-btn-${index}`}
-                  className="category-selector-container animate__animated animate__fadeIn"
-                  style={{ animationDelay: `${index * 50}ms` }}
-                  xs={index === 0 ? 12 : 6}
-                  md={index === 0 ? 12 : 3}
+                  className="animate__animated animate__fadeIn"
+                  style={{
+                    padding: width < 768 ? "0 8px" : "0 15px",
+                    marginBottom: width < 768 ? 16 : 0,
+                    animationDelay: `${index * 50}ms`,
+                  }}
+                  xs={6}
+                  md={3}
                 >
                   <BorderedButton
-                    className={`${index === currentCategory ? "active" : ""}`}
-                    onClick={() => setCurrentCategory(index)}
+                    className={`${
+                      currentCategory === category ? "active" : ""
+                    }`}
+                    onClick={() =>
+                      setCurrentCategory(
+                        currentCategory === category ? "all" : category
+                      )
+                    }
                   >
                     {category}
                   </BorderedButton>
@@ -64,33 +98,42 @@ export default function Projects({ data }) {
               )
             })}
           </Row>
-          <Masonry
-            breakpointCols={{ default: 3, 767: 2, 575: 1 }}
-            className="projects-grid mt-4"
-            columnClassName="projects-grid-col"
-          >
-            {filteredProjects.map((project, index) => {
-              const projectImgEdge = projectImgsData.find(
-                projectImgData =>
-                  projectImgData.node.name === project.title.toLowerCase()
-              )
-              return (
-                <div
-                  className={`${
-                    animate ? "animate__animated animate__fadeIn" : ""
-                  }`}
-                  style={{ animationDelay: `${index * 50 + 200}ms` }}
-                  key={`project-card-${index}`}
-                >
-                  <ProjectCard
-                    project={project}
-                    picSizes={projectImgEdge.node.childImageSharp.sizes}
-                    index={index}
-                  />
-                </div>
-              )
-            })}
-          </Masonry>
+          <MasonryContainer>
+            <Masonry
+              breakpointCols={{ default: 3, 767: 2, 575: 1 }}
+              className="projects-grid mt-4"
+              columnClassName="projects-grid-col"
+            >
+              {filteredProjects.map((project, index) => {
+                let projectImgEdge = projectImgsData.find(
+                  projectImgData =>
+                    projectImgData.node.name === project.title.toLowerCase()
+                )
+                if (!projectImgEdge) {
+                  projectImgEdge = projectImgsData.find(
+                    projectImgData =>
+                      projectImgData.node.name ===
+                      (index % 2 === 1 ? "mymalloc()" : "tetris")
+                  )
+                }
+                return (
+                  <div
+                    className={`${
+                      animate ? "animate__animated animate__fadeIn" : ""
+                    }`}
+                    style={{ animationDelay: `${index * 50 + 200}ms` }}
+                    key={`project-card-${index}`}
+                  >
+                    <ProjectCard
+                      project={project}
+                      picSizes={projectImgEdge.node.childImageSharp.sizes}
+                      index={index}
+                    />
+                  </div>
+                )
+              })}
+            </Masonry>
+          </MasonryContainer>
         </StyledContainer>
       </Container>
     </>
@@ -99,7 +142,9 @@ export default function Projects({ data }) {
 
 export const query = graphql`
   query {
-    projectImgs: allFile(filter: { relativePath: { regex: "/projects/" } }) {
+    projectImgs: allFile(
+      filter: { relativeDirectory: { regex: "/projects/" } }
+    ) {
       edges {
         node {
           childImageSharp {
