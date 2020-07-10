@@ -40,7 +40,7 @@ export const professionalExperience = [
 export const academicExperience = [
   {
     school: "Rutgers University",
-    date: "2017 — Present",
+    date: "Septemeber 2017 — Present",
     degrees: [
       "B.S. in Computer Science",
       "B.S. in Business Analytics & Information Technology",
@@ -63,7 +63,7 @@ export const academicExperience = [
   },
   {
     school: "John P. Stevens High School",
-    date: "2013 — 2017",
+    date: "September 2013 — May 2017",
     degrees: [],
     location: "Edison, New Jersey",
     involvement: [
