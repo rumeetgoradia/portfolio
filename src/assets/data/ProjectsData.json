@@ -1,5 +1,81 @@
 [
   {
+    "title": "Advocate BLM",
+    "category": "websites",
+    "description": "A website built with the intention of assisting in conversations regarding the Black Lives Matter movement. This website’s primary purpose is to address that claim and act as a comprehensive guide to help engage in fact-based advocacy. It aims to educate readers about the undeniable validity of Black Lives Matter, as well as the movement's foundation and motivation.",
+    "liveLink": "https://www.advocateblm.com/",
+    "repoLink": "https://github.com/rumeetgoradia/advocate-blm",
+    "tools": ["ReactJS", "Contentful", "Netlify"]
+  },
+  {
+    "title": "Hilltop Embrace",
+    "category": "websites",
+    "description": "The official website for Hilltop Embrace, a charity organization based in New Brunswick, New Jersey. This website includes a calendar that displays the organization's events, the data for which is loaded from Contentful.",
+    "liveLink": "https://www.hilltopembrace.org/",
+    "repoLink": "https://github.com/hilltop-embrace/hilltop-embrace",
+    "tools": ["ReactJS", "Contentful", "Netlify"]
+  },
+  {
+    "title": "Android64",
+    "category": "academic",
+    "description": "The Android implementation of the Photos64 project. Features are essentially the same, with a functionality adapted to an Android environment.",
+    "repoLink": "https://bitbucket.org/rumeetgoradia/android64/src/master/",
+    "tools": ["Java 8", "Android Studio"]
+  },
+  {
+    "title": "Photos64",
+    "category": "academic",
+    "description": "An application that enables users to save photo albums. The application comes complete with search functionality and enables users to manipulate photos and albums in numerous different ways. It also implements serialization for data persistence.",
+    "repoLink": "https://bitbucket.org/rumeetgoradia/photos64/src/master/",
+    "tools": ["Java 8", "JavaFX"]
+  },
+  {
+    "title": "Chess64",
+    "category": "academic",
+    "description": "A recreation of chess in the Java console.",
+    "repoLink": "https://bitbucket.org/rumeetgoradia/chess64/src/master/",
+    "tools": ["Java 8"]
+  },
+  {
+    "title": "SongLib",
+    "category": "academic",
+    "description": "A simple application for organizing a user's song collection. Songs can be added, edited, and deleted from the user's list. This list persists after the application is closed.",
+    "repoLink": "https://bitbucket.org/rumeetgoradia/songlib/src/master/",
+    "tools": ["Java 8", "JavaFX"]
+  },
+  {
+    "title": "Rutgers Consulting Group",
+    "category": "websites",
+    "description": "The official website for Rutgers Consulting Group, an academic organization geared towards improving the consulting skills of the students at Rutgers University.",
+    "liveLink": "https://www.ruconsulting.org/",
+    "repoLink": "https://github.com/rcgboard/rcg-website-2.0",
+    "tools": ["ReactJS", "GatsbyJS", "Netlify"]
+  },
+  {
+    "title": "Sorting Visualizer",
+    "category": "web apps",
+    "description": "A visualization tool for 6 different sorting algorithms. The number of elements, sorting speed, and the final gradient pattern of the completed visualization can all be customized.",
+    "liveLink": "https://rumeetgoradia.github.io/sorting-visualizer",
+    "repoLink": "https://github.com/rumeetgoradia/sorting-visualizer",
+    "tools": ["ReactJS"]
+  },
+  {
+    "title": "City Reservations",
+    "category": "websites",
+    "description": "A mock website for a city-based hotel. This website is built upon React Context, which feeds the hotel room data from Contentful to all relevant components. Rooms can also be filtered based on a number of criteria, including price, number of beds, and so on.",
+    "liveLink": "https://rumeetgoradia-hotel-reservation.netlify.com/",
+    "repoLink": "https://github.com/rumeetgoradia/hotel_reservation",
+    "tools": ["ReactJS", "Contentful", "Netlify"]
+  },
+  {
+    "title": "Tetris",
+    "category": "web apps",
+    "description": "The classic game of Tetris. Custom hooks and components come together to form the game's pieces, logic, and counters for score, current level, and completed rows. Use the arrow keys and spacebar to play!",
+    "liveLink": "https://rumeetgoradia.github.io/tetris/",
+    "repoLink": "https://github.com/rumeetgoradia/tetris",
+    "tools": ["ReactJS"]
+  },
+  {
     "title": "Where's The File?",
     "category": "academic",
     "description": "A custom version control system. A central server utilizes multithreading and mutexes to maintain and distribute a repository of files to multiple clients. With the help of sockets, this program implements many of the common VCS features, like pushes, pulls, commits, and so on.",

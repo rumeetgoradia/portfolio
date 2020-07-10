@@ -31,7 +31,7 @@ const MasonryContainer = styled.div`
 `
 
 export default function Projects({ data }) {
-  // ["websites, academic, front-end, desktop"]
+  // ["websites, academic, web apps, desktop"]
   const width = useWidth()
   const { edges: projectImgsData } = data.projectImgs
 
@@ -105,15 +105,15 @@ export default function Projects({ data }) {
               columnClassName="projects-grid-col"
             >
               {filteredProjects.map((project, index) => {
+                console.log(project.title.toLowerCase().replace(/\W/g, ""))
                 let projectImgEdge = projectImgsData.find(
                   projectImgData =>
-                    projectImgData.node.name === project.title.toLowerCase()
+                    projectImgData.node.name ===
+                    project.title.toLowerCase().replace(/\W/g, "")
                 )
                 if (!projectImgEdge) {
                   projectImgEdge = projectImgsData.find(
-                    projectImgData =>
-                      projectImgData.node.name ===
-                      (index % 2 === 1 ? "mymalloc()" : "tetris")
+                    projectImgData => projectImgData.node.name === "project"
                   )
                 }
                 return (

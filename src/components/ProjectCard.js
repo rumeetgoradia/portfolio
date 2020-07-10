@@ -47,6 +47,7 @@ const ProjectCardContainer = styled.div`
   margin-bottom: 16px;
   opacity: 0.8;
   box-shadow: ${({ theme }) => theme.containerShadow};
+  border-radius: 8px;
   transition: opacity 0.3s linear, box-shadow 0.3s linear;
   .project-card__img {
     transform: translate(-50%, -50%);
