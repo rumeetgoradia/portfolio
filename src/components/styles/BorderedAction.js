@@ -1,3 +1,4 @@
+import { Link } from "gatsby"
 import styled, { css } from "styled-components"
 
 const borderedStyle = css`
@@ -61,4 +62,13 @@ export const BorderedAnchor = styled.a`
 
 export const BorderedButton = styled.button`
   ${borderedStyle}
+`
+
+export const BorderedLink = styled(Link)`
+${borderedStyle}
+  text-decoration: none;
+  &:hover,
+  &:focus {
+    text-decoration: none;
+  }
 `
