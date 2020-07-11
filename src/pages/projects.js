@@ -1,5 +1,5 @@
 import { graphql } from "gatsby"
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useMemo, useState } from "react"
 import { Col, Container, Row } from "react-bootstrap"
 import Masonry from "react-masonry-css"
 import styled from "styled-components"
@@ -39,7 +39,9 @@ export default function Projects({ data }) {
     return [...new Set(items.map(item => item[value]))]
   }
 
-  const categories = getUnique(projects, "category").sort()
+  const categories = useMemo(() => getUnique(projects, "category").sort(), [
+    projects,
+  ])
 
   const [currentCategory, setCurrentCategory] = useState("all")
   const [animate, setAnimate] = useState(true)
@@ -79,7 +81,8 @@ export default function Projects({ data }) {
                     marginBottom: width < 768 ? 16 : 0,
                     animationDelay: `${index * 50}ms`,
                   }}
-                  xs={6}
+                  xs={12}
+                  sm={6}
                   md={3}
                 >
                   <BorderedButton
@@ -100,12 +103,11 @@ export default function Projects({ data }) {
           </Row>
           <MasonryContainer>
             <Masonry
-              breakpointCols={{ default: 3, 767: 2, 575: 1 }}
+              breakpointCols={{ default: 3, 991: 2, 767: 1 }}
               className="projects-grid mt-4"
               columnClassName="projects-grid-col"
             >
               {filteredProjects.map((project, index) => {
-                console.log(project.title.toLowerCase().replace(/\W/g, ""))
                 let projectImgEdge = projectImgsData.find(
                   projectImgData =>
                     projectImgData.node.name ===

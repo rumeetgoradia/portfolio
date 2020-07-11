@@ -52,13 +52,16 @@ const ProjectCardContainer = styled.div`
   .project-card__img {
     transform: translate(-50%, -50%);
   }
+  .project-card__img-overlay {
+    background-color: rgba(0, 0, 0, 0.3);
+  }
   &:hover {
     opacity: 1;
     .project-card__img {
       transform: translate(-50%, -50%) scale(1.1);
     }
     .project-card__img-overlay {
-      background-color: rgba(0, 0, 0, 0.2);
+      background-color: rgba(0, 0, 0, 0.15);
     }
 
     ${ProjectCardContent} {
@@ -116,7 +119,6 @@ export default function ProjectCard({ project, picSizes, index }) {
             width: "100%",
             height: "100%",
             opacity: 1,
-            backgroundColor: "rgba(0, 0, 0, 0.3)",
             boxShadow: "inset 0 -30px 40px -30px rgba(0, 0, 0, 0.8)",
             transition: "background-color 0.3s linear",
           }}
