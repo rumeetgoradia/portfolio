@@ -12,7 +12,6 @@ import ThemeToggler from "./ThemeToggler"
 export default function Navbar({ theme, toggleTheme, atHome }) {
   const [open, setOpen] = useState(false)
   const width = useWidth()
-  const [scrollPosition, setScrollPosition] = useState(0)
 
   const toggleOpen = useCallback(() => {
     setOpen(!open)
