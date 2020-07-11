@@ -1,13 +1,14 @@
-import React, { memo } from "react"
+import React, { memo, useContext, useEffect } from "react"
 import { Col, Container, Row } from "react-bootstrap"
 import styled from "styled-components"
 import { BorderedLink } from "../components/styles/BorderedAction"
+import { TitleContext } from "../layouts/GlobalLayout"
 
 const ErrorNumber = styled.h1`
   color: ${({ theme }) => theme.font};
   font-size: 18vmax;
   font-weight: 900;
-  opacity: 0.35;
+  opacity: 0.25;
   margin: 0;
   margin-bottom: -4vmax;
   text-align: center;
@@ -18,6 +19,7 @@ const ErrorInfo = styled.h2`
   position: absolute;
   top: 50%;
   left: 50%;
+  width: 100%;
   transform: translate(-50%, -50%);
   margin: 0;
   letter-spacing: 1px;
@@ -29,6 +31,11 @@ const ErrorInfo = styled.h2`
 `
 
 function Error() {
+  const { setTitle } = useContext(TitleContext)
+
+  useEffect(() => {
+    setTitle("404")
+  }, [setTitle])
   return (
     <Container
       fluid

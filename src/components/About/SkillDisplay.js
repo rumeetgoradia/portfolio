@@ -21,20 +21,26 @@ const SkillInfo = styled(Col)`
   transition: opacity 0.3s linear;
   .skill-title {
     color: ${({ theme }) => theme.font};
-    font-size: 1.25rem;
+    font-size: 1rem;
     font-weight: 500;
     margin-bottom: 2px;
     transition: color 0.3s linear, text-shadow 0.3s linear;
+    @media screen and (min-width: 576px) {
+      font-size: 1.25rem;
+    }
     @media screen and (min-width: 992px) {
       font-size: 18px;
     }
   }
   .skill-tools {
     color: ${({ theme }) => theme.font};
-    font-size: 1rem;
+    font-size: 0.75rem;
     font-weight: 300;
     margin-bottom: -5px;
     transition: color 0.3s linear, text-shadow 0.3s linear;
+    @media screen and (min-width: 576px) {
+      font-size: 1rem;
+    }
     @media screen and (min-width: 992px) {
       font-size: 14px;
       margin-bottom: -4px;

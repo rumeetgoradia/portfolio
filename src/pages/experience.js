@@ -1,18 +1,19 @@
-import React from "react"
+import React, { useContext, useEffect } from "react"
 import { Col, Container, Row } from "react-bootstrap"
 import { FaBriefcase, FaGraduationCap } from "react-icons/fa"
 import {
   VerticalTimeline,
-  VerticalTimelineElement
+  VerticalTimelineElement,
 } from "react-vertical-timeline-component"
 import "react-vertical-timeline-component/style.min.css"
 import styled from "styled-components"
 import {
   academicExperience,
-  professionalExperience
+  professionalExperience,
 } from "../assets/data/ExperienceData"
 import InfoHeader from "../components/styles/InfoHeader"
 import StyledContainer from "../components/styles/StyledContainer"
+import { TitleContext } from "../layouts/GlobalLayout"
 
 const StyledTimeline = styled(VerticalTimeline)`
   padding: 1rem 0;
@@ -133,9 +134,18 @@ const StyledTimeline = styled(VerticalTimeline)`
 `
 
 export default function Experience() {
+  const { setTitle } = useContext(TitleContext)
+
+  useEffect(() => {
+    setTitle("Experience")
+  }, [setTitle])
   return (
     <>
-      <Container fluid className="fluid-container">
+      <Container
+        fluid
+        className="fluid-container"
+        style={{ overflowX: "hidden" }}
+      >
         <StyledContainer>
           <Row xs={1} lg={2}>
             <Col className="mb-4 mb-lg-0 animate__animated animate__fadeIn">

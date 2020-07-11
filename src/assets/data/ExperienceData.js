@@ -40,7 +40,7 @@ export const professionalExperience = [
 export const academicExperience = [
   {
     school: "Rutgers University",
-    date: "Septemeber 2017 — Present",
+    date: "September 2017 — Present",
     degrees: [
       "B.S. in Computer Science",
       "B.S. in Business Analytics & Information Technology",

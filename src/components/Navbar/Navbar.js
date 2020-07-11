@@ -1,5 +1,6 @@
 import React, { useCallback, useState } from "react"
 import { Col, Row } from "react-bootstrap"
+import Logo from "../../assets/images/logo.inline.svg"
 // import "./styles/Navbar.scss"
 import useWidth from "../../useWidth"
 import NavbarBrand from "./NavbarBrand"
@@ -15,7 +16,7 @@ export default function Navbar({ theme, toggleTheme, atHome }) {
 
   const toggleOpen = useCallback(() => {
     setOpen(!open)
-  }, [])
+  }, [open])
 
   const closeOpen = useCallback(() => {
     setOpen(false)
@@ -35,14 +36,14 @@ export default function Navbar({ theme, toggleTheme, atHome }) {
           style={{ minWidth: 59 }}
         >
           <NavbarBrand atHome={atHome} open={open} setOpen={setOpen}>
-            RG
+            <Logo />
           </NavbarBrand>
         </Col>
         {/* BREAKPOINT is 710px  */}
         <Col
           xs={1}
           className="align-items-center text-center justify-content-center h-100"
-          style={{ display: width > 768 ? "none" : "flex" }}
+          style={{ display: width >= 768 ? "none" : "flex" }}
         >
           <NavbarCollapseToggler open={open} toggleOpen={toggleOpen} />
         </Col>

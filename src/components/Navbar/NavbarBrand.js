@@ -7,23 +7,27 @@ const StyledNavbarBrand = styled(Link)`
   pointer-events: ${({ open, home }) =>
     open ? "auto" : home ? "none" : "auto"};
   color: ${({ theme }) => theme.font};
-  text-shadow: ${({ theme }) => theme.navLinkShadow};
   user-select: none;
-  font-size: 1.5rem;
-  font-weight: 700;
   text-decoration: none;
-  padding-top: 8px;
   padding-bottom: 0;
-  transition: color 0.3s linear, text-shadow 0.3s linear, transform 0.3s linear,
-    opacity 0.3s linear;
+  transition: opacity 0.3s linear;
+  svg {
+    fill: ${({ theme }) => theme.font};
+    height: 1.5rem;
+    width: auto;
+    transition: fill 0.3s linear, transform 0.3s linear;
+  }
   &:hover,
   &:focus {
     text-decoration: none;
-    color: var(--green);
-    text-shadow: 0px 0px 3px var(--green);
+    svg {
+      fill: var(--green);
+    }
   }
   &:active {
-    transform: scale(0.9);
+    svg {
+      transform: scale(0.9);
+    }
   }
   @media screen and (min-width: 768px) {
     opacity: ${({ home }) => (home ? 0 : 1)};

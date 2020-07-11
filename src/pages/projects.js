@@ -1,14 +1,14 @@
 import { graphql } from "gatsby"
-import React, { useEffect, useMemo, useState } from "react"
+import React, { useContext, useEffect, useMemo, useState } from "react"
 import { Col, Container, Row } from "react-bootstrap"
 import Masonry from "react-masonry-css"
 import styled from "styled-components"
 import projects from "../assets/data/ProjectsData.json"
-import ProjectCard from "../components/Project/ProjectCard"
+import ProjectCard from "../components/Projects/ProjectCard"
 import { BorderedButton } from "../components/styles/BorderedAction"
 import StyledContainer from "../components/styles/StyledContainer"
+import { TitleContext } from "../layouts/GlobalLayout"
 import useWidth from "../useWidth"
-// import "./styles/projects.scss"
 
 const MasonryContainer = styled.div`
   .projects-grid {
@@ -31,9 +31,9 @@ const MasonryContainer = styled.div`
 `
 
 export default function Projects({ data }) {
-  // ["websites, academic, web apps, desktop"]
-  const width = useWidth()
   const { edges: projectImgsData } = data.projectImgs
+  const width = useWidth()
+  const { setTitle } = useContext(TitleContext)
 
   const getUnique = (items, value) => {
     return [...new Set(items.map(item => item[value]))]
@@ -44,6 +44,10 @@ export default function Projects({ data }) {
   const [currentCategory, setCurrentCategory] = useState("all")
   const [animate, setAnimate] = useState(true)
   const [filteredProjects, setFilteredProjects] = useState(projects)
+
+  useEffect(() => {
+    setTitle("Projects")
+  }, [setTitle])
 
   useEffect(() => {
     if (currentCategory === "all") {

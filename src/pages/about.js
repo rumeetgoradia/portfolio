@@ -1,6 +1,6 @@
 import { graphql } from "gatsby"
 import Img from "gatsby-image/withIEPolyfill"
-import React, { memo } from "react"
+import React, { memo, useContext, useEffect } from "react"
 import { Col, Container, Row } from "react-bootstrap"
 import styled from "styled-components"
 import interests from "../assets/data/InterestsData"
@@ -10,6 +10,7 @@ import SkillDisplay from "../components/About/SkillDisplay"
 import InfoHeader from "../components/styles/InfoHeader"
 import InfoParagraph from "../components/styles/InfoParagraph"
 import StyledContainer from "../components/styles/StyledContainer"
+import { TitleContext } from "../layouts/GlobalLayout"
 import useWidth from "../useWidth"
 // import "./styles/about.scss"
 
@@ -43,6 +44,11 @@ function About({ data }) {
   const profileImg = data.profileImg.childImageSharp.fluid
   const { edges: interestImgsData } = data.interestImgs
   const width = useWidth()
+  const { setTitle } = useContext(TitleContext)
+
+  useEffect(() => {
+    setTitle("About")
+  }, [setTitle])
 
   return (
     <>
@@ -155,7 +161,7 @@ export const query = graphql`
       sort: { order: ASC, fields: name }
       filter: {
         extension: { ne: "svg" }
-        relativePath: { regex: "/interests/" }
+        relativeDirectory: { regex: "/interests/" }
       }
     ) {
       edges {

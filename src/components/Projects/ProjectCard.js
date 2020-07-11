@@ -144,12 +144,24 @@ export default function ProjectCard({ project, picSizes, index }) {
         >
           {project.liveLink ? (
             <Col style={{ padding: "0 4px", marginBottom: 8 }}>
-              <BorderedAnchor href={project.liveLink}>Live</BorderedAnchor>
+              <BorderedAnchor
+                href={project.liveLink}
+                title="Live"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Live
+              </BorderedAnchor>
             </Col>
           ) : null}
           {project.repoLink ? (
             <Col style={{ padding: "0 4px", marginBottom: 8 }}>
-              <BorderedAnchor href={project.repoLink}>
+              <BorderedAnchor
+                href={project.repoLink}
+                title="Repository"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 Repository
               </BorderedAnchor>
             </Col>

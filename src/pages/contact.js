@@ -1,5 +1,5 @@
 import { Field, Form, Formik, useField } from "formik"
-import React, { useState } from "react"
+import React, { useContext, useEffect, useState } from "react"
 import { Col, Container, Row } from "react-bootstrap"
 import styled from "styled-components"
 import * as yup from "yup"
@@ -10,41 +10,8 @@ import {
   BorderedButton,
 } from "../components/styles/BorderedAction"
 import InfoParagraph from "../components/styles/InfoParagraph"
-// import InlineLink from "../components/styles/InlineLink"
 import StyledContainer from "../components/styles/StyledContainer"
-
-// const InlineLink = styled.a`
-//   color: ${({ theme }) => theme.fontRGBA + ".65)"};
-//   font-size: 1rem;
-//   margin: 0;
-//   font-weight: 400;
-//   line-height: 1.4;
-//   position: relative;
-//   text-decoration: none;
-//   transition: color 0.3s linear;
-//   &:after {
-//     content: "";
-//     position: absolute;
-//     bottom: 0;
-//     left: 50%;
-//     width: 0;
-//     height: 1px;
-//     background-color: ${({ theme }) => theme.fontRGBA + ".95)"};
-//     transform: translateX(-50%);
-//     transition: width 0.3s linear;
-//   }
-//   &:hover,
-//   &:focus {
-//     text-decoration: none;
-//     color: ${({ theme }) => theme.fontRGBA + ".95)"};
-//     &:after {
-//       width: 100%;
-//     }
-//   }
-//   @media screen and (min-width: 768px) {
-//     font-size: 1.25rem;
-//   }
-// `
+import { TitleContext } from "../layouts/GlobalLayout"
 
 const ContactLinkIconContainer = styled.span`
   position: absolute;
@@ -103,6 +70,12 @@ const TextAreaField = ({ label, ...props }) => {
 
 export default function Contact() {
   const [success, setSuccess] = useState(false)
+  const { setTitle } = useContext(TitleContext)
+
+  useEffect(() => {
+    setTitle("Contact")
+  }, [setTitle])
+
   return (
     <Container
       fluid

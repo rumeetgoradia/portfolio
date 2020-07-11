@@ -11,6 +11,7 @@ const StyledHeader = styled.h1`
   font-size: calc(5vw + 1rem);
   text-transform: uppercase;
   letter-spacing: 2px;
+  line-height: 1;
   margin: 0;
   margin-right: -2px;
   transition: color 0.3s linear;
