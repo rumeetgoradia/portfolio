@@ -26,43 +26,44 @@ const StyledFooter = styled.footer`
   }
 `
 
-const ContactLinkContainer = styled(Col)`  
+const ContactLinkContainer = styled(Col)`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 0;
+  margin: 0 1rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  .contact-link {
+    opacity: 0.85;
+    font-size: 1.25rem;
+    text-decoration: none;
+    border-radius: 50%;
+    padding: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-grow: 0;
-    margin: 0 1rem;
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
-    .contact-link {
-      opacity: 0.85;
-      font-size: 1.25rem;
-      text-decoration: none;
-      border-radius: 50%;
-      padding: 10px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background-color: ${({ theme }) => theme.font};
-      color: ${({ theme }) => theme.body};
-      transition: color 0.3s linear, background-color .3s linear, text-shadow .3s linear, box-shadow .3s linear, opacity .3s linear, transform .3s linear;
-      &:hover,
-      &:focus {
-        box-shadow: ${({ theme }) => theme.navLinkShadow};
-        text-shadow: 0px 0px 4px var(--green);
-        color: var(--green);
-        opacity: 1;
-      }
-      &:active {
-        transform: scale(0.95);
-      }
+    background-color: ${({ theme }) => theme.font};
+    color: ${({ theme }) => theme.body};
+    transition: color 0.3s linear, background-color 0.3s linear,
+      text-shadow 0.3s linear, box-shadow 0.3s linear, opacity 0.3s linear,
+      transform 0.3s linear;
+    &:hover,
+    &:focus {
+      box-shadow: ${({ theme }) => theme.navLinkShadow};
+      text-shadow: 0px 0px 4px var(--green);
+      color: var(--green);
+      opacity: 1;
     }
-    @media screen and (max-width: 768px) {
-      margin: 0 0.5rem;
-      .contact-link {
-        font-size: 1rem;
-        padding: 6px;
-      }
+    &:active {
+      transform: scale(0.95);
+    }
+  }
+  @media screen and (max-width: 768px) {
+    margin: 0 0.5rem;
+    .contact-link {
+      font-size: 1rem;
+      padding: 6px;
     }
   }
 `

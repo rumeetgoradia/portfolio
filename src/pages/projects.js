@@ -4,9 +4,9 @@ import { Col, Container, Row } from "react-bootstrap"
 import Masonry from "react-masonry-css"
 import styled from "styled-components"
 import projects from "../assets/data/ProjectsData.json"
-import ProjectCard from "../components/ProjectCard"
+import ProjectCard from "../components/Project/ProjectCard"
 import { BorderedButton } from "../components/styles/BorderedAction"
-import { StyledContainer } from "../components/styles/StyledContainer"
+import StyledContainer from "../components/styles/StyledContainer"
 import useWidth from "../useWidth"
 // import "./styles/projects.scss"
 
@@ -39,9 +39,7 @@ export default function Projects({ data }) {
     return [...new Set(items.map(item => item[value]))]
   }
 
-  const categories = useMemo(() => getUnique(projects, "category").sort(), [
-    projects,
-  ])
+  const categories = useMemo(() => getUnique(projects, "category").sort(), [])
 
   const [currentCategory, setCurrentCategory] = useState("all")
   const [animate, setAnimate] = useState(true)

@@ -15,7 +15,7 @@ const borderedStyle = css`
   color: ${({ theme }) => theme.font};
   background-color: transparent;
   opacity: 0.75;
-  font-weight: 300;
+  font-weight: 400;
   width: 100%;
   text-align: center;
   position: relative;

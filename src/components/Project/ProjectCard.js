@@ -2,7 +2,7 @@ import Img from "gatsby-image/withIEPolyfill"
 import React from "react"
 import { Col, Row } from "react-bootstrap"
 import styled from "styled-components"
-import { BorderedAnchor } from "./styles/BorderedAction"
+import { BorderedAnchor } from "../styles/BorderedAction"
 // import "./styles/ProjectCard.scss"
 
 const ProjectCardContent = styled.div`

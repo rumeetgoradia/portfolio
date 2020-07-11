@@ -3,16 +3,16 @@ import { Col, Container, Row } from "react-bootstrap"
 import { FaBriefcase, FaGraduationCap } from "react-icons/fa"
 import {
   VerticalTimeline,
-  VerticalTimelineElement,
+  VerticalTimelineElement
 } from "react-vertical-timeline-component"
 import "react-vertical-timeline-component/style.min.css"
 import styled from "styled-components"
 import {
   academicExperience,
-  professionalExperience,
+  professionalExperience
 } from "../assets/data/ExperienceData"
-import { InfoHeader } from "../components/styles/InfoHeader"
-import { StyledContainer } from "../components/styles/StyledContainer"
+import InfoHeader from "../components/styles/InfoHeader"
+import StyledContainer from "../components/styles/StyledContainer"
 
 const StyledTimeline = styled(VerticalTimeline)`
   padding: 1rem 0;
