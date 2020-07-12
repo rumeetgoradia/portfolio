@@ -60,13 +60,6 @@ const ContactLinkContainer = styled(Col)`
       transform: scale(0.95);
     }
   }
-  @media screen and (max-width: 768px) {
-    margin: 0 0.5rem;
-    .contact-link {
-      font-size: 1rem;
-      padding: 6px;
-    }
-  }
 `
 
 function Footer({ atHome }) {

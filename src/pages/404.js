@@ -43,11 +43,12 @@ function Error() {
     <Container
       fluid
       style={{
-        height: "100vh",
-        position: "relative",
+        position: "absolute",
+        top: "50%",
+        left: "50%",
+        width: "100%",
+        transform: "translate(-50%, -50%)",
         zIndex: 6,
-        paddingTop: 0,
-        paddingBottom: 0,
         overflow: "hidden",
       }}
       className="d-flex flex-column justify-content-center align-items-center text-center"
