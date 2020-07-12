@@ -34,8 +34,11 @@ function Error() {
   const { setTitle } = useContext(TitleContext)
 
   useEffect(() => {
-    setTitle("404")
+    if (setTitle) {
+      setTitle("404")
+    }
   }, [setTitle])
+
   return (
     <Container
       fluid

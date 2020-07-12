@@ -60,8 +60,11 @@ function ThemeToggler({ theme, toggleTheme }) {
           height: 21,
           margin: 0,
         }}
+        htmlFor="theme-toggle"
       >
         <ToggleInput
+          id="theme-toggle"
+          name="theme-toggle"
           type="checkbox"
           checked={checked}
           onChange={() => {

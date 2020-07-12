@@ -73,7 +73,9 @@ export default function Contact() {
   const { setTitle } = useContext(TitleContext)
 
   useEffect(() => {
-    setTitle("Contact")
+    if (setTitle) {
+      setTitle("Contact")
+    }
   }, [setTitle])
 
   return (

@@ -46,7 +46,9 @@ export default function Projects({ data }) {
   const [filteredProjects, setFilteredProjects] = useState(projects)
 
   useEffect(() => {
-    setTitle("Projects")
+    if (setTitle) {
+      setTitle("Projects")
+    }
   }, [setTitle])
 
   useEffect(() => {

@@ -137,7 +137,9 @@ export default function Experience() {
   const { setTitle } = useContext(TitleContext)
 
   useEffect(() => {
-    setTitle("Experience")
+    if (setTitle) {
+      setTitle("Experience")
+    }
   }, [setTitle])
   return (
     <>

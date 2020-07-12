@@ -47,7 +47,9 @@ function About({ data }) {
   const { setTitle } = useContext(TitleContext)
 
   useEffect(() => {
-    setTitle("About")
+    if (setTitle) {
+      setTitle("About")
+    }
   }, [setTitle])
 
   return (

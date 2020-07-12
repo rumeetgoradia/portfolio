@@ -1,8 +1,8 @@
-import React from "react"
+import React, { useContext, useEffect } from "react"
 import { Col, Container, Row } from "react-bootstrap"
 import Typed from "react-typed"
 import styled from "styled-components"
-// import "./styles/index.scss"
+import { TitleContext } from "../layouts/GlobalLayout"
 
 const StyledHeader = styled.h1`
   color: ${({ theme }) => theme.font};
@@ -39,6 +39,14 @@ const StyledSubHeader = styled.h2`
 `
 
 export default function Index() {
+  const { setTitle } = useContext(TitleContext)
+
+  useEffect(() => {
+    if (setTitle) {
+      setTitle("")
+    }
+  }, [setTitle])
+
   return (
     <Container
       fluid
