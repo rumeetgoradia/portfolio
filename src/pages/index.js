@@ -21,19 +21,16 @@ const StyledSubHeader = styled.h2`
   color: ${({ theme }) => theme.font};
   font-weight: 200;
   font-size: calc(2vw + 1rem);
-  margin: -5px 0 0;
+  margin: 0;
   user-select: none;
   span {
     font-weight: 400;
   }
-  @media screen and (min-width: 350px) {
+  @media screen and (min-width: 576px) {
     margin-top: -10px;
   }
-  @media screen and (min-width: 576px) {
+  @media screen and (min-width: 992px) {
     margin-top: -15px;
-  }
-  @media screen and (min-width: 768px) {
-    margin-top: -20px;
   }
   transition: color 0.3s linear;
 `
@@ -50,7 +47,12 @@ export default function Index() {
   return (
     <Container
       fluid
-      style={{ height: "100vh", position: "relative", zIndex: 6 }}
+      style={{
+        height: "100vh",
+        position: "relative",
+        zIndex: 6,
+        overflow: "hidden",
+      }}
       className="d-flex flex-column justify-content-center align-items-center text-center"
     >
       <Row className="w-100">

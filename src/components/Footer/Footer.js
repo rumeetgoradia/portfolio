@@ -8,6 +8,7 @@ const StyledFooter = styled.footer`
   width: 100%;
   overflow-y: hidden;
   z-index: 998;
+  left: 0;
   position: relative;
   background-color: ${({ theme }) => theme.bodyRGBA + ".85)"};
   border-top: 1px solid ${({ theme }) => theme.font};
@@ -15,7 +16,7 @@ const StyledFooter = styled.footer`
   transition: background-color 0.3s linear, border-color 0.3s linear,
     backdrop-filter 0.3s linear;
   &.at-home {
-    position: absolute;
+    position: fixed;
     bottom: 0;
     height: 80px;
     display: flex;
