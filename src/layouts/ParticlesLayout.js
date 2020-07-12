@@ -183,7 +183,7 @@ function ParticlesLayout({ children, setThemeToggled }) {
                 factor: 1000,
               },
               limit: 0,
-              value: 85,
+              value: 70,
             },
             opacity: {
               animation: {
