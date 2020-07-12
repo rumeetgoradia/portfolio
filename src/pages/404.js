@@ -42,7 +42,14 @@ function Error() {
   return (
     <Container
       fluid
-      style={{ height: "100vh", position: "relative", zIndex: 6 }}
+      style={{
+        height: "100vh",
+        position: "relative",
+        zIndex: 6,
+        paddingTop: 0,
+        paddingBottom: 0,
+        overflow: "hidden",
+      }}
       className="d-flex flex-column justify-content-center align-items-center text-center"
     >
       <Row className="w-100 justify-content-center">

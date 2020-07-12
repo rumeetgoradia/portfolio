@@ -49,6 +49,8 @@ export default function Index() {
       fluid
       style={{
         height: "100vh",
+        paddingTop: 0,
+        paddingBottom: 0,
         position: "relative",
         zIndex: 6,
         overflow: "hidden",
