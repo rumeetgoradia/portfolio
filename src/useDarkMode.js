@@ -3,29 +3,13 @@ import { useCallback, useEffect, useState } from "react"
 export const useDarkMode = () => {
   const [theme, setTheme] = useState("light")
   const [componentMounted, setComponentMounted] = useState(false)
-  const [themeToggled, setThemeToggled] = useState(false)
 
   const setMode = useCallback(mode => {
     window.localStorage.setItem("theme", mode)
     setTheme(mode)
   }, [])
 
-  // const fadeOut = () => {
-  //   const gradientTran = document.getElementById("gradient-transition")
-  //   if (gradientTran) {
-  //     gradientTran.style.opacity = 1
-  //     const fadeEffect = setInterval(function () {
-  //       if (gradientTran.style.opacity > 0) {
-  //         gradientTran.style.opacity -= 1 / 300
-  //       } else {
-  //         clearInterval(fadeEffect)
-  //       }
-  //     }, 1)
-  //   }
-  // }
-
   const toggleTheme = () => {
-    setThemeToggled(true)
     if (theme === "light") {
       setMode("dark")
     } else {
@@ -45,5 +29,5 @@ export const useDarkMode = () => {
     setComponentMounted(true)
   }, [setMode])
 
-  return [theme, toggleTheme, componentMounted, themeToggled, setThemeToggled]
+  return [theme, toggleTheme, componentMounted]
 }

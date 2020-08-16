@@ -77,8 +77,8 @@ function About({ data }) {
                 studying Computer Science and Business Analytics & Information
                 Technology. One day, I hope to be able to market my own software
                 and bring more technology into lower-income communities. This
-                coming summer, I'll be working at Schonfeld Strategic Advisors
-                in New York City as a Software Engineering Intern. While I'm not
+                summer, I was employed at Schonfeld Strategic Advisors in New
+                York City as a Software Engineering Intern. While I'm not
                 studying or working, I'm at the gym, hanging out with my
                 friends, or working on personal projects like this website.
               </InfoParagraph>

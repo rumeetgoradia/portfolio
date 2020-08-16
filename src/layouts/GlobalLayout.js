@@ -9,7 +9,6 @@ import { GlobalStyles } from "../styles/GlobalStyles"
 import { darkTheme, lightTheme } from "../styles/Themes"
 import { useDarkMode } from "../useDarkMode"
 import ParticlesLayout from "./ParticlesLayout"
-import SphereLayout from "./SphereLayout"
 
 require("animate.css")
 
@@ -38,13 +37,7 @@ const DarkGradient = styled.div`
 export const TitleContext = React.createContext("")
 
 export default function GlobalLayout({ children, atHome }) {
-  const [
-    theme,
-    toggleTheme,
-    componentMounted,
-    themeToggled,
-    setThemeToggled,
-  ] = useDarkMode()
+  const [theme, toggleTheme, componentMounted] = useDarkMode()
 
   const [title, setTitle] = useState("")
 
@@ -61,19 +54,9 @@ export default function GlobalLayout({ children, atHome }) {
         <SEO title={title} />
         <Navbar theme={theme} toggleTheme={toggleTheme} atHome={atHome} />
         <TitleContext.Provider value={{ setTitle }}>
-          {atHome ? (
-            <SphereLayout theme={theme} themeToggled={themeToggled}>
-              {children}
-            </SphereLayout>
-          ) : (
-            <>
-              <LightGradient style={{ opacity: theme === "light" ? 1 : 0 }} />
-              <DarkGradient style={{ opacity: theme === "light" ? 0 : 1 }} />
-              <ParticlesLayout setThemeToggled={setThemeToggled}>
-                {children}
-              </ParticlesLayout>
-            </>
-          )}
+          <LightGradient style={{ opacity: theme === "light" ? 1 : 0 }} />
+          <DarkGradient style={{ opacity: theme === "light" ? 0 : 1 }} />
+          <ParticlesLayout>{children}</ParticlesLayout>
         </TitleContext.Provider>
         <Footer atHome={atHome} />
       </>

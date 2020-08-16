@@ -1,11 +1,7 @@
-import React, { memo, useEffect } from "react"
+import React, { memo } from "react"
 import Particles from "react-tsparticles"
 
-function ParticlesLayout({ children, setThemeToggled }) {
-  useEffect(() => {
-    setThemeToggled(false)
-  }, [setThemeToggled])
-
+function ParticlesLayout({ children }) {
   return (
     <>
       <Particles
@@ -183,7 +179,7 @@ function ParticlesLayout({ children, setThemeToggled }) {
                 factor: 1000,
               },
               limit: 0,
-              value: 70,
+              value: 40,
             },
             opacity: {
               animation: {
