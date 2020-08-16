@@ -2,8 +2,8 @@ import React from "react"
 import {
   FaAndroid,
   FaDatabase,
+  FaDocker,
   FaFigma,
-  FaFileWord,
   FaGitAlt,
   FaHtml5,
   FaNodeJs,
@@ -71,9 +71,9 @@ const skills = [
     icon: <FaUserShield />,
   },
   {
-    title: "Microsoft Office",
-    tools: ["Word", "PowerPoint", "Outlook"],
-    icon: <FaFileWord />,
+    title: "AWS-Based Microservices",
+    tools: ["Docker", "Kafka", "Spring"],
+    icon: <FaDocker />,
   },
 ]
 
