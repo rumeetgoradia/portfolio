@@ -1,20 +1,20 @@
 export default {
-	titleTemplate: "%s — Example",
-	description: "Example",
-	canonical: "https://www.example.com/",
+	titleTemplate: "%s — Rumeet Goradia",
+	description: "Rumeet Goradia's portfolio.",
+	canonical: "https://www.rumeetgoradia.com/",
 	openGraph: {
-		title: "Example",
-		description: "Example",
+		title: "Rumeet Goradia",
+		description: "Rumeet Goradia's portfolio.",
 		type: "website",
 		locale: "en_IE",
-		url: "https://www.example.com/",
-		site_name: "Example",
+		url: "https://www.rumeetgoradia.com/",
+		site_name: "Rumeet Goradia",
 		images: [
 			{
 				url: "/image.jpg",
 				width: 800,
 				height: 600,
-				alt: "Example",
+				alt: "Rumeet Goradia",
 			},
 		],
 	},
