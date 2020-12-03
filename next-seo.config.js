@@ -1,20 +1,22 @@
+import { SITE_NAME, SITE_URL } from "./constants"
+
 export default {
-	titleTemplate: "%s — Rumeet Goradia",
-	description: "Rumeet Goradia's portfolio.",
-	canonical: "https://www.rumeetgoradia.com/",
+	titleTemplate: `%s — ${SITE_NAME}`,
+	description: SITE_NAME,
+	canonical: SITE_URL,
 	openGraph: {
-		title: "Rumeet Goradia",
-		description: "Rumeet Goradia's portfolio.",
+		title: SITE_NAME,
+		description: SITE_NAME,
 		type: "website",
 		locale: "en_IE",
-		url: "https://www.rumeetgoradia.com/",
-		site_name: "Rumeet Goradia",
+		url: SITE_URL,
+		site_name: SITE_NAME,
 		images: [
 			{
 				url: "/image.jpg",
 				width: 800,
 				height: 600,
-				alt: "Rumeet Goradia",
+				alt: SITE_NAME,
 			},
 		],
 	},
