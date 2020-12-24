@@ -18,11 +18,11 @@ export const useStyles = makeStyles((theme) => ({
 					: "transparent"
 			}`,
 		backgroundColor: (props: NavbarStyleProps) =>
-			props.onSubPage || props.drawerOpen
+			props.onSubPage && !props.drawerOpen
 				? fade(theme.palette.background.default, 0.4)
 				: "transparent",
 		backdropFilter: (props: NavbarStyleProps) =>
-			props.onSubPage || props.drawerOpen ? "saturate(180%) blur(5px)" : "",
+			props.onSubPage && !props.drawerOpen ? "saturate(180%) blur(5px)" : "",
 		transition: theme.transitions.create([
 			"padding",
 			"border-bottom",

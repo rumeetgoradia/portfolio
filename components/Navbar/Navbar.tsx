@@ -87,6 +87,7 @@ const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
 								anchor="top"
 								open={drawerOpen}
 								onClose={closeDrawer}
+								transitionDuration={500}
 								BackdropProps={{ style: { opacity: 0 } }}
 								classes={{ paper: classes.drawer }}
 							>
