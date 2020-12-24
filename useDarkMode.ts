@@ -1,10 +1,12 @@
 import { useCallback, useEffect, useState } from "react"
 
-export const useDarkMode = (): [string, () => void, boolean] => {
-	const [theme, setTheme] = useState<string>("light")
+export type ThemeString = "light" | "dark"
+
+export const useDarkMode = (): [ThemeString, () => void, boolean] => {
+	const [theme, setTheme] = useState<ThemeString>("light")
 	const [componentMounted, setComponentMounted] = useState<boolean>(false)
 
-	const setMode = useCallback((mode: string) => {
+	const setMode = useCallback((mode: ThemeString) => {
 		window.localStorage.setItem("theme", mode)
 		setTheme(mode)
 	}, [])
@@ -18,7 +20,7 @@ export const useDarkMode = (): [string, () => void, boolean] => {
 	}
 
 	useEffect(() => {
-		const localTheme = window.localStorage.getItem("theme")
+		const localTheme = window.localStorage.getItem("theme") as ThemeString
 		window.matchMedia &&
 		window.matchMedia("(prefers-color-scheme: dark)").matches &&
 		!localTheme

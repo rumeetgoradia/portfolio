@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import Particles from "react-particles-js"
-import { primaryColor } from "../../themes/CommonTheme"
+import { PRIMARY_COLOR } from "../../themes/CommonTheme"
 
 const ParticlesBackground: React.FC = () => {
 	const [numParticles, setNumParticles] = useState<number>(0)
@@ -9,7 +9,7 @@ const ParticlesBackground: React.FC = () => {
 		setNumParticles(
 			Math.max(
 				75,
-				Math.floor(Math.max(window.innerWidth, window.innerHeight) / 10)
+				Math.floor(Math.max(window.innerWidth, window.innerHeight) / 7)
 			)
 		)
 	}
@@ -27,11 +27,12 @@ const ParticlesBackground: React.FC = () => {
 			style={{
 				overflow: "hidden",
 				position: "fixed",
-				top: 0,
-				left: 0,
+				top: "50%",
+				left: "50%",
+				transform: "translate(-50%, -50%)",
 				zIndex: 5,
-				height: "100vh",
-				width: "100vw",
+				height: "120vh",
+				width: "120%",
 				backgroundColor: "transparent",
 			}}
 			params={{
@@ -71,11 +72,11 @@ const ParticlesBackground: React.FC = () => {
 				},
 				particles: {
 					color: {
-						value: primaryColor,
+						value: PRIMARY_COLOR,
 					},
 					links: {
 						color: {
-							value: primaryColor,
+							value: PRIMARY_COLOR,
 						},
 
 						distance: 80,

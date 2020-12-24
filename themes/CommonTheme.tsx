@@ -9,23 +9,26 @@ export interface PortfolioTheme extends Theme {
 	background: string
 }
 
-export const primaryColor: string = "rgb(52, 146, 110)"
+export const PRIMARY_COLOR: string = "rgb(52, 146, 110)"
+export const BLACK: string = "rgb(17, 24, 32)"
+export const WHITE: string = "rgb(231, 231, 234)"
+export const ERROR: string = "rgb(206, 98, 98)"
 
 export const commonPaletteOptions: PaletteOptions = {
 	common: {
-		black: "rgb(17, 24, 32)",
-		white: "rgb(231, 231, 234)",
+		black: BLACK,
+		white: WHITE,
 	},
 	primary: {
-		main: primaryColor,
+		main: PRIMARY_COLOR,
 	},
 	error: {
-		main: "rgb(187, 0, 0)",
+		main: ERROR,
 	},
 }
 
 export const commonTypographyOptions: TypographyOptions = {
-	fontFamily: ['"Rubik"', '"Helvetica"', "Arial", "sans-serif"].join(","),
+	fontFamily: ['"Inter"', '"Helvetica"', "Arial", "sans-serif"].join(","),
 }
 
 export const commonPropsOptions: ComponentsProps = {
@@ -45,7 +48,7 @@ export const commonOverridesOptions: Overrides = {
 }
 
 export const gradientBackgroundCss = css`
-	width: 100vw;
+	width: 100%;
 	height: 100vh;
 	position: fixed;
 	top: 0;

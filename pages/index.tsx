@@ -6,13 +6,16 @@ const IndexPage = () => {
 	return (
 		<>
 			<NextSeo titleTemplate="%s" title={SITE_NAME} />
-
 			<Typography
 				variant="h1"
 				style={{
 					zIndex: 100,
 					position: "absolute",
-					top: 50,
+					top: "50%",
+					left: "50%",
+					transform: "translate(-50%, -50%)",
+					width: "100%",
+					textAlign: "center",
 					fontWeight: 600,
 					textTransform: "uppercase",
 				}}

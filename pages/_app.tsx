@@ -1,9 +1,10 @@
-import { Button, CssBaseline } from "@material-ui/core"
+import { CssBaseline } from "@material-ui/core"
 import { ThemeProvider as MaterialThemeProvider } from "@material-ui/core/styles"
 import { DefaultSeo } from "next-seo"
 import NextApp from "next/app"
 import { useEffect } from "react"
 import { ThemeProvider as SCThemeProvider } from "styled-components"
+import Navbar from "../components/Navbar"
 import ParticlesBackground from "../components/ParticlesBackground"
 import SEO from "../next-seo.config"
 import { DarkGradient, darkTheme } from "../themes/DarkTheme"
@@ -35,20 +36,10 @@ const App: React.FC = ({ children }) => {
 			<MaterialThemeProvider theme={themeMode}>
 				<CssBaseline />
 				<SCThemeProvider theme={themeMode}>
+					<Navbar theme={theme} toggleTheme={toggleTheme} />
 					<LightGradient style={{ opacity: theme === "light" ? 1 : 0 }} />
 					<DarkGradient style={{ opacity: theme === "dark" ? 1 : 0 }} />
 					<ParticlesBackground />
-					<Button
-						onClick={toggleTheme}
-						style={{
-							zIndex: 99999999999,
-							top: "50%",
-							left: "50%",
-							position: "absolute",
-						}}
-					>
-						HERE
-					</Button>
 					{children}
 				</SCThemeProvider>
 			</MaterialThemeProvider>
