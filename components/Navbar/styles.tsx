@@ -8,19 +8,21 @@ interface NavbarStyleProps {
 export const useStyles = makeStyles((theme) => ({
 	root: {
 		padding: (props: NavbarStyleProps) =>
-			`${props.onSubPage ? "0" : `${theme.spacing(2)}px`} ${theme.spacing(
-				6
-			)}px`,
+			`${
+				props.onSubPage || props.drawerOpen ? "0" : `${theme.spacing(2)}px`
+			} ${theme.spacing(6)}px`,
 		borderBottom: (props: NavbarStyleProps) =>
 			`1px solid ${
-				props.onSubPage ? theme.palette.text.primary : "transparent"
+				props.onSubPage && !props.drawerOpen
+					? theme.palette.text.primary
+					: "transparent"
 			}`,
 		backgroundColor: (props: NavbarStyleProps) =>
-			props.onSubPage
+			props.onSubPage || props.drawerOpen
 				? fade(theme.palette.background.default, 0.4)
 				: "transparent",
 		backdropFilter: (props: NavbarStyleProps) =>
-			props.onSubPage ? "saturate(180%) blur(5px)" : "",
+			props.onSubPage || props.drawerOpen ? "saturate(180%) blur(5px)" : "",
 		transition: theme.transitions.create([
 			"padding",
 			"border-bottom",
@@ -30,9 +32,10 @@ export const useStyles = makeStyles((theme) => ({
 	},
 	brandContainer: {
 		padding: `${theme.spacing(2)}px 0`,
-		opacity: (props: NavbarStyleProps) => (props.onSubPage ? 1 : 0),
+		opacity: (props: NavbarStyleProps) =>
+			props.onSubPage || props.drawerOpen ? 1 : 0,
 		pointerEvents: (props: NavbarStyleProps) =>
-			props.onSubPage ? "all" : "none",
+			props.onSubPage || props.drawerOpen ? "all" : "none",
 		transition: theme.transitions.create("opacity"),
 	},
 	brand: {
@@ -108,5 +111,11 @@ export const useStyles = makeStyles((theme) => ({
 			transform: (props: NavbarStyleProps) =>
 				props.drawerOpen ? "rotate(45deg)" : "",
 		},
+	},
+	drawer: {
+		height: "100vh",
+		padding: ` 0 ${theme.spacing(6)}px `,
+		backgroundColor: fade(theme.palette.background.default, 0.4),
+		backdropFilter: "saturate(180%) blur(5px)",
 	},
 }))

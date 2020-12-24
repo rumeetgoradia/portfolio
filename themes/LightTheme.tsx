@@ -5,6 +5,7 @@ import {
 	commonPaletteOptions,
 	commonPropsOptions,
 	commonTypographyOptions,
+	commonZIndexOptions,
 	gradientBackgroundCss,
 	PortfolioTheme,
 } from "./CommonTheme"
@@ -36,6 +37,9 @@ export const lightMuiTheme = responsiveFontSizes(
 		},
 		overrides: {
 			...commonOverridesOptions,
+		},
+		zIndex: {
+			...commonZIndexOptions,
 		},
 	})
 )

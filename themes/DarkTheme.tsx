@@ -5,6 +5,7 @@ import {
 	commonPaletteOptions,
 	commonPropsOptions,
 	commonTypographyOptions,
+	commonZIndexOptions,
 	gradientBackgroundCss,
 	PortfolioTheme,
 } from "./CommonTheme"
@@ -39,6 +40,9 @@ export const darkMuiTheme = responsiveFontSizes(
 		},
 		overrides: {
 			...commonOverridesOptions,
+		},
+		zIndex: {
+			...commonZIndexOptions,
 		},
 	})
 )

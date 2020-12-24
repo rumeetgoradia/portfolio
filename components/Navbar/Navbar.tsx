@@ -1,4 +1,11 @@
-import { AppBar, Box, Grid, Theme, useMediaQuery } from "@material-ui/core"
+import {
+	AppBar,
+	Box,
+	Drawer,
+	Grid,
+	Theme,
+	useMediaQuery,
+} from "@material-ui/core"
 import Link from "next/link"
 import { useRouter } from "next/router"
 import { useEffect, useState } from "react"
@@ -29,11 +36,14 @@ const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
 		}
 	}, [smallScreen])
 
+	const closeDrawer = () => setDrawerOpen(false)
+
 	const classes = useStyles({
 		onSubPage:
 			NAV_LINKS.findIndex((navLink) => navLink.path === router.pathname) !== -1,
 		drawerOpen,
 	})
+
 	return (
 		<AppBar
 			position="fixed"
@@ -45,29 +55,44 @@ const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
 				<Grid item xs={1}>
 					<Box display="flex" width="100%" className={classes.brandContainer}>
 						<Link href="/">
-							<Logo viewBox="0 0 363 363" className={classes.brand} />
+							<Logo
+								viewBox="0 0 363 363"
+								onClick={closeDrawer}
+								className={classes.brand}
+							/>
 						</Link>
 					</Box>
 				</Grid>
 				<Grid item xs={10}>
 					{smallScreen ? (
-						<Box
-							display="flex"
-							justifyContent="center"
-							alignItems="center"
-							width="100%"
-							height="100%"
-						>
+						<>
 							<Box
-								onClick={() => setDrawerOpen(!drawerOpen)}
 								display="flex"
 								justifyContent="center"
 								alignItems="center"
-								className={classes.drawerOpenerContainer}
+								width="100%"
+								height="100%"
 							>
-								<div className={classes.drawerOpener} />
+								<Box
+									onClick={() => setDrawerOpen(!drawerOpen)}
+									display="flex"
+									justifyContent="center"
+									alignItems="center"
+									className={classes.drawerOpenerContainer}
+								>
+									<div className={classes.drawerOpener} />
+								</Box>
 							</Box>
-						</Box>
+							<Drawer
+								anchor="top"
+								open={drawerOpen}
+								onClose={closeDrawer}
+								BackdropProps={{ style: { opacity: 0 } }}
+								classes={{ paper: classes.drawer }}
+							>
+								<NavLinks drawer closeDrawer={closeDrawer} />
+							</Drawer>
+						</>
 					) : (
 						<NavLinks />
 					)}

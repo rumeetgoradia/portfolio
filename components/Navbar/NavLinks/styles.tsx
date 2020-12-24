@@ -1,5 +1,9 @@
 import { makeStyles } from "@material-ui/core"
 
+interface NavLinksStyleProps {
+	drawer: boolean | undefined
+}
+
 export const useStyles = makeStyles((theme) => ({
 	root: {
 		position: "relative",
@@ -7,7 +11,10 @@ export const useStyles = makeStyles((theme) => ({
 	},
 	navLinkContainer: {
 		padding: `0 ${theme.spacing(1.5)}px`,
-		margin: `0 ${theme.spacing(0.75)}px`,
+		margin: (props: NavLinksStyleProps) =>
+			`${props.drawer ? `${theme.spacing(3)}px` : "0"} ${
+				props.drawer ? "0" : `${theme.spacing(0.75)}px`
+			}`,
 		textAlign: "center",
 	},
 	navLink: {
@@ -18,6 +25,8 @@ export const useStyles = makeStyles((theme) => ({
 		padding: `0 ${theme.spacing(0.5) - 2}px 0 ${theme.spacing(0.5)}px`,
 		cursor: "pointer",
 		lineHeight: 1,
+		fontSize: (props: NavLinksStyleProps) =>
+			props.drawer ? theme.typography.fontSize * 2 : theme.typography.fontSize,
 		transition: theme.transitions.create(["text-shadow"]),
 		"&:hover, &:focus": {
 			textShadow: `0 0 6px ${theme.palette.text.primary}`,
@@ -29,7 +38,7 @@ export const useStyles = makeStyles((theme) => ({
 	},
 	underline: {
 		position: "absolute",
-		height: 4,
+		height: (props: NavLinksStyleProps) => (props.drawer ? 0 : 4),
 		bottom: -2,
 		backgroundColor: theme.palette.primary.main,
 		transition: theme.transitions.create(["left", "width", "opacity"]),

@@ -6,7 +6,12 @@ import { createRef, RefObject, useEffect, useRef } from "react"
 import { NAV_LINKS } from "../../../constants"
 import { useStyles } from "./styles"
 
-const NavLinks = () => {
+interface NavLinksProps {
+	drawer?: boolean | undefined
+	closeDrawer?: () => void
+}
+
+const NavLinks: React.FC<NavLinksProps> = ({ drawer, closeDrawer }) => {
 	const navLinkRefs = useRef<RefObject<HTMLDivElement>[]>(
 		NAV_LINKS.map(() => createRef())
 	)
@@ -42,11 +47,12 @@ const NavLinks = () => {
 		moveUnderline()
 	}, [router.pathname])
 
-	const classes = useStyles()
+	const classes = useStyles({ drawer })
 
 	return (
 		<Box
 			display="flex"
+			flexDirection={drawer ? "column" : "row"}
 			justifyContent="center"
 			alignItems="center"
 			width="100%"
@@ -61,6 +67,7 @@ const NavLinks = () => {
 				>
 					<Link href={navLink.path}>
 						<span
+							onClick={closeDrawer}
 							className={clsx(
 								classes.navLink,
 								router.pathname === navLink.path && "active"

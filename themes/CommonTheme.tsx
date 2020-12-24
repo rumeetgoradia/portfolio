@@ -3,6 +3,7 @@ import { PaletteOptions } from "@material-ui/core/styles/createPalette"
 import { TypographyOptions } from "@material-ui/core/styles/createTypography"
 import { Overrides } from "@material-ui/core/styles/overrides"
 import { ComponentsProps } from "@material-ui/core/styles/props"
+import { ZIndexOptions } from "@material-ui/core/styles/zIndex"
 import { css } from "styled-components"
 
 export interface PortfolioTheme extends Theme {
@@ -45,6 +46,11 @@ export const commonOverridesOptions: Overrides = {
 			transition: "color 300ms cubic-bezier(0.4,0,0.2,1) 0ms",
 		},
 	},
+}
+
+export const commonZIndexOptions: ZIndexOptions = {
+	appBar: 1400,
+	drawer: 1399,
 }
 
 export const gradientBackgroundCss = css`
