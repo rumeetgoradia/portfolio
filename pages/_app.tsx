@@ -4,6 +4,7 @@ import { DefaultSeo } from "next-seo"
 import NextApp from "next/app"
 import { useEffect } from "react"
 import { ThemeProvider as SCThemeProvider } from "styled-components"
+import Footer from "../components/Footer"
 import Navbar from "../components/Navbar"
 import ParticlesBackground from "../components/ParticlesBackground"
 import SEO from "../next-seo.config"
@@ -41,6 +42,7 @@ const App: React.FC = ({ children }) => {
 					<DarkGradient style={{ opacity: theme === "dark" ? 1 : 0 }} />
 					<ParticlesBackground />
 					{children}
+					<Footer />
 				</SCThemeProvider>
 			</MaterialThemeProvider>
 		</>
