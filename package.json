@@ -21,6 +21,7 @@
     "react-icons": "^4.1.0",
     "react-optimized-image": "^0.4.1",
     "react-particles-js": "^3.4.1",
+    "react-typed": "^1.2.0",
     "styled-components": "^5.2.1"
   },
   "devDependencies": {

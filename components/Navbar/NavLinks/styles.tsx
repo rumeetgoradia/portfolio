@@ -19,6 +19,8 @@ export const useStyles = makeStyles((theme) => ({
 	},
 	navLink: {
 		fontWeight: 300,
+		userSelect: "none",
+		opacity: 0.85,
 		textTransform: "uppercase",
 		color: theme.palette.text.primary,
 		letterSpacing: 2,
@@ -27,11 +29,13 @@ export const useStyles = makeStyles((theme) => ({
 		lineHeight: 1,
 		fontSize: (props: NavLinksStyleProps) =>
 			props.drawer ? theme.typography.fontSize * 2 : theme.typography.fontSize,
-		transition: theme.transitions.create(["text-shadow"]),
+		transition: theme.transitions.create(["text-shadow", "color", "opacity"]),
 		"&:hover, &:focus": {
+			opacity: 1,
 			textShadow: `0 0 6px ${theme.palette.text.primary}`,
 		},
 		"&.active": {
+			opacity: 1,
 			color: theme.palette.primary.main,
 			textShadow: `0 0 6px ${theme.palette.primary.main}`,
 		},

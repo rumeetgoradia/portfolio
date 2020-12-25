@@ -52,7 +52,7 @@ const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
 			className={classes.root}
 		>
 			<Grid container>
-				<Grid item xs={1}>
+				<Grid item xs={4} sm={1}>
 					<Box display="flex" width="100%" className={classes.brandContainer}>
 						<Link href="/">
 							<Logo
@@ -63,7 +63,7 @@ const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
 						</Link>
 					</Box>
 				</Grid>
-				<Grid item xs={10}>
+				<Grid item xs={4} sm={10}>
 					{smallScreen ? (
 						<>
 							<Box
@@ -98,7 +98,7 @@ const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
 						<NavLinks />
 					)}
 				</Grid>
-				<Grid item xs={1}>
+				<Grid item xs={4} sm={1}>
 					<Box
 						display="flex"
 						justifyContent="flex-end"

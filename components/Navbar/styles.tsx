@@ -8,9 +8,9 @@ interface NavbarStyleProps {
 export const useStyles = makeStyles((theme) => ({
 	root: {
 		padding: (props: NavbarStyleProps) =>
-			`${
-				props.onSubPage || props.drawerOpen ? "0" : `${theme.spacing(2)}px`
-			} ${theme.spacing(6)}px`,
+			`${props.onSubPage ? "0" : `${theme.spacing(2)}px`} ${theme.spacing(
+				6
+			)}px`,
 		borderBottom: (props: NavbarStyleProps) =>
 			`1px solid ${
 				props.onSubPage && !props.drawerOpen
@@ -19,7 +19,7 @@ export const useStyles = makeStyles((theme) => ({
 			}`,
 		backgroundColor: (props: NavbarStyleProps) =>
 			props.onSubPage && !props.drawerOpen
-				? fade(theme.palette.background.default, 0.4)
+				? fade(theme.palette.background.default, 0.55)
 				: "transparent",
 		backdropFilter: (props: NavbarStyleProps) =>
 			props.onSubPage && !props.drawerOpen ? "saturate(180%) blur(5px)" : "",
@@ -29,6 +29,12 @@ export const useStyles = makeStyles((theme) => ({
 			"background-color",
 			"backdrop-filter",
 		]),
+		[theme.breakpoints.down("xs")]: {
+			padding: (props: NavbarStyleProps) =>
+				`${props.onSubPage ? "0" : `${theme.spacing(2)}px`} ${theme.spacing(
+					3
+				)}px`,
+		},
 	},
 	brandContainer: {
 		padding: `${theme.spacing(2)}px 0`,
@@ -115,7 +121,7 @@ export const useStyles = makeStyles((theme) => ({
 	drawer: {
 		height: "100vh",
 		padding: ` 0 ${theme.spacing(6)}px `,
-		backgroundColor: fade(theme.palette.background.default, 0.4),
+		backgroundColor: fade(theme.palette.background.default, 0.55),
 		backdropFilter: "saturate(180%) blur(5px)",
 	},
 }))
