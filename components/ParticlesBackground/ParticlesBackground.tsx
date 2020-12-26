@@ -49,7 +49,7 @@ const ParticlesBackground: React.FC = () => {
 				detectRetina: true,
 				fpsLimit: 60,
 				interactivity: {
-					detectsOn: "window",
+					detectsOn: "canvas",
 					events: {
 						onHover: {
 							enable: true,

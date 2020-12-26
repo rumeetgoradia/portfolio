@@ -1,5 +1,11 @@
+import Layout from "../components/Layout"
+
 const ExperiencePage = () => {
-	return <div>Experience</div>
+	return (
+		<Layout title="Experience">
+			<div>Experience</div>
+		</Layout>
+	)
 }
 
 export default ExperiencePage

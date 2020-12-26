@@ -42,7 +42,7 @@ export const useStyles = makeStyles((theme) => ({
 	},
 	underline: {
 		position: "absolute",
-		height: (props: NavLinksStyleProps) => (props.drawer ? 0 : 4),
+		height: 4,
 		bottom: -2,
 		backgroundColor: theme.palette.primary.main,
 		transition: theme.transitions.create(["left", "width", "opacity"]),

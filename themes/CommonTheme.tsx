@@ -30,6 +30,7 @@ export const commonPaletteOptions: PaletteOptions = {
 
 export const commonTypographyOptions: TypographyOptions = {
 	fontFamily: ['"Inter"', '"Helvetica"', "Arial", "sans-serif"].join(","),
+	fontSize: 16,
 }
 
 export const commonPropsOptions: ComponentsProps = {

@@ -11,7 +11,7 @@ export const useStyles = makeStyles((theme) => ({
 		width: "100%",
 		bottom: 0,
 		left: 0,
-		zIndex: 1398,
+		zIndex: 1299,
 		display: "flex",
 		justifyContent: "center",
 		alignItems: "center",
@@ -30,6 +30,7 @@ export const useStyles = makeStyles((theme) => ({
 			"background-color",
 			"backdrop-filter",
 			"border-color",
+			"height",
 		]),
 	},
 	footerLink: {

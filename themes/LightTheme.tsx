@@ -34,6 +34,9 @@ export const lightMuiTheme = responsiveFontSizes(
 		},
 		props: {
 			...commonPropsOptions,
+			MuiPaper: {
+				elevation: 4,
+			},
 		},
 		overrides: {
 			...commonOverridesOptions,

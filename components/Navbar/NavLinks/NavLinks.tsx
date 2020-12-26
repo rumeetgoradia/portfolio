@@ -78,7 +78,9 @@ const NavLinks: React.FC<NavLinksProps> = ({ drawer, closeDrawer }) => {
 					</Link>
 				</div>
 			))}
-			<div ref={movingUnderlineRef} className={classes.underline} />
+			{!drawer && (
+				<div ref={movingUnderlineRef} className={classes.underline} />
+			)}
 		</Box>
 	)
 }
