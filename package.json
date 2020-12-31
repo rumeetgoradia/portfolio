@@ -9,13 +9,13 @@
   },
   "dependencies": {
     "@material-ui/core": "^4.11.0",
-    "@svgr/webpack": "^5.5.0",
     "clsx": "^1.1.1",
-    "next": "latest",
+    "next": "^10.0.4",
     "next-compose-plugins": "^2.2.1",
     "next-optimized-images": "^3.0.0-canary.10",
     "next-seo": "^4.17.0",
     "node-fetch": "^2.6.1",
+    "optimized-images-loader": "^0.4.0",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-icons": "^4.1.0",
@@ -25,6 +25,7 @@
     "styled-components": "^5.2.1"
   },
   "devDependencies": {
+    "@babel/preset-env": "^7.12.11",
     "@babel/preset-react": "^7.12.7",
     "@types/node": "^12.12.21",
     "@types/react": "^16.9.16",

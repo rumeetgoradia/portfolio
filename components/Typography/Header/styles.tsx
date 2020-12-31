@@ -12,8 +12,8 @@ export const useStyles = makeStyles((theme) => ({
 		marginBottom: theme.spacing(1),
 	},
 	divider: {
-		border: `1px solid ${theme.palette.text.primary}`,
-		width: 30,
+		border: `2px solid ${theme.palette.text.primary}`,
+		width: 50,
 		margin: `0 0 ${theme.spacing(1.5)}px`,
 		transition: theme.transitions.create(["border-color"]),
 	},
