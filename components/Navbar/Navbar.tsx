@@ -11,7 +11,6 @@ import { useRouter } from "next/router"
 import { useEffect, useState } from "react"
 import { Svg } from "react-optimized-image"
 import { NAV_LINKS } from "../../constants"
-import Logo from "../../public/images/logo.svg"
 import { ThemeString } from "../../useDarkMode"
 import NavLinks from "./NavLinks"
 import { useStyles } from "./styles"
@@ -57,17 +56,11 @@ const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
 					<Box display="flex" width="100%" className={classes.brandContainer}>
 						<Link href="/">
 							<Svg
-								src={Logo}
+								src={require("images/logo.svg")}
 								viewBox="0 0 363 363"
 								onClick={closeDrawer}
 								className={classes.brand}
 							/>
-							{/* <div /> */}
-							{/* <Logo
-								viewBox="0 0 363 363"
-								onClick={closeDrawer}
-								className={classes.brand}
-							/> */}
 						</Link>
 					</Box>
 				</Grid>
