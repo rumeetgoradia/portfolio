@@ -1,12 +1,12 @@
 import { Box } from "@material-ui/core"
 import { useRouter } from "next/router"
 import { CONTACT_LINKS, NAV_LINKS } from "../../constants"
-import { useStyles } from "./styles"
+import { useFooterStyles } from "./Footer.styles"
 
 const Footer = () => {
 	const router = useRouter()
 
-	const classes = useStyles({
+	const classes = useFooterStyles({
 		onSubPage:
 			NAV_LINKS.findIndex((navLink) => navLink.path === router.pathname) !== -1,
 	})

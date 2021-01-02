@@ -3,10 +3,10 @@ import Img from "react-optimized-image"
 import { SITE_NAME, WHO_AM_I } from "../../../constants"
 import Header from "../../Typography/Header"
 import Paragraph from "../../Typography/Paragraph"
-import { useStyles } from "./styles"
+import { useIntroductionStyles } from "./Introduction.styles"
 
 const Introduction: React.FC = () => {
-	const classes = useStyles()
+	const classes = useIntroductionStyles()
 
 	return (
 		<Grid container spacing={4}>

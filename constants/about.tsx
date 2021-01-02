@@ -30,7 +30,7 @@ export const SKILLS: Skill[] = [
 	},
 	{
 		title: "Front-End Frameworks",
-		tools: ["ReactJS", "GatsbyJS", "Bootstrap"],
+		tools: ["ReactJS", "GatsbyJS", "NextJS"],
 		icon: <FaReact />,
 	},
 	{
@@ -78,4 +78,19 @@ export const SKILLS: Skill[] = [
 		tools: ["Docker", "Kafka", "Spring"],
 		icon: <FaDocker />,
 	},
+]
+
+export const INTERESTS = [
+	"Anime",
+	"Astronomy",
+	"Battlestations",
+	"Cinema",
+	"Fin-Tech",
+	"Fitness",
+	"Gaming",
+	"Hip Hop",
+	"Networking",
+	"Superheroes",
+	"Traveling",
+	"Web Development",
 ]

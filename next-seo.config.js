@@ -13,14 +13,15 @@ export default {
 		site_name: SITE_NAME,
 		images: [
 			{
-				url: "/image.jpg",
+				url: "https://rumeetgoradia.com/images/logo.png",
 				width: 800,
-				height: 600,
+				height: 800,
 				alt: SITE_NAME,
 			},
 		],
 	},
 	twitter: {
 		cardType: "summary_large_image",
+		site: SITE_NAME,
 	},
 }

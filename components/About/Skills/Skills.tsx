@@ -2,11 +2,8 @@ import { Grid } from "@material-ui/core"
 import { SKILLS } from "../../../constants"
 import { Header } from "../../Typography"
 import SkillDisplay from "./SkillDisplay"
-import { useSkillsStyles } from "./Skills.styles"
 
 const Skills: React.FC = () => {
-	const classes = useSkillsStyles()
-
 	return (
 		<>
 			<Header>Skills</Header>
