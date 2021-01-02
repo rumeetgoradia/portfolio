@@ -1,17 +1,17 @@
 import { makeStyles } from "@material-ui/core"
 
-interface NavLinksStyleProps {
+interface NavLinksStylesProps {
 	drawer: boolean | undefined
 }
 
-export const useStyles = makeStyles((theme) => ({
+export const useNavLinkStyles = makeStyles((theme) => ({
 	root: {
 		position: "relative",
 		padding: `${theme.spacing(2)}px 0`,
 	},
 	navLinkContainer: {
 		padding: `0 ${theme.spacing(1.5)}px`,
-		margin: (props: NavLinksStyleProps) =>
+		margin: (props: NavLinksStylesProps) =>
 			`${props.drawer ? `${theme.spacing(3)}px` : "0"} ${
 				props.drawer ? "0" : `${theme.spacing(0.75)}px`
 			}`,
@@ -27,7 +27,7 @@ export const useStyles = makeStyles((theme) => ({
 		padding: `0 ${theme.spacing(0.5) - 2}px 0 ${theme.spacing(0.5)}px`,
 		cursor: "pointer",
 		lineHeight: 1,
-		fontSize: (props: NavLinksStyleProps) =>
+		fontSize: (props: NavLinksStylesProps) =>
 			props.drawer ? theme.typography.fontSize * 2 : theme.typography.fontSize,
 		transition: theme.transitions.create(["text-shadow", "color", "opacity"]),
 		"&:hover, &:focus": {

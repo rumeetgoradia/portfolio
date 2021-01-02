@@ -1,10 +1,10 @@
 import { makeStyles } from "@material-ui/core"
 
-interface ThemeToggleStyleProps {
+interface ThemeToggleStylesProps {
 	checked: boolean
 }
 
-export const useStyles = makeStyles((theme) => ({
+export const useThemeToggleStyles = makeStyles((theme) => ({
 	root: {
 		overflow: "hidden",
 		opacity: 0.85,
@@ -52,7 +52,7 @@ export const useStyles = makeStyles((theme) => ({
 		fontSize: 11,
 		background: theme.palette.background.default,
 		color: theme.palette.text.primary,
-		transform: (props: ThemeToggleStyleProps) =>
+		transform: (props: ThemeToggleStylesProps) =>
 			props.checked ? "translateX(14px)" : "",
 		transition: theme.transitions.create(["transform", "background-color"]),
 	},

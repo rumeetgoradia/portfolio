@@ -1,2 +1,4 @@
-export * from "./Header"
-export * from "./Paragraph"
+import Header from "./Header"
+import Paragraph from "./Paragraph"
+
+export { Header, Paragraph }

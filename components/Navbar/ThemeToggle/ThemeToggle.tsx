@@ -2,7 +2,7 @@ import { useState } from "react"
 import { IoIosMoon } from "react-icons/io"
 import { IoSunnySharp } from "react-icons/io5"
 import { ThemeString } from "../../../useDarkMode"
-import { useStyles } from "./styles"
+import { useThemeToggleStyles } from "./ThemeToggle.styles"
 
 interface ThemeToggleProps {
 	theme: ThemeString
@@ -12,7 +12,8 @@ interface ThemeToggleProps {
 const ThemeToggle: React.FC<ThemeToggleProps> = ({ theme, toggleTheme }) => {
 	const [checked, setChecked] = useState<boolean>(theme === "dark")
 
-	const classes = useStyles({ checked })
+	const classes = useThemeToggleStyles({ checked })
+
 	return (
 		<div className={classes.root}>
 			<label htmlFor="theme-toggle" className={classes.label}>

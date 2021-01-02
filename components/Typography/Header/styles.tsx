@@ -8,7 +8,7 @@ export const useStyles = makeStyles((theme) => ({
 		textTransform: "uppercase",
 		fontWeight: 600,
 		letterSpacing: 2,
-		fontSize: theme.typography.fontSize * 1.25,
+		fontSize: theme.typography.fontSize * 1.5,
 		marginBottom: theme.spacing(1),
 	},
 	divider: {

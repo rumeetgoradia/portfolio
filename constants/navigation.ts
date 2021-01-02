@@ -1,9 +1,6 @@
-type NavLinks = {
-	title: string
-	path: string
-}[]
+import { NavLink } from "./interfaces"
 
-export const NAV_LINKS: NavLinks = [
+export const NAV_LINKS: NavLink[] = [
 	{
 		title: "About",
 		path: "/about",

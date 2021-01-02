@@ -1,6 +1,6 @@
 import { Grid } from "@material-ui/core"
 import Img from "react-optimized-image"
-import { SITE_NAME } from "../../../constants"
+import { SITE_NAME, WHO_AM_I } from "../../../constants"
 import Header from "../../Typography/Header"
 import Paragraph from "../../Typography/Paragraph"
 import { useStyles } from "./styles"
@@ -9,7 +9,7 @@ const Introduction: React.FC = () => {
 	const classes = useStyles()
 
 	return (
-		<Grid container spacing={6}>
+		<Grid container spacing={4}>
 			<Grid
 				item
 				xs={12}
@@ -27,17 +27,7 @@ const Introduction: React.FC = () => {
 			</Grid>
 			<Grid item xs={12} md={7} lg={9} xl={10}>
 				<Header>Who Am I?</Header>
-				<Paragraph>
-					My name is Rumeet Goradia, and I am currently a rising senior at the
-					Rutgers University Honors College in New Brunswick, NJ. I'm studying
-					Computer Science and Business Analytics & Information Technology. One
-					day, I hope to be able to market my own software and bring more
-					technology into lower-income communities. This summer, I was employed
-					at Schonfeld Strategic Advisors in New York City as a Software
-					Engineering Intern. While I'm not studying or working, I'm at the gym,
-					hanging out with my friends, or working on personal projects like this
-					website.
-				</Paragraph>
+				<Paragraph>{WHO_AM_I}</Paragraph>
 			</Grid>
 		</Grid>
 	)

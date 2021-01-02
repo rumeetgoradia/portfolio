@@ -4,7 +4,7 @@ import Link from "next/link"
 import { useRouter } from "next/router"
 import { createRef, RefObject, useEffect, useRef } from "react"
 import { NAV_LINKS } from "../../../constants"
-import { useStyles } from "./styles"
+import { useNavLinkStyles } from "./NavLinks.styles"
 
 interface NavLinksProps {
 	drawer?: boolean | undefined
@@ -47,7 +47,7 @@ const NavLinks: React.FC<NavLinksProps> = ({ drawer, closeDrawer }) => {
 		moveUnderline()
 	}, [router.pathname])
 
-	const classes = useStyles({ drawer })
+	const classes = useNavLinkStyles({ drawer })
 
 	return (
 		<Box

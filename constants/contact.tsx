@@ -1,13 +1,8 @@
 import { BsFillEnvelopeFill } from "react-icons/bs"
 import { FaFileAlt, FaGithub, FaLinkedinIn } from "react-icons/fa"
+import { ContactLink } from "./interfaces"
 
-type ContactLinks = {
-	title: string
-	url: string
-	icon: JSX.Element
-}[]
-
-export const CONTACT_LINKS: ContactLinks = [
+export const CONTACT_LINKS: ContactLink[] = [
 	{
 		title: "GitHub",
 		url: "https://github.com/rumeetgoradia",
