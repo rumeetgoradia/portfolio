@@ -1,5 +1,5 @@
 import { Box, Grid, Typography } from "@material-ui/core"
-import { Skill } from "../../../../constants"
+import { Skill } from "../../../../content"
 import { useSkillDisplayStyles } from "./SkillDisplay.styles"
 
 interface SkillDisplayProps {

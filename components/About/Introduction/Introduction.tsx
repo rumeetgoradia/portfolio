@@ -1,6 +1,7 @@
 import { Grid } from "@material-ui/core"
 import Img from "react-optimized-image"
-import { SITE_NAME, WHO_AM_I } from "../../../constants"
+import { SITE_NAME } from "../../../constants"
+import { WHO_AM_I } from "../../../content"
 import Header from "../../Typography/Header"
 import Paragraph from "../../Typography/Paragraph"
 import { useIntroductionStyles } from "./Introduction.styles"

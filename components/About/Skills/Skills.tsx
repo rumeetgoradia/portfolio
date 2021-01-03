@@ -1,5 +1,5 @@
 import { Grid } from "@material-ui/core"
-import { SKILLS } from "../../../constants"
+import { SKILLS } from "../../../content"
 import { Header } from "../../Typography"
 import SkillDisplay from "./SkillDisplay"
 

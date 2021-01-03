@@ -13,7 +13,7 @@ export const EXPERIENCE: Experience[] = [
 				location: "New York, New York",
 				info: [
 					{
-						title: "Tools",
+						title: "Primary Software",
 						items: [
 							"Java 11",
 							"JUnit",
@@ -24,7 +24,7 @@ export const EXPERIENCE: Experience[] = [
 						],
 					},
 				],
-				iconId: "schonfeld",
+				svgId: "schonfeld",
 			},
 			{
 				title: "KPMG LLP",
@@ -33,11 +33,11 @@ export const EXPERIENCE: Experience[] = [
 				location: "New York, New York",
 				info: [
 					{
-						title: "Tools",
+						title: "Primary Software",
 						items: ["Microsoft Excel", "eAudit"],
 					},
 				],
-				iconId: "kpmg",
+				svgId: "kpmg",
 			},
 			{
 				title: "Ortho Clinical Diagnostics",
@@ -46,7 +46,7 @@ export const EXPERIENCE: Experience[] = [
 				location: "Raritan, New Jersey",
 				info: [
 					{
-						title: "Tools",
+						title: "Primary Software",
 						items: [
 							"Windows Active Directory",
 							"Office 365 Admin Center",
@@ -55,7 +55,7 @@ export const EXPERIENCE: Experience[] = [
 						],
 					},
 				],
-				iconId: "ortho",
+				svgId: "ortho",
 			},
 		],
 	},
@@ -92,7 +92,7 @@ export const EXPERIENCE: Experience[] = [
 						],
 					},
 				],
-				iconId: "rutgers",
+				svgId: "rutgers",
 			},
 			{
 				title: "John P. Stevens High School",
@@ -118,8 +118,8 @@ export const EXPERIENCE: Experience[] = [
 						],
 					},
 				],
-				iconId: "jps",
-				smallerIcon: true,
+				svgId: "jps",
+				smallerSvg: true,
 			},
 		],
 	},

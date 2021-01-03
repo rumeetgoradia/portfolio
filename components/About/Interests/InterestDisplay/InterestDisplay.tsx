@@ -21,7 +21,7 @@ const InterestDisplay: React.FC<InterestDisplayProps> = ({ interest }) => {
 				justifyContent="center"
 				alignItems="center"
 				width="100%"
-				height="90%"
+				height="80%"
 				className={classes.iconContainer}
 			>
 				<Svg

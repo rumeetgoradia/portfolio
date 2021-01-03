@@ -1,5 +1,5 @@
 import { Grid } from "@material-ui/core"
-import { INTERESTS } from "../../../constants"
+import { INTERESTS } from "../../../content"
 import { Header } from "../../Typography"
 import InterestDisplay from "./InterestDisplay"
 

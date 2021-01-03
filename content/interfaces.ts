@@ -19,6 +19,6 @@ export interface ExperienceItem {
 		title: string
 		items: string[]
 	}[]
-	iconId: string
-	smallerIcon?: boolean
+	svgId: string
+	smallerSvg?: boolean
 }

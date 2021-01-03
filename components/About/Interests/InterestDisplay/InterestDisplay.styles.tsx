@@ -18,7 +18,7 @@ export const useInterestDisplayStyles = makeStyles((theme) => ({
 			"& $titleContainer, & $imgContainer, & $overlay": {
 				opacity: 1,
 			},
-			"& $title": {
+			"& $titleContainer": {
 				textShadow: `0 0 4px ${fade(
 					theme.palette.text.primary,
 					theme.palette.type === "light" ? 0.5 : 1
@@ -67,11 +67,10 @@ export const useInterestDisplayStyles = makeStyles((theme) => ({
 		position: "relative",
 		zIndex: 50,
 		opacity: 0.85,
-		transition: theme.transitions.create(["opacity"]),
+		transition: theme.transitions.create(["opacity", "text-shadow"]),
 	},
 	title: {
 		fontWeight: 500,
-		transition: theme.transitions.create(["text-shadow"]),
 		[theme.breakpoints.down("xs")]: {
 			fontSize: theme.typography.fontSize * 0.75,
 		},
