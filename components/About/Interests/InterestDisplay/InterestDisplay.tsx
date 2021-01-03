@@ -33,7 +33,7 @@ const InterestDisplay: React.FC<InterestDisplayProps> = ({ interest }) => {
 			<div className={classes.imgContainer}>
 				<Img
 					src={require(`images/interests/background/${interest}.png`)}
-					sizes={[300, 400, 500]}
+					sizes={[300, 500]}
 					alt={interest}
 					title={interest}
 					className={classes.img}

@@ -6,6 +6,7 @@ export const useInterestDisplayStyles = makeStyles((theme) => ({
 		borderRadius: theme.shape.borderRadius,
 		border: `1px solid ${fade(theme.palette.grey[500], 0.4)}`,
 		padding: theme.spacing(1.75),
+		height: 76,
 		overflow: "hidden",
 		transition: theme.transitions.create(["border-color"]),
 		"&:hover": {
@@ -64,8 +65,12 @@ export const useInterestDisplayStyles = makeStyles((theme) => ({
 		transition: theme.transitions.create(["fill", "opacity", "height"]),
 	},
 	titleContainer: {
-		position: "relative",
+		position: "absolute",
+		top: "50%",
+		left: "50%",
+		width: "100%",
 		zIndex: 50,
+		transform: "translate(-50%, -50%)",
 		opacity: 0.85,
 		transition: theme.transitions.create(["opacity"]),
 	},
