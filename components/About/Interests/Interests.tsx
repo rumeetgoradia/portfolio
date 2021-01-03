@@ -2,11 +2,8 @@ import { Grid } from "@material-ui/core"
 import { INTERESTS } from "../../../constants"
 import { Header } from "../../Typography"
 import InterestDisplay from "./InterestDisplay"
-import { useInterestsStyles } from "./Interests.styles"
 
 const Interests: React.FC = () => {
-	const classes = useInterestsStyles()
-
 	return (
 		<>
 			<Header>Interests</Header>

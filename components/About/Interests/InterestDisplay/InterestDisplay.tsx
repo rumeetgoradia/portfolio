@@ -30,7 +30,12 @@ const InterestDisplay: React.FC<InterestDisplayProps> = ({ interest }) => {
 				/>
 			</Box>
 			<div className={classes.overlay} />
-			<div className={classes.imgContainer}>
+			<Box
+				display="flex"
+				justifyContent="center"
+				alignItems="center"
+				className={classes.imgContainer}
+			>
 				<Img
 					src={require(`images/interests/background/${interest}.png`)}
 					sizes={[300, 500]}
@@ -38,7 +43,7 @@ const InterestDisplay: React.FC<InterestDisplayProps> = ({ interest }) => {
 					title={interest}
 					className={classes.img}
 				/>
-			</div>
+			</Box>
 		</div>
 	)
 }
