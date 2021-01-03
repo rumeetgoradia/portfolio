@@ -1,6 +1,4 @@
-export * from "./about"
 export * from "./contact"
 export * from "./interfaces"
-export * from "./landing"
 export * from "./navigation"
 export * from "./seo"

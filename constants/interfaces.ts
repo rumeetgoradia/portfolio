@@ -8,9 +8,3 @@ export interface ContactLink {
 	url: string
 	icon: JSX.Element
 }
-
-export interface Skill {
-	title: string
-	tools: string[]
-	icon: JSX.Element
-}
