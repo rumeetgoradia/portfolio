@@ -1,10 +1,11 @@
 import { Box, Typography } from "@material-ui/core"
 import ReactTyped from "react-typed"
-import { LANDING_SUBTITLE, SITE_NAME } from "../../constants"
-import { useStyles } from "./styles"
+import { SITE_NAME } from "../../constants"
+import { LANDING_SUBTITLE } from "../../content"
+import { useLandingStyles } from "./Landing.styles"
 
 const Landing = () => {
-	const classes = useStyles()
+	const classes = useLandingStyles()
 
 	return (
 		<Box
