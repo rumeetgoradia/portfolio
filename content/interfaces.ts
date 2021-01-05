@@ -1,3 +1,4 @@
+import { PROJECT_CATEGORIES } from "./projects"
 export interface Skill {
 	title: string
 	tools: string[]
@@ -21,4 +22,12 @@ export interface ExperienceItem {
 	}[]
 	svgId: string
 	smallerSvg?: boolean
+}
+export interface Project {
+	title: string
+	categories: typeof PROJECT_CATEGORIES[number][]
+	description: string
+	repo: string
+	live?: string
+	software: string[]
 }

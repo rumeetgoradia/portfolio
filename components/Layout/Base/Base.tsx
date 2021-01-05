@@ -1,12 +1,10 @@
-import { Grid, GridProps, Paper } from "@material-ui/core"
-import { useStyles } from "./styles"
+import { Grid, GridProps } from "@material-ui/core"
+import BasePaper from "./BasePaper"
 
 const Base: React.FC<GridProps> = ({ children, ...props }) => {
-	const classes = useStyles()
-
 	return (
 		<Grid item {...props}>
-			<Paper className={classes.paper}>{children}</Paper>
+			<BasePaper>{children}</BasePaper>
 		</Grid>
 	)
 }
