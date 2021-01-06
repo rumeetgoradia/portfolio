@@ -1,6 +1,6 @@
 import { fade, makeStyles } from "@material-ui/core"
 
-export const useBasePaperStyles = makeStyles((theme) => ({
+export const useBaseStyles = makeStyles((theme) => ({
 	root: {
 		padding: theme.spacing(4),
 		backdropFilter: "saturate(180%) blur(5px)",

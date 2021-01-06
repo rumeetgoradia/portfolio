@@ -1,5 +1,5 @@
-import Base, { BasePaper } from "./Base"
+import Base from "./Base"
 import Layout from "./Layout"
 
 export default Layout
-export { Base, BasePaper }
+export { Base }
