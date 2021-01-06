@@ -30,4 +30,5 @@ export interface Project {
 	repo: string
 	live?: string
 	software: string[]
+	pictureId: string
 }

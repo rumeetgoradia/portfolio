@@ -15,6 +15,7 @@ export const PROJECTS: Project[] = [
 		live: "https://www.advocateblm.com/",
 		repo: "https://github.com/rumeetgoradia/advocate-blm",
 		software: ["ReactJS", "Contentful", "Netlify"],
+		pictureId: "advocate-blm",
 	},
 	{
 		title: "Hilltop Embrace",
@@ -24,6 +25,7 @@ export const PROJECTS: Project[] = [
 		live: "https://www.hilltopembrace.org/",
 		repo: "https://github.com/hilltop-embrace/hilltop-embrace",
 		software: ["ReactJS", "Contentful", "Netlify"],
+		pictureId: "hilltop-embrace",
 	},
 	{
 		title: "Android64",
@@ -32,6 +34,7 @@ export const PROJECTS: Project[] = [
 			"The Android implementation of the Photos64 project. Features are essentially the same, with a functionality adapted to an Android environment.",
 		repo: "https://bitbucket.org/rumeetgoradia/android64/src/master/",
 		software: ["Java 8", "Android Studio"],
+		pictureId: "android64",
 	},
 	{
 		title: "Photos64",
@@ -40,6 +43,7 @@ export const PROJECTS: Project[] = [
 			"An application that enables users to save photo albums. The application comes complete with search functionality and enables users to manipulate photos and albums in numerous different ways. It also implements serialization for data persistence.",
 		repo: "https://bitbucket.org/rumeetgoradia/photos64/src/master/",
 		software: ["Java 8", "JavaFX"],
+		pictureId: "photos64",
 	},
 	{
 		title: "Chess64",
@@ -47,6 +51,7 @@ export const PROJECTS: Project[] = [
 		description: "A recreation of chess in the Java console.",
 		repo: "https://bitbucket.org/rumeetgoradia/chess64/src/master/",
 		software: ["Java 8"],
+		pictureId: "chess64",
 	},
 	{
 		title: "SongLib",
@@ -55,6 +60,7 @@ export const PROJECTS: Project[] = [
 			"A simple application for organizing a user's song collection. Songs can be added, edited, and deleted from the user's list. This list persists after the application is closed.",
 		repo: "https://bitbucket.org/rumeetgoradia/songlib/src/master/",
 		software: ["Java 8", "JavaFX"],
+		pictureId: "songlib",
 	},
 	{
 		title: "Rutgers Consulting Group",
@@ -64,6 +70,7 @@ export const PROJECTS: Project[] = [
 		live: "https://www.ruconsulting.org/",
 		repo: "https://github.com/rcgboard/rcg-website-2.0",
 		software: ["ReactJS", "GatsbyJS", "Netlify"],
+		pictureId: "rcg",
 	},
 	{
 		title: "Sorting Visualizer",
@@ -73,6 +80,7 @@ export const PROJECTS: Project[] = [
 		live: "https://rumeetgoradia.github.io/sorting-visualizer",
 		repo: "https://github.com/rumeetgoradia/sorting-visualizer",
 		software: ["ReactJS"],
+		pictureId: "sorting-visualizer",
 	},
 	{
 		title: "City Reservations",
@@ -82,6 +90,7 @@ export const PROJECTS: Project[] = [
 		live: "https://rumeetgoradia-hotel-reservation.netlify.com/",
 		repo: "https://github.com/rumeetgoradia/hotel_reservation",
 		software: ["ReactJS", "Contentful", "Netlify"],
+		pictureId: "city-reservations",
 	},
 	{
 		title: "Tetris",
@@ -91,6 +100,7 @@ export const PROJECTS: Project[] = [
 		live: "https://rumeetgoradia.github.io/tetris/",
 		repo: "https://github.com/rumeetgoradia/tetris",
 		software: ["ReactJS"],
+		pictureId: "tetris",
 	},
 	{
 		title: "Where's The File?",
@@ -99,6 +109,7 @@ export const PROJECTS: Project[] = [
 			"A custom version control system. A central server utilizes multithreading and mutexes to maintain and distribute a repository of files to multiple clients. With the help of sockets, this program implements many of the common VCS features, like pushes, pulls, commits, and so on.",
 		repo: "https://github.com/rumeetgoradia/wtf",
 		software: ["C"],
+		pictureId: "wtf",
 	},
 	{
 		title: "File Compressor",
@@ -107,6 +118,7 @@ export const PROJECTS: Project[] = [
 			"A utility that compresses individual files or whole directories. The program utilizes Huffman trees to translate words in a target directory's files (or in a single file) into 1s and 0s. It maintains a mapping of these translations and can decompress the compressed files as well.",
 		repo: "https://github.com/rumeetgoradia/filecompressor",
 		software: ["C"],
+		pictureId: "file-compressor",
 	},
 	{
 		title: "Reddit Bot",
@@ -115,6 +127,7 @@ export const PROJECTS: Project[] = [
 			"A simple bot for Reddit that automatically replies to certain comments. This bot, when activated, will search through comments on all threads of a specific sub-Reddit and reply to them if they contain distinct keywords.",
 		repo: "https://github.com/rumeetgoradia/Reddit-Bot",
 		software: ["Python", "Reddit API"],
+		pictureId: "reddit-bot",
 	},
 	{
 		title: "mymalloc()",
@@ -123,5 +136,6 @@ export const PROJECTS: Project[] = [
 			'A custom implementation of C\'s "malloc()" and "free()" functions. The user has 4096 bytes of memory available for use, and the program automatically allocates space for the memory requested by the user. The program only uses 3 bytes of metadata as overhead for each memory allocation, and adjacent free blocks of memory are automatically combined for maximum efficiency.',
 		repo: "https://github.com/rumeetgoradia/my-malloc",
 		software: ["C"],
+		pictureId: "mymalloc",
 	},
 ]
