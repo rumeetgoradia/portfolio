@@ -1,9 +1,8 @@
-import { Grid } from "@material-ui/core"
+import { Grid, Typography } from "@material-ui/core"
 import Img from "react-optimized-image"
 import { SITE_NAME } from "../../../constants"
 import { WHO_AM_I } from "../../../content"
 import Header from "../../Typography/Header"
-import Paragraph from "../../Typography/Paragraph"
 import { useIntroductionStyles } from "./Introduction.styles"
 
 const Introduction: React.FC = () => {
@@ -28,7 +27,9 @@ const Introduction: React.FC = () => {
 			</Grid>
 			<Grid item xs={12} md={7} lg={9} xl={10}>
 				<Header>Who Am I?</Header>
-				<Paragraph>{WHO_AM_I}</Paragraph>
+				<Typography variant="body1" align="justify">
+					{WHO_AM_I}
+				</Typography>
 			</Grid>
 		</Grid>
 	)
