@@ -13,7 +13,7 @@ export const EXPERIENCE: Experience[] = [
 				location: "New York, New York",
 				info: [
 					{
-						title: "Primary Software",
+						title: "Software",
 						items: [
 							"Java 11",
 							"JUnit",

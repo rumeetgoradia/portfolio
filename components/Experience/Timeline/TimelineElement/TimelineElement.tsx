@@ -1,9 +1,10 @@
-import { Box, Grid, Typography } from "@material-ui/core"
+import { Typography } from "@material-ui/core"
 import clsx from "clsx"
 import React from "react"
 import { Svg } from "react-optimized-image"
 import { VerticalTimelineElement } from "react-vertical-timeline-component"
 import { ExperienceItem } from "../../../../content"
+import { Lists } from "../../../Typography"
 import { useTimelineElementStyles } from "./TimelineElement.styles"
 
 interface TimelineElementProps {
@@ -48,34 +49,7 @@ const TimelineElement: React.FC<TimelineElementProps> = ({
 					</Typography>
 				))}
 			</div>
-			<div className={classes.infoWrapper}>
-				{experienceItem.info.map((infoItem, index) => (
-					<Grid
-						key={`${experienceItem.title}-experience-info-${index}`}
-						container
-						className={classes.infoContainer}
-					>
-						<Grid item xs={3} className={classes.infoTitleContainer}>
-							<Box
-								display="flex"
-								justifyContent="flex-start"
-								alignItems="center"
-								width="100%"
-								height="100%"
-							>
-								<Typography className={classes.infoTitle}>
-									{infoItem.title}
-								</Typography>
-							</Box>
-						</Grid>
-						<Grid item xs={9} className={classes.infoItemsContainer}>
-							<Typography align="justify" className={classes.infoItems}>
-								{infoItem.items.join(" ⋅ ")}
-							</Typography>
-						</Grid>
-					</Grid>
-				))}
-			</div>
+			<Lists lists={experienceItem.info} keyId={experienceItem.title} />
 		</VerticalTimelineElement>
 	)
 }

@@ -33,6 +33,7 @@ export const useBorderedButtonStyles = makeStyles((theme) => ({
 			"text-shadow",
 			"box-shadow",
 			"opacity",
+			"border-color",
 		]),
 		"&:hover": {
 			opacity: 1,

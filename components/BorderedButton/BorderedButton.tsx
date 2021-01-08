@@ -2,7 +2,7 @@ import { Button, ButtonProps } from "@material-ui/core"
 import { useBorderedButtonStyles } from "./BorderedButton.styles"
 
 interface BorderedButtonProps extends ButtonProps {
-	active: boolean
+	active?: boolean
 }
 
 const BorderedButton: React.FC<BorderedButtonProps> = ({
@@ -10,7 +10,7 @@ const BorderedButton: React.FC<BorderedButtonProps> = ({
 	active,
 	...props
 }) => {
-	const classes = useBorderedButtonStyles({ active })
+	const classes = useBorderedButtonStyles({ active: active || false })
 
 	return (
 		<Button {...props} className={classes.root}>

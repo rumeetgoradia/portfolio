@@ -23,6 +23,7 @@ export interface ExperienceItem {
 	svgId: string
 	smallerSvg?: boolean
 }
+
 export interface Project {
 	title: string
 	categories: typeof PROJECT_CATEGORIES[number][]
@@ -30,5 +31,6 @@ export interface Project {
 	repo: string
 	live?: string
 	software: string[]
-	pictureId: string
+	imageId?: string
+	svgId?: string
 }

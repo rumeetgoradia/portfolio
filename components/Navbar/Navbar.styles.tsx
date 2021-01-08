@@ -5,7 +5,7 @@ interface NavbarStyleProps {
 	drawerOpen: boolean
 }
 
-export const useStyles = makeStyles((theme) => ({
+export const useNavbarStyles = makeStyles((theme) => ({
 	root: {
 		padding: (props: NavbarStyleProps) =>
 			`${props.onSubPage ? "0" : `${theme.spacing(2)}px`} ${theme.spacing(

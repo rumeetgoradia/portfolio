@@ -31,8 +31,6 @@ export const useInterestDisplayStyles = makeStyles((theme) => ({
 		zIndex: 47,
 		top: 0,
 		left: 0,
-		width: "100%",
-		height: "100%",
 		opacity: 0,
 		transition: theme.transitions.create(["opacity"]),
 	},

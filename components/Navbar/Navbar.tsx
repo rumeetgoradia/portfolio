@@ -12,8 +12,8 @@ import { useEffect, useState } from "react"
 import { Svg } from "react-optimized-image"
 import { NAV_LINKS } from "../../constants"
 import { ThemeString } from "../../useDarkMode"
+import { useNavbarStyles } from "./Navbar.styles"
 import NavLinks from "./NavLinks"
-import { useStyles } from "./styles"
 import ThemeToggle from "./ThemeToggle"
 
 interface NavbarProps {
@@ -38,7 +38,7 @@ const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
 
 	const closeDrawer = () => setDrawerOpen(false)
 
-	const classes = useStyles({
+	const classes = useNavbarStyles({
 		onSubPage:
 			NAV_LINKS.findIndex((navLink) => navLink.path === router.pathname) !== -1,
 		drawerOpen,

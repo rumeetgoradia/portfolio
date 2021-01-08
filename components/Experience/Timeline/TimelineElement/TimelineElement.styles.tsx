@@ -100,34 +100,9 @@ export const useTimelineElementStyles = makeStyles((theme) => ({
 			transition: theme.transitions.create(["fill", "transform", "opacity"]),
 		},
 	},
-	infoWrapper: {
-		margin: `${theme.spacing(1.5)}px 0`,
-	},
-	infoContainer: {
-		marginTop: theme.spacing(0.75),
-		"&:first-child": {
-			marginTop: 0,
-		},
-	},
-	infoTitleContainer: {
-		paddingRight: theme.spacing(0.75),
-		borderRight: `1px solid ${fade(theme.palette.text.primary, 0.85)}`,
-		transition: theme.transitions.create(["border-color"]),
-	},
-	infoTitle: {
-		fontWeight: 600,
-		fontSize: theme.typography.fontSize * 0.75,
-		color: fade(theme.palette.text.primary, 0.85),
-	},
-	infoItemsContainer: {
-		paddingLeft: theme.spacing(0.75),
-	},
-	infoItems: {
-		fontSize: theme.typography.fontSize * 0.75,
-		color: fade(theme.palette.text.primary, 0.85),
-	},
 	date: {
 		fontSize: theme.typography.fontSize * 0.75,
 		fontStyle: "italic",
+		transition: theme.transitions.create(["color"]),
 	},
 }))

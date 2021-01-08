@@ -34,6 +34,8 @@ const InterestDisplay: React.FC<InterestDisplayProps> = ({ interest }) => {
 				display="flex"
 				justifyContent="center"
 				alignItems="center"
+				width="100%"
+				height="100%"
 				className={classes.imgContainer}
 			>
 				<Img
