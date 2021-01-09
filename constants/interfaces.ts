@@ -8,3 +8,9 @@ export interface ContactLink {
 	url: string
 	icon: JSX.Element
 }
+export interface ContactFormInputs {
+	name: string
+	email: string
+	phone: string
+	message: string
+}
