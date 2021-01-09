@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form"
 import * as yup from "yup"
 import { ContactFormInputs } from "../../../constants"
 import BorderedButton from "../../BorderedButton"
+import { Header } from "../../Typography"
 import { useContactFormStyles } from "./ContactForm.styles"
 import ContactFormItem from "./ContactFormItem"
 
@@ -64,60 +65,63 @@ const ContactForm: React.FC = () => {
 	const classes = useContactFormStyles()
 
 	return (
-		<form
-			onSubmit={handleSubmit(onSubmit)}
-			name="contact"
-			method="POST"
-			data-netlify="true"
-		>
-			<input type="hidden" name="form-name" value="contact" />
-			<Grid container spacing={4}>
-				<Grid item xs={12}>
-					<ContactFormItem
-						inputRef={register}
-						name="name"
-						label="Name"
-						schemaError={errors.name}
-					/>
+		<>
+			<Header>Contact Me</Header>
+			<form
+				onSubmit={handleSubmit(onSubmit)}
+				name="contact"
+				method="POST"
+				data-netlify="true"
+			>
+				<input type="hidden" name="form-name" value="contact" />
+				<Grid container spacing={4}>
+					<Grid item xs={12}>
+						<ContactFormItem
+							inputRef={register}
+							name="name"
+							label="Name"
+							schemaError={errors.name}
+						/>
+					</Grid>
+					<Grid item xs={12} md={6}>
+						<ContactFormItem
+							inputRef={register}
+							name="email"
+							label="Email Address"
+							schemaError={errors.email}
+						/>
+					</Grid>
+					<Grid item xs={12} md={6}>
+						<ContactFormItem
+							inputRef={register}
+							name="phone"
+							label="Phone Number"
+							schemaError={errors.phone}
+						/>
+					</Grid>
+					<Grid item xs={12}>
+						<ContactFormItem
+							inputRef={register}
+							name="message"
+							label="Message"
+							schemaError={errors.message}
+							multiline
+							rows={6}
+						/>
+					</Grid>
+					<Grid item xs={12}>
+						<BorderedButton type="submit">
+							{formState.isSubmitting ? "Submitting..." : "Submit"}
+						</BorderedButton>
+						{formState.isSubmitSuccessful && (
+							<FormHelperText className={classes.success}>
+								Message sent successfully!
+							</FormHelperText>
+						)}
+					</Grid>
 				</Grid>
-				<Grid item xs={12} md={6}>
-					<ContactFormItem
-						inputRef={register}
-						name="email"
-						label="Email Address"
-						schemaError={errors.email}
-					/>
-				</Grid>
-				<Grid item xs={12} md={6}>
-					<ContactFormItem
-						inputRef={register}
-						name="phone"
-						label="Phone Number"
-						schemaError={errors.phone}
-					/>
-				</Grid>
-				<Grid item xs={12}>
-					<ContactFormItem
-						inputRef={register}
-						name="message"
-						label="Message"
-						schemaError={errors.message}
-						multiline
-						rows={6}
-					/>
-				</Grid>
-				<Grid item xs={12}>
-					<BorderedButton type="submit">
-						{formState.isSubmitting ? "Submitting..." : "Submit"}
-					</BorderedButton>
-					{formState.isSubmitSuccessful && (
-						<FormHelperText className={classes.success}>
-							Message sent successfully!
-						</FormHelperText>
-					)}
-				</Grid>
-			</Grid>
-		</form>
+			</form>
+		</>
 	)
 }
 

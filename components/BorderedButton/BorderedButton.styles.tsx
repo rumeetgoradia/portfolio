@@ -7,6 +7,7 @@ interface BorderedButtonStylesProps {
 export const useBorderedButtonStyles = makeStyles((theme) => ({
 	root: {
 		position: "relative",
+		overflow: "hidden",
 		border: `1px solid ${theme.palette.text.primary}`,
 		borderRadius: theme.shape.borderRadius,
 		color: (props: BorderedButtonStylesProps) =>
