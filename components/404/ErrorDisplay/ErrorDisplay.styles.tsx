@@ -1,10 +1,9 @@
 import { makeStyles } from "@material-ui/core"
 
-export const useLandingStyles = makeStyles((theme) => ({
+export const useErrorDisplayStyles = makeStyles((theme) => ({
 	root: {
 		position: "relative",
 		zIndex: 5,
-		padding: theme.spacing(2),
 	},
 	title: {
 		fontSize: "calc(5vw + 1rem)",
@@ -14,12 +13,9 @@ export const useLandingStyles = makeStyles((theme) => ({
 		marginBottom: theme.spacing(1),
 	},
 	subtitle: {
-		fontStyle: "italic",
 		fontWeight: 200,
 		fontSize: "calc(2vw + 1rem)",
 		userSelect: "none",
-	},
-	typedSubtitle: {
-		fontWeight: 400,
+		marginBottom: theme.spacing(6),
 	},
 }))

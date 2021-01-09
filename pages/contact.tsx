@@ -1,6 +1,5 @@
 import { Grid } from "@material-ui/core"
-import ContactButton from "../components/Contact/ContactButton"
-import ContactForm from "../components/Contact/ContactForm"
+import { ContactButton, ContactForm } from "../components/Contact"
 import Layout, { Base } from "../components/Layout"
 import { CONTACT_LINKS } from "../constants"
 

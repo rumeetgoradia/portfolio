@@ -28,7 +28,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
 				{project.imageId ? (
 					<Img
 						src={require(`images/projects/${project.imageId}.png`)}
-						sizes={[400, 600]}
+						sizes={[600, 800]}
 						alt={project.title}
 						title={project.title}
 						className={classes.img}
