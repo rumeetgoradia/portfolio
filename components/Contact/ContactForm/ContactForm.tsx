@@ -20,16 +20,16 @@ const contactFormSchema = yup.object().shape({
 	message: yup.string().required("Please enter a message."),
 })
 
-const encode = (data: ContactFormInputs) => {
-	return Object.keys(data)
-		.map(
-			(key) =>
-				encodeURIComponent(key) +
-				"=" +
-				encodeURIComponent(data[key as keyof typeof data])
-		)
-		.join("&")
-}
+// const encode = (data: ContactFormInputs) => {
+// 	return Object.keys(data)
+// 		.map(
+// 			(key) =>
+// 				encodeURIComponent(key) +
+// 				"=" +
+// 				encodeURIComponent(data[key as keyof typeof data])
+// 		)
+// 		.join("&")
+// }
 
 const ContactForm: React.FC = () => {
 	const {
@@ -59,6 +59,7 @@ const ContactForm: React.FC = () => {
 		// 			"There was an issue when submitting your form. Please try again later!"
 		// 		)
 		// 	})
+		console.log(data)
 		reset({})
 	}
 
