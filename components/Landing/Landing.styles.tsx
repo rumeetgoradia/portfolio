@@ -1,6 +1,6 @@
 import { makeStyles } from "@material-ui/core"
 
-export const useLandingStyles = makeStyles((theme) => ({
+export const useLandingStyles = makeStyles(() => ({
 	root: {
 		position: "relative",
 		zIndex: 5,
