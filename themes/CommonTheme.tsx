@@ -13,7 +13,7 @@ export interface PortfolioTheme extends Theme {
 export const PRIMARY_COLOR: string = "rgb(52, 146, 110)"
 export const BLACK: string = "rgb(17, 24, 32)"
 export const WHITE: string = "rgb(231, 231, 234)"
-export const ERROR: string = "rgb(187, 0, 0)"
+export const ERROR: string = "rgb(194, 26, 26)"
 
 export const commonPaletteOptions: PaletteOptions = {
 	common: {
