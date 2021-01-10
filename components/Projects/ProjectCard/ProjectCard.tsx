@@ -39,11 +39,12 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
 				{project.imageId ? (
 					<Image
 						src={`/images/projects/${project.imageId}.png`}
+						alt={project.title}
+						title={project.title}
 						layout="fill"
 						objectFit="cover"
 						objectPosition="center center"
-						alt={project.title}
-						title={project.title}
+						quality={30}
 						className={classes.img}
 					/>
 				) : (

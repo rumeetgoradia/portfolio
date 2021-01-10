@@ -15,16 +15,6 @@ const InterestDisplay: React.FC<InterestDisplayProps> = ({ interest }) => {
 		classes
 	)
 
-	// useEffect(() => {
-	// 	let mounted = true
-	// 	if (mounted) {
-	// 		setSvg(`interests/icons/${interest}`, classes.icon, setIcon)
-	// 	}
-	// 	return () => {
-	// 		mounted = false
-	// 	}
-	// }, [])
-
 	return (
 		<div className={classes.root}>
 			<div className={classes.titleContainer}>
@@ -58,6 +48,7 @@ const InterestDisplay: React.FC<InterestDisplayProps> = ({ interest }) => {
 					layout="fill"
 					objectFit="cover"
 					objectPosition="center center"
+					quality={30}
 				/>
 			</Box>
 		</div>
