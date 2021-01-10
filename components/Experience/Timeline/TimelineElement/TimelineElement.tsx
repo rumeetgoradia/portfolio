@@ -1,7 +1,7 @@
+import { useDynamicSvgGeneration } from "@/hooks/useDynamicSvgGeneration"
 import { Typography } from "@material-ui/core"
 import clsx from "clsx"
 import React from "react"
-import { Svg } from "react-optimized-image"
 import { VerticalTimelineElement } from "react-vertical-timeline-component"
 import { ExperienceItem } from "../../../../content"
 import { Lists } from "../../../Typography"
@@ -17,6 +17,11 @@ const TimelineElement: React.FC<TimelineElementProps> = ({
 	icon,
 }) => {
 	const classes = useTimelineElementStyles()
+	const svg = useDynamicSvgGeneration(
+		`experience/${experienceItem.svgId}`,
+		clsx(classes.svg, experienceItem.smallerSvg && classes.smallerSvg),
+		classes
+	)
 
 	return (
 		<VerticalTimelineElement
@@ -28,13 +33,7 @@ const TimelineElement: React.FC<TimelineElementProps> = ({
 			textClassName={classes.content}
 			className={classes.root}
 		>
-			<Svg
-				src={require(`images/experience/${experienceItem.svgId}.svg`)}
-				className={clsx(
-					classes.svg,
-					experienceItem.smallerSvg && classes.smallerSvg
-				)}
-			/>
+			{svg}
 			<Typography className={classes.title}>{experienceItem.title}</Typography>
 			<Typography className={classes.location}>
 				{experienceItem.location}

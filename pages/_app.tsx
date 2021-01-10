@@ -7,10 +7,10 @@ import { ThemeProvider as SCThemeProvider } from "styled-components"
 import Footer from "../components/Footer"
 import Navbar from "../components/Navbar"
 import ParticlesBackground from "../components/ParticlesBackground"
+import { useDarkMode } from "../hooks/useDarkMode"
 import SEO from "../next-seo.config"
 import { DarkGradient, darkTheme } from "../themes/DarkTheme"
 import { LightGradient, lightTheme } from "../themes/LightTheme"
-import { useDarkMode } from "../useDarkMode"
 
 const App: React.FC = ({ children }) => {
 	const [theme, toggleTheme, componentMounted] = useDarkMode()

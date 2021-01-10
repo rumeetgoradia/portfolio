@@ -2,6 +2,7 @@
   "compilerOptions": {
     "allowJs": true,
     "alwaysStrict": true,
+    "baseUrl": ".",
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "isolatedModules": true,
@@ -13,6 +14,14 @@
     "noFallthroughCasesInSwitch": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
+    "paths": {
+      "@/components/*": ["components/*"],
+      "@/constants": ["constants/index.ts"],
+      "@/content": ["content/index.ts"],
+      "@/hooks/*": ["hooks/*"],
+      "@/images/*": ["public/images/*"],
+      "@/utils": ["utils/index.ts"],
+    },
     "resolveJsonModule": true,
     "skipLibCheck": true,
     "strict": true,
@@ -23,6 +32,8 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "@types/styled-components.d.ts"
+    "@types/styled-components.d.ts",
+    "@types/svg.d.ts",
+    "@types/index.d.ts"
   ]
 }

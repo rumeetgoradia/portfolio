@@ -1,5 +1,6 @@
+import { useDynamicSvgGeneration } from "@/hooks/useDynamicSvgGeneration"
 import { Box, Grid, Paper, Typography } from "@material-ui/core"
-import Img, { Svg } from "react-optimized-image"
+import Image from "next/image"
 import { Project } from "../../../content"
 import BorderedButton from "../../BorderedButton"
 import { Lists } from "../../Typography"
@@ -12,9 +13,19 @@ interface ProjectCardProps {
 const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
 	const classes = useProjectCardStyles()
 
+	const svg =
+		!project.imageId && project.svgId
+			? useDynamicSvgGeneration(
+					`projects/${project.svgId}`,
+					classes.svg,
+					classes
+			  )
+			: undefined
+
 	return (
 		<Paper className={classes.root}>
 			<Box
+				position="relative"
 				display="flex"
 				justifyContent="center"
 				alignItems="center"
@@ -26,20 +37,17 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
 				className={classes.imgContainer}
 			>
 				{project.imageId ? (
-					<Img
-						src={require(`images/projects/${project.imageId}.png`)}
-						sizes={[600, 800]}
+					<Image
+						src={`/images/projects/${project.imageId}.png`}
+						layout="fill"
+						objectFit="cover"
+						objectPosition="center center"
 						alt={project.title}
 						title={project.title}
 						className={classes.img}
 					/>
 				) : (
-					project.svgId && (
-						<Svg
-							src={require(`images/projects/${project.svgId}.svg`)}
-							className={classes.svg}
-						/>
-					)
+					<>{svg}</>
 				)}
 			</Box>
 			<div className={classes.content}>
@@ -52,11 +60,11 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
 					keyId={project.title}
 				/>
 				<Grid container spacing={2} className={classes.buttons}>
-					<Grid item xs={12} sm={project.live ? 6 : 12}>
+					<Grid item xs={12} lg={project.live ? 6 : 12}>
 						<BorderedButton href={project.repo}>Repository</BorderedButton>
 					</Grid>
 					{project.live && (
-						<Grid item xs={12} sm={6}>
+						<Grid item xs={12} lg={6}>
 							<BorderedButton href={project.live}>Live</BorderedButton>
 						</Grid>
 					)}

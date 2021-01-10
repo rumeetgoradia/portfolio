@@ -1,13 +1,29 @@
+import { useDynamicSvgGeneration } from "@/hooks/useDynamicSvgGeneration"
 import { Box, Typography } from "@material-ui/core"
-import Img, { Svg } from "react-optimized-image"
+import Image from "next/image"
+import React from "react"
 import { useInterestDisplayStyles } from "./InterestDisplay.styles"
-
 interface InterestDisplayProps {
 	interest: string
 }
 
 const InterestDisplay: React.FC<InterestDisplayProps> = ({ interest }) => {
 	const classes = useInterestDisplayStyles()
+	const svg = useDynamicSvgGeneration(
+		`interests/icons/${interest}`,
+		classes.svg,
+		classes
+	)
+
+	// useEffect(() => {
+	// 	let mounted = true
+	// 	if (mounted) {
+	// 		setSvg(`interests/icons/${interest}`, classes.icon, setIcon)
+	// 	}
+	// 	return () => {
+	// 		mounted = false
+	// 	}
+	// }, [])
 
 	return (
 		<div className={classes.root}>
@@ -24,10 +40,7 @@ const InterestDisplay: React.FC<InterestDisplayProps> = ({ interest }) => {
 				height="80%"
 				className={classes.iconContainer}
 			>
-				<Svg
-					src={require(`images/interests/icons/${interest}.svg`)}
-					className={classes.icon}
-				/>
+				{svg}
 			</Box>
 			<div className={classes.overlay} />
 			<Box
@@ -38,12 +51,13 @@ const InterestDisplay: React.FC<InterestDisplayProps> = ({ interest }) => {
 				height="100%"
 				className={classes.imgContainer}
 			>
-				<Img
-					src={require(`images/interests/background/${interest}.png`)}
-					sizes={[300, 500]}
+				<Image
+					src={`/images/interests/background/${interest}.png`}
 					alt={interest}
 					title={interest}
-					className={classes.img}
+					layout="fill"
+					objectFit="cover"
+					objectPosition="center center"
 				/>
 			</Box>
 		</div>

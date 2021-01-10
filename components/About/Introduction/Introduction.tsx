@@ -1,5 +1,5 @@
 import { Grid, Typography } from "@material-ui/core"
-import Img from "react-optimized-image"
+import Image from "next/image"
 import { SITE_NAME } from "../../../constants"
 import { WHO_AM_I } from "../../../content"
 import Header from "../../Typography/Header"
@@ -18,11 +18,16 @@ const Introduction: React.FC = () => {
 				xl={2}
 				className={classes.profileImageContainer}
 			>
-				<Img
-					src={require("images/profile.jpg")}
+				<Image
+					src="/images/profile.jpg"
+					width={350}
+					height={350}
 					alt={SITE_NAME}
 					title={SITE_NAME}
+					quality={30}
+					layout="intrinsic"
 					className={classes.profileImage}
+					priority
 				/>
 			</Grid>
 			<Grid item xs={12} md={7} lg={9} xl={10}>

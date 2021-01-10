@@ -75,7 +75,7 @@ const ContactForm: React.FC = () => {
 				data-netlify="true"
 			>
 				<input type="hidden" name="form-name" value="contact" />
-				<Grid container spacing={4}>
+				<Grid container spacing={2}>
 					<Grid item xs={12}>
 						<ContactFormItem
 							inputRef={register}

@@ -32,8 +32,6 @@ export const useProjectCardStyles = makeStyles((theme) => ({
 		},
 	},
 	img: {
-		objectFit: "cover",
-		minHeight: "100%",
 		opacity: 0.85,
 		filter: "blur(1px)",
 		transition: theme.transitions.create(["transform", "opacity", "filter"]),

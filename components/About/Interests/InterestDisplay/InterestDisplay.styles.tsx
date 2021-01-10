@@ -10,7 +10,7 @@ export const useInterestDisplayStyles = makeStyles((theme) => ({
 		transition: theme.transitions.create(["border-color"]),
 		"&:hover": {
 			borderColor: fade(theme.palette.grey[500], 0.8),
-			"& $icon": {
+			"& $svg": {
 				fill: theme.palette.primary.main,
 				opacity: 0,
 				height: "200%",
@@ -34,9 +34,6 @@ export const useInterestDisplayStyles = makeStyles((theme) => ({
 		opacity: 0,
 		transition: theme.transitions.create(["opacity"]),
 	},
-	img: {
-		width: "100%",
-	},
 	overlay: {
 		position: "absolute",
 		zIndex: 48,
@@ -55,7 +52,7 @@ export const useInterestDisplayStyles = makeStyles((theme) => ({
 		left: "50%",
 		transform: "translate(-50%, -50%)",
 	},
-	icon: {
+	svg: {
 		fill: fade(theme.palette.text.primary, 0.2),
 		height: "100%",
 		width: "auto",

@@ -1,3 +1,4 @@
+import Logo from "@/images/logo.svg"
 import {
 	AppBar,
 	Box,
@@ -9,9 +10,8 @@ import {
 import Link from "next/link"
 import { useRouter } from "next/router"
 import { useEffect, useState } from "react"
-import { Svg } from "react-optimized-image"
 import { NAV_LINKS } from "../../constants"
-import { ThemeString } from "../../useDarkMode"
+import { ThemeString } from "../../hooks/useDarkMode"
 import { useNavbarStyles } from "./Navbar.styles"
 import NavLinks from "./NavLinks"
 import ThemeToggle from "./ThemeToggle"
@@ -55,12 +55,7 @@ const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
 				<Grid item xs={4} sm={1}>
 					<Box display="flex" width="100%" className={classes.brandContainer}>
 						<Link href="/">
-							<Svg
-								src={require("images/logo.svg")}
-								viewBox="0 0 363 363"
-								onClick={closeDrawer}
-								className={classes.brand}
-							/>
+							<Logo className={classes.brand} />
 						</Link>
 					</Box>
 				</Grid>
