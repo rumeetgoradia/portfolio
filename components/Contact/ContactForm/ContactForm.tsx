@@ -1,5 +1,6 @@
 import { yupResolver } from "@hookform/resolvers/yup"
 import { FormHelperText, Grid } from "@material-ui/core"
+import axios from "axios"
 import { useForm } from "react-hook-form"
 import * as yup from "yup"
 import { ContactFormInputs } from "../../../constants"
@@ -20,17 +21,6 @@ const contactFormSchema = yup.object().shape({
 	message: yup.string().required("Please enter a message."),
 })
 
-// const encode = (data: ContactFormInputs) => {
-// 	return Object.keys(data)
-// 		.map(
-// 			(key) =>
-// 				encodeURIComponent(key) +
-// 				"=" +
-// 				encodeURIComponent(data[key as keyof typeof data])
-// 		)
-// 		.join("&")
-// }
-
 const ContactForm: React.FC = () => {
 	const {
 		register,
@@ -44,23 +34,19 @@ const ContactForm: React.FC = () => {
 	})
 
 	const onSubmit = (data: ContactFormInputs) => {
-		// fetch("/", {
-		// 	method: "POST",
-		// 	headers: {
-		// 		"Content-Type": "application/x-www-form-urlencoded",
-		// 	},
-		// 	body: encode({ ...data }),
-		// })
-		// 	.then(() => {
-		// 		reset({})
-		// 	})
-		// 	.catch(() => {
-		// 		alert(
-		// 			"There was an issue when submitting your form. Please try again later!"
-		// 		)
-		// 	})
-		console.log(data)
-		reset({})
+		axios({
+			method: "POST",
+			url: "https://formspree.io/f/xjvpjelz",
+			data,
+		})
+			.then(() => {
+				reset({})
+			})
+			.catch(() => {
+				alert(
+					"There was an issue sending your message. Please try again later!"
+				)
+			})
 	}
 
 	const classes = useContactFormStyles()
@@ -68,12 +54,7 @@ const ContactForm: React.FC = () => {
 	return (
 		<>
 			<Header>Contact Me</Header>
-			<form
-				onSubmit={handleSubmit(onSubmit)}
-				name="contact"
-				method="POST"
-				data-netlify="true"
-			>
+			<form onSubmit={handleSubmit(onSubmit)} name="contact" method="POST">
 				<input type="hidden" name="form-name" value="contact" />
 				<Grid container spacing={2}>
 					<Grid item xs={12}>

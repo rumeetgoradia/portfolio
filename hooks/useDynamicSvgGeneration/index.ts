@@ -10,7 +10,6 @@ export const useDynamicSvgGeneration = (
 	useEffect(() => {
 		let mounted = true
 		if (mounted) {
-			console.log("rendering", path)
 			renderSvg(path, className).then((value) => setSvg(value))
 		}
 		return () => {
