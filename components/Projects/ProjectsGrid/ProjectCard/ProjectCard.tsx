@@ -1,8 +1,8 @@
+import BorderedButton from "@/components/BorderedButton"
+import { Lists } from "@/components/Typography"
+import { Project } from "@/content"
 import { Box, Grid, Paper, Typography } from "@material-ui/core"
 import Image from "next/image"
-import { Project } from "../../../../content"
-import BorderedButton from "../../../BorderedButton"
-import { Lists } from "../../../Typography"
 import { useProjectCardStyles } from "./ProjectCard.styles"
 
 interface ProjectCardProps {

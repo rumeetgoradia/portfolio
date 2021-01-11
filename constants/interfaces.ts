@@ -1,3 +1,5 @@
+export type ThemeString = "light" | "dark"
+
 export interface NavLink {
 	title: string
 	path: string

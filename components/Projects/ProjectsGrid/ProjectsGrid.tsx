@@ -1,5 +1,5 @@
 import { Project } from "@/content"
-import { useDynamicSvgGeneration } from "@/hooks/useDynamicSvgGeneration"
+import { useDynamicSvgGeneration } from "@/hooks"
 import MasonryGrid from "./MasonryGrid"
 import ProjectCard from "./ProjectCard"
 

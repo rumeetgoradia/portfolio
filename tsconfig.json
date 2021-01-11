@@ -18,7 +18,7 @@
       "@/components/*": ["components/*"],
       "@/constants": ["constants/index.ts"],
       "@/content": ["content/index.ts"],
-      "@/hooks/*": ["hooks/*"],
+      "@/hooks": ["hooks/index.ts"],
       "@/images/*": ["public/images/*"],
       "@/utils": ["utils/index.ts"],
     },

@@ -1,10 +1,10 @@
-import { useDynamicSvgGeneration } from "@/hooks/useDynamicSvgGeneration"
+import { Lists } from "@/components/Typography"
+import { ExperienceItem } from "@/content"
+import { useDynamicSvgGeneration } from "@/hooks"
 import { Typography } from "@material-ui/core"
 import clsx from "clsx"
 import React from "react"
 import { VerticalTimelineElement } from "react-vertical-timeline-component"
-import { ExperienceItem } from "../../../../content"
-import { Lists } from "../../../Typography"
 import { useTimelineElementStyles } from "./TimelineElement.styles"
 
 interface TimelineElementProps {

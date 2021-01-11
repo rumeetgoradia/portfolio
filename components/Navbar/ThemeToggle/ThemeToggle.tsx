@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { IoIosMoon } from "react-icons/io"
 import { IoSunnySharp } from "react-icons/io5"
-import { ThemeString } from "../../../hooks/useDarkMode"
+import { ThemeString } from "../../../constants"
 import { useThemeToggleStyles } from "./ThemeToggle.styles"
 
 interface ThemeToggleProps {

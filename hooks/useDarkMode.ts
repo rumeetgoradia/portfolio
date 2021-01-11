@@ -1,6 +1,5 @@
 import { useCallback, useEffect, useState } from "react"
-
-export type ThemeString = "light" | "dark"
+import { ThemeString } from "../constants"
 
 export const useDarkMode = (): [ThemeString, () => void, boolean] => {
 	const [theme, setTheme] = useState<ThemeString>("light")
