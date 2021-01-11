@@ -13,7 +13,7 @@ export const useProjectCardStyles = makeStyles((theme) => ({
 			"opacity",
 		]),
 		"&:hover": {
-			"& $img, & $svg": {
+			"& $img, & $imgContainer svg": {
 				transform: "scale(1.1)",
 				opacity: 1,
 				filter: "blur(0px)",
@@ -24,11 +24,13 @@ export const useProjectCardStyles = makeStyles((theme) => ({
 		},
 	},
 	imgContainer: {
-		"& picture": {
-			height: "100%",
-			display: "flex",
-			justifyContent: "center",
-			alignItems: "center",
+		"& svg": {
+			fill: theme.palette.primary.main,
+			width: "95%",
+			height: "auto",
+			opacity: 0.85,
+			filter: "blur(1px)",
+			transition: theme.transitions.create(["transform", "opacity", "filter"]),
 		},
 	},
 	img: {
@@ -36,14 +38,7 @@ export const useProjectCardStyles = makeStyles((theme) => ({
 		filter: "blur(1px)",
 		transition: theme.transitions.create(["transform", "opacity", "filter"]),
 	},
-	svg: {
-		fill: theme.palette.primary.main,
-		width: "95%",
-		height: "auto",
-		opacity: 0.85,
-		filter: "blur(1px)",
-		transition: theme.transitions.create(["transform", "opacity", "filter"]),
-	},
+	svg: {},
 	content: {
 		padding: theme.spacing(4),
 		opacity: 0.85,

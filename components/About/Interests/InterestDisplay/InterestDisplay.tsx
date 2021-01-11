@@ -48,7 +48,7 @@ const InterestDisplay: React.FC<InterestDisplayProps> = ({ interest }) => {
 					layout="fill"
 					objectFit="cover"
 					objectPosition="center center"
-					quality={30}
+					quality={15}
 				/>
 			</Box>
 		</div>

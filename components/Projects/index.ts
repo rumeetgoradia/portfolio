@@ -1,5 +1,4 @@
-import MasonryGrid from "./MasonryGrid"
-import ProjectCard from "./ProjectCard"
 import ProjectFilters from "./ProjectFilters"
+import ProjectsGrid from "./ProjectsGrid"
 
-export { MasonryGrid, ProjectCard, ProjectFilters }
+export { ProjectsGrid, ProjectFilters }

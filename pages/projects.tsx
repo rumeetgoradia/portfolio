@@ -1,12 +1,8 @@
+import Layout, { Base } from "@/components/Layout"
+import { ProjectFilters, ProjectsGrid } from "@/components/Projects"
+import { Project, PROJECTS } from "@/content"
 import { Grid } from "@material-ui/core"
 import { useState } from "react"
-import Layout, { Base } from "../components/Layout"
-import {
-	MasonryGrid,
-	ProjectCard,
-	ProjectFilters,
-} from "../components/Projects"
-import { Project, PROJECTS } from "../content"
 
 const ProjectsPage: React.FC = () => {
 	const [displayedProjects, setDisplayedProjects] = useState<Project[]>(
@@ -22,11 +18,10 @@ const ProjectsPage: React.FC = () => {
 				/>
 			</Base>
 			<Grid item xs={12}>
-				<MasonryGrid>
-					{displayedProjects.map((project, index) => (
-						<ProjectCard key={`project-${index}`} project={project} />
-					))}
-				</MasonryGrid>
+				<ProjectsGrid
+					allProjects={PROJECTS}
+					displayedProjects={displayedProjects}
+				/>
 			</Grid>
 		</Layout>
 	)

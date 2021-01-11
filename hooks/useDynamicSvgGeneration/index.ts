@@ -3,7 +3,7 @@ import { useEffect, useState } from "react"
 export const useDynamicSvgGeneration = (
 	path: string,
 	className: string,
-	classes: Record<string, string>
+	classes?: Record<string, string>
 ): JSX.Element | undefined => {
 	const [svg, setSvg] = useState<JSX.Element>()
 
@@ -15,7 +15,7 @@ export const useDynamicSvgGeneration = (
 		return () => {
 			mounted = false
 		}
-	}, [renderSvg, classes])
+	}, [path, className, renderSvg, classes])
 
 	return svg
 }

@@ -1,26 +1,21 @@
-import { useDynamicSvgGeneration } from "@/hooks/useDynamicSvgGeneration"
 import { Box, Grid, Paper, Typography } from "@material-ui/core"
 import Image from "next/image"
-import { Project } from "../../../content"
-import BorderedButton from "../../BorderedButton"
-import { Lists } from "../../Typography"
+import { Project } from "../../../../content"
+import BorderedButton from "../../../BorderedButton"
+import { Lists } from "../../../Typography"
 import { useProjectCardStyles } from "./ProjectCard.styles"
 
 interface ProjectCardProps {
-	project: Project
+	project: Project | undefined
+	svg: React.ReactNode | undefined
 }
 
-const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
+const ProjectCard: React.FC<ProjectCardProps> = ({ project, svg }) => {
 	const classes = useProjectCardStyles()
 
-	const svg =
-		!project.imageId && project.svgId
-			? useDynamicSvgGeneration(
-					`projects/${project.svgId}`,
-					classes.svg,
-					classes
-			  )
-			: undefined
+	if (!project) {
+		return <div />
+	}
 
 	return (
 		<Paper className={classes.root}>
@@ -44,7 +39,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
 						layout="fill"
 						objectFit="cover"
 						objectPosition="center center"
-						quality={30}
+						quality={15}
 						className={classes.img}
 					/>
 				) : (
