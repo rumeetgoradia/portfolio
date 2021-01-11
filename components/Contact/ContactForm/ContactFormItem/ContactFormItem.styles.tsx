@@ -8,6 +8,7 @@ export const useContactFormItemStyles = makeStyles((theme) => ({
 			"& legend span": {
 				textTransform: "uppercase",
 				fontWeight: 600,
+				fontSize: 14,
 			},
 		},
 	},

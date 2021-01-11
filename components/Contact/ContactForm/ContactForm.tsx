@@ -12,11 +12,11 @@ import ContactFormItem from "./ContactFormItem"
 const phoneRegex = /^$|^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$/
 
 const contactFormSchema = yup.object().shape({
-	name: yup.string().required("Please input your name."),
+	name: yup.string().required("Please enter your name."),
 	email: yup
 		.string()
 		.email("Please enter a valid email address.")
-		.required("Please input your email address."),
+		.required("Please enter your email address."),
 	phone: yup.string().matches(phoneRegex, "Please enter a valid phone number."),
 	message: yup.string().required("Please enter a message."),
 })
