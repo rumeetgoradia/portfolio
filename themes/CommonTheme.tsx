@@ -42,6 +42,18 @@ export const commonPropsOptions: ComponentsProps = {
 }
 
 export const commonOverridesOptions: Overrides = {
+	MuiCssBaseline: {
+		"@global": {
+			html: {
+				scrollBehavior: "smooth",
+				minHeight: "-webkit-fill-available" || "100vh",
+			},
+			body: {
+				scrollBehavior: "smooth",
+				minHeight: "-webkit-fill-available",
+			},
+		},
+	},
 	MuiTypography: {
 		root: {
 			transition: "color 300ms cubic-bezier(0.4,0,0.2,1) 0ms",

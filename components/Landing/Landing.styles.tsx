@@ -4,7 +4,7 @@ export const useLandingStyles = makeStyles((theme) => ({
 	root: {
 		position: "relative",
 		zIndex: 5,
-		padding: theme.spacing(2),
+		// padding: theme.spacing(2),
 	},
 	title: {
 		fontSize: "calc(5vw + 1rem)",
@@ -18,6 +18,10 @@ export const useLandingStyles = makeStyles((theme) => ({
 		fontWeight: 200,
 		fontSize: "calc(2vw + 0.75rem)",
 		userSelect: "none",
+		display: "none",
+		[theme.breakpoints.up("md")]: {
+			display: "block",
+		},
 	},
 	typedSubtitle: {
 		fontWeight: 400,
