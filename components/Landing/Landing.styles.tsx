@@ -19,9 +19,9 @@ export const useLandingStyles = makeStyles((theme) => ({
 		fontSize: "calc(2vw + 0.75rem)",
 		userSelect: "none",
 		display: "none",
-		[theme.breakpoints.up("md")]: {
-			display: "block",
-		},
+		// [theme.breakpoints.up("md")]: {
+		// 	display: "block",
+		// },
 	},
 	typedSubtitle: {
 		fontWeight: 400,
