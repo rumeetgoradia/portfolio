@@ -35,7 +35,7 @@ export const SKILLS: Skill[] = [
 	},
 	{
 		title: "Back-End Frameworks",
-		tools: ["NodeJS", "ExpressJS"],
+		tools: ["NodeJS", "ExpressJS", "Flask"],
 		icon: <FaNodeJs />,
 	},
 	{

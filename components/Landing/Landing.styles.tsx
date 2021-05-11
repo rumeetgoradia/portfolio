@@ -16,7 +16,7 @@ export const useLandingStyles = makeStyles((theme) => ({
 	subtitle: {
 		fontStyle: "italic",
 		fontWeight: 200,
-		fontSize: "calc(2vw + 1rem)",
+		fontSize: "calc(2vw + 0.75rem)",
 		userSelect: "none",
 	},
 	typedSubtitle: {

@@ -15,6 +15,7 @@ const Landing = () => {
 			alignItems="center"
 			width="100%"
 			height="100vh"
+			overflow="hidden"
 			className={classes.root}
 		>
 			<Typography variant="h1" align="center" className={classes.title}>

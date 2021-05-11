@@ -8,6 +8,16 @@ export const PROJECT_CATEGORIES = [
 
 export const PROJECTS: Project[] = [
 	{
+		title: "Harshem Family Practice",
+		categories: ["websites"],
+		description:
+			"The official website for Harshem Family Practice, a medical clinic with offices in Rahway, New Jersey and Elizabeth, New Jersey. Visitors can request appointments and check out information about the company, the doctors, and the offices.",
+		live: "https://www.harshemfamilypractice.com/",
+		repo: "https://github.com/rumeetgoradia/harshem",
+		software: ["NextJS", "Netlify", "Formspree"],
+		imageId: "harshem",
+	},
+	{
 		title: "Advocate BLM",
 		categories: ["websites"],
 		description:
@@ -62,16 +72,16 @@ export const PROJECTS: Project[] = [
 		software: ["Java 8", "JavaFX"],
 		imageId: "songlib",
 	},
-	{
-		title: "Rutgers Consulting Group",
-		categories: ["websites"],
-		description:
-			"The official website for Rutgers Consulting Group, an academic organization geared towards improving the consulting skills of the students at Rutgers University.",
-		live: "https://www.ruconsulting.org/",
-		repo: "https://github.com/rcgboard/rcg-website-2.0",
-		software: ["ReactJS", "GatsbyJS", "Netlify"],
-		imageId: "rcg",
-	},
+	// {
+	// 	title: "Rutgers Consulting Group",
+	// 	categories: ["websites"],
+	// 	description:
+	// 		"The official website for Rutgers Consulting Group, an academic organization geared towards improving the consulting skills of the students at Rutgers University.",
+	// 	live: "https://www.ruconsulting.org/",
+	// 	repo: "https://github.com/rcgboard/rcg-website-2.0",
+	// 	software: ["ReactJS", "GatsbyJS", "Netlify"],
+	// 	imageId: "rcg",
+	// },
 	{
 		title: "Sorting Visualizer",
 		categories: ["web apps"],
