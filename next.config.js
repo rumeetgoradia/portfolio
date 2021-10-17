@@ -1,23 +1,4 @@
-const path = require("path")
-
+/** @type {import('next').NextConfig} */
 module.exports = {
-	webpack(config) {
-		config.module.rules.push({
-			test: /\.svg$/,
-			use: [
-				{
-					loader: "@svgr/webpack",
-					options: {
-						svgoConfig: {
-							plugins: {
-								removeViewBox: false,
-							},
-						},
-					},
-				},
-			],
-		})
-		config.resolve.alias["images"] = path.join(__dirname, "public", "images")
-		return config
-	},
+  reactStrictMode: true,
 }
