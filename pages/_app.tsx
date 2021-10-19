@@ -1,7 +1,21 @@
-import '../styles/globals.css'
-import type { AppProps } from 'next/app'
+import { Chakra } from "@components/Chakra"
+import { Navbar } from "@components/Navbar"
+import "@fontsource/heebo/variable.css"
+import theme from "@theme"
+import { DefaultSeo } from "next-seo"
+import SeoProps from "next-seo.config"
+import type { AppProps } from "next/app"
 
-function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
+export default function MyApp({ Component, pageProps }: AppProps) {
+	return (
+		<>
+			<DefaultSeo {...SeoProps} />
+			<Chakra cookies={pageProps.cookies} theme={theme}>
+				<Navbar />
+				<Component {...pageProps} />
+			</Chakra>
+		</>
+	)
 }
-export default MyApp
+
+export { getServerSideProps } from "@components/Chakra"

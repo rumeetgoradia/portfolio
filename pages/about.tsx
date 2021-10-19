@@ -3,14 +3,15 @@ import { Container } from "@chakra-ui/react"
 import type { NextPage } from "next"
 import { NextSeo } from "next-seo"
 
-const Home: NextPage = () => {
+const About: NextPage = () => {
 	return (
 		<>
-			<NextSeo titleTemplate="%s" title="Rumeet Goradia" />
-			<Container maxW="container.md" pt={0}>
+			<NextSeo title="About" />
+			<Container maxW="container.md" pt={16}>
 				<Heading size="3xl" my={2} fontWeight={800} letterSpacing="-2px">
-					Rumeet Goradia
+					ABOUT
 				</Heading>
+
 				<Text>
 					In aliqua in ad laboris laborum eiusmod enim fugiat minim. Consectetur
 					in deserunt ex tempor aliquip esse veniam do eu excepteur id sint
@@ -27,4 +28,4 @@ const Home: NextPage = () => {
 	)
 }
 
-export default Home
+export default About
