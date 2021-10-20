@@ -21,6 +21,18 @@ const theme = extendTheme({
 				color: mode("gray.900", "gray.50")(props),
 				transition: createTransition(["color", "background-color"]),
 			},
+			"::-webkit-scrollbar-track": {
+				background: mode("gray.50", "gray.900")(props),
+			},
+			"::-webkit-scrollbar-thumb": {
+				background: mode("gray.300", "gray.700")(props),
+				border: "4px solid rgba(0, 0, 0, 0)",
+				backgroundClip: "padding-box",
+				borderRadius: "9999px",
+			},
+			"::-webkit-scrollbar": {
+				width: "14px",
+			},
 		}),
 	},
 	colors: {

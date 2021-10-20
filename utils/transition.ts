@@ -11,14 +11,15 @@ export const createTransition = (
 ): string => {
 	const _properties: string[] = ([] as string[]).concat(properties)
 	const _duration = duration || "normal"
-	const _easing = easing || "ease-in"
 
 	let transition = ""
 	_properties.forEach((property) => {
 		if (transition.length !== 0) {
 			transition += ", "
 		}
-		transition += `${property} var(--chakra-transition-duration-${_duration}) var(--chakra-transition-easing-${_easing})`
+		transition += `${property} var(--chakra-transition-duration-${_duration})${
+			easing ? ` var(--chakra-transition-easing-${easing})` : ""
+		}`
 	})
 	return transition
 }
