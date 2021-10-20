@@ -2,12 +2,15 @@ import { HStack, Link } from "@chakra-ui/layout"
 import { Logo } from "@components/Logo"
 import { NAV_ITEMS } from "@constants"
 import { createTransition } from "@utils"
-import { useRouter } from "next/dist/client/router"
 import NextLink from "next/link"
 
-const HorizontalNavList: React.FC = () => {
-	const router = useRouter()
+type HorizontalNavListProps = {
+	activePath: string
+}
 
+const HorizontalNavList: React.FC<HorizontalNavListProps> = ({
+	activePath,
+}) => {
 	return (
 		<HStack
 			spacing="20px"
@@ -31,7 +34,7 @@ const HorizontalNavList: React.FC = () => {
 			<HStack spacing="8px" justify="center" align="center" as="nav">
 				{NAV_ITEMS.map((navItem) => {
 					const path = `/${navItem}`
-					const isActive = router.pathname === path
+					const isActive = activePath === path
 
 					return (
 						<NextLink href={path} passHref key={`${navItem}-nav-item`}>

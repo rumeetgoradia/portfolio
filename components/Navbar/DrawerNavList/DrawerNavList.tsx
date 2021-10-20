@@ -1,41 +1,47 @@
 import { IconButton } from "@chakra-ui/button"
 import { useColorModeValue } from "@chakra-ui/color-mode"
-import { useDisclosure } from "@chakra-ui/hooks"
-import { Flex, Link, VStack } from "@chakra-ui/layout"
-import {
-	DrawerBody,
-	DrawerCloseButton,
-	DrawerContent,
-	DrawerOverlay,
-} from "@chakra-ui/modal"
+import { Link, VStack } from "@chakra-ui/layout"
+import { DrawerBody, DrawerContent, DrawerOverlay } from "@chakra-ui/modal"
 import { Drawer } from "@chakra-ui/react"
-import { Logo } from "@components/Logo"
 import { NAV_ITEMS } from "@constants"
 import { createTransition } from "@utils"
-import { useRouter } from "next/dist/client/router"
 import NextLink from "next/link"
 import React from "react"
-import { VscMenu } from "react-icons/vsc"
+import { VscChromeClose, VscMenu } from "react-icons/vsc"
 
-const DrawerNavList: React.FC = () => {
-	const { isOpen, onOpen, onClose } = useDisclosure()
+type DrawerNavListProps = {
+	activePath: string
+	isOpen: boolean
+	onOpen: () => void
+	onClose: () => void
+	isScrolled?: boolean
+}
+
+const DrawerNavList: React.FC<DrawerNavListProps> = ({
+	activePath,
+	isOpen,
+	onOpen,
+	onClose,
+	isScrolled,
+}) => {
 	const btnRef = React.useRef<HTMLButtonElement>(null)
 
 	const bg = useColorModeValue("white", "black")
-
-	const router = useRouter()
 
 	return (
 		<>
 			<IconButton
 				aria-label="Open navigation"
-				icon={<VscMenu />}
+				icon={isOpen ? <VscChromeClose /> : <VscMenu />}
 				ref={btnRef}
-				onClick={onOpen}
+				onClick={isOpen ? onClose : onOpen}
 				display={{ base: "inherit", md: "none" }}
-				w="24px"
+				maxW="24px"
+				minW="none"
 				h="24px"
+				size="lg"
 				bg="none"
+				ml="14px"
 				_hover={{
 					bg: "none",
 					color: "brand",
@@ -46,8 +52,9 @@ const DrawerNavList: React.FC = () => {
 				}}
 				_active={{
 					bg: "none",
+					transform: "scale(0.95)",
 				}}
-				transition={createTransition("color", "fast")}
+				transition={createTransition(["color", "transform"], "fast")}
 			/>
 			<Drawer
 				isOpen={isOpen}
@@ -56,36 +63,13 @@ const DrawerNavList: React.FC = () => {
 				finalFocusRef={btnRef}
 				size="full"
 			>
-				<DrawerOverlay zIndex={100000} display={{ md: "none" }}>
-					<DrawerContent bg={bg} px={8}>
-						<Flex p={4} w="full" justifyContent="space-between">
-							<NextLink href="/" passHref>
-								<Logo
-									onClick={onClose}
-									height="24px"
-									width="auto"
-									fill="currentcolor"
-									cursor="pointer"
-									mt={1}
-									_hover={{
-										fill: "brand",
-									}}
-									transition={createTransition("fill")}
-								/>
-							</NextLink>
-							<DrawerCloseButton
-								position="static"
-								_hover={{ color: "brand" }}
-								_focus={{ color: "brand" }}
-								_active={{ bg: "none" }}
-							/>
-						</Flex>
-
-						<DrawerBody py={8}>
+				<DrawerOverlay zIndex={9998} display={{ md: "none" }}>
+					<DrawerContent bg={bg}>
+						<DrawerBody pt={isScrolled ? "80px" : "112px"} pb={8}>
 							<VStack spacing={8}>
 								{NAV_ITEMS.map((navItem) => {
 									const path = `/${navItem}`
-									const isActive = router.pathname === path
+									const isActive = activePath === path
 
 									return (
 										<NextLink href={path} passHref key={`${navItem}-nav-item`}>
