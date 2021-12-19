@@ -3,7 +3,7 @@ import type { NextPage } from "next"
 
 const HomePage: NextPage = () => {
 	return (
-		<Box pt="100px">
+		<Box pt="101px" h="2000px">
 			<Text>Hello</Text>
 			<Text fontStyle="italic">Italic</Text>
 		</Box>
