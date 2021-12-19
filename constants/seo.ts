@@ -1,2 +1,2 @@
-export const SITE_NAME = "Rumeet Goradia"
-export const SITE_URL = "https://www.rumeetgoradia.com/"
+export const SITE_NAME = "Example"
+export const SITE_URL = "https://example.com"

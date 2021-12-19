@@ -1,13 +1,7 @@
-import { NextSeo } from "next-seo"
-import { ErrorDisplay } from "../components/404"
+import type { NextPage } from "next"
 
-const ErrorPage: React.FC = () => {
-	return (
-		<>
-			<NextSeo title="404" />
-			<ErrorDisplay />
-		</>
-	)
+const _404Page: NextPage = () => {
+	return <></>
 }
 
-export default ErrorPage
+export default _404Page

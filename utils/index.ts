@@ -1,1 +1,2 @@
-export * from "./renderSvg"
+export * from "./opacity"
+export * from "./transition"

@@ -1,14 +1,7 @@
-import { NextSeo } from "next-seo"
-import Landing from "../components/Landing"
-import { SITE_NAME } from "../constants"
+import type { NextPage } from "next"
 
-const IndexPage = () => {
-	return (
-		<>
-			<NextSeo titleTemplate="%s" title={SITE_NAME} />
-			<Landing />
-		</>
-	)
+const HomePage: NextPage = () => {
+	return <></>
 }
 
-export default IndexPage
+export default HomePage
