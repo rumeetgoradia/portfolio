@@ -30,10 +30,9 @@ const Navbar: React.FC = () => {
 				},
 			}}
 		>
-			<Container as="header" maxW="container.md">
+			<Container as="header" maxW="container.md" px={8}>
 				<Flex w="full" justify="space-between" align="center">
 					<DesktopMenu activePath={router.pathname} />
-					{/* TODO: add theme toggle */}
 					<ThemeToggle />
 					<MobileMenu activePath={router.pathname} />
 				</Flex>

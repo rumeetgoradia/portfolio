@@ -1,8 +1,9 @@
 import { HStack, Link, useColorModeValue, useTheme } from "@chakra-ui/react"
 import { Logo } from "@components/Logo"
 import { NAV_ITEMS } from "@constants"
-import { createTransition, fade } from "@utils"
 import NextLink from "next/link"
+import { fade } from "utils/opacity"
+import { createTransition } from "utils/transition"
 
 type DesktopMenuProps = {
 	activePath: string
@@ -25,9 +26,10 @@ const DesktopMenu: React.FC<DesktopMenuProps> = ({ activePath }) => {
 					mr={2}
 				>
 					<Logo
-						h="21px"
+						h="23px"
 						w="auto"
-						fill="currentColor"
+						mt="5px"
+						fill="currentcolor"
 						transition={createTransition(["transform", "fill"])}
 						_hover={{
 							transform: "scale(1.05)",
@@ -50,7 +52,7 @@ const DesktopMenu: React.FC<DesktopMenuProps> = ({ activePath }) => {
 							pr="11px"
 							py={1}
 							borderRadius="sm"
-							fontWeight={300}
+							fontWeight={350}
 							textTransform="uppercase"
 							fontSize="sm"
 							letterSpacing={1}
@@ -60,11 +62,7 @@ const DesktopMenu: React.FC<DesktopMenuProps> = ({ activePath }) => {
 									? `1px 1px 3px ${fade(theme.colors.black, 0.2)}`
 									: "none"
 							}
-							transition={createTransition([
-								"text-shadow",
-								"background",
-								"color",
-							])}
+							transition={createTransition(["text-shadow", "background"])}
 							_hover={{
 								textDecoration: "none",
 								bg: isActive ? "none" : fade(theme.colors[currentColor], 0.1),

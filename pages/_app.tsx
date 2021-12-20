@@ -13,7 +13,12 @@ export default function MyApp({ Component, pageProps }: AppProps) {
 			<Chakra cookies={pageProps.cookies} theme={theme}>
 				<Fonts />
 				<Navbar />
-				<Container maxW="container.md">
+				<Container
+					maxW="container.md"
+					px={8}
+					pt={{ base: "121px", md: "125px" }}
+					pb={{ base: "137px", md: "141px" }}
+				>
 					<Component {...pageProps} />
 				</Container>
 			</Chakra>

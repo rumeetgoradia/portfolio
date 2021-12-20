@@ -1,5 +1,6 @@
 import { extendTheme } from "@chakra-ui/react"
 import { mode, StyleFunctionProps } from "@chakra-ui/theme-tools"
+import { createTransition } from "@utils"
 
 const fonts = [
 	"Inter",
@@ -26,11 +27,13 @@ const theme = extendTheme({
 				scrollBehavior: "smooth",
 				bg: mode("white", "black")(props),
 				fontFamily: fonts,
+				transition: createTransition("background"),
 			},
 			body: {
 				scrollBehavior: "smooth",
 				bg: mode("white", "black")(props),
 				color: mode("black", "white")(props),
+				transition: createTransition(["background", "color"]),
 			},
 			"::-webkit-scrollbar-track": {
 				background: mode("white", "black")(props),
