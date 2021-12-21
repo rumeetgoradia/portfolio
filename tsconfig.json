@@ -28,6 +28,9 @@
       "@images/*": [
         "public/images/*"
       ],
+      "@projects": [
+        "projects/index.ts"
+      ],
       "@theme": [
         "theme/index.ts"
       ],
