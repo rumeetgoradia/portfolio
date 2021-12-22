@@ -62,7 +62,11 @@ const DesktopMenu: React.FC<DesktopMenuProps> = ({ activePath }) => {
 									? `1px 1px 3px ${fade(theme.colors.black, 0.2)}`
 									: "none"
 							}
-							transition={createTransition(["text-shadow", "background"])}
+							transition={createTransition([
+								"text-shadow",
+								"background",
+								"color",
+							])}
 							_hover={{
 								textDecoration: "none",
 								bg: isActive ? "none" : fade(theme.colors[currentColor], 0.1),

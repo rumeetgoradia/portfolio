@@ -1,10 +1,11 @@
-type Project = {
+export type Project = {
 	title: string
 	description: string
 	liveUrl?: string
 	repoUrl?: string
 	tags: string[]
 	imagePath: string
+	imageBase64?: string
 	isFeatured?: boolean
 }
 
@@ -16,7 +17,7 @@ export const PROJECTS: Project[] = [
 		liveUrl: "https://manasiparikh.com",
 		repoUrl: "https://github.com/rumeetgoradia/manasi-parikh",
 		tags: ["next.js", "typescript", "vercel"],
-		imagePath: "manasi-parikh.jpeg",
+		imagePath: "manasi-parikh.png",
 		isFeatured: true,
 	},
 	{
@@ -33,7 +34,17 @@ export const PROJECTS: Project[] = [
 			"firebase",
 			"vercel",
 		],
-		imagePath: "pokedex.jpeg",
+		imagePath: "pokedex.png",
+		isFeatured: true,
+	},
+	{
+		title: "Advocate BLM",
+		description:
+			"A website built with the intention of assisting in conversations regarding the Black Lives Matter movement. This website's primary purpose is to address that claim and act as a comprehensive guide to help engage in fact-based advocacy. It aims to educate readers about the undeniable validity of Black Lives Matter, as well as the movement's foundation and motivation.",
+		liveUrl: "https://www.advocateblm.com",
+		repoUrl: "https://github.com/rumeetgoradia/advocate-blm",
+		tags: ["next.js", "typescript", "contentful", "vercel"],
+		imagePath: "advocate-blm.png",
 		isFeatured: true,
 	},
 ]

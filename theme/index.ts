@@ -33,7 +33,7 @@ const theme = extendTheme({
 				scrollBehavior: "smooth",
 				bg: mode("white", "black")(props),
 				color: mode("black", "white")(props),
-				transition: createTransition(["background", "color"]),
+				transition: createTransition(["background"]),
 			},
 			"::-webkit-scrollbar-track": {
 				background: mode("white", "black")(props),
@@ -74,6 +74,15 @@ const theme = extendTheme({
 	config: {
 		initialColorMode: "light",
 		useSystemColorMode: false,
+	},
+	textStyles: {
+		sectionHeader: {
+			fontSize: { base: "2xl", md: "3xl" },
+			fontWeight: 600,
+			letterSpacing: -1,
+			mb: 3,
+			transition: createTransition("color"),
+		},
 	},
 })
 

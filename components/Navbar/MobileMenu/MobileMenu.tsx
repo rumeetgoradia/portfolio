@@ -1,6 +1,5 @@
 import {
 	Box,
-	Button,
 	Drawer,
 	DrawerBody,
 	DrawerContent,
@@ -98,18 +97,6 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ activePath }) => {
 							align="center"
 							flexDirection="column"
 						>
-							<Button
-								w={0}
-								h={0}
-								p={0}
-								pointerEvents="none"
-								variant="unstyled"
-								_focus={{
-									outline: "none",
-									boxShadow: "none",
-								}}
-								// ref={btnRef}
-							/>
 							<VStack w="full" spacing={4}>
 								{[{ title: "Home", path: "/" }]
 									.concat(NAV_ITEMS)
@@ -126,6 +113,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ activePath }) => {
 												pr={0}
 												textDecoration="none !important"
 												position="relative"
+												transition={createTransition("color")}
 												_hover={{
 													_after: {
 														width: "50%",
@@ -143,8 +131,11 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ activePath }) => {
 													height: "1px",
 													width: activePath === path ? "110% !important" : 0,
 													transform: "translateX(-50%)",
-													bg: "currentColor",
-													transition: createTransition("width"),
+													bg: "currentcolor",
+													transition: createTransition([
+														"width",
+														"background-color",
+													]),
 												}}
 											>
 												{title}

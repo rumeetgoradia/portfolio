@@ -1,24 +1,59 @@
 import { Box, Flex, Text, VStack } from "@chakra-ui/react"
+import { FeaturedProjectCard } from "@components/Home"
+import { Hyperlink, Paragraph } from "@components/Typography"
 import HeadshotImage from "@images/home/headshot.jpeg"
-import type { NextPage } from "next"
+import { Project, PROJECTS } from "@projects"
+import { createTransition } from "@utils"
+import type { GetStaticProps, NextPage } from "next"
 import NextImage from "next/image"
-import { createTransition } from "utils/transition"
+import NextLink from "next/link"
+import { getPlaiceholder } from "plaiceholder"
+import React from "react"
 
-const HomePage: NextPage = () => {
+export const getStaticProps: GetStaticProps = async () => {
+	const featuredProjects = PROJECTS.filter(
+		(project) => project.isFeatured
+	).slice(0, 3)
+
+	for (const project of featuredProjects) {
+		const { base64 } = await getPlaiceholder(
+			`/images/projects/${project.imagePath}`
+		)
+		project.imageBase64 = base64
+	}
+
+	return {
+		props: {
+			featuredProjects,
+		},
+	}
+}
+
+type HomePageProps = {
+	featuredProjects: Project[]
+}
+
+const HomePage: NextPage<HomePageProps> = ({ featuredProjects }) => {
 	return (
-		<VStack spacing={12} justify="flex-start" align="flex-start">
+		<VStack
+			spacing={{ base: 8, md: 12 }}
+			justify="flex-start"
+			align="flex-start"
+		>
 			<Flex
-				flexDirection={{ base: "column", md: "row" }}
+				flexDirection={{ base: "column", sm: "row" }}
 				justify={{ base: "flex-start", md: "space-between" }}
+				mb={{ base: 0, sm: -4, md: 0 }}
 			>
 				<Box
 					flex="1 1 auto"
-					w="80px"
-					h="80px"
+					w={{ base: "100px", sm: "80px" }}
+					h={{ base: "100px", sm: "80px" }}
 					borderRadius="50%"
 					overflow="hidden"
 					display={{ md: "none" }}
-					mb={8}
+					mb={6}
+					mr={{ sm: 6 }}
 				>
 					<NextImage
 						src={HeadshotImage}
@@ -30,20 +65,31 @@ const HomePage: NextPage = () => {
 					<Text
 						as="h1"
 						color="brand"
-						fontSize={{ base: "3xl", md: "5xl" }}
+						fontSize={{ base: "3xl", sm: "4xl", md: "5xl" }}
 						fontWeight="bold"
 						letterSpacing={{ base: -1, md: -2 }}
-						lineHeight={1}
+						lineHeight={1.25}
 					>
 						Rumeet Goradia
 					</Text>
-					<Text as="h2" fontSize={{ base: "lg", md: "xl" }} fontWeight={300}>
+					<Text
+						as="h2"
+						fontSize={{ base: "lg", sm: "xl" }}
+						fontWeight={300}
+						lineHeight={1.1}
+						transition={createTransition("color")}
+					>
 						Software Engineer @{" "}
 						<Box as="strong" fontWeight={500}>
 							Schonfeld
 						</Box>
 					</Text>
-					<Text as="p" fontSize="md" opacity={0.8} mt={6}>
+					<Text
+						as="p"
+						opacity={0.8}
+						mt={{ base: 4, md: 6 }}
+						display={{ base: "block", sm: "none", md: "block" }}
+					>
 						Recent graduate from Rutgers University. Currently exploring
 						fin-tech. Specializing in full-stack development, principally Java
 						and React.
@@ -73,15 +119,26 @@ const HomePage: NextPage = () => {
 					/>
 				</Box>
 			</Flex>
-			<Box>
-				<Text
-					as="h3"
-					fontSize={{ base: "xl", md: "2xl" }}
-					fontWeight={600}
-					letterSpacing={-1}
-				>
+			<Paragraph display={{ base: "none", sm: "block", md: "none" }}>
+				Recent graduate from Rutgers University. Currently exploring fin-tech.
+				Specializing in full-stack development, principally Java and React.
+			</Paragraph>
+			<Box w="full">
+				<Text as="h3" textStyle="sectionHeader">
 					Featured Projects
 				</Text>
+				<Flex gap={4} mb={4} w="full" direction={{ base: "column", md: "row" }}>
+					{featuredProjects.map((project) => (
+						<Box flexBasis="33.333%" key={`${project.title}-featured-project`}>
+							<FeaturedProjectCard {...project} />
+						</Box>
+					))}
+				</Flex>
+				<NextLink href="/projects" passHref>
+					<Hyperlink title="Projects" withArrow>
+						View all projects
+					</Hyperlink>
+				</NextLink>
 			</Box>
 		</VStack>
 	)

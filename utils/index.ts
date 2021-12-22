@@ -1,2 +1,2 @@
-export * from "./opacity"
-export * from "./transition"
+export { fade } from "./opacity"
+export { createTransition } from "./transition"
