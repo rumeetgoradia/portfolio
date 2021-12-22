@@ -18,7 +18,7 @@ const Hyperlink: React.FC<HyperlinkProps> = ({
 }) => {
 	const theme = useTheme()
 	const currentcolor = useColorModeValue("black", "white")
-	const opacity = useColorModeValue(0.7, 0.8)
+	const opacity = useColorModeValue(0.7, 0.6)
 
 	return (
 		<Link

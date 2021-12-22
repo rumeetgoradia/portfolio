@@ -2,6 +2,7 @@ import { Box, Flex, Text, VStack } from "@chakra-ui/react"
 import { FeaturedProjectCard } from "@components/Home"
 import { Hyperlink, Paragraph } from "@components/Typography"
 import HeadshotImage from "@images/home/headshot.jpeg"
+import notion from "@notion"
 import { Project, PROJECTS } from "@projects"
 import { createTransition } from "@utils"
 import type { GetStaticProps, NextPage } from "next"
@@ -22,18 +23,62 @@ export const getStaticProps: GetStaticProps = async () => {
 		project.imageBase64 = base64
 	}
 
+	const { results: currentlyReadingResults } = await notion.databases.query({
+		database_id: process.env.NOTION_READING_DB_ID,
+		filter: {
+			property: "Status",
+			select: {
+				equals: "In Progress",
+			},
+		},
+		sorts: [
+			{
+				property: "Status",
+				timestamp: "last_edited_time",
+				direction: "descending",
+			},
+		],
+	})
+	console.log(currentlyReadingResults)
+
+	const currentlyReadingBooks: Book[] = []
+	for (const result of currentlyReadingResults) {
+		const coverArtPath = `https://covers.openlibrary.org/b/isbn/${result.properties["ISBN"].number}-L.jpg`
+		const { base64: coverArtBase64 } = await getPlaiceholder(coverArtPath)
+
+		currentlyReadingBooks.push({
+			title: result.properties["Title"].title[0]["plain_text"],
+			author: result.properties["Author"]["rich_text"][0]["plain_text"],
+			coverArtPath,
+			coverArtBase64,
+		})
+	}
+
 	return {
 		props: {
 			featuredProjects,
+			currentlyReadingBooks,
 		},
 	}
 }
 
-type HomePageProps = {
-	featuredProjects: Project[]
+type Book = {
+	title: string
+	author: string
+	coverArtPath: string
+	coverArtBase64: string
 }
 
-const HomePage: NextPage<HomePageProps> = ({ featuredProjects }) => {
+type HomePageProps = {
+	featuredProjects: Project[]
+	currentlyReadingBooks: Book[]
+}
+
+const HomePage: NextPage<HomePageProps> = ({
+	featuredProjects,
+	currentlyReadingBooks,
+}) => {
+	console.log(currentlyReadingBooks)
 	return (
 		<VStack
 			spacing={{ base: 8, md: 12 }}
@@ -84,16 +129,15 @@ const HomePage: NextPage<HomePageProps> = ({ featuredProjects }) => {
 							Schonfeld
 						</Box>
 					</Text>
-					<Text
+					<Paragraph
 						as="p"
-						opacity={0.8}
 						mt={{ base: 4, md: 6 }}
 						display={{ base: "block", sm: "none", md: "block" }}
 					>
 						Recent graduate from Rutgers University. Currently exploring
 						fin-tech. Specializing in full-stack development, principally Java
 						and React.
-					</Text>
+					</Paragraph>
 				</Box>
 				<Box
 					flex="0 1 25%"
@@ -139,6 +183,16 @@ const HomePage: NextPage<HomePageProps> = ({ featuredProjects }) => {
 						View all projects
 					</Hyperlink>
 				</NextLink>
+			</Box>
+			<Box w="200px" h="600px" position="relative" overflow="hidden">
+				<NextImage
+					src={currentlyReadingBooks[0].coverArtPath}
+					layout="fill"
+					objectFit="contain"
+					objectPosition="center 0%"
+					placeholder="blur"
+					blurDataURL={currentlyReadingBooks[0].coverArtBase64}
+				/>
 			</Box>
 		</VStack>
 	)

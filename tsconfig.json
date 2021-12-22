@@ -28,6 +28,9 @@
       "@images/*": [
         "public/images/*"
       ],
+      "@notion": [
+        "notion/index.ts"
+      ],
       "@projects": [
         "projects/index.ts"
       ],
