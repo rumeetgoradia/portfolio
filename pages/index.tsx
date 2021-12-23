@@ -1,17 +1,43 @@
 import { Box, Flex, Text, VStack } from "@chakra-ui/react"
-import { FeaturedProjectCard } from "@components/Home"
+import { Carousel, CarouselImage, FeaturedProjectCard } from "@components/Home"
 import { Hyperlink, Paragraph } from "@components/Typography"
 import HeadshotImage from "@images/home/headshot.jpeg"
-import notion from "@notion"
 import { Project, PROJECTS } from "@projects"
 import { createTransition } from "@utils"
+import { promises as fs } from "fs"
+import sizeof from "image-size"
 import type { GetStaticProps, NextPage } from "next"
 import NextImage from "next/image"
 import NextLink from "next/link"
+import path from "path"
 import { getPlaiceholder } from "plaiceholder"
 import React from "react"
 
 export const getStaticProps: GetStaticProps = async () => {
+	// Carousel
+	const carouselImagesDirectory = path.resolve(
+		process.cwd(),
+		"public",
+		"images",
+		"home",
+		"carousel"
+	)
+	const filenames = await fs.readdir(carouselImagesDirectory)
+	const carouselImages = filenames.map(async (filename) => {
+		const { width, height, orientation } = sizeof(
+			path.join(carouselImagesDirectory, filename)
+		)
+		const src = `/images/home/carousel/${filename}`
+		const { base64 } = await getPlaiceholder(src)
+		return {
+			src,
+			width: orientation === 6 ? height : width,
+			height: orientation === 6 ? width : height,
+			blurDataUrl: base64,
+		}
+	})
+
+	// Featured projects
 	const featuredProjects = PROJECTS.filter(
 		(project) => project.isFeatured
 	).slice(0, 3)
@@ -23,67 +49,66 @@ export const getStaticProps: GetStaticProps = async () => {
 		project.imageBase64 = base64
 	}
 
-	const { results: currentlyReadingResults } = await notion.databases.query({
-		database_id: process.env.NOTION_READING_DB_ID,
-		filter: {
-			property: "Status",
-			select: {
-				equals: "In Progress",
-			},
-		},
-		sorts: [
-			{
-				property: "Status",
-				timestamp: "last_edited_time",
-				direction: "descending",
-			},
-		],
-	})
-	console.log(currentlyReadingResults)
+	// const { results: currentlyReadingResults } = await notion.databases.query({
+	// 	database_id: process.env.NOTION_READING_DB_ID,
+	// 	filter: {
+	// 		property: "Status",
+	// 		select: {
+	// 			equals: "In Progress",
+	// 		},
+	// 	},
+	// 	sorts: [
+	// 		{
+	// 			property: "Status",
+	// 			timestamp: "last_edited_time",
+	// 			direction: "descending",
+	// 		},
+	// 	],
+	// })
 
-	const currentlyReadingBooks: Book[] = []
-	for (const result of currentlyReadingResults) {
-		const coverArtPath = `https://covers.openlibrary.org/b/isbn/${result.properties["ISBN"].number}-L.jpg`
-		const { base64: coverArtBase64 } = await getPlaiceholder(coverArtPath)
+	// const currentlyReadingBooks: Book[] = []
+	// for (const result of currentlyReadingResults) {
+	// 	const coverArtPath = `https://covers.openlibrary.org/b/isbn/${result.properties["ISBN"].number}-L.jpg`
+	// 	const { base64: coverArtBase64 } = await getPlaiceholder(coverArtPath)
 
-		currentlyReadingBooks.push({
-			title: result.properties["Title"].title[0]["plain_text"],
-			author: result.properties["Author"]["rich_text"][0]["plain_text"],
-			coverArtPath,
-			coverArtBase64,
-		})
-	}
+	// 	currentlyReadingBooks.push({
+	// 		title: result.properties["Title"].title[0]["plain_text"],
+	// 		author: result.properties["Author"]["rich_text"][0]["plain_text"],
+	// 		coverArtPath,
+	// 		coverArtBase64,
+	// 	})
+	// }
 
 	return {
 		props: {
 			featuredProjects,
-			currentlyReadingBooks,
+			carouselImages: await Promise.all(carouselImages),
 		},
 	}
 }
 
-type Book = {
-	title: string
-	author: string
-	coverArtPath: string
-	coverArtBase64: string
-}
+// type Book = {
+// 	title: string
+// 	author: string
+// 	coverArtPath: string
+// 	coverArtBase64: string
+// }
 
 type HomePageProps = {
 	featuredProjects: Project[]
-	currentlyReadingBooks: Book[]
+	carouselImages: CarouselImage[]
 }
 
 const HomePage: NextPage<HomePageProps> = ({
 	featuredProjects,
-	currentlyReadingBooks,
+	carouselImages,
 }) => {
-	console.log(currentlyReadingBooks)
 	return (
 		<VStack
 			spacing={{ base: 8, md: 12 }}
 			justify="flex-start"
 			align="flex-start"
+			as="main"
 		>
 			<Flex
 				flexDirection={{ base: "column", sm: "row" }}
@@ -168,6 +193,9 @@ const HomePage: NextPage<HomePageProps> = ({
 				Specializing in full-stack development, principally Java and React.
 			</Paragraph>
 			<Box w="full">
+				<Carousel images={carouselImages} />
+			</Box>
+			<Box w="full">
 				<Text as="h3" textStyle="sectionHeader">
 					Featured Projects
 				</Text>
@@ -184,16 +212,60 @@ const HomePage: NextPage<HomePageProps> = ({
 					</Hyperlink>
 				</NextLink>
 			</Box>
-			<Box w="200px" h="600px" position="relative" overflow="hidden">
-				<NextImage
-					src={currentlyReadingBooks[0].coverArtPath}
-					layout="fill"
-					objectFit="contain"
-					objectPosition="center 0%"
-					placeholder="blur"
-					blurDataURL={currentlyReadingBooks[0].coverArtBase64}
-				/>
-			</Box>
+			{/* <Box w="full">
+				<Text as="h3" textStyle="sectionHeader">
+					Personal Tracker
+				</Text>
+				<Box
+					w="50%"
+					borderRadius="md"
+					border="1px"
+					borderColor="gray.800"
+					p={4}
+				>
+					<Text
+						as="h5"
+						fontSize={{ base: "md" }}
+						textTransform="uppercase"
+						fontWeight={500}
+						opacity={0.7}
+					>
+						Reading
+					</Text>
+					{currentlyReadingBooks.map(
+						({ title, author, coverArtPath, coverArtBase64 }) => (
+							<Flex
+								flexDirection="row"
+								justify="space-between"
+								key={`${title}-currently-reading`}
+							>
+								<Box flex="0 0 10%" position="relative" overflow="hidden">
+									<NextImage
+										src={coverArtPath}
+										layout="fill"
+										objectFit="cover"
+										objectPosition="0% 0%"
+										placeholder="blur"
+										blurDataURL={coverArtBase64}
+									/>
+								</Box>
+								<Box flex="0 0 85%">
+									<Text as="h6" fontSize="20px" lineHeight={1.25}>
+										{title}
+									</Text>
+									<Paragraph
+										fontWeight={300}
+										lineHeight={1.1}
+										fontStyle="italic"
+									>
+										{author}
+									</Paragraph>
+								</Box>
+							</Flex>
+						)
+					)}
+				</Box>
+			</Box> */}
 		</VStack>
 	)
 }
