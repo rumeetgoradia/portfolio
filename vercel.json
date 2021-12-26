@@ -11,10 +11,5 @@
           }
         ]
       }
-    ],
-    "functions": {
-      "index.js": {
-        "excludeFiles": "public/images/home/carousel/*"
-      }
-    }
+    ]
 }
