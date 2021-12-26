@@ -1,4 +1,5 @@
 import { Box, Container, IconButton } from "@chakra-ui/react"
+import fetcher from "@lib/fetcher"
 import { createTransition } from "@utils"
 import NextImage from "next/image"
 import { useMemo, useRef } from "react"
@@ -6,6 +7,7 @@ import { BsArrowLeft, BsArrowRight } from "react-icons/bs"
 import Slider, { Settings } from "react-slick"
 import "slick-carousel/slick/slick-theme.css"
 import "slick-carousel/slick/slick.css"
+import useSWR from "swr"
 
 export type CarouselImage = {
 	src: string
@@ -14,39 +16,46 @@ export type CarouselImage = {
 	blurDataUrl: string
 }
 
-type CarouselProps = {
-	images: CarouselImage[]
-}
+const Carousel: React.FC = ({}) => {
+	const { data } = useSWR<{ carouselImages: CarouselImage[] }>(
+		"/api/carousel-images",
+		fetcher
+	)
 
-const Carousel: React.FC<CarouselProps> = ({ images }) => {
 	const carouselItems = useMemo(
 		() =>
-			images.map(({ src, width, height, blurDataUrl }) => (
-				<Box
-					pointerEvents="none"
-					userSelect="none"
-					key={`${src}-carousel-image`}
-				>
+			data ? (
+				data.carouselImages.map(({ src, width, height, blurDataUrl }) => (
 					<Box
-						h={{ base: "250px", md: "300px" }}
-						w={{
-							base: `${(width * 250) / height}px`,
-							md: `${(width * 300) / height}px`,
-						}}
-						position="relative"
+						pointerEvents="none"
+						userSelect="none"
+						key={`${src}-carousel-image`}
 					>
-						<NextImage
-							src={src}
-							layout="fill"
-							objectFit="contain"
-							objectPosition="center center"
-							placeholder="blur"
-							blurDataURL={blurDataUrl}
-						/>
+						<Box
+							h={{ base: "250px", md: "300px" }}
+							w={{
+								base: `${(width * 250) / height}px`,
+								md: `${(width * 300) / height}px`,
+							}}
+							position="relative"
+						>
+							<NextImage
+								src={src}
+								layout="fill"
+								objectFit="contain"
+								objectPosition="center center"
+								placeholder="blur"
+								blurDataURL={blurDataUrl}
+							/>
+						</Box>
 					</Box>
+				))
+			) : (
+				<Box>
+					<Box bg="gray.100" h={{ base: "250px", md: "300px" }} w="full" />
 				</Box>
-			)),
-		[images]
+			),
+		[data]
 	)
 	const sliderRef = useRef<Slider | null>(null)
 
