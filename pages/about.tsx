@@ -1,7 +1,7 @@
 import { Box, Flex, Text, VStack } from "@chakra-ui/react"
 import { CurrentlyBox, CurrentlyItem, TopTracks } from "@components/About"
 import { Hyperlink } from "@components/Typography"
-import notion from "@notion"
+import notion from "@lib/notion"
 import type { GetStaticProps, NextPage } from "next"
 import { NextSeo } from "next-seo"
 import NextLink from "next/link"

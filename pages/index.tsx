@@ -2,40 +2,33 @@ import { Box, Flex, Text, VStack } from "@chakra-ui/react"
 import { Carousel, CarouselImage, FeaturedWorkCard } from "@components/Home"
 import { Hyperlink } from "@components/Typography"
 import HeadshotImage from "@images/home/headshot.jpeg"
+import unsplash from "@lib/unsplash"
 import { createTransition } from "@utils"
 import { Work, WORK } from "@work"
-import { promises as fs } from "fs"
-import sizeof from "image-size"
 import type { GetStaticProps, NextPage } from "next"
 import NextImage from "next/image"
 import NextLink from "next/link"
-import path from "path"
 import { getPlaiceholder } from "plaiceholder"
 import React from "react"
 
 export const getStaticProps: GetStaticProps = async () => {
 	// Carousel
-	const carouselImagesDirectory = path.resolve(
-		process.cwd(),
-		"public",
-		"images",
-		"home",
-		"carousel"
-	)
-	const filenames = await fs.readdir(carouselImagesDirectory)
+	const { response } = await unsplash.users.getPhotos({
+		username: process.env.UNSPLASH_USERNAME || "",
+		perPage: 100,
+	})
+
 	const carouselImages: CarouselImage[] = []
-	for (const filename of filenames) {
-		const { width, height, orientation } = sizeof(
-			path.join(carouselImagesDirectory, filename)
-		)
-		const src = `/images/home/carousel/${filename}`
-		const { base64 } = await getPlaiceholder(src)
-		carouselImages.push({
-			src,
-			width: orientation === 6 ? height || 0 : width || 0,
-			height: orientation === 6 ? width || 0 : height || 0,
-			blurDataUrl: base64,
-		})
+	if (response) {
+		for (const result of response.results) {
+			const { base64 } = await getPlaiceholder(result.urls.full)
+			carouselImages.push({
+				src: result.urls.full,
+				width: result.width,
+				height: result.height,
+				blurDataUrl: base64,
+			})
+		}
 	}
 
 	// Featured projects

@@ -31,9 +31,6 @@
       "@lib/*": [
         "lib/*"
       ],
-      "@notion": [
-        "notion/index.ts"
-      ],
       "@theme": [
         "theme/index.ts"
       ],
