@@ -11,10 +11,5 @@
           }
         ]
       }
-    ],
-    "functions": {
-      "*": {
-        "excludeFiles": "public/images/home/*"
-      }
-    }
+    ]
 }
