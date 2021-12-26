@@ -23,19 +23,20 @@ export const getStaticProps: GetStaticProps = async () => {
 		"carousel"
 	)
 	const filenames = await fs.readdir(carouselImagesDirectory)
-	const carouselImages = filenames.map(async (filename) => {
+	const carouselImages: CarouselImage[] = []
+	for (const filename of filenames) {
 		const { width, height, orientation } = sizeof(
 			path.join(carouselImagesDirectory, filename)
 		)
 		const src = `/images/home/carousel/${filename}`
 		const { base64 } = await getPlaiceholder(src)
-		return {
+		carouselImages.push({
 			src,
-			width: orientation === 6 ? height : width,
-			height: orientation === 6 ? width : height,
+			width: orientation === 6 ? height || 0 : width || 0,
+			height: orientation === 6 ? width || 0 : height || 0,
 			blurDataUrl: base64,
-		}
-	})
+		})
+	}
 
 	// Featured projects
 	const featuredWork = WORK.filter((work) => work.isFeatured).slice(0, 3)
@@ -48,7 +49,7 @@ export const getStaticProps: GetStaticProps = async () => {
 	return {
 		props: {
 			featuredWork,
-			carouselImages: await Promise.all(carouselImages),
+			carouselImages,
 		},
 	}
 }
