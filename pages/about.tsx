@@ -1,5 +1,5 @@
 import { Box, Flex, Text, VStack } from "@chakra-ui/react"
-import { CurrentlyBox, CurrentlyItem } from "@components/About"
+import { CurrentlyBox, CurrentlyItem, TopTracks } from "@components/About"
 import { Hyperlink } from "@components/Typography"
 import notion from "@notion"
 import type { GetStaticProps, NextPage } from "next"
@@ -151,7 +151,7 @@ const AboutPage: NextPage<AboutPageProps> = ({
 				</Box>
 				<Box w="full">
 					<Flex
-						gap={{ base: 8, md: 4 }}
+						gap={8}
 						mb={4}
 						w="full"
 						direction={{ base: "column", md: "row" }}
@@ -174,7 +174,12 @@ const AboutPage: NextPage<AboutPageProps> = ({
 					<Text as="h2" textStyle="subheader">
 						Top Tracks
 					</Text>
-					<Text textStyle="paragraph">Updated daily.</Text>
+					<Text textStyle="paragraph">
+						The songs I listen to the most, updated daily via Spotify.
+					</Text>
+					<Box w="full">
+						<TopTracks />
+					</Box>
 				</Box>
 			</VStack>
 		</>

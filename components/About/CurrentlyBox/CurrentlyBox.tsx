@@ -82,6 +82,8 @@ const CurrentlyBox: React.FC<CurrentlyBoxProps> = ({
 								{genres.map((genre) => (
 									<Text
 										opacity={tagOpacity}
+										userSelect="none"
+										borderRadius="sm"
 										bg="var(--text-color)"
 										color="var(--bg-color)"
 										fontWeight={400}
