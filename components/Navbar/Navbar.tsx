@@ -19,7 +19,7 @@ const Navbar: React.FC = () => {
 			zIndex={999999}
 			justify="center"
 			userSelect="none"
-			py={10}
+			py={{ base: 8, md: 10 }}
 			bg={fade(theme.colors[bg], 0.9)} //background
 			backdropFilter="saturate(180%) blur(5px)"
 			transition={createTransition("background-color")}

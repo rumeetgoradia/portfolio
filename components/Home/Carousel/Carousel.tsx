@@ -1,4 +1,4 @@
-import { Box, Container, IconButton, useColorModeValue } from "@chakra-ui/react"
+import { Box, Container, IconButton } from "@chakra-ui/react"
 import { createTransition } from "@utils"
 import NextImage from "next/image"
 import { useMemo, useRef } from "react"
@@ -62,8 +62,6 @@ const Carousel: React.FC<CarouselProps> = ({ images }) => {
 		adaptiveHeight: true,
 	}
 
-	const bg = useColorModeValue("white", "black")
-
 	return (
 		<Container
 			maxW="min(calc(100vw - 32px - 32px), var(--chakra-sizes-container-md))"
@@ -84,12 +82,11 @@ const Carousel: React.FC<CarouselProps> = ({ images }) => {
 				transform="translate(-50%, -50%)"
 				borderRadius="50%"
 				color="current"
-				bg={bg}
+				bg="var(--bg-color)"
 				w="32px"
 				h="32px"
 				size="sm"
-				border="1px"
-				borderColor="transparent"
+				fontSize="md"
 				_hover={{
 					opacity: 1,
 					fontSize: "lg",
@@ -97,6 +94,10 @@ const Carousel: React.FC<CarouselProps> = ({ images }) => {
 				_focus={{
 					opacity: 1,
 					fontSize: "lg",
+				}}
+				_active={{
+					opacity: 1,
+					fontSize: "sm",
 				}}
 				transition={createTransition(["color", "background", "font-size"])}
 			/>
@@ -123,12 +124,11 @@ const Carousel: React.FC<CarouselProps> = ({ images }) => {
 				transform="translate(50%, -50%)"
 				borderRadius="50%"
 				color="current"
-				bg={bg}
+				bg="var(--bg-color)"
 				w="32px"
 				h="32px"
 				size="sm"
-				border="1px"
-				borderColor="transparent"
+				fontSize="md"
 				_hover={{
 					opacity: 1,
 					fontSize: "lg",
@@ -136,6 +136,10 @@ const Carousel: React.FC<CarouselProps> = ({ images }) => {
 				_focus={{
 					opacity: 1,
 					fontSize: "lg",
+				}}
+				_active={{
+					opacity: 1,
+					fontSize: "sm",
 				}}
 				transition={createTransition(["color", "background", "font-size"])}
 			/>

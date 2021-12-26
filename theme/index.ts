@@ -35,6 +35,17 @@ const theme = extendTheme({
 				color: mode("black", "white")(props),
 				transition: createTransition(["background"]),
 			},
+			":root": {
+				"--bg-color": mode(
+					"var(--chakra-colors-white)",
+					"var(--chakra-colors-black)"
+				)(props),
+				"--text-color": mode(
+					"var(--chakra-colors-black)",
+					"var(--chakra-colors-white)"
+				)(props),
+				"--text-opacity": mode(0.8, 0.7)(props),
+			},
 			"::-webkit-scrollbar-track": {
 				background: mode("white", "black")(props),
 			},
@@ -76,11 +87,24 @@ const theme = extendTheme({
 		useSystemColorMode: false,
 	},
 	textStyles: {
-		sectionHeader: {
+		header: {
+			fontSize: { base: "3xl", sm: "4xl", md: "5xl" },
+			fontWeight: 700,
+			letterSpacing: -1,
+			lineHeight: { base: "2.25rem", md: 1 },
+			mb: 4,
+			transition: createTransition("color"),
+		},
+		subheader: {
 			fontSize: { base: "2xl", md: "3xl" },
 			fontWeight: 600,
 			letterSpacing: -1,
-			mb: 3,
+			lineHeight: { base: "2rem", md: "2.5rem" },
+			mb: 4,
+			transition: createTransition("color"),
+		},
+		paragraph: {
+			opacity: "var(--text-opacity)",
 			transition: createTransition("color"),
 		},
 	},

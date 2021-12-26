@@ -1,4 +1,4 @@
-import { Container } from "@chakra-ui/react"
+import { Box, Container } from "@chakra-ui/react"
 import { Chakra } from "@components/Chakra"
 import { Navbar } from "@components/Navbar"
 import theme, { Fonts } from "@theme"
@@ -13,14 +13,15 @@ export default function MyApp({ Component, pageProps }: AppProps) {
 			<Chakra cookies={pageProps.cookies} theme={theme}>
 				<Fonts />
 				<Navbar />
-				<Container
-					maxW="container.md"
-					px={8}
-					pt={{ base: "121px", md: "125px" }}
-					pb={{ base: "137px", md: "141px" }}
-				>
-					<Component {...pageProps} />
-				</Container>
+				<Box w="full" px={4}>
+					<Container
+						maxW="container.md"
+						px={4}
+						pt={{ base: "105px", md: "125px" }}
+					>
+						<Component {...pageProps} />
+					</Container>
+				</Box>
 			</Chakra>
 		</>
 	)

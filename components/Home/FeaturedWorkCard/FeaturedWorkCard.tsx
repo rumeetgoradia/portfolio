@@ -1,17 +1,28 @@
-import { Box, Flex, Link, Text } from "@chakra-ui/react"
+import {
+	Box,
+	Flex,
+	Link,
+	Text,
+	useColorModeValue,
+	useTheme,
+} from "@chakra-ui/react"
 import { Button } from "@components/Button"
-import { Project } from "@projects"
-import { createTransition } from "@utils"
+import { createTransition, fade } from "@utils"
 import NextImage from "next/image"
 import { Fragment } from "react"
+import { Work } from "work"
 
-const FeaturedProjectCard: React.FC<Project> = ({
+const FeaturedWorkCard: React.FC<Work> = ({
 	title,
 	imagePath,
 	imageBase64,
 	liveUrl,
 	repoUrl,
 }) => {
+	const theme = useTheme()
+	const borderColor = useColorModeValue("black", "white")
+	const opacity = useColorModeValue(0.4, 0.2)
+
 	return (
 		<Flex
 			direction="column"
@@ -21,13 +32,13 @@ const FeaturedProjectCard: React.FC<Project> = ({
 			overflow="hidden"
 			role="group"
 			border="1px"
-			borderColor="currentcolor"
+			borderColor={fade(theme.colors[borderColor], opacity)}
 			transition={createTransition(["transform", "border-color"])}
-			_hover={{ transform: "scale(1.025)" }}
+			_hover={{ transform: "scale(1.025)", borderColor: "currentcolor" }}
 		>
 			<Box h="15vh" w="full" position="relative">
 				<NextImage
-					src={`/images/projects/${imagePath}`}
+					src={`/images/work/${imagePath}`}
 					layout="fill"
 					objectFit="cover"
 					objectPosition="center center"
@@ -60,7 +71,13 @@ const FeaturedProjectCard: React.FC<Project> = ({
 											title={`${title} – ${liveOrRepo}`}
 											isExternal
 										>
-											<Button w="full" size="sm">
+											<Button
+												w="full"
+												size="sm"
+												opacity={opacity}
+												transitionProperties={["opacity"]}
+												_groupHover={{ opacity: 1 }}
+											>
 												{liveOrRepo}
 											</Button>
 										</Link>
@@ -75,4 +92,4 @@ const FeaturedProjectCard: React.FC<Project> = ({
 	)
 }
 
-export default FeaturedProjectCard
+export default FeaturedWorkCard

@@ -13,8 +13,8 @@ export const NAV_ITEMS: NAV_ITEM[] = [
 		path: "/experience",
 	},
 	{
-		title: "Projects",
-		path: "/projects",
+		title: "Work",
+		path: "/work",
 	},
 	{
 		title: "Contact",

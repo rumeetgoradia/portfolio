@@ -1,10 +1,4 @@
-import {
-	Icon,
-	Link,
-	LinkProps,
-	useColorModeValue,
-	useTheme,
-} from "@chakra-ui/react"
+import { Icon, Link, LinkProps, useTheme } from "@chakra-ui/react"
 import { createTransition } from "@utils"
 
 type HyperlinkProps = LinkProps & {
@@ -17,17 +11,16 @@ const Hyperlink: React.FC<HyperlinkProps> = ({
 	...props
 }) => {
 	const theme = useTheme()
-	const currentcolor = useColorModeValue("black", "white")
-	const opacity = useColorModeValue(0.7, 0.6)
 
 	return (
 		<Link
-			bg={`linear-gradient(to right, rgba(0,0,0, 0), rgba(0,0,0, 0)),
+			bg={`linear-gradient(to right, rgba(0,0,0,0), rgba(0,0,0, 0)),
 			linear-gradient(to right, ${theme.colors["brand"]}, ${theme.colors["brand"]})`}
 			bgSize="100% 0.1em, 0 0.1em"
 			bgPos="100% 100%, 0 100%"
 			bgRepeat="no-repeat"
-			opacity={opacity}
+			opacity={withArrow ? "var(--text-opacity)" : 1}
+			color={withArrow ? "currentcolor" : "brand"}
 			transition={createTransition(["background-size", "color", "opacity"])}
 			_hover={{
 				bgSize: withArrow ? "100% 0.1em, 0 0.1em" : "0 0.1em, 100% 0.1em",

@@ -31,15 +31,15 @@
       "@notion": [
         "notion/index.ts"
       ],
-      "@projects": [
-        "projects/index.ts"
-      ],
       "@theme": [
         "theme/index.ts"
       ],
       "@utils": [
         "utils/index.ts"
-      ]
+      ],
+      "@work": [
+        "work/index.ts"
+      ],
     },
     "incremental": true
   },

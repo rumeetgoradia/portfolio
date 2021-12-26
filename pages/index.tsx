@@ -1,9 +1,9 @@
 import { Box, Flex, Text, VStack } from "@chakra-ui/react"
-import { Carousel, CarouselImage, FeaturedProjectCard } from "@components/Home"
-import { Hyperlink, Paragraph } from "@components/Typography"
+import { Carousel, CarouselImage, FeaturedWorkCard } from "@components/Home"
+import { Hyperlink } from "@components/Typography"
 import HeadshotImage from "@images/home/headshot.jpeg"
-import { Project, PROJECTS } from "@projects"
 import { createTransition } from "@utils"
+import { Work, WORK } from "@work"
 import { promises as fs } from "fs"
 import sizeof from "image-size"
 import type { GetStaticProps, NextPage } from "next"
@@ -12,6 +12,11 @@ import NextLink from "next/link"
 import path from "path"
 import { getPlaiceholder } from "plaiceholder"
 import React from "react"
+// import { Document, Page, pdfjs } from "react-pdf"
+// @ts-ignore
+// import url from "pdfjs-dist/build/pdf.worker"
+
+// pdfjs.GlobalWorkerOptions.workerSrc = url
 
 export const getStaticProps: GetStaticProps = async () => {
 	// Carousel
@@ -38,15 +43,11 @@ export const getStaticProps: GetStaticProps = async () => {
 	})
 
 	// Featured projects
-	const featuredProjects = PROJECTS.filter(
-		(project) => project.isFeatured
-	).slice(0, 3)
+	const featuredWork = WORK.filter((work) => work.isFeatured).slice(0, 3)
 
-	for (const project of featuredProjects) {
-		const { base64 } = await getPlaiceholder(
-			`/images/projects/${project.imagePath}`
-		)
-		project.imageBase64 = base64
+	for (const work of featuredWork) {
+		const { base64 } = await getPlaiceholder(`/images/work/${work.imagePath}`)
+		work.imageBase64 = base64
 	}
 
 	// const { results: currentlyReadingResults } = await notion.databases.query({
@@ -81,7 +82,7 @@ export const getStaticProps: GetStaticProps = async () => {
 
 	return {
 		props: {
-			featuredProjects,
+			featuredWork,
 			carouselImages: await Promise.all(carouselImages),
 		},
 	}
@@ -95,21 +96,16 @@ export const getStaticProps: GetStaticProps = async () => {
 // }
 
 type HomePageProps = {
-	featuredProjects: Project[]
+	featuredWork: Work[]
 	carouselImages: CarouselImage[]
 }
 
 const HomePage: NextPage<HomePageProps> = ({
-	featuredProjects,
+	featuredWork,
 	carouselImages,
 }) => {
 	return (
-		<VStack
-			spacing={{ base: 8, md: 12 }}
-			justify="flex-start"
-			align="flex-start"
-			as="main"
-		>
+		<VStack spacing={8} justify="flex-start" align="flex-start" as="main">
 			<Flex
 				flexDirection={{ base: "column", sm: "row" }}
 				justify={{ base: "flex-start", md: "space-between" }}
@@ -154,15 +150,15 @@ const HomePage: NextPage<HomePageProps> = ({
 							Schonfeld
 						</Box>
 					</Text>
-					<Paragraph
-						as="p"
+					<Text
+						textStyle="paragraph"
 						mt={{ base: 4, md: 6 }}
 						display={{ base: "block", sm: "none", md: "block" }}
 					>
 						Recent graduate from Rutgers University. Currently exploring
 						fin-tech. Specializing in full-stack development, principally Java
 						and React.
-					</Paragraph>
+					</Text>
 				</Box>
 				<Box
 					flex="0 1 25%"
@@ -188,84 +184,33 @@ const HomePage: NextPage<HomePageProps> = ({
 					/>
 				</Box>
 			</Flex>
-			<Paragraph display={{ base: "none", sm: "block", md: "none" }}>
+			<Text
+				textStyle="paragraph"
+				display={{ base: "none", sm: "block", md: "none" }}
+			>
 				Recent graduate from Rutgers University. Currently exploring fin-tech.
 				Specializing in full-stack development, principally Java and React.
-			</Paragraph>
+			</Text>
 			<Box w="full">
 				<Carousel images={carouselImages} />
 			</Box>
 			<Box w="full">
-				<Text as="h3" textStyle="sectionHeader">
-					Featured Projects
+				<Text as="h3" textStyle="subheader">
+					Featured Work
 				</Text>
 				<Flex gap={4} mb={4} w="full" direction={{ base: "column", md: "row" }}>
-					{featuredProjects.map((project) => (
-						<Box flexBasis="33.333%" key={`${project.title}-featured-project`}>
-							<FeaturedProjectCard {...project} />
+					{featuredWork.map((work) => (
+						<Box flexBasis="33.333%" key={`${work.title}-featured-project`}>
+							<FeaturedWorkCard {...work} />
 						</Box>
 					))}
 				</Flex>
-				<NextLink href="/projects" passHref>
-					<Hyperlink title="Projects" withArrow>
-						View all projects
+				<NextLink href="/work" passHref>
+					<Hyperlink title="Work" withArrow>
+						View all work
 					</Hyperlink>
 				</NextLink>
 			</Box>
-			{/* <Box w="full">
-				<Text as="h3" textStyle="sectionHeader">
-					Personal Tracker
-				</Text>
-				<Box
-					w="50%"
-					borderRadius="md"
-					border="1px"
-					borderColor="gray.800"
-					p={4}
-				>
-					<Text
-						as="h5"
-						fontSize={{ base: "md" }}
-						textTransform="uppercase"
-						fontWeight={500}
-						opacity={0.7}
-					>
-						Reading
-					</Text>
-					{currentlyReadingBooks.map(
-						({ title, author, coverArtPath, coverArtBase64 }) => (
-							<Flex
-								flexDirection="row"
-								justify="space-between"
-								key={`${title}-currently-reading`}
-							>
-								<Box flex="0 0 10%" position="relative" overflow="hidden">
-									<NextImage
-										src={coverArtPath}
-										layout="fill"
-										objectFit="cover"
-										objectPosition="0% 0%"
-										placeholder="blur"
-										blurDataURL={coverArtBase64}
-									/>
-								</Box>
-								<Box flex="0 0 85%">
-									<Text as="h6" fontSize="20px" lineHeight={1.25}>
-										{title}
-									</Text>
-									<Paragraph
-										fontWeight={300}
-										lineHeight={1.1}
-										fontStyle="italic"
-									>
-										{author}
-									</Paragraph>
-								</Box>
-							</Flex>
-						)
-					)}
-				</Box>
-			</Box> */}
 		</VStack>
 	)
 }

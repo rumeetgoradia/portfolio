@@ -1,2 +1,2 @@
 export * from "./Carousel"
-export * from "./FeaturedProjectCard"
+export * from "./FeaturedWorkCard"

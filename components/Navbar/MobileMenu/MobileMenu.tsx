@@ -73,9 +73,9 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ activePath }) => {
 				<DrawerOverlay display={{ md: "none" }} bg="transparent" />
 				<DrawerContent display={{ md: "none" }} bg="transparent">
 					<DrawerBody
-						mt="105px"
-						pb="105px"
-						h="calc(100vh - 105px)"
+						mt="89px"
+						pb="89px"
+						h="calc(100vh - 89px)"
 						display="flex"
 						flexDirection="column"
 						justify="center"

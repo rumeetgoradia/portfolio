@@ -1,14 +1,18 @@
 import {
 	Button as ChakraButton,
-	ButtonProps,
-	useColorModeValue,
+	ButtonProps as ChakraButtonProps,
 } from "@chakra-ui/react"
 import { createTransition } from "@utils"
 
-const Button: React.FC<ButtonProps> = ({ children, ...props }) => {
-	const currentBg = useColorModeValue("white", "black")
-	const oppositeBg = useColorModeValue("black", "white")
+type ButtonProps = ChakraButtonProps & {
+	transitionProperties?: string[]
+}
 
+const Button: React.FC<ButtonProps> = ({
+	children,
+	transitionProperties,
+	...props
+}) => {
 	return (
 		<ChakraButton
 			variant="unstyled"
@@ -18,7 +22,7 @@ const Button: React.FC<ButtonProps> = ({ children, ...props }) => {
 			border="1px"
 			borderColor="current"
 			borderRadius="sm"
-			bg={currentBg}
+			bg="var(--bg-color)"
 			textTransform="uppercase"
 			fontWeight={400}
 			fontSize="sm"
@@ -27,13 +31,15 @@ const Button: React.FC<ButtonProps> = ({ children, ...props }) => {
 			pl="5px"
 			pr="3px"
 			transition={createTransition(
-				["transform", "border-color", "color", "background"],
+				["transform", "border-color", "color", "background"].concat(
+					transitionProperties || []
+				),
 				"normal",
 				"ease-out"
 			)}
 			_hover={{
-				bg: oppositeBg,
-				color: currentBg,
+				bg: "var(--text-color)",
+				color: "var(--bg-color)",
 			}}
 			_focus={{
 				outline: "none",
