@@ -11,5 +11,10 @@
           }
         ]
       }
-    ]
+    ],
+    "functions": {
+      "*.json": {
+        "excludeFiles": "public/images/home/*"
+      }
+    }
 }

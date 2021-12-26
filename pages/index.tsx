@@ -12,11 +12,6 @@ import NextLink from "next/link"
 import path from "path"
 import { getPlaiceholder } from "plaiceholder"
 import React from "react"
-// import { Document, Page, pdfjs } from "react-pdf"
-// @ts-ignore
-// import url from "pdfjs-dist/build/pdf.worker"
-
-// pdfjs.GlobalWorkerOptions.workerSrc = url
 
 export const getStaticProps: GetStaticProps = async () => {
 	// Carousel
@@ -50,36 +45,6 @@ export const getStaticProps: GetStaticProps = async () => {
 		work.imageBase64 = base64
 	}
 
-	// const { results: currentlyReadingResults } = await notion.databases.query({
-	// 	database_id: process.env.NOTION_READING_DB_ID,
-	// 	filter: {
-	// 		property: "Status",
-	// 		select: {
-	// 			equals: "In Progress",
-	// 		},
-	// 	},
-	// 	sorts: [
-	// 		{
-	// 			property: "Status",
-	// 			timestamp: "last_edited_time",
-	// 			direction: "descending",
-	// 		},
-	// 	],
-	// })
-
-	// const currentlyReadingBooks: Book[] = []
-	// for (const result of currentlyReadingResults) {
-	// 	const coverArtPath = `https://covers.openlibrary.org/b/isbn/${result.properties["ISBN"].number}-L.jpg`
-	// 	const { base64: coverArtBase64 } = await getPlaiceholder(coverArtPath)
-
-	// 	currentlyReadingBooks.push({
-	// 		title: result.properties["Title"].title[0]["plain_text"],
-	// 		author: result.properties["Author"]["rich_text"][0]["plain_text"],
-	// 		coverArtPath,
-	// 		coverArtBase64,
-	// 	})
-	// }
-
 	return {
 		props: {
 			featuredWork,
@@ -87,13 +52,6 @@ export const getStaticProps: GetStaticProps = async () => {
 		},
 	}
 }
-
-// type Book = {
-// 	title: string
-// 	author: string
-// 	coverArtPath: string
-// 	coverArtBase64: string
-// }
 
 type HomePageProps = {
 	featuredWork: Work[]
