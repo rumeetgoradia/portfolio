@@ -13,7 +13,7 @@
       }
     ],
     "functions": {
-      "api/*": {
+      "api/carousel-images.ts": {
         "excludeFiles": "public/images/home/carousel/*"
       }
     }
