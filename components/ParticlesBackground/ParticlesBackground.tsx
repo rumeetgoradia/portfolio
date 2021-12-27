@@ -86,6 +86,8 @@ const ParticlesBackground: React.FC = () => {
 						number: {
 							density: {
 								enable: true,
+								area: 500,
+								factor: 1000,
 							},
 						},
 						opacity: {
