@@ -86,7 +86,6 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ activePath }) => {
 						sx={{
 							"@supports not (backdrop-filter: none)": {
 								backdropFilter: "none",
-								bg,
 							},
 						}}
 					>

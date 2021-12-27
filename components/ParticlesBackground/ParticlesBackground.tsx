@@ -27,16 +27,16 @@ const ParticlesBackground: React.FC = () => {
 								parallax: {
 									enable: true,
 									force: 15,
-									smooth: 20,
+									smooth: 10,
 								},
 							},
 						},
 						modes: {
 							repulse: {
-								distance: 125,
-								factor: 1,
-								speed: 0.5,
-								maxSpeed: 0.5,
+								distance: 200,
+								factor: 100,
+								speed: 1,
+								maxSpeed: 2,
 							},
 						},
 					},
