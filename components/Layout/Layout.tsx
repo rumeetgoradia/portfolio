@@ -21,7 +21,7 @@ const Layout: React.FC<LayoutProps> = ({ title, children }) => {
 				maxW="container.md"
 				px={8}
 				pt={{ base: "105px", md: "125px" }}
-				pb={8}
+				pb={12}
 				bg="transparent"
 			>
 				<VStack

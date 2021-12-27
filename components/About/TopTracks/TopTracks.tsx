@@ -39,6 +39,7 @@ const TopTracks: React.FC = () => {
 					<Box ml={4}>
 						<Hyperlink
 							href={trackUrl}
+							title={title}
 							isExternal
 							color="current"
 							lineHeight={1}

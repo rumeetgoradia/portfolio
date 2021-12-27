@@ -72,15 +72,12 @@ const ParticlesBackground: React.FC = () => {
 						move: {
 							attract: {
 								enable: true,
-								rotate: {
-									x: 600,
-									y: 1200,
-								},
+								distance: 10,
 							},
 							enable: true,
 							path: {},
 							outModes: "out",
-							speed: 1,
+							speed: 0.25,
 							spin: {},
 						},
 						number: {
@@ -93,7 +90,7 @@ const ParticlesBackground: React.FC = () => {
 						opacity: {
 							random: false,
 							value: {
-								min: 0.1,
+								min: 0.6,
 								max: 0.9,
 							},
 							animation: {
@@ -107,14 +104,14 @@ const ParticlesBackground: React.FC = () => {
 								max: 3,
 							},
 							animation: {
-								enable: false,
+								enable: true,
 								speed: 2,
-								startValue: "max",
+								startValue: "random",
 								minimumValue: 1,
 							},
 						},
 					},
-					zLayers: 1,
+					zLayers: 100,
 					pauseOnBlur: true,
 					pauseOnOutsideViewport: true,
 				}}
