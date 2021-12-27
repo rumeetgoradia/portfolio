@@ -50,7 +50,7 @@ export type Track = {
 	title: string
 }
 
-export type NowPlayingSong = {
+export type NowPlayingTrack = {
 	album: string
 	albumImageUrl: string
 	artist: string

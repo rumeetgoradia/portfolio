@@ -107,9 +107,10 @@ const ParticlesBackground: React.FC = () => {
 								max: 3,
 							},
 							animation: {
-								enable: true,
+								enable: false,
 								speed: 2,
 								startValue: "max",
+								minimumValue: 1,
 							},
 						},
 					},

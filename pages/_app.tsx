@@ -1,4 +1,5 @@
 import { Chakra } from "@components/Chakra"
+import { Footer } from "@components/Footer"
 import { Navbar } from "@components/Navbar"
 import { ParticlesBackground } from "@components/ParticlesBackground"
 import theme, { Fonts } from "@theme"
@@ -15,6 +16,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
 				<ParticlesBackground />
 				<Navbar />
 				<Component {...pageProps} />
+				<Footer />
 			</Chakra>
 		</>
 	)

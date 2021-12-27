@@ -20,6 +20,7 @@ const FeaturedWorkCard: React.FC<Work> = ({
 	repoUrl,
 }) => {
 	const theme = useTheme()
+	const bg = useColorModeValue("white", "black")
 	const borderColor = useColorModeValue("black", "white")
 	const opacity = useColorModeValue(0.4, 0.2)
 
@@ -33,7 +34,17 @@ const FeaturedWorkCard: React.FC<Work> = ({
 			role="group"
 			border="1px"
 			borderColor={fade(theme.colors[borderColor], opacity)}
-			transition={createTransition(["transform", "border-color"])}
+			bg={fade(theme.colors[bg], 0.9)}
+			backdropFilter="saturate(180%) blur(5px)"
+			sx={{
+				"@supports not (backdrop-filter: none)": {
+					backdropFilter: "none",
+				},
+			}}
+			transition={createTransition([
+				"transform",
+				"border-color, background-color",
+			])}
 			_hover={{ transform: "scale(1.025)", borderColor: "currentcolor" }}
 		>
 			<Box h="15vh" w="full" position="relative">

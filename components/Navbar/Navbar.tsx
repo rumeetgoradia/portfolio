@@ -20,7 +20,7 @@ const Navbar: React.FC = () => {
 			justify="center"
 			userSelect="none"
 			py={{ base: 8, md: 10 }}
-			bg={fade(theme.colors[bg], 0.9)} //background
+			bg={fade(theme.colors[bg], 0.9)}
 			backdropFilter="saturate(180%) blur(5px)"
 			transition={createTransition("background-color")}
 			sx={{

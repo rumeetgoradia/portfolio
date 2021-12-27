@@ -1,0 +1,50 @@
+import { Box, Flex, Text } from "@chakra-ui/react"
+import { Hyperlink } from "@components/Typography"
+import fetcher from "@lib/fetcher"
+import { NowPlayingTrack } from "@lib/spotify"
+import { createTransition } from "@utils"
+import useSWR from "swr"
+import { AnimatedBars } from "./AnimatedBars"
+
+const NowPlaying: React.FC = () => {
+	const { data } = useSWR<NowPlayingTrack>("/api/now-playing", fetcher)
+
+	return (
+		<Flex gap={2}>
+			<AnimatedBars animate={!!data?.trackUrl} />
+			<Box>
+				{data?.title && data?.trackUrl ? (
+					<Hyperlink
+						href={data.trackUrl}
+						title={data.title}
+						color="current"
+						isExternal
+					>
+						<Box>
+							<Text
+								lineHeight={1}
+								fontWeight="medium"
+								transition={createTransition("color")}
+							>
+								{data.title}
+							</Text>
+						</Box>
+					</Hyperlink>
+				) : (
+					"Not Playing"
+				)}
+				<Text
+					textStyle="paragraph"
+					mt={1}
+					lineHeight={1}
+					fontWeight={300}
+					fontSize="sm"
+				>
+					{data?.artist ? data.artist : "Spotify"}
+				</Text>
+			</Box>
+		</Flex>
+	)
+}
+
+export default NowPlaying
