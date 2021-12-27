@@ -1,5 +1,6 @@
-import { Box, Flex, Text, VStack } from "@chakra-ui/react"
+import { Box, Flex, Text } from "@chakra-ui/react"
 import { Carousel, CarouselImage, FeaturedWorkCard } from "@components/Home"
+import { Layout } from "@components/Layout"
 import { Hyperlink } from "@components/Typography"
 import HeadshotImage from "@images/home/headshot.jpeg"
 import unsplash from "@lib/unsplash"
@@ -57,7 +58,7 @@ const HomePage: NextPage<HomePageProps> = ({
 	carouselImages,
 }) => {
 	return (
-		<VStack spacing={8} justify="flex-start" align="flex-start" as="main">
+		<Layout>
 			<Flex
 				flexDirection={{ base: "column", sm: "row" }}
 				justify={{ base: "flex-start", md: "space-between" }}
@@ -117,11 +118,9 @@ const HomePage: NextPage<HomePageProps> = ({
 					position="relative"
 					borderRadius="lg"
 					overflow="hidden"
-					opacity={0.9}
 					filter="grayscale(0.2)"
-					transition={createTransition(["opacity", "filter"])}
+					transition={createTransition(["filter"])}
 					_hover={{
-						opacity: 1,
 						filter: "none",
 					}}
 					display={{ base: "none", md: "block" }}
@@ -163,7 +162,7 @@ const HomePage: NextPage<HomePageProps> = ({
 					</Hyperlink>
 				</NextLink>
 			</Box>
-		</VStack>
+		</Layout>
 	)
 }
 
