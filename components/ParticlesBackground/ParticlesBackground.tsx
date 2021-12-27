@@ -114,6 +114,8 @@ const ParticlesBackground: React.FC = () => {
 						},
 					},
 					zLayers: 1,
+					pauseOnBlur: true,
+					pauseOnOutsideViewport: true,
 				}}
 			/>
 			<Box

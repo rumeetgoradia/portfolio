@@ -15,6 +15,7 @@
     "@emotion/styled": "^11.3.0",
     "@notionhq/client": "^0.4.11",
     "@plaiceholder/next": "^2.1.0",
+    "cloudinary": "^1.27.1",
     "framer-motion": "^4.1.17",
     "image-size": "^1.0.0",
     "next": "^12.0.7",
@@ -30,8 +31,7 @@
     "react-tsparticles": "^1.37.6",
     "sharp": "^0.29.2",
     "slick-carousel": "^1.8.1",
-    "swr": "^1.1.1",
-    "unsplash-js": "^7.0.15"
+    "swr": "^1.1.1"
   },
   "devDependencies": {
     "@types/react": "17.0.31",

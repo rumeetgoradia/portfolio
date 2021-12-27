@@ -3,7 +3,7 @@ import { Carousel, CarouselImage, FeaturedWorkCard } from "@components/Home"
 import { Layout } from "@components/Layout"
 import { Hyperlink } from "@components/Typography"
 import HeadshotImage from "@images/home/headshot.jpeg"
-import unsplash from "@lib/unsplash"
+import cloudinary from "@lib/cloudinary"
 import { createTransition } from "@utils"
 import { Work, WORK } from "@work"
 import type { GetStaticProps, NextPage } from "next"
@@ -14,22 +14,17 @@ import React from "react"
 
 export const getStaticProps: GetStaticProps = async () => {
 	// Carousel
-	const { response } = await unsplash.users.getPhotos({
-		username: process.env.UNSPLASH_USERNAME || "",
-		perPage: 100,
-	})
-
 	const carouselImages: CarouselImage[] = []
-	if (response) {
-		for (const result of response.results) {
-			const { base64 } = await getPlaiceholder(result.urls.full)
-			carouselImages.push({
-				src: result.urls.full,
-				width: result.width,
-				height: result.height,
-				blurDataUrl: base64,
-			})
-		}
+	const { resources } = await cloudinary.api.resources()
+	for (const resource of resources) {
+		const { width, height, url } = resource
+		const { base64 } = await getPlaiceholder(url)
+		carouselImages.push({
+			src: url,
+			width,
+			height,
+			blurDataUrl: base64,
+		})
 	}
 
 	// Featured projects
