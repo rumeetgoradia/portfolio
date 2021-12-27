@@ -15,7 +15,7 @@ import React from "react"
 export const getStaticProps: GetStaticProps = async () => {
 	// Carousel
 	const carouselImages: CarouselImage[] = []
-	const { resources } = await cloudinary.api.resources()
+	const { resources } = await cloudinary.api.resources({ max_results: 500 })
 	for (const resource of resources) {
 		const { width, height, url } = resource
 		const { base64 } = await getPlaiceholder(url)
@@ -40,6 +40,7 @@ export const getStaticProps: GetStaticProps = async () => {
 			featuredWork,
 			carouselImages,
 		},
+		revalidate: 60,
 	}
 }
 
