@@ -49,7 +49,7 @@ const FeaturedWorkCard: React.FC<Work> = ({
 		>
 			<Box h="15vh" w="full" position="relative">
 				<NextImage
-					src={`/images/work/${imagePath}`}
+					src={imagePath || ""}
 					layout="fill"
 					objectFit="cover"
 					objectPosition="center center"
