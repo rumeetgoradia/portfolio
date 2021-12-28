@@ -1,5 +1,6 @@
 import { Container, Flex, useColorModeValue, useTheme } from "@chakra-ui/react"
 import { useRouter } from "next/router"
+import { useEffect, useState } from "react"
 import { fade } from "utils/opacity"
 import { createTransition } from "utils/transition"
 import { DesktopMenu } from "./DesktopMenu"
@@ -12,6 +13,21 @@ const Navbar: React.FC = () => {
 
 	const router = useRouter()
 
+	const [isScrolled, setScrolled] = useState<boolean>()
+
+	const handleScroll = () => {
+		const bodyScrollTop =
+			document.documentElement.scrollTop || document.body.scrollTop
+		setScrolled(bodyScrollTop > 40)
+	}
+
+	useEffect(() => {
+		handleScroll()
+		window.addEventListener("scroll", handleScroll)
+
+		return () => window.removeEventListener("scroll", handleScroll)
+	}, [])
+
 	return (
 		<Flex
 			w="full"
@@ -20,9 +36,15 @@ const Navbar: React.FC = () => {
 			justify="center"
 			userSelect="none"
 			py={{ base: 8, md: 10 }}
-			bg={fade(theme.colors[bg], 0.9)}
-			backdropFilter="saturate(180%) blur(5px)"
-			transition={createTransition("background-color")}
+			bg={{
+				base: fade(theme.colors[bg], 0.9),
+				md: isScrolled ? fade(theme.colors[bg], 0.9) : "transparent",
+			}}
+			backdropFilter={{
+				base: "saturate(180%) blur(5px)",
+				md: isScrolled ? "saturate(180%) blur(5px)" : "none",
+			}}
+			transition={createTransition(["background-color", "backdrop-filter"])}
 			sx={{
 				"@supports not (backdrop-filter: none)": {
 					backdropFilter: "none",

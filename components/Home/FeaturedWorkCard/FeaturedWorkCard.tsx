@@ -22,7 +22,7 @@ const FeaturedWorkCard: React.FC<Work> = ({
 	const theme = useTheme()
 	const bg = useColorModeValue("white", "black")
 	const borderColor = useColorModeValue("black", "white")
-	const opacity = useColorModeValue(0.4, 0.2)
+	const borderOpacity = useColorModeValue(0.4, 0.2)
 
 	return (
 		<Flex
@@ -33,7 +33,7 @@ const FeaturedWorkCard: React.FC<Work> = ({
 			overflow="hidden"
 			role="group"
 			border="1px"
-			borderColor={fade(theme.colors[borderColor], opacity)}
+			borderColor={fade(theme.colors[borderColor], borderOpacity)}
 			bg={fade(theme.colors[bg], 0.9)}
 			backdropFilter="saturate(180%) blur(5px)"
 			sx={{
@@ -85,7 +85,7 @@ const FeaturedWorkCard: React.FC<Work> = ({
 											<Button
 												w="full"
 												size="sm"
-												opacity={opacity}
+												opacity={borderOpacity}
 												transitionProperties={["opacity"]}
 												_groupHover={{ opacity: 1 }}
 											>

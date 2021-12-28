@@ -3,11 +3,13 @@ import { createTransition } from "@utils"
 
 type HyperlinkProps = LinkProps & {
 	withArrow?: boolean
+	inline?: boolean
 }
 
 const Hyperlink: React.FC<HyperlinkProps> = ({
 	children,
 	withArrow,
+	inline,
 	...props
 }) => {
 	const theme = useTheme()
@@ -23,7 +25,8 @@ const Hyperlink: React.FC<HyperlinkProps> = ({
 			color={withArrow ? "currentcolor" : "brand"}
 			transition={createTransition(["background-size", "color", "opacity"])}
 			_hover={{
-				bgSize: withArrow ? "100% 0.1em, 0 0.1em" : "0 0.1em, 100% 0.1em",
+				bgSize:
+					withArrow || !inline ? "100% 0.1em, 0 0.1em" : "0 0.1em, 100% 0.1em",
 				color: "brand",
 				opacity: 1,
 				"& .arrow": {
@@ -31,7 +34,8 @@ const Hyperlink: React.FC<HyperlinkProps> = ({
 				},
 			}}
 			_focus={{
-				bgSize: withArrow ? "100% 0.1em, 0 0.1em" : "0 0.1em, 100% 0.1em",
+				bgSize:
+					withArrow || !inline ? "100% 0.1em, 0 0.1em" : "0 0.1em, 100% 0.1em",
 				color: "brand",
 				opacity: 1,
 				"& .arrow": {

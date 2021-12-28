@@ -20,18 +20,18 @@ const NowPlaying: React.FC = () => {
 						color="current"
 						isExternal
 					>
-						<Box>
-							<Text
-								lineHeight={1}
-								fontWeight="medium"
-								transition={createTransition("color")}
-							>
-								{data.title}
-							</Text>
-						</Box>
+						<Text lineHeight={1} fontWeight="medium">
+							{data.title}
+						</Text>
 					</Hyperlink>
 				) : (
-					"Not Playing"
+					<Text
+						lineHeight={1}
+						fontWeight="medium"
+						transition={createTransition("color")}
+					>
+						Not Playing
+					</Text>
 				)}
 				<Text
 					textStyle="paragraph"

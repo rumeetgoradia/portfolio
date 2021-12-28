@@ -34,8 +34,6 @@ const CurrentlyBox: React.FC<CurrentlyBoxProps> = ({
 				as="h6"
 				fontWeight={700}
 				textTransform="uppercase"
-				fontSize="md"
-				// letterSpacing={-1}
 				transition={createTransition("color")}
 			>
 				Currently {title}
@@ -43,7 +41,7 @@ const CurrentlyBox: React.FC<CurrentlyBoxProps> = ({
 			<Box
 				as="hr"
 				border="1px"
-				borderColor="currentcolor"
+				borderColor="current"
 				w="20px"
 				transition={createTransition("border-color")}
 			/>

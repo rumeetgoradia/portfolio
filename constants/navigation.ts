@@ -21,3 +21,22 @@ export const NAV_ITEMS: NAV_ITEM[] = [
 		path: "/contact",
 	},
 ]
+
+export const EXTERNAL_ITEMS: NAV_ITEM[] = [
+	{
+		title: "Resume",
+		path: "/RumeetGoradia.pdf",
+	},
+	{
+		title: "LinkedIn",
+		path: "https://www.linkedin.com/in/rgoradia/",
+	},
+	{
+		title: "GitHub",
+		path: "https://github.com/rumeetgoradia",
+	},
+	{
+		title: "Email",
+		path: "mailto:rumeetgoradia@gmail.com",
+	},
+]

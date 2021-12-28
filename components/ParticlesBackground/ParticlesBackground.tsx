@@ -4,7 +4,7 @@ import Particles from "react-tsparticles"
 
 const ParticlesBackground: React.FC = () => {
 	const theme = useTheme()
-	const coverOpacity = useColorModeValue(0.45, 0.2)
+	const coverOpacity = useColorModeValue(0.65, 0.2)
 
 	return (
 		<>
@@ -71,12 +71,11 @@ const ParticlesBackground: React.FC = () => {
 						},
 						move: {
 							attract: {
-								enable: true,
+								enable: false,
 								distance: 10,
 							},
 							enable: true,
 							path: {},
-							outModes: "out",
 							speed: 0.25,
 							spin: {},
 						},

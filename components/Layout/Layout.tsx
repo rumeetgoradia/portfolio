@@ -1,9 +1,4 @@
-import {
-	Container,
-	useColorModeValue,
-	useTheme,
-	VStack,
-} from "@chakra-ui/react"
+import { Container, VStack } from "@chakra-ui/react"
 import { NextSeo } from "next-seo"
 
 type LayoutProps = {
@@ -11,9 +6,6 @@ type LayoutProps = {
 }
 
 const Layout: React.FC<LayoutProps> = ({ title, children }) => {
-	const theme = useTheme()
-	const bg = useColorModeValue("white", "black")
-
 	return (
 		<>
 			<NextSeo title={title} />
@@ -21,12 +13,12 @@ const Layout: React.FC<LayoutProps> = ({ title, children }) => {
 				maxW="container.md"
 				px={8}
 				pt={{ base: "105px", md: "125px" }}
-				pb={12}
+				pb={16}
 				bg="transparent"
 			>
 				<VStack
 					as="main"
-					spacing={8}
+					spacing={12}
 					justify="flex-start"
 					align="flex-start"
 					position="relative"

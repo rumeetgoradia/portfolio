@@ -140,7 +140,9 @@ const AboutPage: NextPage<AboutPageProps> = ({
 					<Text textStyle="paragraph">
 						Please feel free to{" "}
 						<NextLink href="/contact" passHref>
-							<Hyperlink title="Contact">reach out</Hyperlink>
+							<Hyperlink title="Contact" inline>
+								reach out
+							</Hyperlink>
 						</NextLink>{" "}
 						if you would like to get in touch!
 					</Text>

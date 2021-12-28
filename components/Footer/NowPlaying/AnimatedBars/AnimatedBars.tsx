@@ -23,7 +23,9 @@ const AnimatedBars: React.FC<AnimatedBarsProps> = ({ animate }) => {
 									scaleY: 1 + (2 - n + 1.5) * 0.25 + (n % 2) * -1,
 									transition: {
 										delay: n * 0.15,
-										yoyo: Infinity,
+										repeat: Infinity,
+										repeatType: "reverse",
+										duration: 0.375,
 									},
 							  }
 							: {}
