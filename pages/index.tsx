@@ -51,7 +51,7 @@ export const getStaticProps: GetStaticProps = async () => {
 
 	for (const work of featuredWork) {
 		const { secure_url } = featuredWorkResources.filter((fwr: any) =>
-			fwr["public_id"].includes(work.slug)
+			fwr["public_id"].includes(work.imageSlug)
 		)[0]
 		work.imagePath = secure_url
 		const { base64 } = await getPlaiceholder(secure_url)
