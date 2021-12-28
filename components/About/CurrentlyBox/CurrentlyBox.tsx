@@ -54,7 +54,7 @@ const CurrentlyBox: React.FC<CurrentlyBoxProps> = ({
 						borderBottom="1px"
 						borderColor={fade(theme.colors[borderColor], borderOpacity)}
 						pb={4}
-						key={`${title}-currently-reading`}
+						key={`${title}-currently`}
 					>
 						<Box flex="0 0 100%">
 							<Text
@@ -92,7 +92,7 @@ const CurrentlyBox: React.FC<CurrentlyBoxProps> = ({
 										mb="2px"
 										textTransform="uppercase"
 										transition={createTransition(["background-color", "color"])}
-										key={`${title}-currently-reading-${genre}-genre`}
+										key={`${title}-${genre}-genre`}
 									>
 										{genre}
 									</Text>

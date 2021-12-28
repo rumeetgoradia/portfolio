@@ -45,7 +45,7 @@ const FeaturedWorkCard: React.FC<Work> = ({
 				"transform",
 				"border-color, background-color",
 			])}
-			_hover={{ transform: "scale(1.025)", borderColor: "currentcolor" }}
+			_hover={{ transform: "scale(1.025)", borderColor: "current" }}
 		>
 			<Box h="15vh" w="full" position="relative">
 				<NextImage

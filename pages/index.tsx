@@ -76,7 +76,6 @@ const HomePage: NextPage<HomePageProps> = ({
 	featuredWork,
 	carouselImages,
 }) => {
-	console.log(featuredWork)
 	return (
 		<Layout>
 			<Flex

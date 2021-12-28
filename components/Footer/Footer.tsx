@@ -23,7 +23,7 @@ const Footer: React.FC = () => {
 		<Flex
 			w="full"
 			position="relative"
-			zIndex={999998}
+			zIndex={1299}
 			justify="center"
 			userSelect="none"
 		>
