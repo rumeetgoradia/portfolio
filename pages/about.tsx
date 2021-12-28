@@ -149,7 +149,7 @@ const AboutPage: NextPage<AboutPageProps> = ({
 				</VStack>
 			</Box>
 			<Box w="full">
-				<Flex gap={8} mb={4} w="full" direction={{ base: "column", md: "row" }}>
+				<Flex gap={8} w="full" direction={{ base: "column", md: "row" }}>
 					<Box flexBasis="33.333%">
 						<CurrentlyBox title="reading" currentlyItems={currentlyReading} />
 					</Box>

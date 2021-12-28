@@ -52,7 +52,6 @@ const DesktopMenu: React.FC<DesktopMenuProps> = ({ activePath }) => {
 							pr="11px"
 							py={1}
 							borderRadius="sm"
-							fontWeight={350}
 							textTransform="uppercase"
 							fontSize="sm"
 							letterSpacing={1}

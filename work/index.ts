@@ -4,7 +4,8 @@ export type Work = {
 	liveUrl?: string
 	repoUrl?: string
 	tags: string[]
-	imagePath: string
+	slug: string
+	imagePath?: string
 	imageBase64?: string
 	isFeatured?: boolean
 }
@@ -17,7 +18,7 @@ export const WORK: Work[] = [
 		liveUrl: "https://manasiparikh.com",
 		repoUrl: "https://github.com/rumeetgoradia/manasi-parikh",
 		tags: ["next.js", "typescript", "vercel"],
-		imagePath: "manasi-parikh.png",
+		slug: "manasi-parikh",
 		isFeatured: true,
 	},
 	{
@@ -34,7 +35,7 @@ export const WORK: Work[] = [
 			"firebase",
 			"vercel",
 		],
-		imagePath: "pokedex.png",
+		slug: "pokedex",
 		isFeatured: true,
 	},
 	{
@@ -44,7 +45,7 @@ export const WORK: Work[] = [
 		liveUrl: "https://www.advocateblm.com",
 		repoUrl: "https://github.com/rumeetgoradia/advocate-blm",
 		tags: ["next.js", "typescript", "contentful", "vercel"],
-		imagePath: "advocate-blm.png",
+		slug: "advocate-blm",
 		isFeatured: true,
 	},
 ]

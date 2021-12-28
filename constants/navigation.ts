@@ -8,10 +8,10 @@ export const NAV_ITEMS: NAV_ITEM[] = [
 		title: "About",
 		path: "/about",
 	},
-	{
-		title: "Experience",
-		path: "/experience",
-	},
+	// {
+	// 	title: "Experience",
+	// 	path: "/experience",
+	// },
 	{
 		title: "Work",
 		path: "/work",

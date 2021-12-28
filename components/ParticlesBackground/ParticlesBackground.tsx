@@ -110,7 +110,7 @@ const ParticlesBackground: React.FC = () => {
 							},
 						},
 					},
-					zLayers: 100,
+					zLayers: 1,
 					pauseOnBlur: true,
 					pauseOnOutsideViewport: true,
 				}}

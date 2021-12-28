@@ -15,12 +15,21 @@ import React from "react"
 export const getStaticProps: GetStaticProps = async () => {
 	// Carousel
 	const carouselImages: CarouselImage[] = []
-	const { resources } = await cloudinary.api.resources({ max_results: 500 })
-	for (const resource of resources) {
-		const { width, height, url } = resource
-		const { base64 } = await getPlaiceholder(url)
+	const { resources: carouselResources } = await cloudinary.api.resources(
+		{
+			prefix: "carousel",
+			max_results: 500,
+			type: "upload",
+		},
+		function (error) {
+			error ? console.log(error) : ""
+		}
+	)
+	for (const resource of carouselResources) {
+		const { width, height, secure_url } = resource
+		const { base64 } = await getPlaiceholder(secure_url)
 		carouselImages.push({
-			src: url,
+			src: secure_url,
 			width,
 			height,
 			blurDataUrl: base64,
@@ -30,8 +39,22 @@ export const getStaticProps: GetStaticProps = async () => {
 	// Featured projects
 	const featuredWork = WORK.filter((work) => work.isFeatured).slice(0, 3)
 
+	const { resources: featuredWorkResources } = await cloudinary.api.resources(
+		{
+			prefix: "work",
+			type: "upload",
+		},
+		function (error) {
+			error ? console.log(error) : ""
+		}
+	)
+
 	for (const work of featuredWork) {
-		const { base64 } = await getPlaiceholder(`/images/work/${work.imagePath}`)
+		const { secure_url } = featuredWorkResources.filter((fwr: any) =>
+			fwr["public_id"].includes(work.slug)
+		)[0]
+		work.imagePath = secure_url
+		const { base64 } = await getPlaiceholder(secure_url)
 		work.imageBase64 = base64
 	}
 
@@ -53,6 +76,7 @@ const HomePage: NextPage<HomePageProps> = ({
 	featuredWork,
 	carouselImages,
 }) => {
+	console.log(featuredWork)
 	return (
 		<Layout>
 			<Flex
