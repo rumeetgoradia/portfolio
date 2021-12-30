@@ -20,7 +20,7 @@ const ThemeToggle: React.FC = () => {
 				w="45px"
 				h="25px"
 				m={0}
-				zIndex={999999}
+				zIndex={1700 - 2}
 			>
 				<Box
 					as="input"
@@ -44,7 +44,7 @@ const ThemeToggle: React.FC = () => {
 					borderRadius="27px"
 					w="45px"
 					h="25px"
-					zIndex={1000000}
+					zIndex={1700 - 1}
 					bg="currentcolor"
 					transition={createTransition("background")}
 				>

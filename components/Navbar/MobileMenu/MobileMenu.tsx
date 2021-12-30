@@ -32,7 +32,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ activePath }) => {
 				as="button"
 				onClick={onToggle}
 				aria-label={`${isOpen ? "Close" : "Open"} menu`}
-				zIndex={10000000}
+				zIndex={1700 - 2}
 				position="relative"
 				w="21px"
 				h="21px"

@@ -66,12 +66,6 @@ const theme = extendTheme({
 		white: "#F5F5F5",
 		black: "#111820",
 		error: "#83171C",
-		red: {
-			"500": "#83171C",
-		},
-		green: {
-			"500": "#035841",
-		},
 		gray: {
 			"50": "#f0f9ff",
 			"100": "#e9f1fd",

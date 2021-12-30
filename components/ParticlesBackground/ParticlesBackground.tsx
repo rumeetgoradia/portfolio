@@ -4,7 +4,7 @@ import Particles from "react-tsparticles"
 
 const ParticlesBackground: React.FC = () => {
 	const theme = useTheme()
-	const coverOpacity = useColorModeValue(0.65, 0.2)
+	const coverOpacity = useColorModeValue(0.65, 0.4)
 
 	return (
 		<>

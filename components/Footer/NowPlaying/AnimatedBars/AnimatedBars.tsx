@@ -12,7 +12,7 @@ const AnimatedBars: React.FC<AnimatedBarsProps> = ({ animate }) => {
 		<HStack spacing={0.5} align="flex-start" pt={1.5}>
 			{[0, 1, 2].map((n) => (
 				<MotionBox
-					w={1}
+					w={0.5}
 					h={2}
 					bg="current"
 					opacity="var(--text-opacity)"

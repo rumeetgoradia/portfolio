@@ -32,7 +32,7 @@ const Navbar: React.FC = () => {
 		<Flex
 			w="full"
 			position="fixed"
-			zIndex="banner"
+			zIndex={1700 - 3}
 			justify="center"
 			userSelect="none"
 			py={{ base: 8, md: 10 }}
