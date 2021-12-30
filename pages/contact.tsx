@@ -44,25 +44,32 @@ const ContactPage: NextPage = () => {
 	const onSubmit = async (values: ContactData) => {
 		// console.log(values)
 		// const res = { status: 200 }
-		const res = await redaxios.post("/api/contact", values)
 
-		if (res.status === 200) {
-			toast({
-				title: "Message sent successfully.",
-				description: "Thanks for your message! I'll get back to you shortly.",
-				status: "success",
-				onCloseComplete: reset,
-				...toastOptions,
+		await redaxios
+			.post("/api/contact", values)
+			.then((res) => {
+				if (res.status === 200) {
+					toast({
+						title: "Message sent successfully.",
+						description:
+							"Thanks for your message! I'll get back to you shortly.",
+						status: "success",
+						onCloseComplete: reset,
+						...toastOptions,
+					})
+				} else {
+					throw new Error()
+				}
 			})
-		} else {
-			toast({
-				title: "Something went wrong.",
-				description:
-					"There was an issue processing your message. Please try again later!",
-				status: "error",
-				...toastOptions,
-			})
-		}
+			.catch(() =>
+				toast({
+					title: "Something went wrong.",
+					description:
+						"There was an issue processing your message. Please try again later!",
+					status: "error",
+					...toastOptions,
+				})
+			)
 	}
 
 	return (
