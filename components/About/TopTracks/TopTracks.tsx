@@ -1,5 +1,5 @@
 import { Box, Flex, Text, useColorModeValue, useTheme } from "@chakra-ui/react"
-import { Hyperlink } from "@components/Typography"
+import { Hyperlink } from "@components/Hyperlink"
 import fetcher from "@lib/fetcher"
 import { TopTracks } from "@lib/spotify"
 import { createTransition, fade } from "@utils"

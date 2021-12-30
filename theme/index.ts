@@ -1,6 +1,7 @@
 import { extendTheme } from "@chakra-ui/react"
 import { mode, StyleFunctionProps } from "@chakra-ui/theme-tools"
 import { createTransition } from "@utils"
+import { components } from "./components/index"
 
 const fonts = [
 	"Inter",
@@ -64,7 +65,13 @@ const theme = extendTheme({
 		brand: "#035841",
 		white: "#F5F5F5",
 		black: "#111820",
-		red: "#83171C",
+		error: "#83171C",
+		red: {
+			"500": "#83171C",
+		},
+		green: {
+			"500": "#035841",
+		},
 		gray: {
 			"50": "#f0f9ff",
 			"100": "#e9f1fd",
@@ -108,6 +115,7 @@ const theme = extendTheme({
 			transition: createTransition("color"),
 		},
 	},
+	components,
 })
 
 export default theme

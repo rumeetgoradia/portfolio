@@ -1,5 +1,5 @@
 import { Box, Flex, Text } from "@chakra-ui/react"
-import { Hyperlink } from "@components/Typography"
+import { Hyperlink } from "@components/Hyperlink"
 import fetcher from "@lib/fetcher"
 import { NowPlayingTrack } from "@lib/spotify"
 import { createTransition } from "@utils"

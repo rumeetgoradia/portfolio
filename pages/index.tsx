@@ -1,7 +1,7 @@
 import { Box, Flex, Text } from "@chakra-ui/react"
 import { Carousel, CarouselImage, FeaturedWorkCard } from "@components/Home"
+import { Hyperlink } from "@components/Hyperlink"
 import { Layout } from "@components/Layout"
-import { Hyperlink } from "@components/Typography"
 import HeadshotImage from "@images/home/headshot.jpeg"
 import cloudinary from "@lib/cloudinary"
 import { createTransition } from "@utils"

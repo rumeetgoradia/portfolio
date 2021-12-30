@@ -8,7 +8,7 @@ import {
 	useTheme,
 	VStack,
 } from "@chakra-ui/react"
-import { Hyperlink } from "@components/Typography"
+import { Hyperlink } from "@components/Hyperlink"
 import { EXTERNAL_ITEMS, NAV_ITEMS } from "@constants"
 import { fade } from "@utils"
 import NextLink from "next/link"
