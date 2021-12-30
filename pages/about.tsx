@@ -94,6 +94,7 @@ export const getStaticProps: GetStaticProps = async () => {
 
 	return {
 		props: { currentlyReading, currentlyWatching, currentlyPlaying },
+		revalidate: 60,
 	}
 }
 
