@@ -9,7 +9,7 @@ export const Alert = {
 				return {
 					container: {
 						bg: "brand",
-						color: "var(--text-color)",
+						color: "white",
 					},
 				}
 			}
@@ -18,7 +18,7 @@ export const Alert = {
 				return {
 					container: {
 						bg: "error",
-						color: "var(--text-color)",
+						color: "white",
 					},
 				}
 			}
