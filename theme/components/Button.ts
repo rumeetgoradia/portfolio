@@ -2,8 +2,8 @@ import { createTransition } from "@utils"
 export const Button = {
 	baseStyle: {
 		display: "flex",
-		justify: "center",
-		align: "center",
+		justifyContent: "center",
+		alignItems: "center",
 		textTransform: "uppercase",
 		lineHeight: 1,
 		fontWeight: 400,
@@ -29,6 +29,18 @@ export const Button = {
 			borderRadius: "sm",
 			bg: "var(--bg-color)",
 			_hover: {
+				bg: "var(--text-color)",
+				color: "var(--bg-color)",
+				_disabled: {
+					opacity: 0.7,
+					bg: "var(--text-color)",
+				},
+			},
+			_disabled: {
+				opacity: 0.7,
+				bg: "var(--text-color)",
+			},
+			_active: {
 				bg: "var(--text-color)",
 				color: "var(--bg-color)",
 			},

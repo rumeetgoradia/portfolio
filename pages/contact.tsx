@@ -36,7 +36,7 @@ const ContactPage: NextPage = () => {
 
 	const toast = useToast()
 	const toastOptions: UseToastOptions = {
-		duration: 100000,
+		duration: 5000,
 		isClosable: true,
 		position: "top-right",
 	}
@@ -87,7 +87,7 @@ const ContactPage: NextPage = () => {
 			>
 				<Input type="hidden" name="url" />
 				<GridItem colSpan={{ base: 2, sm: 1 }}>
-					<FormControl id="name" isRequired isInvalid={!!errors.name}>
+					<FormControl id="name" isInvalid={!!errors.name}>
 						<FormLabel>Name</FormLabel>
 						<Input
 							variant="base"
@@ -102,7 +102,7 @@ const ContactPage: NextPage = () => {
 					</FormControl>
 				</GridItem>
 				<GridItem colSpan={{ base: 2, sm: 1 }}>
-					<FormControl id="email" isRequired isInvalid={!!errors.email}>
+					<FormControl id="email" isInvalid={!!errors.email}>
 						<FormLabel>Email</FormLabel>
 						<Input
 							variant="base"
@@ -121,7 +121,7 @@ const ContactPage: NextPage = () => {
 					</FormControl>
 				</GridItem>
 				<GridItem colSpan={2}>
-					<FormControl id="subject" isRequired isInvalid={!!errors.subject}>
+					<FormControl id="subject" isInvalid={!!errors.subject}>
 						<FormLabel>Subject</FormLabel>
 						<Input
 							variant="base"
@@ -136,7 +136,7 @@ const ContactPage: NextPage = () => {
 					</FormControl>
 				</GridItem>
 				<GridItem colSpan={2}>
-					<FormControl id="message" isRequired isInvalid={!!errors.message}>
+					<FormControl id="message" isInvalid={!!errors.message}>
 						<FormLabel>Message</FormLabel>
 						<Textarea
 							variant="base"
