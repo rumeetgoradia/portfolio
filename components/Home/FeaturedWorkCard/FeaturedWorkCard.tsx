@@ -87,7 +87,6 @@ const FeaturedWorkCard: React.FC<Work> = ({
 												variant="outline"
 												size="sm"
 												opacity={borderOpacity}
-												transitionProperties={["opacity"]}
 												_groupHover={{ opacity: 1 }}
 											>
 												{liveOrRepo}

@@ -149,7 +149,6 @@ const WorkItemsGrid: React.FC<WorkItemsGridProps> = ({ workItems }) => {
 															variant="outline"
 															size="sm"
 															opacity={borderOpacity}
-															transitionProperties={["opacity"]}
 															_groupHover={{ opacity: 1 }}
 														>
 															{liveOrRepo}
