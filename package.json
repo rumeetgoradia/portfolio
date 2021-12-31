@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "tsc": "npx tsc"
+    "tsc": "npx tsc",
+    "postbuild": "next-sitemap"
   },
   "dependencies": {
     "@chakra-ui/react": "^1.7.3",
@@ -21,6 +22,7 @@
     "next": "^12.0.7",
     "next-connect": "^0.11.0",
     "next-seo": "^4.28.1",
+    "next-sitemap": "^1.6.203",
     "nodemailer": "^6.7.2",
     "plaiceholder": "^2.0.1",
     "preact": "^10.5.15",

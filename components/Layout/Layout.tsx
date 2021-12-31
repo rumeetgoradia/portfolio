@@ -11,7 +11,7 @@ const Layout: React.FC<LayoutProps> = ({ title, children }) => {
 			<NextSeo title={title} />
 			<Container
 				maxW="container.md"
-				minH="calc(100vh - 220px)"
+				minH={{ base: "calc(100vh - 260px)", md: "calc(100vh - 220px)" }}
 				px={8}
 				pt={{ base: "105px", md: "125px" }}
 				pb={16}
