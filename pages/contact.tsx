@@ -74,7 +74,7 @@ const ContactPage: NextPage = () => {
 
 	return (
 		<Layout title="Contact">
-			<Text textStyle="header" as="h1">
+			<Text textStyle="header" as="h1" mb={0}>
 				Contact Me
 			</Text>
 			<Grid
