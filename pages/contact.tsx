@@ -1,4 +1,5 @@
 import {
+	Button,
 	FormControl,
 	FormErrorMessage,
 	FormLabel,
@@ -10,7 +11,6 @@ import {
 	useToast,
 	UseToastOptions,
 } from "@chakra-ui/react"
-import { Button } from "@components/Button"
 import { Layout } from "@components/Layout"
 import type { NextPage } from "next"
 import { useForm } from "react-hook-form"
@@ -154,6 +154,8 @@ const ContactPage: NextPage = () => {
 				<GridItem colSpan={2}>
 					<Button
 						type="submit"
+						variant="outline"
+						size="md"
 						w="full"
 						disabled={isSubmitting}
 						isLoading={isSubmitting}

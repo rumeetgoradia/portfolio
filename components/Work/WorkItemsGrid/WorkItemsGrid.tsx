@@ -1,12 +1,12 @@
 import {
 	Box,
+	Button,
 	Flex,
 	Link,
 	Text,
 	useColorModeValue,
 	useTheme,
 } from "@chakra-ui/react"
-import { Button } from "@components/Button"
 import { createTransition, fade } from "@utils"
 import type { Work } from "@work"
 import NextImage from "next/image"
@@ -146,6 +146,7 @@ const WorkItemsGrid: React.FC<WorkItemsGridProps> = ({ workItems }) => {
 													>
 														<Button
 															w="full"
+															variant="outline"
 															size="sm"
 															opacity={borderOpacity}
 															transitionProperties={["opacity"]}

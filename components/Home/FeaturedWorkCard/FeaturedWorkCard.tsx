@@ -1,12 +1,12 @@
 import {
 	Box,
+	Button,
 	Flex,
 	Link,
 	Text,
 	useColorModeValue,
 	useTheme,
 } from "@chakra-ui/react"
-import { Button } from "@components/Button"
 import { createTransition, fade } from "@utils"
 import NextImage from "next/image"
 import { Fragment } from "react"
@@ -84,6 +84,7 @@ const FeaturedWorkCard: React.FC<Work> = ({
 										>
 											<Button
 												w="full"
+												variant="outline"
 												size="sm"
 												opacity={borderOpacity}
 												transitionProperties={["opacity"]}
