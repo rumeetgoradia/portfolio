@@ -1,21 +1,32 @@
-import { Container, Grid } from "@material-ui/core"
+import { Container, VStack } from "@chakra-ui/react"
 import { NextSeo } from "next-seo"
-import React from "react"
-import { useLayoutStyles } from "./Layout.styles"
-interface LayoutProps {
-	title: string
+
+type LayoutProps = {
+	title?: string
 }
 
 const Layout: React.FC<LayoutProps> = ({ title, children }) => {
-	const classes = useLayoutStyles()
-
 	return (
 		<>
 			<NextSeo title={title} />
-			<Container maxWidth="lg" className={classes.root}>
-				<Grid container spacing={4}>
+			<Container
+				maxW="container.md"
+				minH={{ base: "calc(100vh - 260px)", md: "calc(100vh - 220px)" }}
+				px={8}
+				pt={{ base: "105px", md: "125px" }}
+				pb={16}
+				bg="transparent"
+			>
+				<VStack
+					as="main"
+					spacing={12}
+					justify="flex-start"
+					align="flex-start"
+					position="relative"
+					zIndex={1}
+				>
 					{children}
-				</Grid>
+				</VStack>
 			</Container>
 		</>
 	)

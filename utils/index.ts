@@ -1,1 +1,2 @@
-export * from "./renderSvg"
+export { fade } from "./opacity"
+export { createTransition } from "./transition"

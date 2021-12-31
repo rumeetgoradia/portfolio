@@ -1,150 +1,130 @@
-import { useEffect, useState } from "react"
-import Particles from "react-particles-js"
-import { PRIMARY_COLOR } from "../../themes/CommonTheme"
+import { Box, useColorModeValue, useTheme } from "@chakra-ui/react"
+import { createTransition } from "@utils"
+import Particles from "react-tsparticles"
 
 const ParticlesBackground: React.FC = () => {
-	const [numParticles, setNumParticles] = useState<number>(0)
-
-	const updateNumParticles = () => {
-		setNumParticles(
-			Math.max(
-				75,
-				Math.floor(Math.max(window.innerWidth, window.innerHeight) / 7)
-			)
-		)
-	}
-
-	useEffect(() => {
-		updateNumParticles()
-		window.addEventListener("resize", updateNumParticles)
-		return () => {
-			window.removeEventListener("resize", updateNumParticles)
-		}
-	}, [])
+	const theme = useTheme()
+	const coverOpacity = useColorModeValue(0.65, 0.4)
 
 	return (
-		<Particles
-			style={{
-				overflow: "hidden",
-				position: "fixed",
-				top: "50%",
-				left: "50%",
-				transform: "translate(-50%, -50%)",
-				zIndex: 5,
-				height: "120vh",
-				width: "120%",
-				backgroundColor: "transparent",
-			}}
-			params={{
-				background: {
-					color: {
-						value: "#000",
-					},
-					image: "",
-					position: "50% 50%",
-					repeat: "no-repeat",
-					size: "cover",
-					opacity: 0,
-				},
-				detectRetina: true,
-				fpsLimit: 60,
-				interactivity: {
-					detectsOn: "window",
-					events: {
-						onHover: {
-							enable: true,
-							mode: "repulse",
-							parallax: {
-								enable: true,
-								force: 30,
-								smooth: 20,
-							},
-						},
-						resize: true,
-					},
-					modes: {
-						repulse: {
-							distance: 125,
-							duration: 0.4,
-							speed: 0.5,
-						},
-					},
-				},
-				particles: {
-					color: {
-						value: PRIMARY_COLOR,
-					},
-					links: {
+		<>
+			<Particles
+				options={{
+					background: {
 						color: {
-							value: PRIMARY_COLOR,
+							value: "#000000",
 						},
-
-						distance: 80,
-						enable: true,
-						opacity: 0.4,
-						width: 1,
-						warp: false,
+						opacity: 0,
 					},
-					move: {
-						angle: 90,
-						attract: {
-							enable: true,
-							rotate: {
-								x: 600,
-								y: 1200,
+					interactivity: {
+						events: {
+							onClick: {
+								mode: "push",
+							},
+							onHover: {
+								enable: true,
+								mode: "repulse",
+								parallax: {
+									enable: true,
+									force: 15,
+									smooth: 10,
+								},
 							},
 						},
-						direction: "none",
-						enable: true,
-						outMode: "out",
-						random: false,
-						speed: 1,
-						straight: false,
-						trail: {
-							enable: false,
+						modes: {
+							repulse: {
+								distance: 200,
+								factor: 100,
+								speed: 1,
+								maxSpeed: 2,
+							},
 						},
-						vibrate: false,
-						warp: false,
 					},
-					number: {
-						density: {
-							enable: false,
+					particles: {
+						color: {
+							value: theme.colors["brand"],
+							animation: {
+								h: {
+									speed: 20,
+									sync: false,
+								},
+								s: {
+									sync: false,
+								},
+								l: {
+									sync: false,
+								},
+							},
 						},
-						limit: 0,
-						value: numParticles,
-					},
-					opacity: {
-						animation: {
+						destroy: {
+							split: {
+								sizeOffset: false,
+							},
+						},
+						links: {
+							color: {
+								value: theme.colors["brand"],
+							},
+							distance: 80,
 							enable: true,
-							minimumValue: 0.6,
+							opacity: 0.4,
+						},
+						move: {
+							attract: {
+								enable: false,
+								distance: 10,
+							},
+							enable: true,
+							path: {},
 							speed: 0.25,
-							sync: false,
+							spin: {},
 						},
-						random: {
-							enable: false,
-							minimumValue: 1,
+						number: {
+							density: {
+								enable: true,
+								area: 500,
+								factor: 1000,
+							},
 						},
-						value: 0.9,
+						opacity: {
+							random: false,
+							value: {
+								min: 0.6,
+								max: 0.9,
+							},
+							animation: {
+								enable: true,
+								speed: 0.25,
+							},
+						},
+						size: {
+							value: {
+								min: 1,
+								max: 3,
+							},
+							animation: {
+								enable: true,
+								speed: 2,
+								startValue: "random",
+								minimumValue: 1,
+							},
+						},
 					},
-					size: {
-						animation: {
-							destroy: "none",
-							enable: true,
-							minimumValue: 1,
-							speed: 2,
-							startValue: "max",
-							sync: false,
-						},
-						random: {
-							enable: true,
-							minimumValue: 1,
-						},
-						value: 3,
-					},
-				},
-				pauseOnBlur: true,
-			}}
-		/>
+					zLayers: 1,
+					pauseOnBlur: true,
+					pauseOnOutsideViewport: true,
+				}}
+			/>
+			<Box
+				position="fixed"
+				w="full"
+				h="full"
+				zIndex={0}
+				bg="var(--bg-color)"
+				opacity={coverOpacity}
+				transition={createTransition(["background-color", "opacity"])}
+			/>
+		</>
 	)
 }
 

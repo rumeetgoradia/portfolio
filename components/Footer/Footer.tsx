@@ -1,37 +1,75 @@
-import { Box } from "@material-ui/core"
-import { useRouter } from "next/router"
-import { CONTACT_LINKS, NAV_LINKS } from "../../constants"
-import { useFooterStyles } from "./Footer.styles"
+import {
+	Box,
+	Container,
+	Flex,
+	Grid,
+	Text,
+	useColorModeValue,
+	useTheme,
+	VStack,
+} from "@chakra-ui/react"
+import { Hyperlink } from "@components/Hyperlink"
+import { EXTERNAL_ITEMS, NAV_ITEMS } from "@constants"
+import { fade } from "@utils"
+import NextLink from "next/link"
+import { NowPlaying } from "./NowPlaying"
 
-const Footer = () => {
-	const router = useRouter()
-
-	const classes = useFooterStyles({
-		onSubPage:
-			NAV_LINKS.findIndex((navLink) => navLink.path === router.pathname) !== -1,
-	})
+const Footer: React.FC = () => {
+	const theme = useTheme()
+	const borderColor = useColorModeValue("black", "white")
+	const borderOpacity = useColorModeValue(0.1, 0.2)
 
 	return (
-		<footer className={classes.root}>
-			<Box
-				display="flex"
-				justifyContent="center"
-				alignItems="center"
-				width="100%"
-				height="100%"
-			>
-				{CONTACT_LINKS.map((contactLink, index) => (
-					<a
-						key={`footer-link-${index}`}
-						href={contactLink.url}
-						title={contactLink.title}
-						className={classes.footerLink}
+		<Flex
+			w="full"
+			position="relative"
+			zIndex={1300 - 1}
+			justify="center"
+			userSelect="none"
+		>
+			<Container as="footer" maxW="container.md" px={8} pb={8}>
+				<VStack spacing={6} justify="flex-start" align="flex-start" w="full">
+					<Box
+						as="hr"
+						w="full"
+						border="1px"
+						borderColor="transparent"
+						borderTopColor={fade(theme.colors[borderColor], borderOpacity)}
+					/>
+					<NowPlaying />
+					<Grid
+						gap={4}
+						templateColumns={{ base: "repeat(2, 1fr)", md: "repeat(3, 1fr)" }}
+						w="full"
 					>
-						{contactLink.icon}
-					</a>
-				))}
-			</Box>
-		</footer>
+						{[{ title: "Home", path: "/" }]
+							.concat(NAV_ITEMS)
+							.map(({ title, path }) => (
+								<Box as="span" key={`${title}-footer-link`}>
+									<NextLink href={path} passHref>
+										<Hyperlink title={title} color="current">
+											<Text textStyle="paragraph" as="span">
+												{title}
+											</Text>
+										</Hyperlink>
+									</NextLink>
+								</Box>
+							))}
+						{EXTERNAL_ITEMS.map(({ title, path }) => (
+							<Box as="span" key={`${title}-footer-link`}>
+								<NextLink href={path} passHref>
+									<Hyperlink title={title} color="current" isExternal>
+										<Text textStyle="paragraph" as="span">
+											{title}
+										</Text>
+									</Hyperlink>
+								</NextLink>
+							</Box>
+						))}
+					</Grid>
+				</VStack>
+			</Container>
+		</Flex>
 	)
 }
 

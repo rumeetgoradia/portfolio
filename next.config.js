@@ -1,23 +1,20 @@
-const path = require("path")
+/** @type {import('next').NextConfig} */
+const { withPlaiceholder } = require("@plaiceholder/next")
+module.exports = withPlaiceholder({
+	reactStrictMode: true,
+	images: {
+		domains: ["res.cloudinary.com"],
+	},
+	webpack: (config, { dev, isServer }) => {
+		// Replace React with Preact only in client production build
+		if (!dev && !isServer) {
+			Object.assign(config.resolve.alias, {
+				react: "preact/compat",
+				"react-dom/test-utils": "preact/test-utils",
+				"react-dom": "preact/compat",
+			})
+		}
 
-module.exports = {
-	webpack(config) {
-		config.module.rules.push({
-			test: /\.svg$/,
-			use: [
-				{
-					loader: "@svgr/webpack",
-					options: {
-						svgoConfig: {
-							plugins: {
-								removeViewBox: false,
-							},
-						},
-					},
-				},
-			],
-		})
-		config.resolve.alias["images"] = path.join(__dirname, "public", "images")
 		return config
 	},
-}
+})
