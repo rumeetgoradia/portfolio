@@ -14,8 +14,7 @@ const handler = defaultHandler<NextApiRequest, NextApiResponse>().post(
 			host: "smtp.gmail.com",
 			auth: {
 				user: process.env.CONTACT_AGENT_EMAIL,
-				// pass: process.env.CONTACT_AGENT_PASSWORD,
-				pass: "okay",
+				pass: process.env.CONTACT_AGENT_PASSWORD,
 			},
 			secure: true,
 		})
