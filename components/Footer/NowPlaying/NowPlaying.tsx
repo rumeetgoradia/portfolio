@@ -7,7 +7,9 @@ import useSWR from "swr"
 import { AnimatedBars } from "./AnimatedBars"
 
 const NowPlaying: React.FC = () => {
-	const { data } = useSWR<NowPlayingTrack>("/api/now-playing", fetcher)
+	const { data } = useSWR<NowPlayingTrack>("/api/now-playing", fetcher, {
+		refreshInterval: 60 * 1000,
+	})
 
 	return (
 		<Flex gap={2}>

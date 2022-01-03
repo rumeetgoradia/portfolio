@@ -9,7 +9,9 @@ const TopTracks: React.FC = () => {
 	const borderColor = useColorModeValue("black", "white")
 	const borderOpacity = useColorModeValue(0.1, 0.2)
 
-	const { data } = useSWR<TopTracks>("/api/top-tracks", fetcher)
+	const { data } = useSWR<TopTracks>("/api/top-tracks", fetcher, {
+		refreshInterval: 24 * 60 * 60 * 1000,
+	})
 
 	if (!data) {
 		return null
