@@ -43,7 +43,8 @@ const FeaturedWorkCard: React.FC<Work> = ({
 			}}
 			transition={createTransition([
 				"transform",
-				"border-color, background-color",
+				"border-color",
+				"background-color",
 			])}
 			_hover={{ transform: "scale(1.025)", borderColor: "current" }}
 		>
