@@ -3,7 +3,7 @@ import { Carousel, CarouselImage, FeaturedWorkCard } from "@components/Home"
 import { Hyperlink } from "@components/Hyperlink"
 import { Layout } from "@components/Layout"
 import HeadshotImage from "@images/home/headshot.jpeg"
-import cloudinary from "@lib/cloudinary"
+import imagekit, { ImageKitResponse } from "@lib/imagekit"
 import { createTransition } from "@utils"
 import { Work, WORK } from "@work"
 import type { GetStaticProps, NextPage } from "next"
@@ -15,48 +15,41 @@ import React from "react"
 export const getStaticProps: GetStaticProps = async () => {
 	// Carousel
 	const carouselImages: CarouselImage[] = []
-	const { resources: carouselResources } = await cloudinary.api.resources(
-		{
-			prefix: "carousel",
-			max_results: 500,
-			type: "upload",
-		},
-		function (error) {
-			error ? console.log(error) : ""
-		}
-	)
-	for (const resource of carouselResources) {
-		const { width, height, secure_url } = resource
-		const { base64 } = await getPlaiceholder(secure_url)
-		carouselImages.push({
-			src: secure_url,
-			width,
-			height,
-			blurDataUrl: base64,
+	await imagekit
+		.listFiles({
+			path: "carousel",
 		})
-	}
+		.then(async (result: ImageKitResponse[]) => {
+			for (const item of result) {
+				const { width, height, url } = item
+				const { base64 } = await getPlaiceholder(url)
+				carouselImages.push({
+					src: url,
+					width,
+					height,
+					blurDataUrl: base64,
+				})
+			}
+		})
+		.catch((error: any) => console.error(error))
 
-	// Featured projects
+	// Featured work
 	const featuredWork = WORK.filter((work) => work.isFeatured).slice(0, 3)
-
-	const { resources: featuredWorkResources } = await cloudinary.api.resources(
-		{
-			prefix: "work",
-			type: "upload",
-		},
-		function (error) {
-			error ? console.log(error) : ""
-		}
-	)
-
-	for (const work of featuredWork) {
-		const { secure_url } = featuredWorkResources.filter((fwr: any) =>
-			fwr["public_id"].includes(work.imageSlug)
-		)[0]
-		work.imagePath = secure_url
-		const { base64 } = await getPlaiceholder(secure_url)
-		work.imageBase64 = base64
-	}
+	await imagekit
+		.listFiles({
+			path: "work",
+		})
+		.then(async (result: ImageKitResponse[]) => {
+			for (const work of featuredWork) {
+				const { url } = result.filter((item) =>
+					item.filePath.includes(work.imageSlug)
+				)[0]
+				const { base64 } = await getPlaiceholder(url)
+				work.imagePath = url
+				work.imageBase64 = base64
+			}
+		})
+		.catch((error: any) => console.error(error))
 
 	return {
 		props: {
@@ -76,6 +69,7 @@ const HomePage: NextPage<HomePageProps> = ({
 	featuredWork,
 	carouselImages,
 }) => {
+	console.log(featuredWork, carouselImages)
 	return (
 		<Layout>
 			<Flex
