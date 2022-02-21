@@ -23,7 +23,7 @@
     "imagekit-javascript": "^1.4.3",
     "next": "^12.1.0",
     "next-connect": "^0.12.2",
-    "next-seo": "^5.1.0",
+    "next-seo": "^4.28.1",
     "next-sitemap": "^2.4.6",
     "nodemailer": "^6.7.2",
     "plaiceholder": "^2.3.0",
