@@ -32,10 +32,21 @@ const WorkItemsGrid: React.FC<WorkItemsGridProps> = ({ workItems }) => {
 		if (!tagsFilters.length) {
 			setDisplayedWorkItems(workItems)
 		} else {
-			setDisplayedWorkItems(
+			console.log(
+				tagsFilters,
 				workItems.filter((workItem) =>
-					workItem.tags.some((tag) => tagsFilters.includes(tag.toLowerCase()))
+					workItem.tags.every((tag) => tagsFilters.includes(tag.toLowerCase()))
 				)
+			)
+			setDisplayedWorkItems(
+				workItems.filter((workItem) => {
+					for (const tag of tagsFilters) {
+						if (!workItem.tags.includes(tag)) {
+							return false
+						}
+					}
+					return true
+				})
 			)
 		}
 	}, [tagsFilters, workItems])

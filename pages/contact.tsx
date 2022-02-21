@@ -140,7 +140,6 @@ const ContactPage: NextPage = () => {
 						<FormLabel>Message</FormLabel>
 						<Textarea
 							variant="base"
-							type="subject"
 							rows={10}
 							{...register("message", {
 								required: "Please enter your message.",

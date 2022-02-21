@@ -78,8 +78,8 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ activePath }) => {
 						h="calc(100vh - 89px)"
 						display="flex"
 						flexDirection="column"
-						justify="center"
-						align="center"
+						justifyContent="center"
+						alignItems="center"
 						bg={fade(theme.colors[bg], 0.9)} //background
 						backdropFilter="saturate(180%) blur(5px)"
 						transition={createTransition("background-color")}
