@@ -14,7 +14,7 @@
     ],
     
   "functions": {
-    "index.js": {
+    "**/index.json": {
       "excludeFiles": "public/images/home/**"
     }
   }
