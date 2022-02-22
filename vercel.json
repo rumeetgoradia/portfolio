@@ -14,7 +14,7 @@
     ],
     
   "functions": {
-    "_next/**/index.json": {
+    "pages/**": {
       "excludeFiles": "public/images/home/**"
     }
   }

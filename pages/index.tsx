@@ -7,7 +7,7 @@ import { createTransition } from "@utils"
 import { Work, WORK } from "@work"
 import { promises as fs } from "fs"
 import sizeof from "image-size"
-import type { GetStaticProps, NextPage } from "next"
+import type { GetServerSideProps, NextPage } from "next"
 import NextImage from "next/image"
 import NextLink from "next/link"
 import path from "path"
@@ -15,7 +15,7 @@ import { getPlaiceholder } from "plaiceholder"
 import React from "react"
 const obsizeof = require("object-sizeof")
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getServerSideProps: GetServerSideProps = async () => {
 	const carouselImagesDirectory = path.resolve(
 		process.cwd(),
 		"public",
