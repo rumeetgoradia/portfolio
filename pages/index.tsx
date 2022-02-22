@@ -56,7 +56,6 @@ export const getStaticProps: GetStaticProps = async () => {
 			featuredWork,
 			carouselImages,
 		},
-		revalidate: 60,
 	}
 }
 
