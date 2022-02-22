@@ -3,60 +3,58 @@ import { Carousel, CarouselImage, FeaturedWorkCard } from "@components/Home"
 import { Hyperlink } from "@components/Hyperlink"
 import { Layout } from "@components/Layout"
 import HeadshotImage from "@images/home/headshot.jpeg"
-import imagekit, { ImageKitResponse } from "@lib/imagekit"
 import { createTransition } from "@utils"
 import { Work, WORK } from "@work"
+import { promises as fs } from "fs"
+import sizeof from "image-size"
 import type { GetStaticProps, NextPage } from "next"
 import NextImage from "next/image"
 import NextLink from "next/link"
+import path from "path"
 import { getPlaiceholder } from "plaiceholder"
 import React from "react"
+const obsizeof = require("object-sizeof")
 
 export const getStaticProps: GetStaticProps = async () => {
-	// Carousel
-	const carouselImages: CarouselImage[] = []
-	await imagekit
-		.listFiles({
-			path: "carousel",
-		})
-		.then(async (result: ImageKitResponse[]) => {
-			for (const item of result) {
-				const { width, height, url } = item
-				const { base64 } = await getPlaiceholder(url)
-				carouselImages.push({
-					src: url,
-					width,
-					height,
-					blurDataUrl: base64,
-				})
+	const carouselImagesDirectory = path.resolve(
+		process.cwd(),
+		"public",
+		"images",
+		"home",
+		"carousel"
+	)
+	const filenames = await fs.readdir(carouselImagesDirectory)
+	const carouselImages = await Promise.all(
+		filenames.map(async (filename) => {
+			const { width, height, orientation } = sizeof(
+				path.join(carouselImagesDirectory, filename)
+			)
+			const src = `/images/home/carousel/${filename}`
+			const { base64 } = await getPlaiceholder(src)
+			return {
+				src,
+				width: orientation === 6 ? height : width,
+				height: orientation === 6 ? width : height,
+				blurDataUrl: base64,
 			}
 		})
-		.catch((error: any) => console.error(error))
+	)
 
-	// Featured work
+	// Featured projects
 	const featuredWork = WORK.filter((work) => work.isFeatured).slice(0, 3)
-	await imagekit
-		.listFiles({
-			path: "work",
-		})
-		.then(async (result: ImageKitResponse[]) => {
-			for (const work of featuredWork) {
-				const { url } = result.filter((item) =>
-					item.filePath.includes(work.imageSlug)
-				)[0]
-				const { base64 } = await getPlaiceholder(url)
-				work.imagePath = url
-				work.imageBase64 = base64
-			}
-		})
-		.catch((error: any) => console.error(error))
+
+	for (const work of featuredWork) {
+		const { base64 } = await getPlaiceholder(`/images/work/${work.imagePath}`)
+		work.imageBase64 = base64
+	}
+	console.log(obsizeof(carouselImages))
+	console.log(obsizeof(featuredWork))
 
 	return {
 		props: {
 			featuredWork,
 			carouselImages,
 		},
-		revalidate: 60,
 	}
 }
 

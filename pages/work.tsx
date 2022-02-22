@@ -1,28 +1,16 @@
 import { Box, Text } from "@chakra-ui/react"
 import { Layout } from "@components/Layout"
 import { WorkItemsGrid } from "@components/Work"
-import imagekit, { ImageKitResponse } from "@lib/imagekit"
 import { Work, WORK } from "@work"
 import type { GetStaticProps, NextPage } from "next"
 import { getPlaiceholder } from "plaiceholder"
 
 export const getStaticProps: GetStaticProps = async () => {
 	const workItems = [...WORK]
-	await imagekit
-		.listFiles({
-			path: "work",
-		})
-		.then(async (result: ImageKitResponse[]) => {
-			for (const work of workItems) {
-				const { url } = result.filter((item) =>
-					item.filePath.includes(work.imageSlug)
-				)[0]
-				const { base64 } = await getPlaiceholder(url)
-				work.imagePath = url
-				work.imageBase64 = base64
-			}
-		})
-		.catch((error: any) => console.error(error))
+	for (const work of workItems) {
+		const { base64 } = await getPlaiceholder(`/images/work/${work.imagePath}`)
+		work.imageBase64 = base64
+	}
 
 	return {
 		props: {

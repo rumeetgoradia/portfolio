@@ -4,8 +4,7 @@ export type Work = {
 	liveUrl?: string
 	repoUrl?: string
 	tags: string[]
-	imageSlug: string
-	imagePath?: string
+	imagePath: string
 	imageBase64?: string
 	isFeatured?: boolean
 }
@@ -18,7 +17,7 @@ export const WORK: Work[] = [
 		liveUrl: "https://manasiparikh.com",
 		repoUrl: "https://github.com/rumeetgoradia/manasi-parikh",
 		tags: ["next.js", "typescript", "vercel"],
-		imageSlug: "manasi-parikh",
+		imagePath: "manasi-parikh.png",
 		isFeatured: true,
 	},
 	{
@@ -35,7 +34,7 @@ export const WORK: Work[] = [
 			"firebase",
 			"vercel",
 		],
-		imageSlug: "pokedex",
+		imagePath: "pokedex.png",
 		isFeatured: true,
 	},
 	{
@@ -45,7 +44,7 @@ export const WORK: Work[] = [
 		liveUrl: "https://www.harshemfamilypractice.com/",
 		repoUrl: "https://github.com/rumeetgoradia/harshem",
 		tags: ["next.js", "typescript", "netlify"],
-		imageSlug: "harshem",
+		imagePath: "harshem.png",
 	},
 	{
 		title: "Advocate BLM",
@@ -54,7 +53,7 @@ export const WORK: Work[] = [
 		liveUrl: "https://www.advocateblm.com",
 		repoUrl: "https://github.com/rumeetgoradia/advocate-blm",
 		tags: ["next.js", "typescript", "contentful", "vercel"],
-		imageSlug: "advocate-blm",
+		imagePath: "advocate-blm.png",
 		isFeatured: true,
 	},
 	{
@@ -63,7 +62,7 @@ export const WORK: Work[] = [
 			"The Android implementation of the Photos64 project. Features are essentially the same, with a functionality adapted to an Android environment.",
 		repoUrl: "https://bitbucket.org/rumeetgoradia/android64/src/master/",
 		tags: ["java", "android-studio"],
-		imageSlug: "android64",
+		imagePath: "android64.jpeg",
 	},
 	{
 		title: "Photos64",
@@ -71,7 +70,7 @@ export const WORK: Work[] = [
 			"An application that enables users to save photo albums. The application comes complete with search functionality and enables users to manipulate photos and albums in numerous different ways. It also implements serialization for data persistence.",
 		repoUrl: "https://bitbucket.org/rumeetgoradia/photos64/src/master/",
 		tags: ["java", "java-fx"],
-		imageSlug: "photos64",
+		imagePath: "photos64.jpeg",
 	},
 	{
 		title: "SongLib",
@@ -79,7 +78,7 @@ export const WORK: Work[] = [
 			"A simple application for organizing a user's song collection. Songs can be added, edited, and deleted from the user's list. This list persists after the application is closed.",
 		repoUrl: "https://bitbucket.org/rumeetgoradia/songlib/src/master/",
 		tags: ["java", "java-fx"],
-		imageSlug: "songlib",
+		imagePath: "songlib.jpeg",
 	},
 
 	{
@@ -89,7 +88,7 @@ export const WORK: Work[] = [
 		liveUrl: "https://rumeetgoradia.github.io/sorting-visualizer",
 		repoUrl: "https://github.com/rumeetgoradia/sorting-visualizer",
 		tags: ["react.js"],
-		imageSlug: "sorting-visualizer",
+		imagePath: "sorting-visualizer.png",
 	},
 	{
 		title: "City Reservations",
@@ -98,7 +97,7 @@ export const WORK: Work[] = [
 		liveUrl: "https://rumeetgoradia-hotel-reservation.netlify.com/",
 		repoUrl: "https://github.com/rumeetgoradia/hotel_reservation",
 		tags: ["react.js", "contentful", "netlify"],
-		imageSlug: "city-reservations",
+		imagePath: "city-reservations.png",
 	},
 	{
 		title: "Tetris",
@@ -107,6 +106,6 @@ export const WORK: Work[] = [
 		liveUrl: "https://rumeetgoradia.github.io/tetris/",
 		repoUrl: "https://github.com/rumeetgoradia/tetris",
 		tags: ["react.js"],
-		imageSlug: "tetris",
+		imagePath: "tetris.png",
 	},
 ]
