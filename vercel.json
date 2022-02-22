@@ -15,7 +15,7 @@
     
   "functions": {
     "pages/**": {
-      "excludeFiles": "public/images/home"
+      "excludeFiles": "public/images/**"
     }
   }
 }
