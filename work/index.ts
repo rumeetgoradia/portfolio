@@ -44,7 +44,7 @@ export const WORK: Work[] = [
 			"The official website for Harshem Family Practice, a medical clinic with offices in Rahway, New Jersey and Elizabeth, New Jersey. Visitors can request appointments and check out information about the company, the doctors, and the offices.",
 		liveUrl: "https://www.harshemfamilypractice.com/",
 		repoUrl: "https://github.com/rumeetgoradia/harshem",
-		tags: ["next.js", "typescript", "netlify"],
+		tags: ["next.js", "typescript", "vercel"],
 		imageSlug: "harshem",
 	},
 	{
