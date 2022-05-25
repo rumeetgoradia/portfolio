@@ -58,6 +58,7 @@ export const getStaticProps: GetStaticProps = async () => {
 	for (const result of currentlyWatchingResults) {
 		currentlyWatching.push({
 			title: result.properties["Title"].title[0]["plain_text"],
+			subtitle: result.properties["Platform"].select?.name || null,
 			genres: result.properties["Genre"]["multi_select"].map(
 				(genreObject: { name: string }) => genreObject.name
 			),
@@ -86,6 +87,7 @@ export const getStaticProps: GetStaticProps = async () => {
 	for (const result of currentlyPlayingResults) {
 		currentlyPlaying.push({
 			title: result.properties["Title"].title[0]["plain_text"],
+			subtitle: result.properties["Developer"]["rich_text"][0]["plain_text"],
 			genres: result.properties["Genre"]["multi_select"].map(
 				(genreObject: { name: string }) => genreObject.name
 			),
