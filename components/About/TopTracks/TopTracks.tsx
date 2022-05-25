@@ -1,4 +1,11 @@
-import { Box, Flex, Text, useColorModeValue, useTheme } from "@chakra-ui/react"
+import {
+	Box,
+	Flex,
+	Spinner,
+	Text,
+	useColorModeValue,
+	useTheme,
+} from "@chakra-ui/react"
 import { Hyperlink } from "@components/Hyperlink"
 import fetcher from "@lib/fetcher"
 import { TopTracks } from "@lib/spotify"
@@ -14,7 +21,11 @@ const TopTracks: React.FC = () => {
 	})
 
 	if (!data) {
-		return null
+		return (
+			<Flex w="full" justify="center" align="center" py={4}>
+				<Spinner thickness="1px" size="lg" />
+			</Flex>
+		)
 	}
 
 	return (
