@@ -1,3 +1,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+    body {
+        @apply text-black dark:text-white;
+        @apply bg-white dark:bg-black;
+        @apply transition-colors;
+    }
+
+    p {
+        @apply text-gray-800 dark:text-gray-100;
+    }
+}
+
+
