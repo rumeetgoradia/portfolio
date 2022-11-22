@@ -1,17 +1,17 @@
 // eslint-disable-next-line @typescript-eslint/no-var-requires
-const { spacing, fontFamily } = require("tailwindcss/defaultTheme");
+const { fontFamily } = require("tailwindcss/defaultTheme");
 
 const brand = {
-  50: "rgb(80, 200, 120)",
-  100: "rgb(67, 183, 112)",
-  200: "rgb(55, 167, 104)",
-  300: "rgb(44, 151, 96)",
-  400: "rgb(34, 135, 87)",
-  500: "rgb(24, 119, 79)",
-  600: "rgb(15, 104, 70)",
-  700: "rgb(7, 89, 61)",
-  800: "rgb(2, 74, 51)",
-  900: "rgb(0, 60, 42)",
+  50: "rgb(224, 232, 229)", // #e0e8e5
+  100: "rgb(179, 197, 191)", // #b3c5bf
+  200: "rgb(128, 158, 149)", // #809e95
+  300: "rgb(77, 119, 106)", // #4d776a
+  400: "rgb(38, 89, 74)", // #26594a
+  500: "rgb(0, 60, 42)", // #003c2a
+  600: "rgb(0, 54, 37)", // #003625
+  700: "rgb(0, 46, 31)", // #002e1f
+  800: "rgb(0, 39, 25)", // #002719
+  900: "rgb(0, 26, 15)", // #001a0f
 };
 
 const error = {
@@ -56,7 +56,10 @@ module.exports = {
         white,
       },
       fontFamily: {
-        sans: ["Libre Franklin", ...fontFamily.sans],
+        sans: ["var(--primary-font)", ...fontFamily.sans],
+      },
+      transitionTimingFunction: {
+        // DEFAULT: "cubic-bezier(0, 0, 0.2, 1)",
       },
     },
   },

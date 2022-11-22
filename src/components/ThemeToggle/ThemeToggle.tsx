@@ -23,7 +23,9 @@ const ThemeToggle: React.FC = ({}) => {
           setTheme(currentTheme === "dark" ? "light" : "dark");
         }}
         className="flex h-8 w-8 items-center justify-center rounded-sm bg-gray-200 dark:bg-gray-700"
-        aria-label="Toggle theme"
+        aria-label="Toggle dark mode"
+        title="Toggle dark mode"
+        type="button"
       >
         {currentTheme === "dark" ? <IoMdSunny /> : <IoIosMoon />}
       </button>
