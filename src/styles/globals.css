@@ -14,4 +14,10 @@
     }
 }
 
+@layer components {
+    .container {
+        @apply w-full mx-auto max-w-3xl px-8;
+    }
+}
+
 
