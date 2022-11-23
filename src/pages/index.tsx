@@ -1,14 +1,10 @@
 import { PageLayout } from "@/components/PageLayout";
-import { ThemeToggle } from "@/components/ThemeToggle";
 import { type NextPage } from "next";
 
 const Home: NextPage = () => {
   return (
     <PageLayout>
-      <div className="bg-black"></div>
-      Good morning baltimore
-      <ThemeToggle />
-      <div className="h-[1000px] w-full ">
+      <div className="h-[1000px] w-full">
         Consequat aute veniam Lorem ex aute exercitation laboris aliquip ea
         culpa qui nostrud. Qui exercitation nulla est occaecat aliqua nostrud
         qui labore commodo excepteur excepteur in. Eiusmod laboris in ex ullamco

@@ -2,7 +2,7 @@ const Logo: React.FC = ({}) => {
   return (
     <svg
       viewBox="0 0 377 242"
-      className="mt-[5px] h-[23px] w-auto fill-current transition-[fill,transform]
+      className="h-full w-auto fill-current transition-[fill,transform]
 	  hover:scale-105 hover:fill-brand-500 active:scale-95
 	  hover:dark:fill-brand-300"
     >

@@ -12,7 +12,8 @@ import { ThemeProvider } from "next-themes";
 
 const libreFranklin = Libre_Franklin({
   subsets: ["latin-ext"],
-  variable: "--primary-font",
+  style: ["normal", "italic"],
+  display: "swap",
 });
 
 const MyApp: AppType = ({ Component, pageProps }) => {
@@ -20,7 +21,7 @@ const MyApp: AppType = ({ Component, pageProps }) => {
     <>
       <ThemeProvider attribute="class">
         <DefaultSeo {...SeoProps} />
-        <main className={`${libreFranklin.variable} font-sans`}>
+        <main className={libreFranklin.className}>
           <Navbar />
           <Component {...pageProps} />
         </main>

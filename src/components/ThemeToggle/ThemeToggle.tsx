@@ -22,7 +22,9 @@ const ThemeToggle: React.FC = ({}) => {
         onClick={() => {
           setTheme(currentTheme === "dark" ? "light" : "dark");
         }}
-        className="flex h-8 w-8 items-center justify-center rounded-sm bg-gray-200 dark:bg-gray-700"
+        className="flex h-8 w-8 items-center justify-center rounded-sm 
+        bg-gray-600 !bg-opacity-10 transition-[background-color] hover:!bg-opacity-30
+        dark:bg-gray-50"
         aria-label="Toggle dark mode"
         title="Toggle dark mode"
         type="button"
