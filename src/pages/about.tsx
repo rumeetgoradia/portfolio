@@ -1,11 +1,11 @@
 import { PageLayout } from "@/components/PageLayout";
 import { type NextPage } from "next";
 
-const Home: NextPage = () => {
+const About: NextPage = () => {
   return (
-    <PageLayout>
-      <h1 className="text-4xl ">Hello world!</h1>
-      <div className="h-[3000px] w-full  italic">
+    <PageLayout title="About">
+      <div>ABOUT ABOUT</div>
+      <div className="h-[1000px] w-full">
         Consequat aute veniam Lorem ex aute exercitation laboris aliquip ea
         culpa qui nostrud. Qui exercitation nulla est occaecat aliqua nostrud
         qui labore commodo excepteur excepteur in. Eiusmod laboris in ex ullamco
@@ -49,4 +49,4 @@ const Home: NextPage = () => {
   );
 };
 
-export default Home;
+export default About;

@@ -9,7 +9,7 @@ const PageLayout: React.FC<PageLayoutProps> = ({ title, children }) => {
   return (
     <>
       <NextSeo title={title} />
-      <main className="container pt-[125px]">{children}</main>
+      <main className="container relative z-10 py-4">{children}</main>
     </>
   );
 };

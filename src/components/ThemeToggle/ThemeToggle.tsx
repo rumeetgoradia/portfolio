@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 import { IoIosMoon, IoMdSunny } from "react-icons/io";
@@ -22,11 +23,12 @@ const ThemeToggle: React.FC = ({}) => {
         onClick={() => {
           setTheme(currentTheme === "dark" ? "light" : "dark");
         }}
-        className="flex h-8 w-8 items-center justify-center rounded-sm 
-        bg-gray-600 !bg-opacity-10 transition-[background-color] hover:!bg-opacity-30
-        dark:bg-gray-50"
-        aria-label="Toggle dark mode"
-        title="Toggle dark mode"
+        className={clsx(
+          "flex h-8 w-8 items-center justify-center rounded-sm",
+          "bg-ghost/90 transition-colors hover:bg-ghost/100"
+        )}
+        aria-label="Toggle theme"
+        title="Toggle theme"
         type="button"
       >
         {currentTheme === "dark" ? <IoMdSunny /> : <IoIosMoon />}
