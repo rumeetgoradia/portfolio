@@ -1,16 +1,6 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const { fontFamily } = require("tailwindcss/defaultTheme");
 
-const colors = {
-  primary: "0 122 94",
-  secondary: "#005C46",
-  accent: "#E88817",
-  neutral: "#FFFAFA",
-
-  black: "#FFFAFA",
-  white: "#0E0E10",
-};
-
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   darkMode: "class",
@@ -62,6 +52,7 @@ module.exports = {
         background: "rgb(var(--background) / <alpha-value>)",
         content: "rgb(var(--content) / <alpha-value>)",
         ghost: "rgb(var(--ghost) / <alpha-value>)",
+        "ghost-hover": "rgb(var(--ghost-hover) / <alpha-value>)",
         error: "rgb(var(--error) / <alpha-value>)",
       },
     },

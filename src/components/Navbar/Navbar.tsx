@@ -1,17 +1,17 @@
-import { NAV_ITEMS } from "@/constants/navigation";
+import { NAVBAR_ITEMS } from "@/constants/navigation";
 import { SITE_NAME } from "@/constants/seo";
 import clsx from "clsx";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { IoIosMenu } from "react-icons/io";
 import { ThemeToggle } from "../ThemeToggle";
 import { Logo } from "./Logo";
+import { NavDrawer } from "./NavDrawer";
 
 const Navbar: React.FC = ({}) => {
   const router = useRouter();
 
   return (
-    <header className="relative z-10 flex w-full justify-center py-6">
+    <header className="relative z-20 flex w-full justify-center py-6">
       <div className="container flex items-center justify-between">
         <div className="flex">
           <div className="mr-2">
@@ -22,7 +22,7 @@ const Navbar: React.FC = ({}) => {
             </Link>
           </div>
           <nav className="hidden items-center space-x-1 md:flex">
-            {NAV_ITEMS.map(({ title, route }) => {
+            {NAVBAR_ITEMS.map(({ title, route }) => {
               const isActive = route === router.pathname;
 
               return (
@@ -46,15 +46,8 @@ const Navbar: React.FC = ({}) => {
         <div className="hidden md:block">
           <ThemeToggle />
         </div>
-        <div className="block h-[34px] md:hidden">
-          <label
-            htmlFor="drawer"
-            className="btn-ghost btn-sm btn rounded-sm p-1 text-2xl "
-            aria-label="Open navigation menu"
-            title="Open navigation menu"
-          >
-            <IoIosMenu />
-          </label>
+        <div className="block md:hidden">
+          <NavDrawer />
         </div>
       </div>
     </header>

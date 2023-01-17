@@ -1,8 +1,7 @@
-import { useTheme } from "next-themes";
 import { useCallback } from "react";
 import Particles from "react-tsparticles";
 import { loadFull } from "tsparticles";
-import type { Container, Engine } from "tsparticles-engine";
+import type { Engine } from "tsparticles-engine";
 
 const ParticlesBackground = () => {
   const particlesInit = useCallback(async (engine: Engine) => {
@@ -14,14 +13,9 @@ const ParticlesBackground = () => {
     await loadFull(engine);
   }, []);
 
-  const particlesLoaded = useCallback(
-    async (container: Container | undefined) => {
-      //   await console.log(container);
-    },
-    []
-  );
-
-  const { systemTheme, theme, setTheme } = useTheme();
+  const particlesLoaded = useCallback(async () => {
+    //   await console.log(container);
+  }, []);
 
   return (
     <Particles
