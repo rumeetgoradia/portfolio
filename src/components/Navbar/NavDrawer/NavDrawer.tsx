@@ -21,9 +21,11 @@ const NavDrawer: React.FC = ({}) => {
 
   useEffect(() => {
     if (isDrawerOpen) {
+      document.body.style.height = "100vh";
       document.body.style.overflow = "hidden";
     } else {
-      document.body.style.overflow = "";
+      document.body.style.height = "auto";
+      document.body.style.overflow = "unset";
     }
   }, [isDrawerOpen]);
 
@@ -63,7 +65,7 @@ const NavDrawer: React.FC = ({}) => {
         <div className="flex h-[34px] w-full justify-between">
           <ThemeToggle />
           <button
-            className="flex items-center justify-center rounded-sm p-1 text-3xl transition-colors"
+            className="flex items-center justify-center rounded-sm py-1 text-3xl transition-colors"
             aria-label="Close navigation menu"
             title="Close navigation menu"
             onClick={closeDrawer}
