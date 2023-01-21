@@ -22,10 +22,10 @@ const NavDrawer: React.FC = ({}) => {
   useEffect(() => {
     if (isDrawerOpen) {
       document.body.style.height = "100vh";
-      document.body.style.overflow = "hidden";
+      document.body.style.overflowY = "hidden";
     } else {
       document.body.style.height = "auto";
-      document.body.style.overflow = "unset";
+      document.body.style.overflowY = "unset";
     }
   }, [isDrawerOpen]);
 

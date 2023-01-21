@@ -32,6 +32,13 @@ const ParticlesBackground = () => {
           position: "absolute",
         },
         particles: {
+          number: {
+            density: {
+              factor: 2000,
+              area: 2000,
+              enable: true,
+            },
+          },
           links: {
             distance: 150,
             enable: true,
@@ -54,6 +61,18 @@ const ParticlesBackground = () => {
             value: {
               max: -1,
               min: -100,
+            },
+          },
+        },
+        interactivity: {
+          events: {
+            onHover: {
+              enable: true,
+              parallax: {
+                enable: true,
+                force: 25,
+                smooth: 50,
+              },
             },
           },
         },
