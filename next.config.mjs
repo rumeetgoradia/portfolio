@@ -5,13 +5,18 @@
  */
 !process.env.SKIP_ENV_VALIDATION && (await import("./src/env/server.mjs"));
 
+import { withPlaiceholder } from "@plaiceholder/next";
+
 /** @type {import("next").NextConfig} */
-const config = {
+const config = withPlaiceholder({
   reactStrictMode: true,
   swcMinify: true,
+  images: {
+    domains: ["ik.imagekit.io"],
+  },
   i18n: {
     locales: ["en"],
     defaultLocale: "en",
   },
-};
+});
 export default config;

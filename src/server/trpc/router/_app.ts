@@ -1,8 +1,8 @@
 import { router } from "../trpc";
-import { exampleRouter } from "./example";
+import { imagekitRouter } from "./imagekit";
 
 export const appRouter = router({
-  example: exampleRouter,
+  imageKit: imagekitRouter,
 });
 
 // export type definition of API

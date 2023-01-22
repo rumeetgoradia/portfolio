@@ -4,7 +4,7 @@ import LandingImage from "../../../../public/images/home/rumeet_goradia.jpeg";
 
 const TitleLanding: React.FC = ({}) => {
   return (
-    <div className="flex w-full flex-col-reverse items-start justify-between gap-6 md:flex-row md:gap-8">
+    <div className="flex w-full flex-col-reverse items-start justify-between gap-6 md:flex-row md:gap-16">
       <div className="flex-initial">
         <h1 className="text-3xl font-bold text-primary sm:text-4xl md:text-5xl">
           {SITE_NAME}
@@ -14,16 +14,16 @@ const TitleLanding: React.FC = ({}) => {
         </h2>
         <p className="md:text-lg">
           Pursuing a career in fin-tech. Specializing in backend development
-          with Java and Spring Boot and front-end development with Next.js.
-          Exploring blockchain and smart contract technologies.
+          with Java and front-end development with Next.js. Exploring blockchain
+          and smart contract technologies.
         </p>
       </div>
-      <div className="relative h-[80px] w-[80px] flex-none overflow-hidden md:h-[216px] md:w-[216px]">
+      <div className="relative h-[80px] w-[80px] flex-none overflow-hidden rounded-full opacity-90 transition-opacity duration-300 hover:opacity-100 md:h-[216px] md:w-[216px] md:rounded-sm">
         <Image
           src={LandingImage}
           alt={SITE_NAME}
           placeholder="blur"
-          className="rounded-full object-cover object-top transition-transform duration-300 hover:scale-105 md:rounded-sm"
+          className=" object-cover object-top transition-transform duration-300 hover:scale-105"
           fill
           sizes="30vw"
           priority

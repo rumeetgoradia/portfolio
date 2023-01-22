@@ -56,5 +56,11 @@ module.exports = {
         error: "rgb(var(--error) / <alpha-value>)",
       },
     },
+    keyframes: {
+      pulse: {
+        //   "0%, 100%": { opacity: 0.8, background: "var(--bg-gray-100)" },
+        "50%": { opacity: 0.8 },
+      },
+    },
   },
 };

@@ -14,6 +14,11 @@ const vercelUrlDefault = z.preprocess(
  */
 export const serverSchema = z.object({
   NODE_ENV: z.enum(["development", "test", "production"]),
+
+  // ImageKit
+  IMAGEKIT_PUBLIC_KEY: z.string(),
+  IMAGEKIT_PRIVATE_KEY: z.string(),
+  IMAGEKIT_URL_ENDPOINT: z.string().url(),
 });
 
 /**

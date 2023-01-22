@@ -69,6 +69,11 @@
     .container {
         @apply w-full mx-auto max-w-3xl px-8;
     }
+
+    .subheader {
+        @apply text-xl md:text-2xl;
+        @apply font-semibold;
+    }
 }
 
 #__next {
