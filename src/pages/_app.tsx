@@ -25,6 +25,7 @@ const MyApp: AppType = ({ Component, pageProps }) => {
         <main className={base_font.className} id="root">
           <ParticlesBackground />
           <Navbar />
+          {/* <PreviewMode /> */}
           <Component {...pageProps} />
         </main>
       </ThemeProvider>

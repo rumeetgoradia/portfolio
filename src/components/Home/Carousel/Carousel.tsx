@@ -1,3 +1,4 @@
+import { TRPCResponse } from "@/types/trpc";
 import clsx from "clsx";
 import Image from "next/image";
 import { useRef } from "react";
@@ -7,23 +8,25 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
 
-type CarouselProps = {
-  images?: CarouselImage[];
-  isLoading?: boolean;
-  isError?: boolean;
-};
 export type CarouselImage = {
   src: string;
   width: number;
   height: number;
   blurDataUrl: string;
 };
+
+type CarouselProps = TRPCResponse<CarouselImage[]>;
+
 const HEIGHT = {
   value: 300,
   className: "h-[300px]",
 };
 
-const Carousel: React.FC<CarouselProps> = ({ images, isLoading, isError }) => {
+const Carousel: React.FC<CarouselProps> = ({
+  data: images,
+  isLoading,
+  isError,
+}) => {
   const sliderRef = useRef<Slider | null>(null);
 
   if (isError) {
@@ -58,36 +61,6 @@ const Carousel: React.FC<CarouselProps> = ({ images, isLoading, isError }) => {
       >
         <BsArrowLeft />
       </button>
-      {/* <IconButton
-				icon={<BsArrowLeft />}
-				onClick={() => sliderRef.current?.slickPrev()}
-				aria-label="Previous image"
-				position="absolute"
-				zIndex={100}
-				left={0}
-				top="50%"
-				transform="translate(-50%, -50%)"
-				borderRadius="50%"
-				color="current"
-				bg="var(--bg-color)"
-				w="32px"
-				h="32px"
-				size="sm"
-				fontSize="md"
-				_hover={{
-					opacity: 1,
-					fontSize: "lg",
-				}}
-				_focus={{
-					opacity: 1,
-					fontSize: "lg",
-				}}
-				_active={{
-					opacity: 1,
-					fontSize: "sm",
-				}}
-				transition={createTransition(["color", "background", "font-size"])}
-			/> */}
       <div className="h-full w-full cursor-grab overflow-hidden rounded-sm active:cursor-grabbing">
         <Slider ref={sliderRef} {...settings}>
           {images.map(({ src, width, height, blurDataUrl }, index) => {

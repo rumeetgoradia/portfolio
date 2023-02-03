@@ -12,7 +12,7 @@ const config = withPlaiceholder({
   reactStrictMode: true,
   swcMinify: true,
   images: {
-    domains: ["ik.imagekit.io"],
+    domains: ["ik.imagekit.io", "cdn.sanity.io"],
   },
   i18n: {
     locales: ["en"],
