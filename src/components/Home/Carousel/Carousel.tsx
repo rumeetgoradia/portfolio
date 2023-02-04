@@ -68,7 +68,7 @@ const Carousel: React.FC<CarouselProps> = ({
 
             return (
               <div
-                className="pointer-events-none mx-1 select-none"
+                className="pointer-events-none mx-2 select-none"
                 key={`${src}-carousel-image`}
               >
                 <Image
@@ -105,7 +105,7 @@ const CarouselSkeleton: React.FC = () => {
       )}
     >
       <div
-        className="relative h-full px-1 
+        className="relative h-full px-2 
 	 before:absolute before:top-0 before:right-full before:h-full before:w-96 before:animate-pulse before:bg-gray-100/80 before:backdrop-blur-sm
 	 after:absolute after:top-0 after:left-full after:h-full after:w-96 after:animate-pulse after:bg-gray-100/80 after:backdrop-blur-sm after:!delay-[400ms]"
       >

@@ -10,8 +10,8 @@ export const workRouter = router({
         [   _type=="work" 
             && isFeatured==true
         ] {   ...,
-            builtWith[] ->
-        } | order(_updatedAt desc)[0...2]
+            categories[] ->
+        } | order(_updatedAt desc)[0...3]
     `;
 
     const featuredWork = await ctx.sanityClient.fetch(query);

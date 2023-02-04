@@ -38,6 +38,8 @@ const HomePage: NextPage = () => {
   const carouselImages = trpc.imageKit.carousel.useQuery();
   const featuredWork = trpc.work.featured.useQuery();
 
+  console.log(featuredWork.data);
+
   return (
     <PageLayout>
       <div className="flex w-full flex-col items-start justify-start gap-12">
