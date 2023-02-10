@@ -42,7 +42,7 @@
         @apply bg-background text-content;
         @apply transition-colors;
         @apply scroll-smooth;
-        @apply overflow-x-hidden
+        /* @apply overflow-x-hidden */
     }
 
     html {

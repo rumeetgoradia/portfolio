@@ -1,5 +1,4 @@
-import { Carousel, TitleLanding } from "@/components/Home";
-import { FeaturedWorkGrid } from "@/components/Home/FeaturedWorkGrid";
+import { Carousel, FeaturedWorkGrid, TitleLanding } from "@/components/Home";
 import { PageLayout } from "@/components/PageLayout";
 import { appRouter } from "@/server//trpc/router/_app";
 import { createContextInner } from "@/server/trpc/context";

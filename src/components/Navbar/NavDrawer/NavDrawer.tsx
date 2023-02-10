@@ -3,7 +3,7 @@ import { NAV_DRAWER_ITEMS } from "@/constants/navigation";
 import clsx from "clsx";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { IoIosClose, IoIosMenu } from "react-icons/io";
 
 const NavDrawer: React.FC = ({}) => {
@@ -19,15 +19,15 @@ const NavDrawer: React.FC = ({}) => {
     setDrawerOpen(false);
   };
 
-  useEffect(() => {
-    if (isDrawerOpen) {
-      document.body.style.height = "100vh";
-      document.body.style.overflowY = "hidden";
-    } else {
-      document.body.style.height = "auto";
-      document.body.style.overflowY = "unset";
-    }
-  }, [isDrawerOpen]);
+  // useEffect(() => {
+  //   if (isDrawerOpen) {
+  //     document.body.style.height = "100vh";
+  //     document.body.style.overflowY = "hidden";
+  //   } else {
+  //     document.body.style.height = "auto";
+  //     document.body.style.overflowY = "unset";
+  //   }
+  // }, [isDrawerOpen]);
 
   return (
     <>

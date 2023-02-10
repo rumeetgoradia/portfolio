@@ -7,11 +7,12 @@ import { Manrope } from "@next/font/google";
 import { Navbar } from "@/components/Navbar";
 import { ParticlesBackground } from "@/components/ParticlesBackground";
 import "@/styles/globals.css";
+import clsx from "clsx";
 import { DefaultSeo } from "next-seo";
 import SeoProps from "next-seo.config";
 import { ThemeProvider } from "next-themes";
 
-const base_font = Manrope({
+const baseFont = Manrope({
   subsets: ["latin-ext"],
   style: ["normal"],
   display: "swap",
@@ -22,12 +23,19 @@ const MyApp: AppType = ({ Component, pageProps }) => {
     <>
       <ThemeProvider defaultTheme="system" attribute="class">
         <DefaultSeo {...SeoProps} />
-        <main className={base_font.className} id="root">
-          <ParticlesBackground />
+        <ParticlesBackground />
+        <div
+          className={clsx(
+            baseFont.className,
+            // mx-4 mb-40 mt-8   md:mt-16 lg:mx-auto
+            "mx-auto flex max-w-4xl flex-col items-start antialiased md:flex-row"
+          )}
+          id="root"
+        >
           <Navbar />
           {/* <PreviewMode /> */}
           <Component {...pageProps} />
-        </main>
+        </div>
       </ThemeProvider>
     </>
   );

@@ -1,6 +1,6 @@
 import { WorkDisplay } from "@/components/WorkDisplay";
-import { Work } from "@/types/sanity";
-import { TRPCResponse } from "@/types/trpc";
+import { type Work } from "@/types/sanity";
+import { type TRPCResponse } from "@/types/trpc";
 import clsx from "clsx";
 import Link from "next/link";
 import { HiOutlineArrowNarrowRight } from "react-icons/hi";
@@ -26,7 +26,7 @@ const FeaturedWorkGrid: React.FC<FeaturedWorkGridProps> = ({
           <>
             {featuredWork.map((fw) => (
               <div
-                className="h-full  transition-transform ease-in hover:scale-[1.025]"
+                className="h-full transition-transform ease-in hover:scale-[1.025]"
                 key={`${fw.slug.current}-featured-work`}
               >
                 <WorkDisplay
@@ -39,13 +39,14 @@ const FeaturedWorkGrid: React.FC<FeaturedWorkGridProps> = ({
           </>
         )}
       </div>
-      <Link href="/work">
-        <div className="flex cursor-pointer items-center gap-[10px] transition-all hover:gap-[15px] hover:text-primary">
-          <span>View all work</span>
-          <span>
-            <HiOutlineArrowNarrowRight className="align-bottom" />
-          </span>
-        </div>
+      <Link
+        href="/work"
+        className="mr-auto flex items-center gap-[10px] transition-all hover:gap-[15px] hover:text-primary"
+      >
+        <span>View all work</span>
+        <span>
+          <HiOutlineArrowNarrowRight className="align-bottom" />
+        </span>
       </Link>
     </div>
   );
@@ -67,6 +68,7 @@ const FeaturedWorkGridSkeleton: React.FC = () => {
 
         return (
           <div
+            key={`featured-work-grid-skeleton-${val}`}
             className={clsx(
               "h-[350px] w-full animate-pulse rounded-sm backdrop-blur-sm md:h-[258px]",
               thisClasses?.bg,
