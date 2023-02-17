@@ -3,9 +3,16 @@ import { SideNavbar } from "./SideNavbar";
 
 const Navbar: React.FC = ({}) => {
   const router = useRouter();
-  const pathname = router.pathname;
+  let pathname = router.pathname;
+  if (pathname.includes("/work/")) {
+    pathname = "/work";
+  }
 
-  return <SideNavbar pathname={router.pathname} />;
+  return (
+    <>
+      <SideNavbar pathname={pathname} />
+    </>
+  );
 
   // return (
   //   <aside className="sticky -mx-4 -mt-4 h-[100vh]  pt-8 md:mx-0 md:w-[150px] md:flex-shrink-0 md:px-0">

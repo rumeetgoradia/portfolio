@@ -50,9 +50,7 @@ const Carousel: React.FC<CarouselProps> = ({
   };
 
   return (
-    <div
-      className={clsx("container relative z-[99] w-full p-0", HEIGHT.className)}
-    >
+    <div className={clsx(" container relative z-[99] px-0", HEIGHT.className)}>
       <button
         className="absolute left-0 top-1/2 z-[100] flex h-8 w-8 -translate-y-1/2 -translate-x-1/2 items-center justify-center rounded-full border-[1px] border-transparent bg-background
 		transition-[font-size,color,background,border-color] hover:text-lg focus:border-current  active:text-sm"
@@ -100,7 +98,7 @@ const CarouselSkeleton: React.FC = () => {
   return (
     <div
       className={clsx(
-        "flex w-full items-center justify-center overflow-hidden rounded-sm",
+        "relative flex w-full items-center justify-center overflow-hidden rounded-sm px-0 lg:w-[48rem]",
         HEIGHT.className
       )}
     >

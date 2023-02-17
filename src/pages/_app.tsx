@@ -27,8 +27,7 @@ const MyApp: AppType = ({ Component, pageProps }) => {
         <div
           className={clsx(
             baseFont.className,
-            // mx-4 mb-40 mt-8   md:mt-16 lg:mx-auto
-            "mx-auto flex max-w-4xl flex-col items-start antialiased md:flex-row"
+            "relative z-[1] mx-auto flex max-w-4xl flex-col items-start antialiased md:flex-row"
           )}
           id="root"
         >

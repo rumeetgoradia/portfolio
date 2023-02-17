@@ -1,7 +1,7 @@
 import { useCallback } from "react";
-import Particles from "react-tsparticles";
+import Particles from "react-particles";
 import { loadFull } from "tsparticles";
-import type { Engine } from "tsparticles-engine";
+import type { Container, Engine } from "tsparticles-engine";
 
 const ParticlesBackground = () => {
   const particlesInit = useCallback(async (engine: Engine) => {
@@ -13,9 +13,12 @@ const ParticlesBackground = () => {
     await loadFull(engine);
   }, []);
 
-  const particlesLoaded = useCallback(async () => {
-    //   await console.log(container);
-  }, []);
+  const particlesLoaded = useCallback(
+    async (container: Container | undefined) => {
+      await console.log(container);
+    },
+    []
+  );
 
   return (
     <Particles
@@ -24,19 +27,20 @@ const ParticlesBackground = () => {
       loaded={particlesLoaded}
       height="100vh"
       width="100vw"
+      // className="fixed z-[-100] h-[100vh] w-[100vw]"
       options={{
         background: {
           color: {
             value: "rgb(0 0 0 / 0)",
           },
-          position: "absolute",
         },
         particles: {
           number: {
+            value: 100,
             density: {
               factor: 2000,
               area: 2000,
-              enable: true,
+              enable: false,
             },
           },
           links: {
