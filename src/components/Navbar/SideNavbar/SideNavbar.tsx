@@ -49,8 +49,8 @@ const SideNavbar: React.FC<SideNavbarProps> = ({ pathname }) => {
                 "transition-[color,opacity]",
                 isActive ? "opacity-100" : "opacity-50 hover:opacity-100"
               )}
-              target={externalPath ? "_blank" : ""}
-              rel={externalPath ? "noreferrer noopener" : ""}
+              target={externalPath ? "_blank" : undefined}
+              rel={externalPath ? "noreferrer noopener" : undefined}
               key={`nav-${title}`}
               title={title}
             >

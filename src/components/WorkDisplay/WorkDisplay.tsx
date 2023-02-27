@@ -29,7 +29,7 @@ const WorkDisplay: React.FC<WorkDisplayProps> = ({
             className="object-cover object-center"
           />
         </div>
-        <div className="flex w-full flex-grow flex-col justify-between gap-4 bg-background/80 p-4 backdrop-blur-sm">
+        <div className="flex w-full flex-grow flex-col justify-between gap-4 bg-background/80 p-4 backdrop-blur-sm transition-colors">
           <h3 className="text-xl font-semibold">{title}</h3>
           {description && <p>{description}</p>}
           <div>
@@ -40,6 +40,7 @@ const WorkDisplay: React.FC<WorkDisplayProps> = ({
                 const label = index === 0 ? "Live" : "Repo";
                 return (
                   <a
+                    key={`${title}-${url}`}
                     rel="noreferrer noopener"
                     target="_blank"
                     title={`${title} – ${label}`}

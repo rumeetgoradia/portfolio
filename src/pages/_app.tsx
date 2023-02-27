@@ -4,6 +4,7 @@ import { trpc } from "@/utils/trpc";
 
 import { Manrope } from "@next/font/google";
 
+import { Footer } from "@/components/Footer";
 import { Navbar } from "@/components/Navbar";
 import { ParticlesBackground } from "@/components/ParticlesBackground";
 import "@/styles/globals.css";
@@ -27,13 +28,16 @@ const MyApp: AppType = ({ Component, pageProps }) => {
         <div
           className={clsx(
             baseFont.className,
-            "relative z-[1] mx-auto flex max-w-4xl flex-col items-start antialiased md:flex-row"
+            "relative z-[1] mx-auto  max-w-4xl antialiased"
           )}
           id="root"
         >
-          <Navbar />
-          {/* <PreviewMode /> */}
-          <Component {...pageProps} />
+          <div className="flex flex-col items-start md:flex-row">
+            <Navbar />
+            {/* <PreviewMode /> */}
+            <Component {...pageProps} />
+          </div>
+          <Footer />
         </div>
       </ThemeProvider>
     </>

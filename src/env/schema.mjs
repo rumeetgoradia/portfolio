@@ -19,6 +19,11 @@ export const serverSchema = z.object({
   IMAGEKIT_PUBLIC_KEY: z.string(),
   IMAGEKIT_PRIVATE_KEY: z.string(),
   IMAGEKIT_URL_ENDPOINT: z.string().url(),
+
+  // Spotify
+  SPOTIFY_CLIENT_ID: z.string(),
+  SPOTIFY_CLIENT_SECRET: z.string(),
+  SPOTIFY_REFRESH_TOKEN: z.string(),
 });
 
 /**

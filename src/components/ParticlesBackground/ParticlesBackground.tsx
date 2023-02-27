@@ -15,7 +15,7 @@ const ParticlesBackground = () => {
 
   const particlesLoaded = useCallback(
     async (container: Container | undefined) => {
-      await console.log(container);
+      // await console.log(container);
     },
     []
   );
@@ -27,7 +27,7 @@ const ParticlesBackground = () => {
       loaded={particlesLoaded}
       height="100vh"
       width="100vw"
-      // className="fixed z-[-100] h-[100vh] w-[100vw]"
+      className="opacity-50"
       options={{
         background: {
           color: {

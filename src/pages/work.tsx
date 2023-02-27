@@ -5,7 +5,7 @@ const About: NextPage = () => {
   return (
     <PageLayout title="About">
       <div>ABOUT ABOUT</div>
-      <div className="h-[1000px] w-full">
+      <div className="w-full">
         Consequat aute veniam Lorem ex aute exercitation laboris aliquip ea
         culpa qui nostrud. Qui exercitation nulla est occaecat aliqua nostrud
         qui labore commodo excepteur excepteur in. Eiusmod laboris in ex ullamco
