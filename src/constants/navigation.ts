@@ -1,4 +1,4 @@
-export const NAVBAR_ITEMS: {
+export const NAV_ITEMS: {
   [k: string]: {
     title: string;
   } & ({ isPrimary?: never; x?: never } | { isPrimary: true; x: number }) &

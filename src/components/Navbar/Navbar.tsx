@@ -1,16 +1,21 @@
 import { useRouter } from "next/router";
 import { SideNavbar } from "./SideNavbar";
+import { TopNavbar } from "./TopNavbar";
 
 const Navbar: React.FC = ({}) => {
   const router = useRouter();
-  let pathname = router.pathname;
-  if (pathname.includes("/work/")) {
-    pathname = "/work";
-  }
 
+  const getPathname = () => {
+    let pathname = router.pathname;
+    if (pathname.includes("/work/")) {
+      pathname = "/work";
+    }
+    return pathname;
+  };
   return (
     <>
-      <SideNavbar pathname={pathname} />
+      <TopNavbar pathname={getPathname()} />
+      <SideNavbar pathname={getPathname()} />
     </>
   );
 

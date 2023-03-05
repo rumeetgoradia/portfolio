@@ -18,7 +18,7 @@ const TitleLanding: React.FC = ({}) => {
           and smart contract technologies.
         </p>
       </div>
-      <div className="relative h-[80px] w-[80px] flex-none overflow-hidden rounded-full opacity-90 transition-opacity duration-300 hover:opacity-100 md:h-[216px] md:w-[216px] md:rounded-sm">
+      <div className="relative hidden h-[80px] w-[80px] flex-none overflow-hidden rounded-full opacity-90 transition-opacity duration-300 hover:opacity-100 md:block md:h-[216px] md:w-[216px] md:rounded-sm">
         <Image
           src={LandingImage}
           alt={SITE_NAME}

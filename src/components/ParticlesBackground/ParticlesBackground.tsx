@@ -40,7 +40,7 @@ const ParticlesBackground = () => {
             density: {
               factor: 2000,
               area: 2000,
-              enable: false,
+              enable: true,
             },
           },
           links: {

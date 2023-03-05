@@ -28,11 +28,11 @@ const MyApp: AppType = ({ Component, pageProps }) => {
         <div
           className={clsx(
             baseFont.className,
-            "relative z-[1] mx-auto  max-w-4xl antialiased"
+            "relative z-[1] mx-auto max-w-4xl px-8 antialiased"
           )}
           id="root"
         >
-          <div className="flex flex-col items-start md:flex-row">
+          <div className="flex flex-col items-start gap-4 lg:flex-row lg:gap-8">
             <Navbar />
             {/* <PreviewMode /> */}
             <Component {...pageProps} />

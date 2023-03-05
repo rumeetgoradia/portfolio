@@ -8,7 +8,7 @@ const NowPlaying: React.FC = ({}) => {
   const [isPlaying, setPlaying] = useState<boolean>(false);
 
   useEffect(() => {
-    console.log(data);
+    // console.log(data);
 
     if (!data) {
       setPlaying(false);
@@ -68,10 +68,10 @@ export default NowPlaying;
 const NowPlayingSkeleton: React.FC = () => {
   return (
     <div className="flex items-start gap-2">
-      <div className="animate-pulse h-[13px] w-[13px] rounded-sm bg-gray-100/70 backdrop-blur-sm" />
+      <div className="h-[13px] w-[13px] animate-pulse rounded-sm bg-gray-100/50 backdrop-blur-sm" />
       <div>
-        <div className="animate-pulse h-[16px] w-[120px] rounded-sm bg-gray-100 backdrop-blur-sm" />
-        <div className="animate-pulse mt-1 h-[13px] w-[80px] rounded-sm bg-gray-100/80 backdrop-blur-sm" />
+        <div className="h-[16px] w-[120px] animate-pulse rounded-sm bg-gray-100/80 backdrop-blur-sm" />
+        <div className="mt-1 h-[13px] w-[80px] animate-pulse rounded-sm bg-gray-100/60 backdrop-blur-sm" />
       </div>
     </div>
   );
@@ -95,7 +95,7 @@ const MusicBars: React.FC<{ animate: boolean }> = ({ animate }) => {
         className={clsx(
           barClassname,
           animate && "animate-bounce",
-          "animation-delay--4000"
+          "animation-delay--3500"
         )}
       />
     </div>

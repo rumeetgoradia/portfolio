@@ -50,46 +50,50 @@ const Carousel: React.FC<CarouselProps> = ({
   };
 
   return (
-    <div className={clsx(" container relative z-[99] px-0", HEIGHT.className)}>
-      <button
-        className="absolute left-0 top-1/2 z-[100] flex h-8 w-8 -translate-y-1/2 -translate-x-1/2 items-center justify-center rounded-full border-[1px] border-transparent bg-background
+    <div className={clsx("relative w-full", HEIGHT.className)}>
+      <div className="absolute left-0 top-0 w-full">
+        <div className={clsx("relative z-[99] w-full px-0", HEIGHT.className)}>
+          <button
+            className="absolute left-0 top-1/2 z-[100] flex h-8 w-8 -translate-y-1/2 -translate-x-1/2 items-center justify-center rounded-full border-[1px] border-transparent bg-background
 		transition-[font-size,color,background,border-color] hover:text-lg focus:border-current  active:text-sm"
-        aria-label="Previous carousel image"
-        onClick={() => sliderRef.current?.slickPrev()}
-      >
-        <BsArrowLeft />
-      </button>
-      <div className="h-full w-full cursor-grab overflow-hidden rounded-sm active:cursor-grabbing">
-        <Slider ref={sliderRef} {...settings}>
-          {images.map(({ src, width, height, blurDataUrl }, index) => {
-            const w = (width * HEIGHT.value) / height;
+            aria-label="Previous carousel image"
+            onClick={() => sliderRef.current?.slickPrev()}
+          >
+            <BsArrowLeft />
+          </button>
+          <div className="h-full w-full cursor-grab overflow-hidden rounded-sm active:cursor-grabbing">
+            <Slider ref={sliderRef} {...settings}>
+              {images.map(({ src, width, height, blurDataUrl }, index) => {
+                const w = (width * HEIGHT.value) / height;
 
-            return (
-              <div
-                className="pointer-events-none mx-2 select-none"
-                key={`${src}-carousel-image`}
-              >
-                <Image
-                  src={src}
-                  alt={`Carousel Image ${index + 1}`}
-                  width={w}
-                  height={HEIGHT.value}
-                  placeholder="blur"
-                  blurDataURL={blurDataUrl}
-                />
-              </div>
-            );
-          })}
-        </Slider>
-      </div>
-      <button
-        className="absolute right-0 top-1/2 z-[100] flex h-8 w-8 -translate-y-1/2 translate-x-1/2 items-center justify-center rounded-full border-[1px] border-transparent bg-background
+                return (
+                  <div
+                    className="pointer-events-none mx-2 select-none"
+                    key={`${src}-carousel-image`}
+                  >
+                    <Image
+                      src={src}
+                      alt={`Carousel Image ${index + 1}`}
+                      width={w}
+                      height={HEIGHT.value}
+                      placeholder="blur"
+                      blurDataURL={blurDataUrl}
+                    />
+                  </div>
+                );
+              })}
+            </Slider>
+          </div>
+          <button
+            className="absolute right-0 top-1/2 z-[100] flex h-8 w-8 -translate-y-1/2 translate-x-1/2 items-center justify-center rounded-full border-[1px] border-transparent bg-background
 		transition-[font-size,color,background,border-color] hover:text-lg focus:border-current  active:text-sm"
-        aria-label="Next carousel image"
-        onClick={() => sliderRef.current?.slickNext()}
-      >
-        <BsArrowRight />
-      </button>
+            aria-label="Next carousel image"
+            onClick={() => sliderRef.current?.slickNext()}
+          >
+            <BsArrowRight />
+          </button>
+        </div>
+      </div>
     </div>
   );
 };

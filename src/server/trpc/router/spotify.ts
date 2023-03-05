@@ -13,8 +13,12 @@ export const spotifyRouter = router({
       },
     });
 
-    const data: NowPlayingTrack = await response.json();
-    return data;
+    try {
+      const data: NowPlayingTrack = await response.json();
+      return data;
+    } catch (e) {
+      return undefined;
+    }
   }),
   topTracks: publicProcedure.query(async () => {
     const endpoint = "https://api.spotify.com/v1/me/top/tracks";
