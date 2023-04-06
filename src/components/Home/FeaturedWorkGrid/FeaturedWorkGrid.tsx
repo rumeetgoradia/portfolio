@@ -26,7 +26,7 @@ const FeaturedWorkGrid: React.FC<FeaturedWorkGridProps> = ({
           <>
             {featuredWork.map((fw) => (
               <div
-                className="h-full transition-transform ease-in hover:scale-[1.025]"
+                className="h-full transition-transform hover:scale-[1.025]"
                 key={`${fw.slug.current}-featured-work`}
               >
                 <WorkDisplay
@@ -41,7 +41,7 @@ const FeaturedWorkGrid: React.FC<FeaturedWorkGridProps> = ({
       </div>
       <Link
         href="/work"
-        className="mr-auto flex items-center gap-[10px] transition-all hover:gap-[15px] hover:text-primary"
+        className="mr-auto flex items-center gap-[10px] transition-[gap] hover:gap-[15px] hover:text-primary"
       >
         <span>View all work</span>
         <span>

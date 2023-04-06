@@ -1,7 +1,7 @@
-import { TRPCResponse } from "@/types/trpc";
+import { type TRPCResponse } from "@/types/trpc";
 import clsx from "clsx";
 import Image from "next/image";
-import { useRef } from "react";
+import { useCallback, useMemo, useRef } from "react";
 import { BsArrowLeft, BsArrowRight } from "react-icons/bs";
 import type { Settings } from "react-slick";
 import Slider from "react-slick";
@@ -17,15 +17,75 @@ export type CarouselImage = {
 
 type CarouselProps = TRPCResponse<CarouselImage[]>;
 
-const HEIGHT = {
-  value: 300,
-  className: "h-[300px]",
+type HeightSpec = {
+  px: number;
+  className: string;
+};
+type HeightDef = {
+  [k in "base" | "sm" | "md" | "lg"]: HeightSpec;
 };
 
-const Carousel: React.FC<CarouselProps> = ({
+const HEIGHT: HeightDef = {
+  base: { px: 250, className: "h-[250px]" },
+  sm: { px: 300, className: "h-[300px]" },
+  md: { px: 350, className: "h-[350px]" },
+  lg: { px: 400, className: "h-[400px]" },
+};
+
+const Carousel: React.FC<CarouselProps> = (props) => {
+  const propifyHeightSpec = useCallback(
+    (heightSpec: HeightSpec): InnerCarouselProps => {
+      return {
+        heightClassName: heightSpec.className,
+        heightPx: heightSpec.px,
+      };
+    },
+    []
+  );
+
+  const baseCarousel = useMemo(
+    () => <InnerCarousel {...props} {...propifyHeightSpec(HEIGHT.base)} />,
+    [props, propifyHeightSpec]
+  );
+  const smCarousel = useMemo(
+    () => <InnerCarousel {...props} {...propifyHeightSpec(HEIGHT.sm)} />,
+    [props, propifyHeightSpec]
+  );
+  const mdCarousel = useMemo(
+    () => <InnerCarousel {...props} {...propifyHeightSpec(HEIGHT.md)} />,
+    [props, propifyHeightSpec]
+  );
+  const lgCarousel = useMemo(
+    () => <InnerCarousel {...props} {...propifyHeightSpec(HEIGHT.lg)} />,
+    [props, propifyHeightSpec]
+  );
+
+  return (
+    <>
+      <div className="block w-full sm:hidden" id="base-carousel">
+        {baseCarousel}
+      </div>
+      <div className="hidden w-full sm:block md:hidden" id="sm-carousel">
+        {smCarousel}
+      </div>
+      <div className="hidden w-full md:block lg:hidden" id="md-carousel">
+        {mdCarousel}
+      </div>
+      <div className="hidden w-full lg:block" id="lg-carousel">
+        {lgCarousel}
+      </div>
+    </>
+  );
+};
+
+type InnerCarouselProps = CarouselSkeletonProps & { heightPx: number };
+
+const InnerCarousel: React.FC<CarouselProps & InnerCarouselProps> = ({
   data: images,
   isLoading,
   isError,
+  heightClassName,
+  heightPx,
 }) => {
   const sliderRef = useRef<Slider | null>(null);
 
@@ -34,7 +94,7 @@ const Carousel: React.FC<CarouselProps> = ({
   }
 
   if (isLoading || !images) {
-    return <CarouselSkeleton />;
+    return <CarouselSkeleton heightClassName={heightClassName} />;
   }
 
   const settings: Settings = {
@@ -50,12 +110,13 @@ const Carousel: React.FC<CarouselProps> = ({
   };
 
   return (
-    <div className={clsx("relative w-full", HEIGHT.className)}>
+    <div className={clsx("relative w-full", heightClassName)}>
       <div className="absolute left-0 top-0 w-full">
-        <div className={clsx("relative z-[99] w-full px-0", HEIGHT.className)}>
+        <div className={clsx("relative z-[99] w-full px-0", heightClassName)}>
           <button
             className="absolute left-0 top-1/2 z-[100] flex h-8 w-8 -translate-y-1/2 -translate-x-1/2 items-center justify-center rounded-full border-[1px] border-transparent bg-background
-		transition-[font-size,color,background,border-color] hover:text-lg focus:border-current  active:text-sm"
+		hover:text-lg  focus:border-current
+    active:text-sm"
             aria-label="Previous carousel image"
             onClick={() => sliderRef.current?.slickPrev()}
           >
@@ -64,7 +125,7 @@ const Carousel: React.FC<CarouselProps> = ({
           <div className="h-full w-full cursor-grab overflow-hidden rounded-sm active:cursor-grabbing">
             <Slider ref={sliderRef} {...settings}>
               {images.map(({ src, width, height, blurDataUrl }, index) => {
-                const w = (width * HEIGHT.value) / height;
+                const w = (width * heightPx) / height;
 
                 return (
                   <div
@@ -75,7 +136,7 @@ const Carousel: React.FC<CarouselProps> = ({
                       src={src}
                       alt={`Carousel Image ${index + 1}`}
                       width={w}
-                      height={HEIGHT.value}
+                      height={heightPx}
                       placeholder="blur"
                       blurDataURL={blurDataUrl}
                     />
@@ -86,7 +147,7 @@ const Carousel: React.FC<CarouselProps> = ({
           </div>
           <button
             className="absolute right-0 top-1/2 z-[100] flex h-8 w-8 -translate-y-1/2 translate-x-1/2 items-center justify-center rounded-full border-[1px] border-transparent bg-background
-		transition-[font-size,color,background,border-color] hover:text-lg focus:border-current  active:text-sm"
+	 hover:text-lg focus:border-current  active:text-sm"
             aria-label="Next carousel image"
             onClick={() => sliderRef.current?.slickNext()}
           >
@@ -98,12 +159,16 @@ const Carousel: React.FC<CarouselProps> = ({
   );
 };
 
-const CarouselSkeleton: React.FC = () => {
+type CarouselSkeletonProps = { heightClassName: string };
+
+const CarouselSkeleton: React.FC<CarouselSkeletonProps> = ({
+  heightClassName,
+}) => {
   return (
     <div
       className={clsx(
-        "relative flex w-full items-center justify-center overflow-hidden rounded-sm px-0 lg:w-[48rem]",
-        HEIGHT.className
+        "relative flex w-full items-center justify-center overflow-hidden rounded-sm px-0",
+        heightClassName
       )}
     >
       <div

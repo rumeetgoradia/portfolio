@@ -42,7 +42,7 @@ const NowPlaying: React.FC = ({}) => {
               href={data.item.external_urls.spotify}
               target={"_blank"}
               rel={"noreferrer noopener"}
-              className="transition-colors hover:text-primary"
+              className="hover:text-primary"
               passHref
               title={`${data.item.name} [Spotify]`}
             >
@@ -79,7 +79,7 @@ const NowPlayingSkeleton: React.FC = () => {
 
 const MusicBars: React.FC<{ animate: boolean }> = ({ animate }) => {
   const barClassname =
-    "w-[3px] h-full scale-y-50 bg-content content-none origin-bottom transition-colors";
+    "w-[3px] h-full scale-y-50 bg-content content-none origin-bottom transition-[background-color] ease-linear";
 
   return (
     <div className="relative flex h-[13px] w-[13px] justify-between  ">
