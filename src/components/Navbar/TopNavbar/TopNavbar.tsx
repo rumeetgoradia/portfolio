@@ -16,24 +16,6 @@ const TopNavbar: React.FC<TopNavbarProps> = ({ pathname }) => {
         </Link>
       </div>
       <nav className="flex w-full justify-between sm:-mr-2 sm:w-auto sm:justify-start sm:gap-4">
-        {/* {currentNavItem?.x !== undefined && (
-          <motion.div
-            className="absolute -left-[3px] -top-[2px] z-[-1] h-[30px] rounded-sm bg-ghost/60 backdrop-blur-sm transition-colors"
-            layoutId="navbar-move"
-            initial={{ opacity: 0, x: currentNavItem.x }}
-            animate={{
-              opacity: 1,
-              x: currentNavItem.x,
-              width: currentNavItem.w,
-            }}
-            transition={{
-              type: "spring",
-              stiffness: 350,
-              damping: 30,
-            }}
-          />
-        )} */}
-
         {Object.entries(NAV_ITEMS)
           .filter(([_, { isPrimary }]) => isPrimary)
           .map(([path, { title, externalPath }]) => {
@@ -49,8 +31,8 @@ const TopNavbar: React.FC<TopNavbarProps> = ({ pathname }) => {
                   "rounded-sm text-sm font-semibold uppercase leading-none tracking-wide text-current",
                   "transition-[color,opacity,background-color]",
                   isActive
-                    ? "bg-ghost/80 opacity-100"
-                    : "opacity-50 hover:bg-ghost/40 hover:opacity-80"
+                    ? "bg-content/10 opacity-100"
+                    : "opacity-50 hover:bg-content/20 hover:opacity-100"
                 )}
                 target={externalPath ? "_blank" : undefined}
                 rel={externalPath ? "noreferrer noopener" : undefined}

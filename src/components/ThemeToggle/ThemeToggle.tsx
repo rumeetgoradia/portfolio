@@ -25,7 +25,7 @@ const ThemeToggle: React.FC = ({}) => {
         }}
         className={clsx(
           "flex h-8 w-8 items-center justify-center rounded-sm",
-          "bg-ghost hover:bg-ghost-hover"
+          "bg-content/10 hover:bg-content/20"
         )}
         aria-label="Toggle theme"
         title="Toggle theme"

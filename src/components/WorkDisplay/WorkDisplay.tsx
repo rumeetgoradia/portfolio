@@ -18,7 +18,7 @@ const WorkDisplay: React.FC<WorkDisplayProps> = ({
   return (
     <Link href={`/work/${slug.current}`}>
       <div
-        className="group flex h-full flex-col overflow-hidden rounded-sm border-[1px] border-ghost hover:border-content"
+        className="group flex h-full flex-col overflow-hidden rounded-sm border-[1px] border-content/10 hover:border-content"
         title={title}
       >
         <div className="relative h-[200px] flex-shrink-0 flex-grow-0 md:h-[120px]">
@@ -44,7 +44,7 @@ const WorkDisplay: React.FC<WorkDisplayProps> = ({
                     rel="noreferrer noopener"
                     target="_blank"
                     title={`${title} – ${label}`}
-                    className="w-full rounded-sm border-[1px] border-ghost px-4 py-2 text-center text-sm font-light uppercase leading-none tracking-widest no-underline 
+                    className="w-full rounded-sm border-[1px] border-content/10 px-4 py-2 text-center text-sm font-light uppercase leading-none tracking-widest no-underline 
                               hover:border-content hover:bg-content hover:text-background group-hover:border-content"
                   >
                     {label}

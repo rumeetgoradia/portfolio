@@ -22,7 +22,7 @@ const SideNavbar: React.FC<SideNavbarProps> = ({ pathname }) => {
       <nav className="relative flex flex-grow flex-col items-start gap-2">
         {currentNavItem && (
           <motion.div
-            className="absolute -left-[3px] -top-[2px] z-[-1] h-[30px] rounded-sm bg-ghost/60 backdrop-blur-sm "
+            className="absolute -left-[3px] -top-[2px] z-[-1] h-[30px] rounded-sm bg-content/10 backdrop-blur-sm "
             layoutId="sidebar-move"
             initial={{ opacity: 0, y: currentNavItem.y }}
             animate={{

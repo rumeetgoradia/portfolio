@@ -38,7 +38,7 @@ const CurrentlyDisplay: React.FC<CurrentlyDisplayProps> = ({
   return (
     <div className="flex w-full flex-col">
       <h4 className="font-bold uppercase leading-none">{category}</h4>
-      <hr className="mt-1 -mb-1 w-[25px] border-[1px] border-content" />
+      <hr className="mt-1 -mb-1 w-[25px] border-[1px] border-content transition-[border-color]" />
       {render()}
     </div>
   );
