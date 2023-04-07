@@ -1,3 +1,4 @@
+import { getJoinedArtists, getSpotifyUrl } from "@/utils/spotify";
 import { trpc } from "@/utils/trpc";
 import clsx from "clsx";
 import Link from "next/link";
@@ -45,7 +46,7 @@ const NowPlaying: React.FC = ({}) => {
         {data && isPlaying ? (
           <>
             <Link
-              href={data.item?.external_urls.spotify || "https://spotify.com"}
+              href={getSpotifyUrl(data.item)}
               target={"_blank"}
               rel={"noreferrer noopener"}
               className="hover:text-primary"
@@ -55,7 +56,7 @@ const NowPlaying: React.FC = ({}) => {
               <div className="font-medium leading-none">{data.item.name}</div>
             </Link>
             <div className="mt-1 text-sm font-light leading-none">
-              {data.item.artists.map((a) => a.name).join(", ")}
+              {getJoinedArtists(data.item)}
             </div>
           </>
         ) : (

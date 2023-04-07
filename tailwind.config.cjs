@@ -88,7 +88,7 @@ module.exports = {
     },
     animation: {
       bounce: "bounce 2s ease infinite alternate",
-      pulse: "pulse 1s ease infinite alternate",
+      pulse: "pulse 1.25s ease infinite alternate",
     },
   },
   future: {

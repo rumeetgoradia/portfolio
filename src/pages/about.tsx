@@ -1,4 +1,5 @@
 import { CurrentlyDisplay } from "@/components/About";
+import { TopTracks } from "@/components/About/TopTracks";
 import { PageLayout } from "@/components/PageLayout";
 import { createContextInner } from "@/server/trpc/context";
 import { appRouter } from "@/server/trpc/router/_app";
@@ -15,6 +16,7 @@ export const getStaticProps = async () => {
 
   await ssg.notion.currentlyReading.fetch();
   await ssg.notion.currentlyWatching.fetch();
+  await ssg.spotify.topTracks.fetch();
 
   // console.log('state', ssg.dehydrate());
   return {
@@ -31,6 +33,10 @@ const About: NextPage = () => {
     refetchOnWindowFocus: false,
   });
   const currentlyWatching = trpc.notion.currentlyWatching.useQuery(undefined, {
+    refetchOnMount: false,
+    refetchOnWindowFocus: false,
+  });
+  const topTracks = trpc.spotify.topTracks.useQuery(undefined, {
     refetchOnMount: false,
     refetchOnWindowFocus: false,
   });
@@ -68,6 +74,7 @@ const About: NextPage = () => {
           feel free to{" "}
           <Link
             href="/contact"
+            title="Contact"
             className="font-semibold text-primary hover:text-primary/80"
           >
             reach out
@@ -81,6 +88,13 @@ const About: NextPage = () => {
           <CurrentlyDisplay {...currentlyReading} category="Reading" />
           <CurrentlyDisplay {...currentlyWatching} category="Watching" />
         </div>
+      </div>
+      <div className="w-full">
+        <h2 className="subheader">Top Tracks</h2>
+        <p className="mb-0">
+          The songs I listen to the most, updated daily via Spotify.
+        </p>
+        <TopTracks {...topTracks} />
       </div>
     </PageLayout>
   );
