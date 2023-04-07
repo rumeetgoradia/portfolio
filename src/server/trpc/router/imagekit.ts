@@ -1,13 +1,12 @@
 import type { CarouselImage } from "@/components/Home";
-import imagekit, { type ImageKitResponse } from "@/lib/imagekit";
+import { type ImageKitResponse } from "@/lib/imagekit";
 import { getPlaiceholder } from "plaiceholder";
-
 import { publicProcedure, router } from "../trpc";
 
 export const imagekitRouter = router({
-  carousel: publicProcedure.query(async () => {
+  carousel: publicProcedure.query(async ({ ctx: { imagekitClient } }) => {
     const carouselImages: CarouselImage[] = [];
-    await imagekit
+    await imagekitClient
       .listFiles({
         path: "carousel",
       })

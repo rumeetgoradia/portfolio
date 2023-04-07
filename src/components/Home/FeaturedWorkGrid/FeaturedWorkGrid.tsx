@@ -17,8 +17,8 @@ const FeaturedWorkGrid: React.FC<FeaturedWorkGridProps> = ({
   }
 
   return (
-    <div className="flex w-full flex-col gap-4">
-      <h2 className="text-3xl font-semibold">Featured Work</h2>
+    <div className="flex w-full flex-col">
+      <h2 className="subheader">Featured Work</h2>
       <div className="grid w-full grid-cols-1 items-stretch gap-4 md:grid-cols-3">
         {isLoading || !featuredWork ? (
           <FeaturedWorkGridSkeleton />
@@ -41,7 +41,7 @@ const FeaturedWorkGrid: React.FC<FeaturedWorkGridProps> = ({
       </div>
       <Link
         href="/work"
-        className="mr-auto flex items-center gap-[10px] transition-[gap] hover:gap-[15px] hover:text-primary"
+        className="mr-auto mt-4 flex items-center gap-[10px] transition-[gap] hover:gap-[15px] hover:text-primary"
       >
         <span>View all work</span>
         <span>
@@ -63,7 +63,7 @@ const FeaturedWorkGridSkeleton: React.FC = () => {
 
   return (
     <>
-      {Object.keys(classes).map((val, idx) => {
+      {Object.keys(classes).map((val) => {
         const thisClasses = classes[parseInt(val)];
 
         return (

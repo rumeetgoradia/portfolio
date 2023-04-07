@@ -1,3 +1,5 @@
+import imagekitClient from "@/lib/imagekit";
+import notionClient from "@/lib/notion";
 import { sanityClient } from "@/lib/sanity/sanity.client";
 import { type inferAsyncReturnType } from "@trpc/server";
 import { type CreateNextContextOptions } from "@trpc/server/adapters/next";
@@ -15,6 +17,8 @@ type CreateContextOptions = Record<string, never>;
 export const createContextInner = async (opts: CreateContextOptions) => {
   return {
     sanityClient,
+    notionClient,
+    imagekitClient,
   };
 };
 

@@ -39,7 +39,7 @@ const NowPlaying: React.FC = ({}) => {
         {data && isPlaying ? (
           <>
             <Link
-              href={data.item.external_urls.spotify}
+              href={data.item?.external_urls.spotify || "https://spotify.com"}
               target={"_blank"}
               rel={"noreferrer noopener"}
               className="hover:text-primary"

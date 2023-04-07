@@ -20,21 +20,25 @@ export const getStaticProps = async () => {
     props: {
       trpcState: ssg.dehydrate(),
     },
-    revalidate: 60 * 60 * 24 * 14, // every 2 weeks
+    revalidate: 60 * 60 * 24, // every 1 day
   };
 };
 
 const HomePage: NextPage = () => {
-  const carouselImages = trpc.imageKit.carousel.useQuery();
-  const featuredWork = trpc.work.featured.useQuery();
+  const carouselImages = trpc.imageKit.carousel.useQuery(undefined, {
+    refetchOnMount: false,
+    refetchOnWindowFocus: false,
+  });
+  const featuredWork = trpc.work.featured.useQuery(undefined, {
+    refetchOnMount: false,
+    refetchOnWindowFocus: false,
+  });
 
   return (
     <PageLayout>
-      <div className="flex w-full flex-col items-start justify-start gap-12">
-        <TitleLanding />
-        <Carousel {...carouselImages} />
-        <FeaturedWorkGrid {...featuredWork} />
-      </div>
+      <TitleLanding />
+      <Carousel {...carouselImages} />
+      <FeaturedWorkGrid {...featuredWork} />
     </PageLayout>
   );
 };

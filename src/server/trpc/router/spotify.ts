@@ -1,5 +1,5 @@
 import { getAccessToken } from "@/lib/spotify";
-import { NowPlayingTrack } from "@/types/spotify";
+import { type NowPlayingTrack } from "@/types/spotify";
 import { publicProcedure, router } from "../trpc";
 
 export const spotifyRouter = router({

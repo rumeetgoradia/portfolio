@@ -46,10 +46,10 @@ const ParticlesBackground = () => {
           links: {
             distance: 150,
             enable: true,
-            color: "rgb(0, 86, 66)",
+            color: "rgb(0, 98, 75)",
           },
           color: {
-            value: "rgb(0, 86, 66)",
+            value: "rgb(0, 98, 75)",
           },
           move: {
             enable: true,

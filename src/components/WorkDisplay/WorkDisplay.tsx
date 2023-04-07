@@ -1,5 +1,5 @@
 import sanityUrlFor from "@/lib/sanity/sanity.util";
-import { Work } from "@/types/sanity";
+import { type Work } from "@/types/sanity";
 import Image from "next/image";
 import Link from "next/link";
 

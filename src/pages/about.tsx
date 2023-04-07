@@ -1,49 +1,86 @@
+import { CurrentlyDisplay } from "@/components/About";
 import { PageLayout } from "@/components/PageLayout";
+import { createContextInner } from "@/server/trpc/context";
+import { appRouter } from "@/server/trpc/router/_app";
+import { trpc } from "@/utils/trpc";
+import { createProxySSGHelpers } from "@trpc/react-query/ssg";
 import { type NextPage } from "next";
+import Link from "next/link";
+
+export const getStaticProps = async () => {
+  const ssg = createProxySSGHelpers({
+    router: appRouter,
+    ctx: await createContextInner({}),
+  });
+
+  await ssg.notion.currentlyReading.fetch();
+  await ssg.notion.currentlyWatching.fetch();
+
+  // console.log('state', ssg.dehydrate());
+  return {
+    props: {
+      trpcState: ssg.dehydrate(),
+    },
+    revalidate: 60, // every 1 minute
+  };
+};
 
 const About: NextPage = () => {
+  const currentlyReading = trpc.notion.currentlyReading.useQuery(undefined, {
+    refetchOnMount: false,
+    refetchOnWindowFocus: false,
+  });
+  const currentlyWatching = trpc.notion.currentlyWatching.useQuery(undefined, {
+    refetchOnMount: false,
+    refetchOnWindowFocus: false,
+  });
+
   return (
     <PageLayout title="About">
-      <div>ABOUT ABOUT</div>
-      <div className="h-[20000px] w-full">
-        Consequat aute veniam Lorem ex aute exercitation laboris aliquip ea
-        culpa qui nostrud. Qui exercitation nulla est occaecat aliqua nostrud
-        qui labore commodo excepteur excepteur in. Eiusmod laboris in ex ullamco
-        ullamco velit cupidatat aliqua labore. Elit occaecat amet duis sint aute
-        mollit. Velit qui qui sunt in non Lorem reprehenderit Lorem.Amet Lorem
-        sunt duis quis laborum adipisicing dolore amet. Nulla sint eiusmod
-        excepteur ut mollit. Aliquip quis mollit culpa enim do eu exercitation
-        consectetur.Dolor voluptate eu tempor laborum officia aute veniam nulla
-        nostrud excepteur. Deserunt culpa incididunt sit aute laboris. Consequat
-        reprehenderit voluptate reprehenderit deserunt. Nulla deserunt commodo
-        voluptate nisi ad fugiat mollit. Consequat velit aute nulla laboris
-        Lorem velit ut veniam ipsum.Consequat adipisicing labore adipisicing ex
-        minim consectetur sit elit. Ipsum laborum cupidatat enim magna quis ut
-        est id nulla aliquip dolor exercitation reprehenderit et. Pariatur
-        pariatur ullamco dolore consectetur ea exercitation.Eu nostrud ullamco
-        in reprehenderit ipsum excepteur ea consequat irure est. Excepteur nisi
-        dolore consectetur esse dolor minim voluptate veniam laboris. Proident
-        esse officia aute sunt aute veniam laboris irure. Aute ipsum est sint
-        dolore. Ea elit commodo aliquip dolore excepteur sint exercitation ex
-        est elit quis dolor enim ad. Velit culpa mollit dolor elit ad eiusmod
-        ullamco elit proident amet. Lorem ea ut anim velit ullamco irure tempor
-        Lorem adipisicing eiusmod aliquip.Magna laboris incididunt aute culpa
-        ullamco dolor sint aute ad. Labore id dolore cillum consectetur
-        incididunt mollit aute amet reprehenderit nisi qui dolore culpa. Ex enim
-        ut aute sunt nulla cillum sunt ipsum eu. Aliquip aute nulla aliquip
-        mollit minim anim exercitation ullamco voluptate adipisicing ut.
-        Occaecat consequat veniam excepteur aliqua incididunt eiusmod ullamco
-        minim. Nostrud labore non sit est.Fugiat fugiat excepteur officia
-        consequat tempor dolore. Consequat ad duis tempor laboris aliqua nisi do
-        duis laborum proident id. Sunt anim voluptate enim quis anim magna elit
-        officia incididunt dolor. Laboris do pariatur nostrud ea non ut aute
-        occaecat laborum ad.Ut et ipsum aute nostrud adipisicing pariatur
-        proident magna duis occaecat non occaecat ex. Aute cillum commodo cillum
-        deserunt minim amet mollit sint enim minim et magna quis aliquip.
-        Laboris esse adipisicing reprehenderit culpa laborum do deserunt eiusmod
-        in do. Ad sunt ea quis elit consectetur deserunt fugiat in commodo minim
-        ea. Cupidatat qui sunt irure proident duis. Id consectetur esse
-        reprehenderit sunt non culpa sit sit.
+      <div className="align-start flex w-full flex-col justify-start gap-4">
+        <p>
+          Hey! I&apos;m Rumeet Goradia. I&apos;m currently a Software Engineer
+          at Schonfeld Strategic Advisors in New York City. I mostly work on
+          back-end microservices that serve as the backbone for much of the
+          firm&apos;s operations, using Java, PostgreSQL, Kafka, and many other
+          tools. On the other hand, most of my personal projects deal with
+          front-end technologies, most often Next.js.
+        </p>
+        <p>
+          Back in 2021, I graduated from the Rutgers University Honors College
+          in New Brunswick, New Jersey. I double majored in Computer Science and
+          Business Analytics & Information Technology. I served as the founding
+          Director of Recruitment for the Road to Silicon V/Alley Program and
+          was also involved in various other organizations on campus, including
+          Alpha Kappa Psi, TEDxRutgers, and Road to Wall Street.
+        </p>
+        <p>
+          I enjoy playing competitive games like League of Legends or Call of
+          Duty with my friends, but I&apos;m also currently working on building
+          my own gaming PC to explore more open-world RPGs. I also got back into
+          reading over the pandemic and have been really enjoying modern novels
+          and biographies. If I&apos;m not reading or playing video games, you
+          can usually find me taking a walk, hanging out with my friends, or
+          practicing piano.
+        </p>
+        <p>
+          I love to collaborate with others and just meet new people. Please
+          feel free to{" "}
+          <Link
+            href="/contact"
+            className="font-semibold text-primary hover:text-primary/80"
+          >
+            reach out
+          </Link>{" "}
+          if you&apos;d like to get in touch!
+        </p>
+      </div>
+      <div className="w-full">
+        <h2 className="subheader">Currently...</h2>
+        <div className="grid w-full grid-cols-1 gap-6 sm:grid-cols-2 ">
+          <CurrentlyDisplay {...currentlyReading} category="Reading" />
+          <CurrentlyDisplay {...currentlyWatching} category="Watching" />
+        </div>
       </div>
     </PageLayout>
   );

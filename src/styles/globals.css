@@ -47,7 +47,7 @@
     }
 
     html {
-        --primary: var(--brand-500);
+        --primary: var(--brand-300);
         --background: var(--gray-50);
         --content: var(--gray-900);
         --ghost: var(--gray-100);
@@ -76,8 +76,9 @@
     }
 
     .subheader {
-        @apply text-xl md:text-2xl;
+        @apply text-3xl;
         @apply font-semibold;
+        @apply mb-4;
     }
 }
 
