@@ -92,7 +92,8 @@ const About: NextPage = () => {
       <div className="w-full">
         <h2 className="subheader">Top Tracks</h2>
         <p className="mb-0">
-          The songs I listen to the most, updated daily via Spotify.
+          The songs I&apos;ve listened to the most over the last few weeks,
+          updated daily via Spotify.
         </p>
         <TopTracks {...topTracks} />
       </div>

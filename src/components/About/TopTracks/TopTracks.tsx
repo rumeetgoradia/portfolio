@@ -72,11 +72,11 @@ const TopTracksSkeleton: React.FC = () => {
             </div>
             <div>
               <div
-                className="mb-1 h-[22px] animate-pulse rounded-sm bg-gray-100/80 backdrop-blur-sm "
+                className="mb-1 h-[20px] animate-pulse rounded-sm bg-gray-100/80 backdrop-blur-sm "
                 style={{ width: Math.random() * 300 + 50 }}
               />
               <div
-                className="h-[20px] animate-pulse rounded-sm bg-gray-100/60 backdrop-blur-sm animation-delay--2000"
+                className="h-[18px] animate-pulse rounded-sm bg-gray-100/60 backdrop-blur-sm animation-delay--2000"
                 style={{ width: Math.random() * 100 + 40 }}
               />
             </div>

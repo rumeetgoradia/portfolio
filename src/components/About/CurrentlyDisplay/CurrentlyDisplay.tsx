@@ -48,11 +48,11 @@ const CurrentlyDisplaySkeleton: React.FC = () => {
   return (
     <div className="w-full pt-3">
       <div
-        className="mb-1 h-[24px] animate-pulse rounded-sm bg-gray-100/80 backdrop-blur-sm"
+        className="mb-1 h-[22px] animate-pulse rounded-sm bg-gray-100/80 backdrop-blur-sm"
         style={{ width: Math.random() * 150 + 100 }}
       />
       <div
-        className="h-[20px] animate-pulse rounded-sm bg-gray-100/60 backdrop-blur-sm animation-delay--2000"
+        className="h-[18px] animate-pulse rounded-sm bg-gray-100/60 backdrop-blur-sm animation-delay--2000"
         style={{ width: Math.random() * 60 + 50 }}
       />
       <div
