@@ -27,7 +27,7 @@ export const getStaticProps = async () => {
   };
 };
 
-const About: NextPage = () => {
+const AboutPage: NextPage = () => {
   const currentlyReading = trpc.notion.currentlyReading.useQuery(undefined, {
     refetchOnMount: false,
     refetchOnWindowFocus: false,
@@ -101,4 +101,4 @@ const About: NextPage = () => {
   );
 };
 
-export default About;
+export default AboutPage;

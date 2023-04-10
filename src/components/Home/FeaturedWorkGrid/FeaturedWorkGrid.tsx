@@ -1,4 +1,4 @@
-import { WorkDisplay } from "@/components/WorkDisplay";
+import { FeaturedWorkDisplay } from "@/components/WorkDisplay";
 import { type Work } from "@/types/sanity";
 import { type TRPCResponse } from "@/types/trpc";
 import clsx from "clsx";
@@ -29,11 +29,7 @@ const FeaturedWorkGrid: React.FC<FeaturedWorkGridProps> = ({
                 className="h-full transition-transform hover:scale-[1.025]"
                 key={`${fw.slug.current}-featured-work`}
               >
-                <WorkDisplay
-                  {...fw}
-                  description={undefined}
-                  categories={undefined}
-                />
+                <FeaturedWorkDisplay {...fw} />
               </div>
             ))}
           </>

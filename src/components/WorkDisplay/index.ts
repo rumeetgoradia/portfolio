@@ -1,1 +1,2 @@
-export { default as WorkDisplay } from './WorkDisplay'
+export { FeaturedWorkDisplay } from "./FeaturedWorkDisplay";
+export { GeneralWorkDisplay } from "./GeneralWorkDisplay";

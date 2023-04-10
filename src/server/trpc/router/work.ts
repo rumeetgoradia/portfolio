@@ -23,7 +23,7 @@ export const workRouter = router({
         [   _type=="work" 
         ] {   ...,
             categories[] ->
-        } | order(_updatedAt desc)[0...3]
+        } | order(publishedAt desc)
     `;
 
     const allWork = await ctx.sanityClient.fetch(query);
