@@ -27,7 +27,7 @@ const ParticlesBackground = () => {
       loaded={particlesLoaded}
       height="100vh"
       width="100vw"
-      className="opacity-50"
+      className="opacity-50 xl:hidden"
       options={{
         background: {
           color: {
