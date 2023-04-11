@@ -66,7 +66,7 @@ module.exports = {
     keyframes: {
       pulse: {
         //   "0%, 100%": { opacity: 0.8, background: "var(--bg-gray-100)" },
-        "50%": { opacity: 0.8 },
+        "50%": { opacity: 0.7 },
       },
       bounce: {
         "10%": {
