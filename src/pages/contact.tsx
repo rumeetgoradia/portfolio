@@ -71,11 +71,11 @@ const ContactPage: NextPage = () => {
     <PageLayout title="Contact">
       <form
         noValidate
-        className="grid w-full grid-cols-1 gap-6 sm:grid-cols-2"
+        className="grid w-full  grid-cols-2 gap-6"
         onSubmit={handleSubmit(onSubmit)}
       >
         <input type="hidden" {...register("url")} />
-        <div className="w-full">
+        <div className="col-span-2 w-full sm:col-span-1">
           <label className={getLabelClassName("name")} htmlFor="name">
             Name
           </label>
@@ -87,7 +87,7 @@ const ContactPage: NextPage = () => {
           />
           {getError("name")}
         </div>
-        <div className="w-full">
+        <div className="col-span-2 w-full sm:col-span-1">
           <label className={getLabelClassName("email")} htmlFor="email">
             Email
           </label>
