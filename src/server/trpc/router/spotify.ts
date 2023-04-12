@@ -18,7 +18,7 @@ export const spotifyRouter = router({
       const data: NowPlayingTrack = await response.json();
       return data;
     } catch (e) {
-      return undefined;
+      return null;
     }
   }),
   topTracks: publicProcedure.query(async () => {

@@ -2,7 +2,7 @@ import { type Work } from "@/types/sanity.d";
 import { groq } from "next-sanity";
 import { publicProcedure, router } from "../trpc";
 
-export const workRouter = router({
+export const sanityRouter = router({
   featured: publicProcedure.query(async ({ ctx }) => {
     // Up to 3 featured works, in descending order of updated time
     const query = groq`

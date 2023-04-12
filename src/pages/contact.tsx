@@ -1,52 +1,186 @@
 import { PageLayout } from "@/components/PageLayout";
+import {
+  contactFormInputValidator,
+  type ContactFormData,
+} from "@/types/contact";
+import { trpc } from "@/utils/trpc";
+import { zodResolver } from "@hookform/resolvers/zod";
+import clsx from "clsx";
 import { type NextPage } from "next";
+import { useState } from "react";
+import { useForm } from "react-hook-form";
+import { BsCheck2 } from "react-icons/bs";
+import { VscError } from "react-icons/vsc";
 
-const About: NextPage = () => {
+const ContactPage: NextPage = () => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isSubmitting },
+    reset,
+  } = useForm<ContactFormData>({
+    resolver: zodResolver(contactFormInputValidator),
+  });
+
+  const [messageSentSuccessfully, setMessageSentSuccessfully] =
+    useState<boolean>();
+
+  const sendContactFormData = trpc.contact.sendContactFormData.useMutation();
+
+  const onSubmit = async (data: ContactFormData) => {
+    sendContactFormData.mutate(data, {
+      onSuccess: () => {
+        reset();
+        setMessageSentSuccessfully(true);
+        resetMessageSentSuccessfully();
+      },
+      onError: () => {
+        setMessageSentSuccessfully(false);
+        resetMessageSentSuccessfully();
+      },
+    });
+  };
+
+  const resetMessageSentSuccessfully = () => {
+    setTimeout(() => setMessageSentSuccessfully(undefined), 8000);
+  };
+
+  const getLabelClassName = (field: keyof ContactFormData) => {
+    return clsx(
+      "mb-2 block text-lg font-semibold",
+      errors[field] && "text-error"
+    );
+  };
+
+  const getInputClassName = (field: keyof ContactFormData) => {
+    return clsx(
+      "w-full rounded-sm border-[1px] border-content bg-background py-2 px-3 text-content focus:outline-content transition-[background-color, border-color]",
+      errors[field] && "border-error focus:border-content"
+    );
+  };
+
+  const getError = (field: keyof ContactFormData) => {
+    if (errors[field]) {
+      return <p className="mt-1.5 text-error">{errors[field]?.message}</p>;
+    }
+
+    return null;
+  };
+
   return (
-    <PageLayout title="About">
-      <div>ABOUT ABOUT</div>
-      <div className="h-[1000px] w-full">
-        Consequat aute veniam Lorem ex aute exercitation laboris aliquip ea
-        culpa qui nostrud. Qui exercitation nulla est occaecat aliqua nostrud
-        qui labore commodo excepteur excepteur in. Eiusmod laboris in ex ullamco
-        ullamco velit cupidatat aliqua labore. Elit occaecat amet duis sint aute
-        mollit. Velit qui qui sunt in non Lorem reprehenderit Lorem.Amet Lorem
-        sunt duis quis laborum adipisicing dolore amet. Nulla sint eiusmod
-        excepteur ut mollit. Aliquip quis mollit culpa enim do eu exercitation
-        consectetur.Dolor voluptate eu tempor laborum officia aute veniam nulla
-        nostrud excepteur. Deserunt culpa incididunt sit aute laboris. Consequat
-        reprehenderit voluptate reprehenderit deserunt. Nulla deserunt commodo
-        voluptate nisi ad fugiat mollit. Consequat velit aute nulla laboris
-        Lorem velit ut veniam ipsum.Consequat adipisicing labore adipisicing ex
-        minim consectetur sit elit. Ipsum laborum cupidatat enim magna quis ut
-        est id nulla aliquip dolor exercitation reprehenderit et. Pariatur
-        pariatur ullamco dolore consectetur ea exercitation.Eu nostrud ullamco
-        in reprehenderit ipsum excepteur ea consequat irure est. Excepteur nisi
-        dolore consectetur esse dolor minim voluptate veniam laboris. Proident
-        esse officia aute sunt aute veniam laboris irure. Aute ipsum est sint
-        dolore. Ea elit commodo aliquip dolore excepteur sint exercitation ex
-        est elit quis dolor enim ad. Velit culpa mollit dolor elit ad eiusmod
-        ullamco elit proident amet. Lorem ea ut anim velit ullamco irure tempor
-        Lorem adipisicing eiusmod aliquip.Magna laboris incididunt aute culpa
-        ullamco dolor sint aute ad. Labore id dolore cillum consectetur
-        incididunt mollit aute amet reprehenderit nisi qui dolore culpa. Ex enim
-        ut aute sunt nulla cillum sunt ipsum eu. Aliquip aute nulla aliquip
-        mollit minim anim exercitation ullamco voluptate adipisicing ut.
-        Occaecat consequat veniam excepteur aliqua incididunt eiusmod ullamco
-        minim. Nostrud labore non sit est.Fugiat fugiat excepteur officia
-        consequat tempor dolore. Consequat ad duis tempor laboris aliqua nisi do
-        duis laborum proident id. Sunt anim voluptate enim quis anim magna elit
-        officia incididunt dolor. Laboris do pariatur nostrud ea non ut aute
-        occaecat laborum ad.Ut et ipsum aute nostrud adipisicing pariatur
-        proident magna duis occaecat non occaecat ex. Aute cillum commodo cillum
-        deserunt minim amet mollit sint enim minim et magna quis aliquip.
-        Laboris esse adipisicing reprehenderit culpa laborum do deserunt eiusmod
-        in do. Ad sunt ea quis elit consectetur deserunt fugiat in commodo minim
-        ea. Cupidatat qui sunt irure proident duis. Id consectetur esse
-        reprehenderit sunt non culpa sit sit.
-      </div>
+    <PageLayout title="Contact">
+      <form
+        noValidate
+        className="grid w-full grid-cols-1 gap-6 sm:grid-cols-2"
+        onSubmit={handleSubmit(onSubmit)}
+      >
+        <input type="hidden" {...register("url")} />
+        <div className="w-full">
+          <label className={getLabelClassName("name")} htmlFor="name">
+            Name
+          </label>
+          <input
+            id="name"
+            className={getInputClassName("name")}
+            type="text"
+            {...register("name", { required: "Please enter your name." })}
+          />
+          {getError("name")}
+        </div>
+        <div className="w-full">
+          <label className={getLabelClassName("email")} htmlFor="email">
+            Email
+          </label>
+          <input
+            id="email"
+            className={getInputClassName("email")}
+            type="email"
+            {...register("email", {
+              required: "Please enter your email address.",
+            })}
+          />
+          {getError("email")}
+        </div>
+        <div className="col-span-2 w-full">
+          <label className={getLabelClassName("subject")} htmlFor="subject">
+            Subject
+          </label>
+          <input
+            id="subject"
+            className={getInputClassName("subject")}
+            type="text"
+            {...register("subject", {
+              required: "Please enter the subject of your message.",
+            })}
+          />
+          {getError("subject")}
+        </div>
+        <div className="col-span-2 w-full">
+          <label className={getLabelClassName("message")} htmlFor="message">
+            Message
+          </label>
+          <textarea
+            id="message"
+            className={getInputClassName("message")}
+            rows={10}
+            {...register("message", { required: "Please enter your message." })}
+          />
+          {getError("message")}
+        </div>
+        <div className="col-span-2 w-full">
+          <button
+            type="submit"
+            className="text-md w-full rounded-sm border-[1px] border-content bg-background p-2 uppercase tracking-widest text-content transition-[backgound-color,transform] hover:bg-content hover:text-background focus:outline-none active:scale-95
+            disabled:border-content/10 disabled:bg-content/10 disabled:text-content/90 disabled:hover:bg-content/10 disabled:hover:text-content/90 disabled:active:scale-100"
+            disabled={
+              sendContactFormData.isLoading ||
+              isSubmitting ||
+              messageSentSuccessfully !== undefined
+            }
+          >
+            {sendContactFormData.isLoading || isSubmitting
+              ? "Sending message..."
+              : messageSentSuccessfully === true
+              ? "Message sent"
+              : messageSentSuccessfully === false
+              ? "Message sending failed"
+              : "Send message"}
+          </button>
+        </div>
+
+        <div className="col-span-2 w-full">
+          <div
+            className={clsx(
+              "w-full rounded-sm py-2 px-4 text-lg font-medium text-gray-50 transition-opacity",
+              messageSentSuccessfully ? "bg-primary" : "bg-error",
+              messageSentSuccessfully === undefined
+                ? "opacity-0"
+                : "opacity-100"
+            )}
+          >
+            <div className="flex items-center gap-2">
+              {messageSentSuccessfully ? (
+                <>
+                  <BsCheck2 className="text-2xl" />
+                  <span>
+                    Thanks for your message! I&apos;ll get back to you shortly.
+                  </span>
+                </>
+              ) : (
+                <>
+                  <VscError className="text-2xl " />
+                  <span>
+                    Sorry, looks like something went wrong. Please try again
+                    later!
+                  </span>
+                </>
+              )}
+            </div>
+          </div>
+        </div>
+      </form>
     </PageLayout>
   );
 };
 
-export default About;
+export default ContactPage;

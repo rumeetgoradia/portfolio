@@ -29,6 +29,11 @@ export const serverSchema = z.object({
   NOTION_KEY: z.string(),
   NOTION_READING_DB_ID: z.string(),
   NOTION_WATCHING_DB_ID: z.string(),
+
+  // Nodemailer
+  CONTACT_AGENT_EMAIL: z.string().email(),
+  CONTACT_AGENT_PASSWORD: z.string(),
+  CONTACT_EMAIL: z.string().email(),
 });
 
 /**
