@@ -5,10 +5,8 @@
  */
 !process.env.SKIP_ENV_VALIDATION && (await import("./src/env/server.mjs"));
 
-import { withPlaiceholder } from "@plaiceholder/next";
-
 /** @type {import("next").NextConfig} */
-const config = withPlaiceholder({
+const config = {
   reactStrictMode: true,
   swcMinify: true,
   images: {
@@ -18,5 +16,14 @@ const config = withPlaiceholder({
     locales: ["en"],
     defaultLocale: "en",
   },
-});
+  redirects: async () => {
+    return [
+      {
+        source: "/resume",
+        destination: "/Rumeet%20Goradia%20Resume.pdf",
+        permanent: false,
+      },
+    ];
+  },
+};
 export default config;
