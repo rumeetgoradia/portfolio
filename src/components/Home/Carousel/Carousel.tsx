@@ -12,7 +12,6 @@ export type CarouselImage = {
   src: string;
   width: number;
   height: number;
-  blurDataUrl: string;
 };
 
 type CarouselProps = TRPCResponse<CarouselImage[]>;
@@ -124,7 +123,7 @@ const InnerCarousel: React.FC<CarouselProps & InnerCarouselProps> = ({
           </button>
           <div className="h-full w-full cursor-grab overflow-hidden rounded-sm active:cursor-grabbing">
             <Slider ref={sliderRef} {...settings}>
-              {images.map(({ src, width, height, blurDataUrl }, index) => {
+              {images.map(({ src, width, height }, index) => {
                 const w = (width * heightPx) / height;
 
                 return (
@@ -137,8 +136,7 @@ const InnerCarousel: React.FC<CarouselProps & InnerCarouselProps> = ({
                       alt={`Carousel Image ${index + 1}`}
                       width={w}
                       height={heightPx}
-                      placeholder="blur"
-                      blurDataURL={blurDataUrl}
+                      placeholder="empty"
                     />
                   </div>
                 );

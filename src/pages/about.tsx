@@ -4,12 +4,12 @@ import { PageLayout } from "@/components/PageLayout";
 import { createContextInner } from "@/server/trpc/context";
 import { appRouter } from "@/server/trpc/router/_app";
 import { trpc } from "@/utils/trpc";
-import { createProxySSGHelpers } from "@trpc/react-query/ssg";
-import { type NextPage } from "next";
+import { createServerSideHelpers } from "@trpc/react-query/server";
+import { type GetStaticProps, type NextPage } from "next";
 import Link from "next/link";
 
-export const getStaticProps = async () => {
-  const ssg = createProxySSGHelpers({
+export const getStaticProps: GetStaticProps = async () => {
+  const ssg = createServerSideHelpers({
     router: appRouter,
     ctx: await createContextInner({}),
   });

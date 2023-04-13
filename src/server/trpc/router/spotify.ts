@@ -25,15 +25,11 @@ export const spotifyRouter = router({
     const endpoint = `https://api.spotify.com/v1/me/top/tracks?limit=${TOP_TRACKS_LIMIT}&time_range=short_term`;
     const { access_token } = await getAccessToken();
 
-    const body = new URLSearchParams();
-    body.append("limit", TOP_TRACKS_LIMIT.toString());
-    body.append("time_range", "short_term");
     try {
       const response = await fetch(endpoint, {
         headers: {
           Authorization: `Bearer ${access_token}`,
         },
-        // body,
       });
 
       const data: { items: Track[] } = await response.json();
