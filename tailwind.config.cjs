@@ -85,10 +85,16 @@ module.exports = {
           transform: "scaleY(0.6)" /* scale down to 60% */,
         },
       },
+      enter: {
+        "0%": { opacity: 0, transform: "translateY(-10px)" },
+        "100%": { opacity: 1, transform: "translateY(0)" },
+      },
     },
     animation: {
       bounce: "bounce 2s ease infinite alternate",
       pulse: "pulse 1.25s ease infinite alternate",
+      enter: "enter 230ms cubic-bezier(.21,1.02,.73,1)",
+      exit: "enter 230ms cubic-bezier(.21,1.02,.73,1) reverse",
     },
   },
   future: {
