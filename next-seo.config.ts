@@ -9,16 +9,15 @@ const {
 
 const SeoProps: NextSeoProps = {
   defaultTitle: siteName,
-  titleTemplate: `%s — ${siteName || ""}`,
+  titleTemplate: `%s — ${siteName}`,
   description: siteDescription,
-  canonical: siteUrl,
   openGraph: {
     title: siteName,
     description: siteDescription,
     type: "website",
     locale: "en_IE",
     url: siteUrl,
-    site_name: siteName,
+    siteName,
     images: [
       {
         url: `/images/seo/card.png`,

@@ -15,7 +15,6 @@ export const getStaticProps: GetStaticProps = async () => {
   await ssg.imageKit.carousel.fetch();
   await ssg.work.featured.fetch();
 
-  // console.log('state', ssg.dehydrate());
   return {
     props: {
       trpcState: ssg.dehydrate(),

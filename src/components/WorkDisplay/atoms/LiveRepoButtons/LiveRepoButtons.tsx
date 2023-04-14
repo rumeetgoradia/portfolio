@@ -9,7 +9,7 @@ const LiveRepoButtons: React.FC<LiveRepoButtonsProps> = ({
   repoUrl,
 }) => {
   return (
-    <div className="flex w-full flex-row gap-2 ">
+    <div className="flex w-full flex-row gap-2">
       {[liveUrl, repoUrl].map((url, index) => {
         if (!url) return null;
 

@@ -27,9 +27,7 @@ const TopNavbar: React.FC<TopNavbarProps> = ({ pathname }) => {
                 passHref
                 scroll
                 className={clsx(
-                  "relative z-[1] -ml-[2px] inline p-2",
-                  "rounded-sm text-sm font-semibold uppercase leading-none tracking-wide text-current",
-                  "transition-[color,opacity,background-color]",
+                  "relative z-[1] -ml-[2px] inline rounded-sm p-2 text-sm font-semibold uppercase leading-none tracking-wide text-current transition-[color,opacity,background-color]",
                   isActive
                     ? "bg-content/10 opacity-100"
                     : "opacity-50 hover:bg-content/20 hover:opacity-100"

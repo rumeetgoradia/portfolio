@@ -24,7 +24,7 @@ const CurrentlyDisplay: React.FC<CurrentlyDisplayProps> = ({
       <>
         {data.map(({ title, subtitle, tags }) => (
           <div className="w-full pt-3" key={`currently-${category}-${title}`}>
-            <h6 className="font-medium">{title}</h6>
+            <h5 className="font-medium">{title}</h5>
             {subtitle && <p className="text-sm opacity-70">{subtitle}</p>}
             <p className="mt-2 text-xs font-light uppercase leading-none tracking-wider">
               {tags.join(" · ")}

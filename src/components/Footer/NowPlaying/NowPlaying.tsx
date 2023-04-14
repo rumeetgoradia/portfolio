@@ -8,15 +8,12 @@ const NowPlaying: React.FC = ({}) => {
   const { data, isError, isLoading } = trpc.spotify.nowPlaying.useQuery(
     undefined,
     {
-      // refetch every min
       refetchInterval: 1000 * 60,
     }
   );
   const [isPlaying, setPlaying] = useState<boolean>(false);
 
   useEffect(() => {
-    // console.log(data);
-
     if (!data) {
       setPlaying(false);
       return;

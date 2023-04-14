@@ -56,6 +56,7 @@ const MyApp: AppType = ({ Component, pageProps }) => {
           content="/favicon/browserconfig.xml"
         />
         <meta name="theme-color" content="#0e0e10" />
+        <meta name="robots" content="all" />
       </Head>
       <ThemeProvider defaultTheme="system" attribute="class">
         <DefaultSeo {...SeoProps} />

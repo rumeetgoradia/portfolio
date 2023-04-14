@@ -18,7 +18,6 @@ export const getStaticProps: GetStaticProps = async () => {
   await ssg.notion.currentlyWatching.fetch();
   await ssg.spotify.topTracks.fetch();
 
-  // console.log('state', ssg.dehydrate());
   return {
     props: {
       trpcState: ssg.dehydrate(),

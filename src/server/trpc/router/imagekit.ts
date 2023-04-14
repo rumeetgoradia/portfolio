@@ -19,7 +19,9 @@ export const imagekitRouter = router({
           });
         }
       })
-      .catch((error: any) => console.error(error));
+      .catch((error: any) => {
+        console.error("Could not fetch images from ImageKit", error);
+      });
 
     return carouselImages;
   }),

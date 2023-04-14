@@ -137,6 +137,7 @@ const InnerCarousel: React.FC<CarouselProps & InnerCarouselProps> = ({
                       width={w}
                       height={heightPx}
                       placeholder="empty"
+                      priority
                     />
                   </div>
                 );
