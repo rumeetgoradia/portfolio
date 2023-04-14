@@ -72,11 +72,7 @@ const AboutPage: NextPage = () => {
         <p>
           I love to collaborate with others and just meet new people. Please
           feel free to{" "}
-          <Link
-            href="/contact"
-            title="Contact"
-            className="font-semibold text-primary hover:text-primary/80"
-          >
+          <Link href="/contact" title="Contact" className="inline-link">
             reach out
           </Link>{" "}
           if you&apos;d like to get in touch!

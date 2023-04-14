@@ -81,6 +81,10 @@
         @apply font-semibold;
         @apply mb-4;
     }
+
+    .inline-link {
+        @apply font-semibold text-primary hover:text-primary/80
+    }
 }
 
 #__next {
