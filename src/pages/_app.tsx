@@ -13,6 +13,7 @@ import { DefaultSeo } from "next-seo";
 import SeoProps from "next-seo.config";
 import { ThemeProvider } from "next-themes";
 import Head from "next/head";
+import { Toaster } from "react-hot-toast";
 
 const baseFont = Manrope({
   subsets: ["latin-ext"],
@@ -58,8 +59,9 @@ const MyApp: AppType = ({ Component, pageProps }) => {
         <meta name="theme-color" content="#0e0e10" />
         <meta name="robots" content="all" />
       </Head>
+      <DefaultSeo {...SeoProps} />
       <ThemeProvider defaultTheme="system" attribute="class">
-        <DefaultSeo {...SeoProps} />
+        <Toaster />
         <ParticlesBackground />
         <div
           className={clsx(
