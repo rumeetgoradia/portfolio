@@ -1,4 +1,5 @@
 import { type Work } from "@/types/sanity";
+import Link from "next/link";
 
 type LiveRepoButtonsProps = Pick<Work, "title" | "liveUrl" | "repoUrl">;
 
@@ -14,7 +15,8 @@ const LiveRepoButtons: React.FC<LiveRepoButtonsProps> = ({
 
         const label = index === 0 ? "Live" : "Repo";
         return (
-          <a
+          <Link
+            href={url}
             key={`${title}-${url}`}
             rel="noreferrer noopener"
             target="_blank"
@@ -23,7 +25,7 @@ const LiveRepoButtons: React.FC<LiveRepoButtonsProps> = ({
 						   transition-[border-color,background] hover:border-content hover:bg-content hover:text-background group-hover:border-content"
           >
             {label}
-          </a>
+          </Link>
         );
       })}
     </div>
