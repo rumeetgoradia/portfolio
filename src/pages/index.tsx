@@ -12,8 +12,8 @@ export const getStaticProps: GetStaticProps = async () => {
     ctx: await createContextInner({}),
   });
 
-  await ssg.imageKit.carousel.fetch();
-  await ssg.work.featured.fetch();
+  await ssg.imageKit.carousel.prefetch();
+  await ssg.work.featured.prefetch();
 
   return {
     props: {

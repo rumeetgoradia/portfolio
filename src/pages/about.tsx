@@ -14,9 +14,9 @@ export const getStaticProps: GetStaticProps = async () => {
     ctx: await createContextInner({}),
   });
 
-  await ssg.notion.currentlyReading.fetch();
-  await ssg.notion.currentlyWatching.fetch();
-  await ssg.spotify.topTracks.fetch();
+  await ssg.notion.currentlyReading.prefetch();
+  await ssg.notion.currentlyWatching.prefetch();
+  await ssg.spotify.topTracks.prefetch();
 
   return {
     props: {

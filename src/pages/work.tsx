@@ -12,7 +12,7 @@ export const getStaticProps: GetStaticProps = async () => {
     ctx: await createContextInner({}),
   });
 
-  await ssg.work.all.fetch();
+  await ssg.work.all.prefetch();
 
   return {
     props: {

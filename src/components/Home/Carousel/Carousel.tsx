@@ -113,7 +113,7 @@ const InnerCarousel: React.FC<CarouselProps & InnerCarouselProps> = ({
       <div className="absolute left-0 top-0 w-full">
         <div className={clsx("relative z-[99] w-full px-0", heightClassName)}>
           <button
-            className="absolute left-0 top-1/2 z-[100] flex h-8 w-8 -translate-y-1/2 -translate-x-1/2 items-center justify-center rounded-full border-[1px] border-transparent bg-background
+            className="absolute left-0 top-1/2 z-[100] flex h-8 w-8 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border-[1px] border-transparent bg-background
 		hover:text-lg  focus:border-current
     active:text-sm"
             aria-label="Previous carousel image"
@@ -172,8 +172,8 @@ const CarouselSkeleton: React.FC<CarouselSkeletonProps> = ({
     >
       <div
         className="relative h-full px-2 
-	 before:absolute before:top-0 before:right-full before:h-full before:w-96 before:animate-pulse before:bg-gray-100/80 before:backdrop-blur-sm
-	 after:absolute after:top-0 after:left-full after:h-full after:w-96 after:animate-pulse after:bg-gray-100/80 after:backdrop-blur-sm after:!delay-[400ms]"
+	 before:absolute before:right-full before:top-0 before:h-full before:w-96 before:animate-pulse before:bg-gray-100/80 before:backdrop-blur-sm
+	 after:absolute after:left-full after:top-0 after:h-full after:w-96 after:animate-pulse after:bg-gray-100/80 after:backdrop-blur-sm after:!delay-[400ms]"
       >
         <div className="h-full w-64 animate-pulse bg-gray-300/90 backdrop-blur-sm !delay-[200ms]" />
       </div>
