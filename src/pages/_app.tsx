@@ -2,7 +2,7 @@ import { type AppType } from "next/app";
 
 import { trpc } from "@/utils/trpc";
 
-import { Manrope } from "@next/font/google";
+import { Manrope } from "next/font/google";
 
 import { Footer } from "@/components/Footer";
 import { Navbar } from "@/components/Navbar";
