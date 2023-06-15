@@ -1,1 +1,1 @@
-export { CurrentlyDisplay } from "./CurrentlyDisplay";
+export { CurrentlyDisplays } from "./CurrentlyDisplays";

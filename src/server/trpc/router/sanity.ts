@@ -1,8 +1,8 @@
-import { type Work } from "@/types/sanity.d";
+import { CurrentlyList, type Work } from "@/types/sanity.d";
 import { groq } from "next-sanity";
 import { publicProcedure, router } from "../trpc";
 
-export const sanityRouter = router({
+export const workRouter = router({
   featured: publicProcedure.query(async ({ ctx }) => {
     // Up to 3 featured works, in descending order of updated time
     const query = groq`
@@ -28,5 +28,18 @@ export const sanityRouter = router({
 
     const allWork = await ctx.sanityClient.fetch(query);
     return allWork as Work[];
+  }),
+});
+
+export const currentliesRouter = router({
+  all: publicProcedure.query(async ({ ctx }) => {
+    const query = groq`
+        *
+        [   _type=="currentlies" 
+        ] | order(type asc)
+    `;
+
+    const currentlies = await ctx.sanityClient.fetch(query);
+    return currentlies as CurrentlyList[];
   }),
 });
