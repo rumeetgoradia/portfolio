@@ -1,4 +1,4 @@
-import { CurrentlyDisplay } from "@/components/About";
+import { CurrentlyDisplays } from "@/components/About";
 import { TopTracks } from "@/components/About/TopTracks";
 import { PageLayout } from "@/components/PageLayout";
 import { createContextInner } from "@/server/trpc/context";
@@ -14,8 +14,7 @@ export const getStaticProps: GetStaticProps = async () => {
     ctx: await createContextInner({}),
   });
 
-  await ssg.notion.currentlyReading.prefetch();
-  await ssg.notion.currentlyWatching.prefetch();
+  await ssg.currentlies.all.prefetch();
   await ssg.spotify.topTracks.prefetch();
 
   return {
@@ -27,15 +26,11 @@ export const getStaticProps: GetStaticProps = async () => {
 };
 
 const AboutPage: NextPage = () => {
-  const currentlyReading = trpc.notion.currentlyReading.useQuery(undefined, {
-    refetchOnMount: false,
-    refetchOnWindowFocus: false,
-  });
-  const currentlyWatching = trpc.notion.currentlyWatching.useQuery(undefined, {
-    refetchOnMount: false,
-    refetchOnWindowFocus: false,
-  });
   const topTracks = trpc.spotify.topTracks.useQuery(undefined, {
+    refetchOnMount: false,
+    refetchOnWindowFocus: false,
+  });
+  const currentlyLists = trpc.currentlies.all.useQuery(undefined, {
     refetchOnMount: false,
     refetchOnWindowFocus: false,
   });
@@ -78,11 +73,7 @@ const AboutPage: NextPage = () => {
         </p>
       </div>
       <div className="w-full">
-        <h2 className="subheader">Currently...</h2>
-        <div className="grid w-full grid-cols-1 gap-6 sm:grid-cols-2 ">
-          <CurrentlyDisplay {...currentlyReading} category="Reading" />
-          <CurrentlyDisplay {...currentlyWatching} category="Watching" />
-        </div>
+        <CurrentlyDisplays {...currentlyLists} />
       </div>
       <div className="w-full">
         <h2 className="subheader">Top Tracks</h2>

@@ -52,3 +52,14 @@ export interface Category extends SanityBase {
   title: string;
   reference: string;
 }
+
+export interface CurrentlyList extends SanityBase {
+  type: string;
+  items: CurrentlyItem[];
+}
+
+export interface CurrentlyItem {
+  title: string;
+  subtitle: string;
+  tags: string[];
+}
