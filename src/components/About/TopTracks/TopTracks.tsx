@@ -40,7 +40,7 @@ const TopTracks: React.FC<TopTracksProps> = ({
               <Link
                 title={`${name} [Spotify]`}
                 href={getSpotifyUrl(track)}
-                className="font-semibold leading-none hover:text-primary"
+                className="inline-block font-semibold leading-[1.2] hover:text-primary"
               >
                 {name}
               </Link>

@@ -21,8 +21,6 @@ const CurrentlyDisplays: React.FC<CurrentlyDisplaysProps> = ({
       );
     }
 
-    console.log("here", currentlyLists);
-
     return currentlyLists.map((currentlyList) => {
       return (
         <CurrentlyDisplay
@@ -36,7 +34,7 @@ const CurrentlyDisplays: React.FC<CurrentlyDisplaysProps> = ({
   return (
     <>
       <h2 className="subheader">Currently...</h2>
-      <div className="grid w-full grid-cols-1 gap-6 sm:grid-cols-2 ">
+      <div className="grid w-full grid-cols-1 gap-6 sm:grid-cols-2">
         {render()}
       </div>
     </>
@@ -82,9 +80,11 @@ const CurrentlyDisplay: React.FC<CurrentlyList> = ({ items, type }) => {
       <hr className="-mb-1 mt-1 w-[25px] border-[1px] border-content transition-[border-color]" />
       {items.map(({ title, subtitle, tags }) => (
         <div className="w-full pt-3" key={`currently-${type}-${title}`}>
-          <h5 className="font-medium">{title}</h5>
-          {subtitle && <p className="text-sm opacity-70">{subtitle}</p>}
-          <p className="mt-2 text-xs font-light uppercase leading-none tracking-wider">
+          <h5 className="font-semibold leading-[1.3]">{title}</h5>
+          {subtitle && (
+            <p className="text-sm leading-[1.3] opacity-70">{subtitle}</p>
+          )}
+          <p className="mt-1 text-xs font-light uppercase leading-[1.3] tracking-wider">
             {tags.join(" · ")}
           </p>
         </div>

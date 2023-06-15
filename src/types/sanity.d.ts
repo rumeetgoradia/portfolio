@@ -62,4 +62,5 @@ export interface CurrentlyItem {
   title: string;
   subtitle: string;
   tags: string[];
+  link?: string;
 }
