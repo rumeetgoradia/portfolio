@@ -86,7 +86,7 @@ const MusicBars: React.FC<{ animate: boolean }> = ({ animate }) => {
     "w-[3px] h-full scale-y-50 bg-content content-none origin-bottom transition-[background-color] ease-linear";
 
   return (
-    <div className="relative flex h-[13px] w-[13px] justify-between  ">
+    <div className="relative flex h-[13px] w-[13px] flex-shrink-0 justify-between  ">
       <span className={clsx(barClassname, animate && "animate-bounce")} />
       <span
         className={clsx(
