@@ -33,7 +33,7 @@ const TopTracks: React.FC<TopTracksProps> = ({
               index != tracks.length - 1 && "border-b-[1px] border-b-content/10"
             )}
           >
-            <div className="basis-4 pt-1 text-right text-xs font-bold opacity-50">
+            <div className="flex-shrink-0 basis-4 pt-1 text-right text-xs font-bold opacity-50">
               {index + 1}
             </div>
             <div>
