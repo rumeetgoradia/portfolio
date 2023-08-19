@@ -19,7 +19,7 @@ const Footer: React.FC = ({}) => {
             <Link
               href={externalPath || path}
               title={title}
-              className="p-1 opacity-50 transition-[opacity] hover:opacity-80"
+              className="p-1 pl-0 opacity-50 transition-[opacity] hover:opacity-80"
               target={externalPath ? "_blank" : undefined}
               rel={externalPath ? "noreferrer noopener" : undefined}
             >
