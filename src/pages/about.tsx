@@ -55,9 +55,9 @@ const AboutPage: NextPage = () => {
           Alpha Kappa Psi, TEDxRutgers, and Road to Wall Street.
         </p>
         <p>
-          I enjoy playing competitive games like League of Legends or Call of
-          Duty with my friends, but I&apos;m also currently working on building
-          my own gaming PC to explore more open-world RPGs. I also got back into
+          I enjoy playing competitive games like <em>League of Legends</em> or{" "}
+          <em>The Finals</em> with my friends, and I&apos;ve also built my own
+          gaming PC to explore more open-world RPGs. I also got back into
           reading over the pandemic and have been really enjoying modern novels
           and biographies. If I&apos;m not reading or playing video games, you
           can usually find me taking a walk, hanging out with my friends, or
