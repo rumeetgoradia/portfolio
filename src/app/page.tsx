@@ -1,7 +1,10 @@
+import { ThemeToggle } from "~/components/theme/theme-toggle";
+
 export default async function Home() {
   return (
-    <main className="container mx-auto max-w-screen-md py-4">
-      <h1>Hello!</h1>
-    </main>
+    <>
+      <h1 className="text-2xl font-bold text-primary">Hello!</h1>
+      <ThemeToggle />
+    </>
   );
 }
