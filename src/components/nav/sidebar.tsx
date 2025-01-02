@@ -10,7 +10,7 @@ export function Sidebar() {
   const pathname = usePathname();
 
   return (
-    <aside className="sticky flex flex-col space-y-6 top-0 pt-8 mt-4">
+    <aside className="sticky top-0 mt-8 flex flex-col space-y-6 pt-12">
       <Link href="/" title="Rumeet Goradia">
         <Logo height={32} />
       </Link>
@@ -22,6 +22,8 @@ export function Sidebar() {
               href={route.href}
               key={route.href}
               title={route.title}
+              target={route.isExternal ? "_blank" : undefined}
+              rel={route.isExternal ? "noopener noreferrer" : undefined}
               className={cn(
                 "relative z-[1] -ml-[2px] inline rounded-sm p-2 text-sm font-semibold uppercase leading-none tracking-wide text-foreground transition-colors",
                 isActive

@@ -1,5 +1,7 @@
-import { postRouter } from "~/server/api/routers/post";
 import { createCallerFactory, createTRPCRouter } from "~/server/api/trpc";
+import { imagekitRouter } from "~/server/api/routers/imagekit";
+import {s3Router} from "~/server/api/routers/s3";
+import {plaiceholderRouter} from "~/server/api/routers/plaiceholder";
 
 /**
  * This is the primary router for your server.
@@ -7,7 +9,9 @@ import { createCallerFactory, createTRPCRouter } from "~/server/api/trpc";
  * All routers added in /api/routers should be manually added here.
  */
 export const appRouter = createTRPCRouter({
-  post: postRouter,
+  imagekit: imagekitRouter,
+  s3: s3Router,
+  plaiceholder: plaiceholderRouter
 });
 
 // export type definition of API
