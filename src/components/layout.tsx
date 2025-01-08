@@ -1,6 +1,7 @@
 import { Separator } from "~/components/ui/separator";
 import { Sidebar } from "~/components/nav/sidebar";
 import { Header } from "~/components/nav/header";
+import { Footer } from "~/components/footer/footer";
 
 export function Layout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
@@ -9,17 +10,17 @@ export function Layout({ children }: Readonly<{ children: React.ReactNode }>) {
         <div id="sidebar" className="max-lg:hidden">
           <Sidebar />
         </div>
-        <div className="flex flex-grow flex-col max-lg:space-y-8 pt-8 lg:pt-16">
+        <div className="flex flex-grow flex-col pt-8 max-lg:space-y-8 lg:pt-16">
           <div id="navbar" className="lg:hidden">
             <Header />
           </div>
-          <main >{children}</main>
+          <main>{children}</main>
         </div>
       </div>
       <Separator orientation="horizontal" />
-      <footer id="footer" className="w-full flex-grow-0 bg-primary">
-        FOOTER
-      </footer>
+      <div id="footer" className="w-full flex-grow-0">
+        <Footer />
+      </div>
     </div>
   );
 }

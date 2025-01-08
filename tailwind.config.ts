@@ -58,6 +58,36 @@ export default {
           900: "hsl(var(--red-900))",
         },
       },
+      animationDelay: {
+        "-2s": "-2s",
+        "-3.5s": "-3.5s",
+      },
+      keyframes: {
+        pulse: {
+          //   "0%, 100%": { opacity: 0.8, background: "var(--bg-gray-100)" },
+          "50%": { opacity: "0.7" },
+        },
+        scaleY: {
+          "10%": {
+            transform: "scaleY(0.8)" /* start by scaling to 30% */,
+          },
+          "30%": {
+            transform: "scaleY(1)" /* scale up to 100% */,
+          },
+          "60%": {
+            transform: "scaleY(0.5)" /* scale down to 50% */,
+          },
+          "80%": {
+            transform: "scaleY(0.75)" /* scale up to 75% */,
+          },
+          "100%": {
+            transform: "scaleY(0.6)" /* scale down to 60% */,
+          },
+        },
+      },
+      animation: {
+        scaleY: "scaleY 2s ease infinite alternate",
+      },
     },
   },
   // eslint-disable-next-line @typescript-eslint/no-require-imports
