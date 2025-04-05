@@ -1,65 +1,72 @@
 "use client";
 
 import { api } from "~/trpc/react";
-import { useEffect, useState } from "react";
 import Link from "next/link";
+// Make sure these imports point to your actual helper implementations
 import { getJoinedArtists, getSpotifyUrl } from "~/lib/spotify";
 import { cn } from "~/lib/utils";
+// Import the specific Track type inferred from your Zod schema if available,
+// or use the original TS type if helpers accept it. Adjust path as needed.
+// import type { ValidatedTrack } from "~/server/api/routers/spotify"; // Example if inferred type exists
+import type { Track } from "~/types/spotify"; // Using original TS type for now
 
 export const NowPlaying: React.FC = ({}) => {
   const { data, isError, isLoading } = api.spotify.nowPlaying.useQuery(
     undefined,
     {
-      refetchInterval: 1000 * 30,
+      refetchInterval: 1000 * 30, // 30 seconds
       refetchOnWindowFocus: true,
+      // staleTime: 1000 * 20, // Consider adding staleTime
     },
   );
-  const [isPlaying, setPlaying] = useState<boolean>(false);
 
-  useEffect(() => {
-    if (!data) {
-      setPlaying(false);
-      return;
-    }
-
-    if (
-      isError ||
-      !data.is_playing ||
-      data.currently_playing_type !== "track"
-    ) {
-      setPlaying(false);
-      return;
-    }
-
-    setPlaying(true);
-  }, [data, isError]);
-
+  // Show skeleton while loading initial data
   if (isLoading) {
     return <NowPlayingSkeleton />;
   }
 
+  // Determine if a track is currently playing and should be displayed
+  const shouldShowTrack = !!(
+    !isError && // No query error occurred
+    data && // Data has been received
+    data.is_playing && // Spotify reports playback is active
+    data.currently_playing_type === "track" && // The item being played is a track
+    !!data.item // Track details (item) are available
+  );
+
+  // Type guard for use within the JSX when shouldShowTrack is true
+  const playingTrackData = shouldShowTrack ? data.item : null;
+
   return (
     <div className="flex items-start gap-2">
-      {/* <pre>{JSON.stringify(data, null, 2)}</pre> */}
-      <MusicBars animate={isPlaying} />
+      <MusicBars animate={shouldShowTrack} />
       <div>
-        {data && isPlaying ? (
+        {playingTrackData ? (
+          // Render track details only if shouldShowTrack is true and item is valid
           <>
             <Link
-              href={getSpotifyUrl(data.item)}
+              // Pass the non-null playingTrackData here
+              href={getSpotifyUrl(playingTrackData as Track)} // Cast needed if helpers expect original Track type
               target="_blank"
               rel="noreferrer noopener"
-              className="hover:text-primary transition-colors"
+              className="transition-colors hover:text-primary"
               passHref
-              title={`${data.item.name} (Spotify)`}
+              title={`${playingTrackData.name} (Spotify)`}
             >
-              <div className="font-medium leading-none">{data.item.name}</div>
+              <div className="font-medium leading-none">
+                {playingTrackData.name}
+              </div>
             </Link>
             <div className="mt-1 text-sm font-light leading-none">
-              {getJoinedArtists(data.item)}
+              {/* Pass the non-null playingTrackData here */}
+              {getJoinedArtists(playingTrackData as Track)}{" "}
+              {/* Cast needed if helpers expect original Track type */}
             </div>
           </>
         ) : (
+          // Render fallback "Not Playing" state
+          // This covers: initial load finished but not playing, error state,
+          // playing non-track item, or playing track with null item details.
           <>
             <div className="font-medium leading-none">Not Playing</div>
             <div className="mt-1 text-sm font-light">Spotify</div>
@@ -90,10 +97,10 @@ const MusicBars: React.FC<{ animate: boolean }> = ({ animate }) => {
     <div className="relative flex h-[13px] w-[13px] flex-shrink-0 justify-between">
       <span className={cn(barClassname, animate && "animate-scaleY")} />
       <span
-        className={cn(barClassname, animate && "-delay-2s animate-scaleY")}
+        className={cn(barClassname, animate && "animate-scaleY -delay-2s")}
       />
       <span
-        className={cn(barClassname, animate && "-delay-3.5s animate-scaleY")}
+        className={cn(barClassname, animate && "animate-scaleY -delay-3.5s")}
       />
     </div>
   );
