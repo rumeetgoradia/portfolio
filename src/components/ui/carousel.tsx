@@ -197,10 +197,12 @@ CarouselItem.displayName = "CarouselItem";
 const carouselControlStyle = {
   button: [
     "h-8 w-8 rounded-full",
-    "hover:border-foreground focus:border-foreground group",
+    "hover:border-foreground group focus:ring-outline",
     "disabled:opacity-100 disabled:pointer-events-none",
   ],
-  icon: ["h-4 w-4 group-active:h-3 group-active:w-3 transition-[width,height] group-disabled:text-border"],
+  icon: [
+    "h-4 w-4 group-active:h-3 group-active:w-3 transition-[width,height] group-disabled:text-border",
+  ],
 };
 
 const CarouselPrevious = React.forwardRef<
