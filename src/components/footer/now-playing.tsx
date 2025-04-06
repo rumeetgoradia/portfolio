@@ -2,12 +2,8 @@
 
 import { api } from "~/trpc/react";
 import Link from "next/link";
-// Make sure these imports point to your actual helper implementations
 import { getJoinedArtists, getSpotifyUrl } from "~/lib/spotify";
 import { cn } from "~/lib/utils";
-// Import the specific Track type inferred from your Zod schema if available,
-// or use the original TS type if helpers accept it. Adjust path as needed.
-// import type { ValidatedTrack } from "~/server/api/routers/spotify"; // Example if inferred type exists
 import type { Track } from "~/types/spotify"; // Using original TS type for now
 
 export const NowPlaying: React.FC = ({}) => {
@@ -16,7 +12,7 @@ export const NowPlaying: React.FC = ({}) => {
     {
       refetchInterval: 1000 * 30, // 30 seconds
       refetchOnWindowFocus: true,
-      // staleTime: 1000 * 20, // Consider adding staleTime
+      staleTime: 1000 * 20, // 20 seconds
     },
   );
 
@@ -34,7 +30,6 @@ export const NowPlaying: React.FC = ({}) => {
     !!data.item // Track details (item) are available
   );
 
-  // Type guard for use within the JSX when shouldShowTrack is true
   const playingTrackData = shouldShowTrack ? data.item : null;
 
   return (
@@ -45,8 +40,7 @@ export const NowPlaying: React.FC = ({}) => {
           // Render track details only if shouldShowTrack is true and item is valid
           <>
             <Link
-              // Pass the non-null playingTrackData here
-              href={getSpotifyUrl(playingTrackData as Track)} // Cast needed if helpers expect original Track type
+              href={getSpotifyUrl(playingTrackData as Track)}
               target="_blank"
               rel="noreferrer noopener"
               className="transition-colors hover:text-primary"
@@ -58,9 +52,7 @@ export const NowPlaying: React.FC = ({}) => {
               </div>
             </Link>
             <div className="mt-1 text-sm font-light leading-none">
-              {/* Pass the non-null playingTrackData here */}
               {getJoinedArtists(playingTrackData as Track)}{" "}
-              {/* Cast needed if helpers expect original Track type */}
             </div>
           </>
         ) : (

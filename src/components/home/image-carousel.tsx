@@ -10,13 +10,14 @@ import {
   CarouselNext,
 } from "~/components/ui/carousel";
 import { cn } from "~/lib/utils";
+import type { CarouselImageData } from "~/lib/carousel";
 
-export function ImageCarousel() {
-  const {
-    data: images,
-    isLoading,
-    isError,
-  } = api.s3.images.useQuery({ directory: "carousel" });
+interface ImageCarouselProps {
+  images: CarouselImageData[];
+}
+
+export function ImageCarousel({ images }: ImageCarouselProps) {
+  const isError = !images; // Simple check if props were passed
 
   if (isError) {
     return null;
@@ -32,11 +33,11 @@ export function ImageCarousel() {
         }}
         className={cn(
           "absolute left-0 top-0 w-full",
-            images?.length && "cursor-grab active:cursor-grabbing",
+          images?.length && "cursor-grab active:cursor-grabbing",
         )}
       >
         <CarouselContent>
-          {isLoading || !images?.length ? (
+          {!images?.length ? (
             <CarouselSkeleton />
           ) : (
             <>
@@ -60,12 +61,12 @@ export function ImageCarousel() {
         </CarouselContent>
 
         <CarouselPrevious
-          className="absolute left-0 top-1/2 -translate-x-1/2 -translate-y-1/2"
-          disabled={isLoading || !images?.length}
+          className="absolute left-0 top-1/2 -translate-x-1/2 -translate-y-1/2 border-foreground/40 text-foreground/40 transition-colors hover:border-foreground hover:text-foreground"
+          disabled={!images?.length}
         />
         <CarouselNext
-          className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2"
-          disabled={isLoading || !images?.length}
+          className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 border-foreground/40 text-foreground/40 transition-colors hover:border-foreground hover:text-foreground"
+          disabled={!images?.length}
         />
       </Carousel>
     </div>

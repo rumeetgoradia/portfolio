@@ -1,5 +1,4 @@
 import { createCallerFactory, createTRPCRouter } from "~/server/api/trpc";
-import { s3Router } from "~/server/api/routers/s3";
 import { spotifyRouter } from "~/server/api/routers/spotify";
 
 /**
@@ -8,7 +7,6 @@ import { spotifyRouter } from "~/server/api/routers/spotify";
  * All routers added in /api/routers should be manually added here.
  */
 export const appRouter = createTRPCRouter({
-  s3: s3Router,
   spotify: spotifyRouter,
 });
 

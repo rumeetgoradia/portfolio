@@ -58,15 +58,14 @@
   }
 }
 @layer base {
-  * {
+  *, html {
     @apply border-border;
   }
   body {
     min-height: 100vh;
     @apply bg-background text-foreground;
     @apply scroll-smooth;
-    @apply transition-[background];
     @apply ease-in;
-    @apply duration-300;
+    @apply duration-200;
   }
 }

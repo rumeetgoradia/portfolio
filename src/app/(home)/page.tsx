@@ -1,7 +1,9 @@
-import { ThemeToggle } from "~/components/theme/theme-toggle";
 import { ImageCarousel } from "~/components/home/image-carousel";
+import { getCarouselImagesWithMetadata } from "~/lib/carousel";
 
 export default async function Home() {
+  const images = await getCarouselImagesWithMetadata();
+
   return (
     <div className={"flex w-full flex-col gap-6"}>
       <div>
@@ -18,8 +20,7 @@ export default async function Home() {
         <span className="font-semibold">Java</span> and frontend development
         with <span className="font-semibold">Next.js</span>.
       </p>
-      <ThemeToggle />
-      <ImageCarousel />
+      <ImageCarousel images={images} />
     </div>
   );
 }
