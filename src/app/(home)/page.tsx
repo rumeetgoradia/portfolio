@@ -1,21 +1,22 @@
 import { ImageCarousel } from "~/components/home/image-carousel";
-import { getCarouselImagesWithMetadata } from "~/lib/carousel";
+import {CarouselImageData, getCarouselImagesWithMetadata} from "~/lib/carousel";
 import Headshot from "public/headshot.jpeg";
 import Image from "next/image";
 
 export default async function Home() {
-  const images = await getCarouselImagesWithMetadata();
+  const images: CarouselImageData[] = []
+  // await getCarouselImagesWithMetadata();
 
   return (
     <div className={"flex w-full flex-col gap-12"}>
       <div className={"flex justify-between gap-8"}>
         <div className={"flex w-full flex-col gap-8"}>
           <div>
-            <h1 className="text-5xl font-semibold text-primary">
+            <h1 className="text-4xl sm:text-5xl font-semibold text-primary">
               Rumeet Goradia
             </h1>
             <div className="mt-1">
-              <h2 className="text-xl font-light opacity-75">
+              <h2 className="text-lg sm:text-xl font-light opacity-75">
                 Senior Software Engineer @{" "}
                 <span className="font-semibold">Schonfeld</span>
               </h2>
@@ -25,7 +26,7 @@ export default async function Home() {
               </h2>
             </div>
           </div>
-          <p className="text-lg font-light">
+          <p className="sm:text-lg font-light">
             Pursuing a career in fin-tech. Specializing in backend development with{" "}
             <span className="font-semibold">Java</span> and frontend development
             with <span className="font-semibold">Next.js</span>.

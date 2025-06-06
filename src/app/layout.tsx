@@ -1,13 +1,11 @@
 import "~/styles/globals.css";
-
-import { Manrope } from "next/font/google";
 import { type Metadata } from "next";
 
 import { TRPCReactProvider } from "~/trpc/react";
 import { ThemeProvider } from "~/components/theme/theme-provider";
-import {Layout} from "~/components/layout";
+import { Wrapper } from "~/components/layout/wrapper";
+import {manrope} from "~/app/fonts";
 
-const manrope = Manrope({ subsets: ["latin"], variable: "--font-manrope" });
 
 export const metadata: Metadata = {
   title: "Rumeet Goradia",
@@ -19,7 +17,11 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${manrope.variable} font-sans`}>
+    <html
+      lang="en"
+      className={`${manrope.className} font-sans`}
+      suppressHydrationWarning
+    >
       <body>
         <ThemeProvider
           attribute="class"
@@ -28,9 +30,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <TRPCReactProvider>
-            <Layout>
-              {children}
-            </Layout>
+            <Wrapper>{children}</Wrapper>
           </TRPCReactProvider>
         </ThemeProvider>
       </body>
