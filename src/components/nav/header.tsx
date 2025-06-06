@@ -5,7 +5,6 @@ import Link from "next/link";
 import { ROUTES } from "~/routes";
 import { usePathname } from "next/navigation";
 import { cn } from "~/lib/utils";
-import {Initials} from "~/components/nav/initials";
 
 export function Header() {
   const pathname = usePathname();

@@ -4,9 +4,9 @@ import { api } from "~/trpc/react";
 import Link from "next/link";
 import { getJoinedArtists, getSpotifyUrl } from "~/lib/spotify";
 import { cn } from "~/lib/utils";
-import type { Track } from "~/types/spotify"; // Using original TS type for now
+import type { Track } from "~/types/spotify";
 
-export const NowPlaying: React.FC = ({}) => {
+export const NowPlaying: React.FC = () => {
   const { data, isError, isLoading } = api.spotify.nowPlaying.useQuery(
     undefined,
     {
@@ -40,7 +40,7 @@ export const NowPlaying: React.FC = ({}) => {
           // Render track details only if shouldShowTrack is true and item is valid
           <>
             <Link
-              href={getSpotifyUrl(playingTrackData as Track)}
+              href={getSpotifyUrl(playingTrackData as unknown as Track)}
               target="_blank"
               rel="noreferrer noopener"
               className="transition-colors hover:text-primary"

@@ -8,11 +8,10 @@ const carouselDirectory = path.join(process.cwd(), 'public/carousel');
 const allowedExtensions = ['.jpg', '.jpeg', '.png', '.gif', '.webp', '.svg'];
 
 export interface CarouselImageData {
-    src: string;       // URL path (e.g., /carousel/image.jpg)
+    src: string;
     width: number;
     height: number;
     base64: string;    // blurDataURL
-    // Add other plaiceholder data if needed (e.g., plaiceholder.color)
 }
 
 // Cache for the image data

@@ -79,23 +79,9 @@
 }
 
 @layer utilities {
-    .dots-grid-container .grid {
-        width: 100vw;
-        height: 100vh;
-        display: grid;
-
-    }
-
-    .dots-grid-container .dot-wrapper {
-        @apply flex items-center justify-center;
-    }
-
     .dots-grid-container .dot {
-        width: 1px;
-        height: 1px;
-        border-radius: 9999px;
         background-color: var(--grid-dot-color);
-        animation: subtle-wave 15s infinite ease-in-out;
+        animation: subtle-wave 8s infinite ease-in-out;
     }
 
     @keyframes subtle-wave {
@@ -106,7 +92,7 @@
         }
         50% {
             transform: scale(1.6);
-            opacity: 0.7;
+            opacity: 0.8;
             background-color: var(--grid-dot-wave-color);
         }
     }
