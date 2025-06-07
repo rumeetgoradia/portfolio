@@ -1,6 +1,6 @@
 import {cn} from "~/lib/utils";
 
-const Logo: React.FC<{ height: number, className: string }> = ({ height, className }) => {
+const Logo: React.FC<{ height: number, className?: string }> = ({ height, className }) => {
   return (
     <svg
       viewBox="0 0 377 242"

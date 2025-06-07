@@ -1,10 +1,11 @@
 import PageHeader from "~/components/common/page-header";
 import { TimeBasedGreeting } from "~/components/about/time-based-greeting";
 import Link from "next/link";
+import { TopTracks } from "~/components/about/top-tracks";
 
 export default async function About() {
   return (
-    <div className="flex w-full flex-col gap-12">
+    <div className="flex w-full flex-col gap-12 flex-wrap">
       <PageHeader text={"About"} />
       <div className="flex w-full flex-col gap-6">
         <p>
@@ -15,10 +16,10 @@ export default async function About() {
           is clean, scalable, and meaningful.
         </p>
         <p>
-          My background includes a dual B.S. from the Rutgers University Honors College in
-          Computer Science and Business Analytics, and I&#39;m currently
-          expanding my skill set as a part-time Master&#39;s student in{" "}
-          <strong>Machine Learning at Columbia University</strong>.
+          My background includes a dual B.S. from the Rutgers University Honors
+          College in Computer Science and Business Analytics, and I&#39;m
+          currently expanding my skill set as a part-time Master&#39;s student
+          in <strong>Machine Learning at Columbia University</strong>.
         </p>
         <p>
           Outside of work, I believe that exploring is the best way to grow.
@@ -41,6 +42,10 @@ export default async function About() {
           </strong>
           if you want to connect!
         </p>
+      </div>
+      <div>
+        <h2 className='text-3xl font-medium mb-4'>Top Tracks</h2>
+        <TopTracks />
       </div>
     </div>
   );

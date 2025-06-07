@@ -38,7 +38,6 @@ const SpotifyTrackSchema = z.object({
           height: z.number(),
         }),
       )
-      .optional(),
   }),
   external_urls: z.object({
     spotify: z.string().url(),
@@ -165,37 +164,38 @@ const transformToTrack = (
 
 // Router
 export const spotifyRouter = createTRPCRouter({
-  topTracks: publicProcedure.query(async (): Promise<Track[]> => {
-    try {
-      const accessToken = await getValidAccessToken();
-      const endpoint =
-        "https://api.spotify.com/v1/me/top/tracks?limit=10&time_range=short_term";
+  topTracks: publicProcedure
+    .input(z.object({ limit: z.number() }))
+    .query(async ({ input: { limit } }): Promise<Track[]> => {
+      try {
+        const accessToken = await getValidAccessToken();
+        const endpoint = `https://api.spotify.com/v1/me/top/tracks?limit=${limit}&time_range=short_term`;
 
-      const data = await fetchSpotifyAPI<unknown>(endpoint, accessToken);
-      const validatedData = SpotifyTopTracksResponseSchema.parse(data);
+        const data = await fetchSpotifyAPI<unknown>(endpoint, accessToken);
+        const validatedData = SpotifyTopTracksResponseSchema.parse(data);
 
-      return validatedData.items.map(transformToTrack);
-    } catch (error) {
-      console.error("Error in topTracks procedure:", error);
+        return validatedData.items.map(transformToTrack);
+      } catch (error) {
+        console.error("Error in topTracks procedure:", error);
 
-      if (error instanceof z.ZodError) {
+        if (error instanceof z.ZodError) {
+          throw new TRPCError({
+            message:
+              "Received invalid data structure from Spotify for top tracks",
+            code: "INTERNAL_SERVER_ERROR",
+            cause: error,
+          });
+        }
+
+        if (error instanceof TRPCError) throw error;
+
         throw new TRPCError({
-          message:
-            "Received invalid data structure from Spotify for top tracks",
+          message: "Failed to fetch top tracks from Spotify",
           code: "INTERNAL_SERVER_ERROR",
-          cause: error,
+          cause: error instanceof Error ? error : undefined,
         });
       }
-
-      if (error instanceof TRPCError) throw error;
-
-      throw new TRPCError({
-        message: "Failed to fetch top tracks from Spotify",
-        code: "INTERNAL_SERVER_ERROR",
-        cause: error instanceof Error ? error : undefined,
-      });
-    }
-  }),
+    }),
 
   nowPlaying: publicProcedure.query(async (): Promise<NowPlayingResult> => {
     try {

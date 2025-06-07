@@ -12,12 +12,8 @@ const config = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "rg-portfolio.s3.us-east-1.amazonaws.com",
-      },
-      // {
-      //   protocol: 'https',
-      //   hostname: "ik.imagekit.io",
-      // }
+        hostname: "i.scdn.co",
+      }
     ],
   },
 };

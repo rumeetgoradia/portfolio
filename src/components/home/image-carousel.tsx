@@ -1,6 +1,6 @@
 "use client";
 
-import { api } from "~/trpc/react";
+import Autoplay from "embla-carousel-autoplay";
 import Image from "next/image";
 import {
   CarouselItem,
@@ -16,7 +16,7 @@ interface ImageCarouselProps {
   images: CarouselImageData[];
 }
 
-export function ImageCarousel({ images }: ImageCarouselProps) {
+export function ImageCarousel({ images }: Readonly<ImageCarouselProps>) {
   const isError = !images; // Simple check if props were passed
 
   if (isError) {
@@ -26,6 +26,11 @@ export function ImageCarousel({ images }: ImageCarouselProps) {
   return (
     <div className={"relative w-full"}>
       <Carousel
+        plugins={[
+          Autoplay({
+            delay: 5000,
+          }),
+        ]}
         opts={{
           align: "center",
           loop: true,
@@ -59,7 +64,6 @@ export function ImageCarousel({ images }: ImageCarouselProps) {
             </>
           )}
         </CarouselContent>
-
         <CarouselPrevious
           className="absolute left-0 top-1/2 -translate-x-1/2 -translate-y-1/2 border-foreground/40 text-foreground/40 transition-colors hover:border-foreground hover:text-foreground"
           disabled={!images?.length}
@@ -83,7 +87,10 @@ function CarouselSkeleton() {
             : "animate-[pulse_2s_ease-in-out_infinite_1s]";
 
         return (
-          <CarouselItem key={i} className={"basis-1/3"}>
+          <CarouselItem
+            key={`carousel-skeleton-${Math.random()}`}
+            className={"basis-1/3"}
+          >
             <div
               className={cn(
                 "h-[250px] w-full rounded-sm bg-gray-300 md:h-[350px] lg:h-[400px]",
