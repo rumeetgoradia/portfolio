@@ -2,57 +2,50 @@ import { env } from "~/env";
 import { createTRPCRouter, publicProcedure } from "~/server/api/trpc";
 import { TRPCError } from "@trpc/server";
 import { z } from "zod";
-import { type Track } from "~/types/spotify";
+import { type Artist, type Track } from "~/types/spotify";
 
 interface CachedToken {
   access_token: string;
   expires_at: number;
 }
 
-type NowPlayingResult = {
-  is_playing: boolean;
-  item: Track | null;
-  currently_playing_type: "track" | "episode" | "ad" | "unknown" | null;
-};
-
 // Zod Schemas
-const SpotifyTrackSchema = z.object({
+const SpotifyApiImagesSchema = z.array(
+  z.object({
+    url: z.string().url(),
+    height: z.number(),
+    width: z.number(),
+  }),
+);
+
+const SpotifyApiArtistSchema = z.object({
+  name: z.string(),
+});
+
+const SpotifyApiTrackSchema = z.object({
   id: z.string(),
   name: z.string(),
-  artists: z
-    .array(
-      z.object({
-        name: z.string(),
-        external_urls: z.object({ spotify: z.string().url() }),
-      }),
-    )
-    .min(1),
+  artists: z.array(SpotifyApiArtistSchema),
   album: z.object({
     name: z.string(),
     external_urls: z.object({ spotify: z.string().url() }),
-    images: z
-      .array(
-        z.object({
-          url: z.string().url(),
-          width: z.number(),
-          height: z.number(),
-        }),
-      )
+    images: SpotifyApiImagesSchema,
   }),
   external_urls: z.object({
     spotify: z.string().url(),
   }),
 });
 
-const SpotifyTopTracksResponseSchema = z.object({
-  items: z.array(SpotifyTrackSchema),
-});
-
-const SpotifyNowPlayingResponseSchema = z.object({
-  is_playing: z.boolean(),
-  item: SpotifyTrackSchema.nullable(),
-  currently_playing_type: z.enum(["track", "episode", "ad", "unknown"]),
-});
+const SpotifyApiNowPlayingSchema = z.discriminatedUnion("is_playing", [
+  z.object({
+    is_playing: z.literal(true),
+    currently_playing_type: z.literal("track"),
+    item: SpotifyApiTrackSchema,
+  }),
+  z.object({
+    is_playing: z.literal(false),
+  }),
+]);
 
 // Token Management
 let tokenCache: CachedToken | null = null;
@@ -142,25 +135,23 @@ async function fetchSpotifyAPI<T>(
   return (await response.json()) as T;
 }
 
-// Helper function to transform Zod-validated track to your Track interface
-const transformToTrack = (
-  spotifyTrack: z.infer<typeof SpotifyTrackSchema>,
-): Track => ({
-  name: spotifyTrack.name,
-  artists: spotifyTrack.artists.map((artist) => ({
-    name: artist.name,
-    external_urls: artist.external_urls,
-  })) as Track["artists"],
-  album: {
-    name: spotifyTrack.album.name,
-    external_urls: spotifyTrack.album.external_urls,
-    image:
-      spotifyTrack.album.images && spotifyTrack.album.images.length > 0
-        ? spotifyTrack.album.images[0]
-        : undefined,
-  },
-  external_urls: spotifyTrack.external_urls,
-});
+const mapTrack = (
+  spotifyTrack: z.infer<typeof SpotifyApiTrackSchema>,
+): Track => {
+  return {
+    name: spotifyTrack.name,
+    artists: spotifyTrack.artists.map((a) => a.name),
+    album: {
+      name: spotifyTrack.album.name,
+      image: {
+        url: spotifyTrack.album.images[0].url,
+        width: spotifyTrack.album.images[0].width,
+        height: spotifyTrack.album.images[0].height,
+      },
+    },
+    link: spotifyTrack.external_urls.spotify,
+  };
+};
 
 // Router
 export const spotifyRouter = createTRPCRouter({
@@ -172,9 +163,11 @@ export const spotifyRouter = createTRPCRouter({
         const endpoint = `https://api.spotify.com/v1/me/top/tracks?limit=${limit}&time_range=short_term`;
 
         const data = await fetchSpotifyAPI<unknown>(endpoint, accessToken);
-        const validatedData = SpotifyTopTracksResponseSchema.parse(data);
+        const validatedData = z
+          .object({ items: z.array(SpotifyApiTrackSchema) })
+          .parse(data);
 
-        return validatedData.items.map(transformToTrack);
+        return validatedData.items.map(mapTrack);
       } catch (error) {
         console.error("Error in topTracks procedure:", error);
 
@@ -197,7 +190,7 @@ export const spotifyRouter = createTRPCRouter({
       }
     }),
 
-  nowPlaying: publicProcedure.query(async (): Promise<NowPlayingResult> => {
+  nowPlaying: publicProcedure.query(async (): Promise<Track | null> => {
     try {
       const accessToken = await getValidAccessToken();
       const endpoint = "https://api.spotify.com/v1/me/player/currently-playing";
@@ -205,20 +198,17 @@ export const spotifyRouter = createTRPCRouter({
       const data = await fetchSpotifyAPI<unknown>(endpoint, accessToken);
 
       if (data === null) {
-        return {
-          is_playing: false,
-          item: null,
-          currently_playing_type: null,
-        };
+        return null;
       }
 
-      const validatedData = SpotifyNowPlayingResponseSchema.parse(data);
+      const validatedData = SpotifyApiNowPlayingSchema.safeParse(data);
+      console.log(validatedData.error);
 
-      return {
-        is_playing: validatedData.is_playing,
-        item: validatedData.item ? transformToTrack(validatedData.item) : null,
-        currently_playing_type: validatedData.currently_playing_type,
-      };
+      if (validatedData.success && validatedData.data.is_playing) {
+        return mapTrack(validatedData.data.item);
+      }
+
+      return null;
     } catch (error) {
       console.error("Error in nowPlaying procedure:", error);
 

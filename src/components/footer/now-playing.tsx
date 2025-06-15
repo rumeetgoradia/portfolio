@@ -4,7 +4,6 @@ import { api } from "~/trpc/react";
 import Link from "next/link";
 import { getJoinedArtists, getSpotifyUrl } from "~/lib/spotify";
 import { cn } from "~/lib/utils";
-import type { Track } from "~/types/spotify";
 
 export const NowPlaying: React.FC = () => {
   const { data, isError, isLoading } = api.spotify.nowPlaying.useQuery(
@@ -22,25 +21,16 @@ export const NowPlaying: React.FC = () => {
   }
 
   // Determine if a track is currently playing and should be displayed
-  const shouldShowTrack = !!(
-    !isError && // No query error occurred
-    data && // Data has been received
-    data.is_playing && // Spotify reports playback is active
-    data.currently_playing_type === "track" && // The item being played is a track
-    !!data.item // Track details (item) are available
-  );
-
-  const playingTrackData = shouldShowTrack ? data.item : null;
+  const playingTrackData = !isError && data ? data : null;
 
   return (
     <div className="flex items-start gap-2">
-      <MusicBars animate={shouldShowTrack} />
+      <MusicBars animate={!!playingTrackData} />
       <div>
         {playingTrackData ? (
-          // Render track details only if shouldShowTrack is true and item is valid
           <>
             <Link
-              href={getSpotifyUrl(playingTrackData as unknown as Track)}
+              href={getSpotifyUrl(playingTrackData)}
               target="_blank"
               rel="noreferrer noopener"
               className="transition-colors hover:text-primary"
@@ -52,13 +42,10 @@ export const NowPlaying: React.FC = () => {
               </div>
             </Link>
             <div className="mt-1 text-sm font-light leading-none">
-              {getJoinedArtists(playingTrackData as Track)}{" "}
+              {getJoinedArtists(playingTrackData)}{" "}
             </div>
           </>
         ) : (
-          // Render fallback "Not Playing" state
-          // This covers: initial load finished but not playing, error state,
-          // playing non-track item, or playing track with null item details.
           <>
             <div className="font-medium leading-none">Not Playing</div>
             <div className="mt-1 text-sm font-light">Spotify</div>

@@ -1,25 +1,15 @@
+export interface SpotifyImage {
+  url: string;
+  width: number;
+  height: number;
+}
+
 export interface Track {
+  name: string;
+  link: string;
+  artists: string[];
   album: {
     name: string;
-    external_urls: {
-      spotify: string;
-    };
-    image?: {
-      url: string;
-      width: number;
-      height: number;
-    };
+    image: SpotifyImage;
   };
-  artists: [
-    {
-      name: string;
-      external_urls: {
-        spotify: string;
-      };
-    },
-  ];
-  external_urls: {
-    spotify: string;
-  };
-  name: string;
 }

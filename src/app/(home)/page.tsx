@@ -4,8 +4,7 @@ import Headshot from "public/headshot.jpeg";
 import Image from "next/image";
 
 export default async function Home() {
-  const images: CarouselImageData[] = []
-  // await getCarouselImagesWithMetadata();
+  const images: CarouselImageData[] = await getCarouselImagesWithMetadata();
 
   return (
     <div className={"flex w-full flex-col gap-12"}>
