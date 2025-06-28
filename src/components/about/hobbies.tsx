@@ -81,13 +81,11 @@ export const HobbyCard: React.FC<HobbyCardProps> = ({
       onClick={handleInteraction}
       onKeyDown={handleKeyDown}
       className={cn(
-        "group relative aspect-square cursor-pointer rounded-lg p-6 shadow-md transition-colors duration-500 ease-in-out",
-        // State-driven background color
+        "group relative aspect-square cursor-pointer rounded-lg p-6 shadow-md transition-colors duration-500 ease-in-out backdrop-blur-sm",
         {
-          "bg-gray-700 dark:bg-gray-800": !isRevealed,
-          "bg-primary": isRevealed,
+          "bg-gray-700/80 dark:bg-gray-800/70": !isRevealed,
+          "bg-primary/90": isRevealed,
         },
-        // The focus ring offset should adapt to the page background
         "focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background",
       )}
     >
