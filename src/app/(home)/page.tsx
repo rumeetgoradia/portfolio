@@ -4,7 +4,7 @@ import Headshot from "public/headshot.jpeg";
 import Image from "next/image";
 
 export default async function Home() {
-  const images: CarouselImageData[] = await getCarouselImagesWithMetadata();
+  // const images: CarouselImageData[] = await getCarouselImagesWithMetadata();
 
   return (
     <div className={"flex w-full flex-col gap-12"}>
@@ -19,7 +19,7 @@ export default async function Home() {
                 Senior Software Engineer @{" "}
                 <span className="font-semibold">Schonfeld</span>
               </h2>
-              <h2 className="text-xl font-light opacity-75">
+              <h2 className="text-lg sm:text-xl font-light opacity-75">
                 MS Machine Learning @{" "}
                 <span className="font-semibold">Columbia</span>
               </h2>
@@ -46,7 +46,7 @@ export default async function Home() {
         </div>
       </div>
 
-      <ImageCarousel images={images} />
+      <ImageCarousel images={[]} />
     </div>
   );
 }

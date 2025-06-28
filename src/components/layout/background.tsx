@@ -47,7 +47,7 @@ export const SubtleWaveGrid = () => {
               className="dot-wrapper flex items-center justify-center"
             >
               <div
-                className="dot h-[1px] w-[1px] rounded-full"
+                className="dot h-[2px] w-[2px] rounded-full"
                 style={{
                   animationDelay: `${(col * X_DELAY_FACTOR + row * Y_DELAY_FACTOR) * -1}s`,
                 }}

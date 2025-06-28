@@ -3,7 +3,7 @@
 import { api as trpc } from "~/trpc/react";
 import {
   Carousel,
-  CarouselApi,
+  type CarouselApi,
   CarouselContent,
   CarouselItem,
 } from "~/components/ui/carousel";
@@ -26,10 +26,6 @@ export const TopTracks: React.FC<{ limit: number; className?: string }> = ({
     },
   );
   const [currentIndex, setCurrentIndex] = useState<number>(-1);
-
-  // if (isLoading || !data || data.length === 0) {
-  //   return <TopTracksSkeleton limit={limit} className={className} />;
-  // }
 
   return (
     <div>
