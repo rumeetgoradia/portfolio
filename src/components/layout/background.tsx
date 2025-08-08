@@ -59,9 +59,6 @@ export const BackgroundCanvas = () => {
           const x = col * gridSize;
           const y = row * gridSize;
 
-          // The magic happens here!
-          // We create two separate waves using sin and cos.
-          // Using both gives us more interesting, swirling patterns.
           const waveX = Math.sin(x * waveFrequencyX + timeOffset);
           const waveY = Math.cos(y * waveFrequencyY + timeOffset);
 
