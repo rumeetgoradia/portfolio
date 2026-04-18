@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { FileText, Mail } from "lucide-react";
 
+import { DotGrid } from "@/components/dot-grid";
 import { GitHubIcon, LinkedInIcon } from "@/components/icons";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { Button } from "@/components/ui/button";
@@ -35,6 +36,7 @@ export const Route = createFileRoute("/")({
 function Home() {
   return (
     <>
+      <DotGrid />
       <div className="fixed top-6 right-6">
         <ThemeToggle />
       </div>
