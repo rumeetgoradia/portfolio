@@ -29,10 +29,17 @@ export const Route = createRootRoute({
       },
       ...seo({
         title: 'Rumeet Goradia',
-        description: 'Rumeet Goradia. Senior software engineer in fintech.',
+        description:
+          'Rumeet Goradia. Senior Software Engineer @ Schonfeld, MS Machine Learning @ Columbia.',
+        image: '/card.png',
       }),
     ],
     links: [
+      {
+        rel: 'icon',
+        type: 'image/png',
+        href: '/favicon.png',
+      },
       {
         rel: 'preload',
         href: manropeFont,

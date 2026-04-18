@@ -1,3 +1,5 @@
+const BASE_URL = "https://rumeetgoradia.com";
+
 export function seo({
   title,
   description,
@@ -7,12 +9,22 @@ export function seo({
   description?: string;
   image?: string;
 }) {
+  const imageUrl = image ? `${BASE_URL}${image}` : undefined;
+
   return [
     { title },
     { name: "description", content: description },
-    { name: "og:type", content: "website" },
-    { name: "og:title", content: title },
-    { name: "og:description", content: description },
-    ...(image ? [{ name: "og:image", content: image }] : []),
+    { property: "og:type", content: "website" },
+    { property: "og:title", content: title },
+    { property: "og:description", content: description },
+    ...(imageUrl
+      ? [
+          { property: "og:image", content: imageUrl },
+          { name: "twitter:card", content: "summary_large_image" },
+          { name: "twitter:image", content: imageUrl },
+        ]
+      : [{ name: "twitter:card", content: "summary" }]),
+    { name: "twitter:title", content: title },
+    { name: "twitter:description", content: description },
   ];
 }
