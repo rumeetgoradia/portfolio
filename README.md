@@ -1,6 +1,6 @@
 # portfolio
 
-Portfolio refresh built with TanStack Start.
+Portfolio built with TanStack Start.
 
 ## Development
 
