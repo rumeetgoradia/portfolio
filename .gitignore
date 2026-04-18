@@ -9,11 +9,12 @@ yarn.lock
 .vercel
 .output
 .nitro
+.wrangler
 /dist
 /build/
 /api/
 /server/build
-/public/build# Sentry Config File
+/public/build
 .env.sentry-build-plugin
 /test-results/
 /playwright-report/
