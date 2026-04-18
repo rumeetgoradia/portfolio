@@ -12,6 +12,7 @@ import '@fontsource-variable/manrope'
 
 import { DefaultCatchBoundary } from '@/components/DefaultCatchBoundary'
 import { NotFound } from '@/components/NotFound'
+import { ThemeProvider } from '@/components/theme-provider'
 import appCss from '@/styles/app.css?url'
 import manropeFont from '@fontsource-variable/manrope/files/manrope-latin-wght-normal.woff2?url'
 import { seo } from '@/utils/seo'
@@ -50,12 +51,12 @@ export const Route = createRootRoute({
 
 function RootDocument({ children }: Readonly<{ children: ReactNode }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
         <HeadContent />
       </head>
       <body>
-        {children}
+        <ThemeProvider>{children}</ThemeProvider>
         <Scripts />
       </body>
     </html>

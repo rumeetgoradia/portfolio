@@ -2,6 +2,9 @@
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
+@custom-variant system (&:is(.system *));
+@custom-variant not-system (&:not(:is(.system *)));
+@custom-variant not-dark (&:not(:is(.dark *)));
 
 @theme {
   --font-sans: "Manrope Variable", ui-sans-serif, system-ui, sans-serif,
