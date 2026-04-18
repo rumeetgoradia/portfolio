@@ -1,0 +1,125 @@
+@import "tailwindcss" source("../");
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  --font-sans: var(--font-manrope), ui-sans-serif, system-ui, sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 2px);
+  --radius-md: var(--radius);
+  --radius-lg: calc(var(--radius) + 2px);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+}
+
+:root {
+  --brand-50: 165.93 100% 31.76%;
+  --brand-100: 165.85 100% 24.12%;
+  --brand-200: 165.95 100% 21.76%;
+  --brand-300: 165.92 100% 19.22%;
+  --brand-400: 166.05 100% 16.86%;
+  --brand-500: 165.41 100% 14.51%;
+  --brand-600: 165.48 100% 12.16%;
+  --brand-700: 166.53 100% 9.61%;
+  --brand-800: 165.41 100% 7.25%;
+  --brand-900: 165.60 100% 4.90%;
+
+  --gray-50: 0 100% 99.02%;
+  --gray-100: 0 7.69% 87.25%;
+  --gray-200: 345 3.23% 75.69%;
+  --gray-300: 330 2.20% 64.31%;
+  --gray-400: 320 1.27% 53.53%;
+  --gray-500: 330 0.91% 43.14%;
+  --gray-600: 300 1.19% 32.94%;
+  --gray-700: 270 1.67% 23.53%;
+  --gray-800: 270 2.70% 14.51%;
+  --gray-900: 240 6.67% 5.88%;
+
+  --red-50: 351.37 82.02% 65.10%;
+  --red-100: 351.07 82.35% 60.00%;
+  --red-200: 351.06 81.74% 54.90%;
+  --red-300: 351.10 81.96% 50.00%;
+  --red-400: 351.06 81.74% 45.10%;
+  --red-500: 351.07 82.35% 40.00%;
+  --red-600: 350.96 82.02% 34.90%;
+  --red-700: 351.36 81.70% 30.00%;
+  --red-800: 351.35 81.25% 25.10%;
+  --red-900: 350.71 82.35% 20.00%;
+
+  --radius: 0.5rem;
+  --background: hsl(var(--gray-50));
+  --foreground: hsl(var(--gray-900));
+  --card: hsl(var(--gray-50));
+  --card-foreground: hsl(var(--gray-900));
+  --popover: hsl(var(--gray-50));
+  --popover-foreground: hsl(var(--gray-900));
+  --primary: hsl(var(--brand-300));
+  --primary-foreground: hsl(var(--gray-50));
+  --secondary: hsl(var(--gray-100));
+  --secondary-foreground: hsl(var(--gray-800));
+  --muted: hsl(var(--gray-100));
+  --muted-foreground: hsl(var(--gray-500));
+  --accent: hsl(var(--gray-200));
+  --accent-foreground: hsl(var(--gray-900));
+  --destructive: hsl(var(--red-500));
+  --destructive-foreground: hsl(var(--gray-50));
+  --border: hsl(var(--gray-200));
+  --input: hsl(var(--gray-200));
+  --ring: hsl(var(--brand-400));
+}
+
+.dark {
+  --background: hsl(var(--gray-900));
+  --foreground: hsl(var(--gray-50));
+  --card: hsl(var(--gray-900));
+  --card-foreground: hsl(var(--gray-50));
+  --popover: hsl(var(--gray-900));
+  --popover-foreground: hsl(var(--gray-50));
+  --primary: hsl(var(--brand-400));
+  --primary-foreground: hsl(var(--gray-900));
+  --secondary: hsl(var(--gray-800));
+  --secondary-foreground: hsl(var(--gray-200));
+  --muted: hsl(var(--gray-800));
+  --muted-foreground: hsl(var(--gray-400));
+  --accent: hsl(var(--gray-700));
+  --accent-foreground: hsl(var(--gray-50));
+  --destructive: hsl(var(--red-600));
+  --destructive-foreground: hsl(var(--gray-50));
+  --border: hsl(var(--gray-700));
+  --input: hsl(var(--gray-700));
+  --ring: hsl(var(--brand-300));
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    min-height: 100vh;
+    @apply scroll-smooth antialiased;
+  }
+}
