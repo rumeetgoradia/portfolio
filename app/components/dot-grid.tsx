@@ -1,10 +1,10 @@
 import { useEffect, useRef } from "react";
 
-const SPACING = 30;
-const DOT_RADIUS_REST = 1;
-const DOT_RADIUS_PEAK = 2.5;
-const OPACITY_REST = 0.12;
-const OPACITY_PEAK = 0.4;
+const BASE_SPACING = 30;
+const BASE_DOT_RADIUS_REST = 1;
+const BASE_DOT_RADIUS_PEAK = 1.8;
+const OPACITY_REST = 0.18;
+const OPACITY_PEAK = 0.45;
 
 const WAVE_WIDTH = 0.28;
 const WAVE_DURATION = 6000;
@@ -64,6 +64,9 @@ export function DotGrid() {
     let width = 0;
     let height = 0;
     let diagSum = 0;
+    let spacing = BASE_SPACING;
+    let dotRadiusRest = BASE_DOT_RADIUS_REST;
+    let dotRadiusPeak = BASE_DOT_RADIUS_PEAK;
     let animationId: number | null = null;
     let timeoutId: ReturnType<typeof setTimeout> | null = null;
 
@@ -75,6 +78,13 @@ export function DotGrid() {
       width = window.innerWidth;
       height = window.innerHeight;
       diagSum = width + height;
+
+      // Scale dots proportionally to viewport on large screens
+      const scale = Math.max(1, Math.min(width, height) / 900);
+      spacing = BASE_SPACING * scale;
+      dotRadiusRest = BASE_DOT_RADIUS_REST * scale;
+      dotRadiusPeak = BASE_DOT_RADIUS_PEAK * scale;
+
       canvas!.width = width * dpr;
       canvas!.height = height * dpr;
       canvas!.style.width = `${width}px`;
@@ -109,17 +119,17 @@ export function DotGrid() {
         ? -WAVE_WIDTH + waveProgress * (1 + 2 * WAVE_WIDTH)
         : -1;
 
-      const cols = Math.ceil(width / SPACING) + 1;
-      const rows = Math.ceil(height / SPACING) + 1;
-      const offsetX = ((width - (cols - 1) * SPACING) / 2);
-      const offsetY = ((height - (rows - 1) * SPACING) / 2);
+      const cols = Math.ceil(width / spacing) + 1;
+      const rows = Math.ceil(height / spacing) + 1;
+      const offsetX = ((width - (cols - 1) * spacing) / 2);
+      const offsetY = ((height - (rows - 1) * spacing) / 2);
 
       for (let row = 0; row < rows; row++) {
         for (let col = 0; col < cols; col++) {
-          const x = offsetX + col * SPACING;
-          const y = offsetY + row * SPACING;
+          const x = offsetX + col * spacing;
+          const y = offsetY + row * spacing;
 
-          let radius = DOT_RADIUS_REST;
+          let radius = dotRadiusRest;
           let opacity = OPACITY_REST;
 
           if (waveActive && waveProgress >= 0) {
@@ -132,7 +142,7 @@ export function DotGrid() {
             const dist = (dotDiagNorm - waveFrontNorm + noise) / WAVE_WIDTH;
             const intensity = bump(dist);
 
-            radius = DOT_RADIUS_REST + (DOT_RADIUS_PEAK - DOT_RADIUS_REST) * intensity;
+            radius = dotRadiusRest + (dotRadiusPeak - dotRadiusRest) * intensity;
             opacity = OPACITY_REST + (OPACITY_PEAK - OPACITY_REST) * intensity;
           }
 
