@@ -40,7 +40,7 @@ function Home() {
       <div className="fixed top-6 right-6">
         <ThemeToggle />
       </div>
-      <main className="flex min-h-dvh items-center justify-center px-6 py-16">
+      <main className="flex h-dvh items-center justify-center px-6">
         <div className="text-center">
           <h1 className="text-4xl font-semibold tracking-tight text-foreground sm:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl">
             Rumeet Goradia
