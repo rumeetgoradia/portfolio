@@ -17,6 +17,6 @@ export default defineConfig({
       srcDirectory: "app",
     }),
     viteReact(),
-    cloudflare(),
+    cloudflare({ viteEnvironment: { name: 'ssr' } }),
   ],
 });
