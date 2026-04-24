@@ -40,28 +40,28 @@ function Home() {
       <div className="fixed top-6 right-6">
         <ThemeToggle />
       </div>
-      <main className="flex h-dvh items-center justify-center px-6">
-        <div className="text-center">
-          <h1 className="text-4xl font-semibold tracking-tight text-foreground sm:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl">
+      <main className="mx-auto flex h-dvh w-full max-w-screen-xl items-center px-8 sm:px-12 lg:px-16 xl:px-24">
+        <div>
+          <h1 className="text-[clamp(2.5rem,_5vw_+_1rem,_6rem)] font-semibold tracking-tight text-foreground">
             Rumeet Goradia
           </h1>
-          <div className="mt-2 space-y-px lg:mt-3 xl:mt-4 2xl:mt-5">
-            <p className="text-base leading-snug text-muted-foreground sm:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl">
+          <div className="mt-3 space-y-1 sm:mt-4 lg:mt-5 xl:mt-6">
+            <p className="text-[clamp(1rem,_1.5vw_+_0.5rem,_1.875rem)] leading-snug text-muted-foreground">
               Senior Software Engineer @{" "}
               <strong className="text-primary">Schonfeld</strong>
             </p>
-            <p className="text-base leading-snug text-muted-foreground sm:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl">
+            <p className="text-[clamp(1rem,_1.5vw_+_0.5rem,_1.875rem)] leading-snug text-muted-foreground">
               MS Machine Learning @{" "}
               <strong className="text-primary">Columbia</strong>
             </p>
           </div>
-          <nav className="mt-3 flex flex-wrap justify-center gap-2 lg:mt-4 lg:gap-2.5 xl:mt-5 xl:gap-3 2xl:mt-6 2xl:gap-3.5">
+          <nav className="mt-5 flex flex-wrap gap-2.5 sm:mt-6 sm:gap-3 lg:mt-8 lg:gap-3.5">
             {LINKS.map(({ href, label, icon: Icon }) => (
               <Button
                 key={label}
                 variant="outline"
                 size="sm"
-                className="text-[10px] font-semibold tracking-widest active:text-primary active:border-primary! lg:text-xs lg:h-8 lg:px-3 xl:h-9 xl:px-3.5 2xl:text-sm 2xl:h-10 2xl:px-4 2xl:gap-2"
+                className="h-9 w-9 px-0 font-semibold tracking-widest active:border-primary! active:text-primary sm:h-7 sm:w-auto sm:px-2.5 sm:text-[10px] lg:h-8 lg:px-3 lg:text-xs xl:h-9 xl:px-3.5 2xl:h-10 2xl:gap-2 2xl:px-4 2xl:text-sm"
                 asChild
               >
                 <a
@@ -73,8 +73,8 @@ function Home() {
                       : "noopener noreferrer"
                   }
                 >
-                  <Icon className="size-3 lg:size-3.5 xl:size-4 2xl:size-5" />
-                  {label}
+                  <Icon className="size-4 sm:size-3 lg:size-3.5 xl:size-4 2xl:size-5" />
+                  <span className="hidden sm:inline">{label}</span>
                 </a>
               </Button>
             ))}
