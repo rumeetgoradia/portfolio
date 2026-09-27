@@ -8,7 +8,7 @@ import {
   createRootRoute,
 } from '@tanstack/react-router'
 
-import '@fontsource-variable/manrope'
+import '@fontsource-variable/manrope/index.css'
 
 import { DefaultCatchBoundary } from '@/components/DefaultCatchBoundary'
 import { NotFound } from '@/components/NotFound'
